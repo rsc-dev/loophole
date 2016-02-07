@@ -8,6 +8,8 @@ Python API for Polar devices. Command line interface included.
 * List files on device
 
 ## Usage
+Run python __main__.py for command line interface.
+
 ### Dependencies
 * [pywinusb](https://pypi.python.org/pypi/pywinusb/) (Windows)
 
