@@ -31,10 +31,10 @@ connect  disconnect  exit  help  info  list  walk
 
 | Command | Description |
 | --- | --- |
-| connect <dev_no> | Connect Polar device. Run 'list' to see available devices. |
+| connect \<dev_no\> | Connect Polar device. Run 'list' to see available devices. |
 | disconnect | Disconnect Polar device. |
-| dump <dest> | Dump device memory. |
-| get <src> <dest>| Read file from device. |
+| dump \<dest\> | Dump device memory. |
+| get \<src\> \<dest\>| Read file from device. |
 | exit | Quit. |
 | help | List available commands with "help" or detailed help with "help cmd". |
 | info | Print connected device info. |
