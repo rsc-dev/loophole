@@ -43,6 +43,8 @@ connect  disconnect  exit  help  info  list  walk
 ### Dependencies
 * [pywinusb](https://pypi.python.org/pypi/pywinusb/) (Windows)
 
+## Changelog
+[Here](https://github.com/rsc-dev/loophole/blob/master/CHANGELOG.md).
 
 ## License
 Code is released under [MIT license](https://github.com/rsc-dev/loophole/blob/master/LICENSE.md) © [Radoslaw '[rsc]' Matusiak](https://rm2084.blogspot.com/).
