@@ -2,18 +2,47 @@
 
 ## About
 Python API for Polar devices. Command line interface included.
-### Version 0.1
-* View available Polar devices
-* Connect/disconnect device
-* List files on device
 
 ## Usage
-Run python \_\_main\_\_.py for command line interface.
+### CLI
+Invoke CLI:
+```bash
+python __main__.py
+```
+
+Type '?' or 'help' to see available commands.
+```python
+ _|                                _|                  _|
+ _|    _|_|      _|_|    _|_|_|    _|_|_|      _|_|    _|    _|_|
+ _|  _|    _|  _|    _|  _|    _|  _|    _|  _|    _|  _|  _|_|_|_|
+ _|  _|    _|  _|    _|  _|    _|  _|    _|  _|    _|  _|  _|
+ _|    _|_|      _|_|    _|_|_|    _|    _|    _|_|    _|    _|_|_|
+                         _|
+                         _|
+                                                           ver. 0.1
+
+loophole(no device)>?
+
+Documented commands (type help <topic>):
+========================================
+connect  disconnect  exit  help  info  list  walk
+```
+
+
+| Command | Description |
+| --- | --- |
+| connect <dev_no> | Connect Polar device. Run 'list' to see available devices. |
+| disconnect | Disconnect Polar device. |
+| exit | Quit. |
+| help | List available commands with "help" or detailed help with "help cmd". |
+| info | Print connected device info. |
+| list | List available Polar devices. |
+| walk [path] | Walk file system. Default path is root path (\\). |
+
 
 ### Dependencies
 * [pywinusb](https://pypi.python.org/pypi/pywinusb/) (Windows)
 
 
 ## License
-Code is released under [MIT license](https://github.com/rsc-dev/loophole/blob/master/LICENSE.md).
-
+Code is released under [MIT license](https://github.com/rsc-dev/loophole/blob/master/LICENSE.md) © [Radoslaw '[rsc]' Matusiak](https://rm2084.blogspot.com/).
