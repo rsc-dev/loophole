@@ -3,12 +3,13 @@
 __author__      = 'Radoslaw Matusiak'
 __copyright__   = 'Copyright (c) 2016 Radoslaw Matusiak'
 __license__     = 'MIT'
-__version__     = '0.1'
+__version__     = '0.2'
 
 
 import time
 import pywinusb.hid as hid
 import polar.pb.pftp_response_pb2 as pb_resp
+import os
 
 
 class Protocol():
@@ -17,7 +18,7 @@ class Protocol():
     @staticmethod
     def directory(resp):
         """
-        Parse device response as direcotry response.
+        Parse device response as directory response.
 
         :param resp: Device response.
         :return: Directory object.
@@ -76,6 +77,8 @@ class Device():
 
     VENDOR_ID   = 0x0DA4  # Polar Electro Oy
     PRODUCT_ID  = {0x0008: 'Loop'}
+
+    SEP = '/'
 
     def __init__(self, device):
         """
@@ -201,6 +204,11 @@ class Device():
         except:
             print 'Path {} failed!'.format(path)
     # end-of-method list_dir
+
+    def read_file(self, path):
+        resp = self.send(request=Protocol.read(path))
+        return resp
+    # end-of-method read_file
 
     def send(self, request, timeout=2000):
         """
