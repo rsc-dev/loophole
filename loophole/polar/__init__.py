@@ -206,6 +206,12 @@ class Device():
     # end-of-method list_dir
 
     def read_file(self, path):
+        """
+        Read file from device.
+
+        :param path: File's path.
+        :return: Bytes list.
+        """
         resp = self.send(request=Protocol.read(path))
         return resp
     # end-of-method read_file
