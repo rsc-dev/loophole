@@ -19,7 +19,7 @@ Type '?' or 'help' to see available commands.
  _|    _|_|      _|_|    _|_|_|    _|    _|    _|_|    _|    _|_|_|
                          _|
                          _|
-                                                           ver. 0.2
+                                                           ver. 0.3
 
 loophole(no device)>?
 
@@ -43,6 +43,7 @@ connect  disconnect  exit  help  info  list  walk
 
 
 ### Dependencies
+* [protobuf](https://pypi.python.org/pypi/protobuf/3.0.0b2) 
 * [pywinusb](https://pypi.python.org/pypi/pywinusb/) (Windows)
 
 ## Changelog

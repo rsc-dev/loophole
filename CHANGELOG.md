@@ -1,4 +1,9 @@
 ## Changelog
+
+### Version 0.3 (19.02.2016)
+* Minor changes
+* Added protocol buffers descriptors
+
 ### Version 0.2 (11.02.2016)
 * Added get file command
 * Added dump device memory command
