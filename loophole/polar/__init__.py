@@ -309,6 +309,17 @@ class Device():
         self.usb_device = usb_device
     # end-of-method __init__
 
+    @staticmethod
+    def list():
+        """
+        List all Polar devices connected to the computer.
+
+        :return List of all connected Polar devices.
+        """
+        usb = Usb()
+        return usb.list_devices()
+    # end-of-method list
+
     @staticmethod    
     def get_info(usb_device):
         """
@@ -390,17 +401,6 @@ class Device():
         else:
             return 'unknown'
     # end-of-method get_product_by_id
-
-    @staticmethod
-    def list():
-        """
-        List all Polar devices connected to the computer.
-
-        :return List of all connected Polar devices.
-        """
-        usb = Usb()
-        return usb.list_devices()
-    # end-of-method list
 
     pass
 # end-of-class Device
