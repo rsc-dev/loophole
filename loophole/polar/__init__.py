@@ -6,6 +6,7 @@ __license__     = 'MIT'
 __version__     = '0.3'
 
 from collections import namedtuple
+import array
 import os
 import time
 
@@ -74,7 +75,7 @@ class Usb():
     Wraps Windows and Linux classes.
     """
 
-    UsbDevice = namedtuple('UsbDevice', ['vendor_id', 'product_id', 'serial_number'])
+    UsbDevice = namedtuple('UsbDevice', ['vendor_id', 'product_id', 'serial_number', 'product_name'])
 
     class WinUsb():
         """
@@ -119,33 +120,6 @@ class Usb():
             return self.response
         # end-of-method send_wait
 
-        def close(self):
-            """
-            Close connected device.
-
-            :return: Nothing.
-            """
-            self.device.close()
-        # end-of-method close
-
-        def connect(self, usb_device):
-            """
-            Connect USB device.
-
-            :param usb_device: UsbDevice instance for device to connect.
-            :return:
-            """
-            f = self.hid.HidDeviceFilter(vendor_id=usb_device.vendor_id, product_id=usb_device.product_id)
-
-            devs = f.get_devices()
-            for d in devs:
-                if d.serial_number == usb_device.serial_number:
-                    self.device = d
-                    self.init()
-
-            return self.device
-        # end-of-method connect
-
         def data_handler(self, response):
             """
             Simple USB->HOST data handler.
@@ -173,8 +147,37 @@ class Usb():
         def list(self, vendor_id):
             all_hid_devs = self.hid.find_all_hid_devices()
             devices = filter(lambda x: x.vendor_id == vendor_id, all_hid_devs)
-            return [Usb.UsbDevice(d.vendor_id, d.product_id, d.serial_number) for d in devices]
+            return devices
         # end-of-method list
+
+        def get_info(self, usb_device):
+            info = dict()
+            info['manufacturer'] = usb_device.vendor_name
+            info['product_name'] = usb_device.product_name
+            info['serial_number'] = usb_device.serial_number
+            info['vendor_id'] = '0x%04X' % usb_device.vendor_id
+            info['product_id'] = '0x%04X' % usb_device.product_id
+            return info
+        # end-of-method get_info
+
+        def open(self, usb_device):
+            f = self.hid.HidDeviceFilter(vendor_id=usb_device.vendor_id, product_id=usb_device.product_id)
+
+            devs = f.get_devices()
+            for d in devs:
+                if d.serial_number == usb_device.serial_number:
+                    self.device = d
+                    self.init()
+        # end-of-method open
+
+        def close(self):
+            """
+            Close connected device.
+
+            :return: Nothing.
+            """
+            self.device.close()
+        # end-of-method close
 
         def send(self, request, timeout=2000):
             """
@@ -204,18 +207,99 @@ class Usb():
 
     class LinuxUsb():
 
+        def __send_wait(self, request, timeout):
+            """
+            This is internal method used for HOST->DEVICE communication.
+            This method only sends raw request and returns raw response.
+
+            :param request: Raw request to send. Array of byte values expected.
+            :param timeout: Timeout in milliseconds.
+            :return: Device raw response (array of byte values).
+            """
+            response = None
+            self.ep_out_0.write(request, timeout)
+            response = self.ep_in_0.read(64, timeout)
+
+            return response
+        # end-of-method send_wait
+
         def __init__(self):
             import usb as usb
             import usb.core as usb_core
 
             self.usb = usb
             self.usb_core = usb_core
+            self.ep_out_0 = None
+            self.ep_in_0 = None
+            self.usb_device = None
         # end-of-method __init__
 
         def list(self, vendor_id):
-            devices = self.usb_core.find(idVendor=vendor_id)
-            return [Usb.UsbDevice(d.idVendor, d.idProduct, d.serial_number) for d in devices]
+            devices = self.usb_core.find(find_all=True)
+            return filter(lambda x: x.idVendor == vendor_id, devices)
         # end-of-method list
+
+        def get_info(self, usb_device):
+            info = dict()
+            info['manufacturer'] = self.usb.util.get_string(usb_device, usb_device.iManufacturer)
+            info['product_name'] = self.usb.util.get_string(usb_device, usb_device.iProduct)
+            info['serial_number'] = self.usb.util.get_string(usb_device, usb_device.iSerialNumber)
+            info['vendor_id'] = "0x%04X" % usb_device.idVendor
+            info['product_id'] = "0x%04X" % usb_device.idProduct
+            return info
+        #end-of-method get_info
+
+        def open(self, usb_device):
+            if usb_device.is_kernel_driver_active(0):
+                usb_device.detach_kernel_driver(0)
+            usb_device.set_configuration()
+            cfg = usb_device.get_active_configuration()
+            intf = cfg[(0,0)]
+            self.ep_out_0 = self.usb.util.find_descriptor(
+                intf, 
+                custom_match = \
+                    lambda e: \
+                        self.usb.util.endpoint_direction(e.bEndpointAddress) == \
+                        self.usb.util.ENDPOINT_OUT)
+            assert self.ep_out_0 is not None
+            self.ep_in_0 = self.usb.util.find_descriptor(
+                intf,
+                custom_match = \
+                    lambda e: \
+                        self.usb.util.endpoint_direction(e.bEndpointAddress) == \
+                        self.usb.util.ENDPOINT_IN)
+            assert self.ep_in_0 is not None
+
+            self.usb_device = usb_device
+        #end-of-method open    
+
+        def close(self):
+            self.usb.util.dispose_resources(self.usb_device)
+        #end-of-method close
+
+        def send(self, request, timeout):
+            """
+            Send raw data to device and read response.
+
+            :param request: Request to send.
+            :param timeout: Max timeout in milliseconds. Default value: 2000 ms.
+            :return: Response from device.
+            """
+            resp = []
+
+            data = self.__send_wait(request, timeout)
+            while data is not None:
+                if data[1] & 3 == 0:
+                    length = data[1] >> 2
+                    resp += data[3:length+1]
+                    break
+                resp += data[3:]
+                pckt_no = data[2]
+                ack = Protocol.ack_packet(pckt_no)
+                data = self.__send_wait(ack, timeout)
+
+            return resp[2:]
+        #end-of-method send
 
         pass
     # end-of-class Usb.LinuxUsb
@@ -235,7 +319,25 @@ class Usb():
         :return: List of UsbDevice instances for all USB plugged Polar devices.
         """
         return self.usb.list(vendor_id=Device.VENDOR_ID)
-    # end-of-method list
+    # end-of-method list_devices
+
+    def get_info(self, usb_device):
+        """
+        Returns info of the given USB device
+
+        :return: Dictionary with USB info
+        """
+        return self.usb.get_info(usb_device)
+
+    def open(self, usb_device):
+        """
+        Connect USB device.
+
+        :param usb_device: UsbDevice instance for device to connect.
+        :return: Nothing.
+        """
+        self.usb.open(usb_device)
+    # end-of-method open
 
     def close(self):
         """
@@ -244,17 +346,7 @@ class Usb():
         self.usb.close()
     # end-of-method close
 
-    def connect(self, usb_device):
-        """
-        Connect USB device.
-
-        :param usb_device: UsbDevice instance for device to connect.
-        :return: Nothing.
-        """
-        self.usb.connect(usb_device)
-    # end-of-method get_device
-
-    def send(self, request, timeout=2000):
+    def send(self, request, timeout=5000):
         """
         Send
 
@@ -281,33 +373,50 @@ class Device():
 
     SEP = '/'
 
-    def __init__(self, usb):
+    def __init__(self, usb_device):
         """
         Constructor.
 
         :param usb: USB instance connected to Polar device.
         :return: Instance object.
         """
-        self.usb = usb
+        self.usb_device = usb_device
+        self.usb = Usb()
     # end-of-method __init__
 
-    def get_info(self):
+    @staticmethod
+    def list():
         """
-        Read USB device info.
+        List all Polar devices connected to the computer.
+
+        :return List of all connected Polar devices.
+        """
+        usb = Usb()
+        return usb.list_devices()
+    # end-of-method list
+
+    @staticmethod    
+    def get_info(usb_device):
+        """
+        Reads USB device info from the given usb device.
 
         :return: Device info dictionary.
         """
-        info = dict()
-        info['vendor_name']     = self.device.vendor_name
-        info['version_number']  = self.device.version_number
-        info['vendor_id']       = self.device.vendor_id
-        info['serial_number']   = self.device.serial_number
-        info['product_name']    = self.device.product_name
-        info['product_id']      = self.device.product_id
-        info['device_path']     = self.device.device_path
-
-        return info
+        usb = Usb()
+        return usb.get_info(usb_device)
     # end-of-method get_info
+
+    def open(self):
+        """
+        Connects to the device
+        """
+        self.usb.open(self.usb_device)
+
+    def close(self):
+        """
+        Closes the device
+        """
+        self.usb.close()
 
     def walk(self, path):
         """
@@ -386,3 +495,4 @@ class Device():
 
 if __name__ == '__main__':
     pass
+

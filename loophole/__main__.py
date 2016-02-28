@@ -3,7 +3,7 @@
 __author__      = 'Radoslaw Matusiak'
 __copyright__   = 'Copyright (c) 2016 Radoslaw Matusiak'
 __license__     = 'MIT'
-__version__     = '0.2'
+__version__     = '0.3'
 
 
 import cmd
@@ -12,7 +12,7 @@ import os
 import sys
 
 from polar import Device
-
+import polar.pb.device_pb2 as pb_device
 
 __INTRO = """
 
@@ -69,7 +69,8 @@ class LoopholeCli(cmd.Cmd):
 
         if len(devs) > 0:
             for i, dev in enumerate(devs):
-                print '{} - {} ({})'.format(i, dev.product_name, dev.serial_number)
+                info = Device.get_info(dev)
+                print '{} - {} ({})'.format(i, info['product_name'], info['serial_number'])
         else:
             print '[!] No Polar devices found!'
 
@@ -83,26 +84,28 @@ class LoopholeCli(cmd.Cmd):
             dev_no = int(dev_no)
             devs = Device.list()
             dev = devs[dev_no]
+            serial = Device.get_info(dev)['serial_number']
 
-            self.prompt = LoopholeCli.__PROMPT.format(dev.serial_number)
+            self.prompt = LoopholeCli.__PROMPT.format(serial)
             self.device = Device(dev)
+            self.device.open()
 
             print '[+] Device connected.'
             print
         except IndexError:
-            print '[!] Device not found. Run \'list\' to see available devices.'
+            print '[!] Device not found or failed to open it. Run \'list\' to see available devices.'
             print
     # end-of-method do_connect
 
+    @check_if_device_is_connected
     def do_disconnect(self, _):
         """Disconnect Polar device.
         """
-        if self.device is not None:
-            self.device.close()
-            self.device = None
-            self.prompt = LoopholeCli.__PROMPT.format('no device')
-            print '[+] Device disconnected.'
-            print
+        self.device.close()
+        self.device = None
+        self.prompt = LoopholeCli.__PROMPT.format('no device')
+        print '[+] Device disconnected.'
+        print
     # end-of-method do_disconnect
 
     @check_if_device_is_connected
@@ -155,10 +158,34 @@ Usage: dump <path>
     def do_info(self, _):
         """Print connected device info.
         """
-        info = self.device.get_info()
-        for k, v in info.items():
-            print '{:>20s} - {}'.format(k, v)
-        print
+        info = Device.get_info(self.device.usb_device)
+        print '{:>20s} - {}'.format('Manufacturer', info['manufacturer'])
+        print '{:>20s} - {}'.format('Product name', info['product_name'])
+        print '{:>20s} - {}'.format('Vendor ID', info['vendor_id'])
+        print '{:>20s} - {}'.format('Product ID', info['product_id'])
+        print '{:>20s} - {}'.format('Serial number', info['serial_number'])
+
+        try:
+            data = self.device.read_file('/DEVICE.BPB')
+            resp = ''.join(chr(c) for c in data)
+            d = pb_device.PbDeviceInfo()
+            d.ParseFromString(resp)
+            bootloader_version = '{}.{}.{}'.format(d.bootloader_version.major, d.bootloader_version.minor, d.bootloader_version.patch)
+            print '{:>20s} - {}'.format('Bootloader version', bootloader_version)
+            platform_version = '{}.{}.{}'.format(d.platform_version.major, d.platform_version.minor, d.platform_version.patch)
+            print '{:>20s} - {}'.format('Platform version', platform_version)
+            device_version = '{}.{}.{}'.format(d.device_version.major, d.device_version.minor, d.device_version.patch)
+            print '{:>20s} - {}'.format('Device version', device_version)
+            print '{:>20s} - {}'.format('SVN revision', d.svn_rev)
+            print '{:>20s} - {}'.format('Hardware code', d.hardware_code)
+            print '{:>20s} - {}'.format('Color', d.product_color)
+            print '{:>20s} - {}'.format('Product design', d.product_design)
+
+        except:
+            print '[!] Failed to get extended info.'
+
+        print ' '
+
     # end-of-method do_info
 
     @check_if_device_is_connected
@@ -198,3 +225,4 @@ def main():
 #  Entry point
 if __name__ == '__main__':
     main()
+

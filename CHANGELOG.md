@@ -1,5 +1,9 @@
 ## Changelog
 
+### Version x.x (xx.xx.xxxx)
+* Add USB interface for linux
+* Add extended device information for info command
+
 ### Version 0.3 (19.02.2016)
 * Minor changes
 * Added protocol buffers descriptors
