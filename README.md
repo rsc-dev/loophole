@@ -45,6 +45,7 @@ connect  disconnect  exit  help  info  list  walk
 ### Dependencies
 * [protobuf](https://pypi.python.org/pypi/protobuf/3.0.0b2) 
 * [pywinusb](https://pypi.python.org/pypi/pywinusb/) (Windows)
+* [pyusb] (https://github.com/walac/pyusb) (Linux, > 1.0.0rc1)
 
 ## Changelog
 [Here](https://github.com/rsc-dev/loophole/blob/master/CHANGELOG.md).
