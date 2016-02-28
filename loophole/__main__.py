@@ -3,7 +3,7 @@
 __author__      = 'Radoslaw Matusiak'
 __copyright__   = 'Copyright (c) 2016 Radoslaw Matusiak'
 __license__     = 'MIT'
-__version__     = '0.2'
+__version__     = '0.3'
 
 
 import cmd
