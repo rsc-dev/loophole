@@ -84,26 +84,28 @@ class LoopholeCli(cmd.Cmd):
             dev_no = int(dev_no)
             devs = Device.list()
             dev = devs[dev_no]
+            serial = Device.get_info(dev)['serial_number']
 
-            self.prompt = LoopholeCli.__PROMPT.format(dev.serial_number)
+            self.prompt = LoopholeCli.__PROMPT.format(serial)
             self.device = Device(dev)
+            self.device.open()
 
             print '[+] Device connected.'
             print
         except IndexError:
-            print '[!] Device not found. Run \'list\' to see available devices.'
+            print '[!] Device not found or failed to open it. Run \'list\' to see available devices.'
             print
     # end-of-method do_connect
 
+    @check_if_device_is_connected
     def do_disconnect(self, _):
         """Disconnect Polar device.
         """
-        if self.device is not None:
-            self.device.close()
-            self.device = None
-            self.prompt = LoopholeCli.__PROMPT.format('no device')
-            print '[+] Device disconnected.'
-            print
+        self.device.close()
+        self.device = None
+        self.prompt = LoopholeCli.__PROMPT.format('no device')
+        print '[+] Device disconnected.'
+        print
     # end-of-method do_disconnect
 
     @check_if_device_is_connected

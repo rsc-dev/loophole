@@ -210,6 +210,8 @@ class Usb():
 
             self.usb = usb
             self.usb_core = usb_core
+            self.ep_out_0 = None
+            self.usb_device = None
         # end-of-method __init__
 
         def list(self, vendor_id):
@@ -226,6 +228,27 @@ class Usb():
             info['product_id'] = "0x%04X" % usb_device.idProduct
             return info
         #end-of-method get_info
+
+        def open(self, usb_device):
+            if usb_device.is_kernel_driver_active(0):
+                usb_device.detach_kernel_driver(0)
+            usb_device.set_configuration()
+            cfg = usb_device.get_active_configuration()
+            intf = cfg[(0,0)]
+            self.ep_out_0 = self.usb.util.find_descriptor(
+                intf, 
+                custom_match = \
+                    lambda e: \
+                        self.usb.util.endpoint_direction(e.bEndpointAddress) == \
+                        self.usb.util.ENDPOINT_OUT)
+            assert self.ep_out_0 is not None
+
+            self.usb_device = usb_device
+        #end-of-method open    
+
+        def close(self):
+            self.usb.util.dispose_resources(self.usb_device)
+        #end-of-method close
 
         pass
     # end-of-class Usb.LinuxUsb
@@ -255,22 +278,22 @@ class Usb():
         """
         return self.usb.get_info(usb_device)
 
-    def close(self):
-        """
-        Close USB device.
-        """
-        self.usb.close()
-    # end-of-method close
-
-    def connect(self, usb_device):
+    def open(self, usb_device):
         """
         Connect USB device.
 
         :param usb_device: UsbDevice instance for device to connect.
         :return: Nothing.
         """
-        self.usb.connect(usb_device)
-    # end-of-method get_device
+        self.usb.open(usb_device)
+    # end-of-method open
+
+    def close(self):
+        """
+        Close USB device.
+        """
+        self.usb.close()
+    # end-of-method close
 
     def send(self, request, timeout=2000):
         """
@@ -307,6 +330,7 @@ class Device():
         :return: Instance object.
         """
         self.usb_device = usb_device
+        self.usb = Usb()
     # end-of-method __init__
 
     @staticmethod
@@ -330,6 +354,18 @@ class Device():
         usb = Usb()
         return usb.get_info(usb_device)
     # end-of-method get_info
+
+    def open(self):
+        """
+        Connects to the device
+        """
+        self.usb.open(self.usb_device)
+
+    def close(self):
+        """
+        Closes the device
+        """
+        self.usb.close()
 
     def walk(self, path):
         """
