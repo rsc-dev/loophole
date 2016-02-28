@@ -12,7 +12,7 @@ import os
 import sys
 
 from polar import Device
-
+import polar.pb.device_pb2 as pb_device
 
 __INTRO = """
 
@@ -164,6 +164,28 @@ Usage: dump <path>
         print '{:>20s} - {}'.format('Vendor ID', info['vendor_id'])
         print '{:>20s} - {}'.format('Product ID', info['product_id'])
         print '{:>20s} - {}'.format('Serial number', info['serial_number'])
+
+        try:
+            data = self.device.read_file('/DEVICE.BPB')
+            resp = ''.join(chr(c) for c in data)
+            d = pb_device.PbDeviceInfo()
+            d.ParseFromString(resp)
+            bootloader_version = '{}.{}.{}'.format(d.bootloader_version.major, d.bootloader_version.minor, d.bootloader_version.patch)
+            print '{:>20s} - {}'.format('Bootloader version', bootloader_version)
+            platform_version = '{}.{}.{}'.format(d.platform_version.major, d.platform_version.minor, d.platform_version.patch)
+            print '{:>20s} - {}'.format('Platform version', platform_version)
+            device_version = '{}.{}.{}'.format(d.device_version.major, d.device_version.minor, d.device_version.patch)
+            print '{:>20s} - {}'.format('Device version', device_version)
+            print '{:>20s} - {}'.format('SVN revision', d.svn_rev)
+            print '{:>20s} - {}'.format('Hardware code', d.hardware_code)
+            print '{:>20s} - {}'.format('Color', d.product_color)
+            print '{:>20s} - {}'.format('Product design', d.product_design)
+
+        except:
+            print '[!] Failed to get extended info.'
+
+        print ' '
+
     # end-of-method do_info
 
     @check_if_device_is_connected
