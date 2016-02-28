@@ -69,7 +69,8 @@ class LoopholeCli(cmd.Cmd):
 
         if len(devs) > 0:
             for i, dev in enumerate(devs):
-                print '{} - {} ({})'.format(i, dev.product_name, dev.serial_number)
+                info = Device.get_info(dev)
+                print '{} - {} ({})'.format(i, info['product_name'], info['serial_number'])
         else:
             print '[!] No Polar devices found!'
 
@@ -155,10 +156,12 @@ Usage: dump <path>
     def do_info(self, _):
         """Print connected device info.
         """
-        info = self.device.get_info()
-        for k, v in info.items():
-            print '{:>20s} - {}'.format(k, v)
-        print
+        info = Device.get_info(self.device.usb_device)
+        print '{:>20s} - {}'.format('Manufacturer', info['manufacturer'])
+        print '{:>20s} - {}'.format('Product name', info['product_name'])
+        print '{:>20s} - {}'.format('Vendor ID', info['vendor_id'])
+        print '{:>20s} - {}'.format('Product ID', info['product_id'])
+        print '{:>20s} - {}'.format('Serial number', info['serial_number'])
     # end-of-method do_info
 
     @check_if_device_is_connected
@@ -198,3 +201,4 @@ def main():
 #  Entry point
 if __name__ == '__main__':
     main()
+

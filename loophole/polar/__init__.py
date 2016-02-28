@@ -74,7 +74,7 @@ class Usb():
     Wraps Windows and Linux classes.
     """
 
-    UsbDevice = namedtuple('UsbDevice', ['vendor_id', 'product_id', 'serial_number'])
+    UsbDevice = namedtuple('UsbDevice', ['vendor_id', 'product_id', 'serial_number', 'product_name'])
 
     class WinUsb():
         """
@@ -213,9 +213,19 @@ class Usb():
         # end-of-method __init__
 
         def list(self, vendor_id):
-            devices = self.usb_core.find(idVendor=vendor_id)
-            return [Usb.UsbDevice(d.idVendor, d.idProduct, d.serial_number) for d in devices]
+            devices = self.usb_core.find(find_all=True)
+            return filter(lambda x: x.idVendor == vendor_id, devices)
         # end-of-method list
+
+        def get_info(self, usb_device):
+            info = dict()
+            info['manufacturer'] = self.usb.util.get_string(usb_device, usb_device.iManufacturer)
+            info['product_name'] = self.usb.util.get_string(usb_device, usb_device.iProduct)
+            info['serial_number'] = self.usb.util.get_string(usb_device, usb_device.iSerialNumber)
+            info['vendor_id'] = "0x%04X" % usb_device.idVendor
+            info['product_id'] = "0x%04X" % usb_device.idProduct
+            return info
+        #end-of-method get_info
 
         pass
     # end-of-class Usb.LinuxUsb
@@ -235,7 +245,15 @@ class Usb():
         :return: List of UsbDevice instances for all USB plugged Polar devices.
         """
         return self.usb.list(vendor_id=Device.VENDOR_ID)
-    # end-of-method list
+    # end-of-method list_devices
+
+    def get_info(self, usb_device):
+        """
+        Returns info of the given USB device
+
+        :return: Dictionary with USB info
+        """
+        return self.usb.get_info(usb_device)
 
     def close(self):
         """
@@ -281,32 +299,25 @@ class Device():
 
     SEP = '/'
 
-    def __init__(self, usb):
+    def __init__(self, usb_device):
         """
         Constructor.
 
         :param usb: USB instance connected to Polar device.
         :return: Instance object.
         """
-        self.usb = usb
+        self.usb_device = usb_device
     # end-of-method __init__
 
-    def get_info(self):
+    @staticmethod    
+    def get_info(usb_device):
         """
-        Read USB device info.
+        Reads USB device info from the given usb device.
 
         :return: Device info dictionary.
         """
-        info = dict()
-        info['vendor_name']     = self.device.vendor_name
-        info['version_number']  = self.device.version_number
-        info['vendor_id']       = self.device.vendor_id
-        info['serial_number']   = self.device.serial_number
-        info['product_name']    = self.device.product_name
-        info['product_id']      = self.device.product_id
-        info['device_path']     = self.device.device_path
-
-        return info
+        usb = Usb()
+        return usb.get_info(usb_device)
     # end-of-method get_info
 
     def walk(self, path):
@@ -380,9 +391,21 @@ class Device():
             return 'unknown'
     # end-of-method get_product_by_id
 
+    @staticmethod
+    def list():
+        """
+        List all Polar devices connected to the computer.
+
+        :return List of all connected Polar devices.
+        """
+        usb = Usb()
+        return usb.list_devices()
+    # end-of-method list
+
     pass
 # end-of-class Device
 
 
 if __name__ == '__main__':
     pass
+
