@@ -6,6 +6,7 @@ __license__     = 'MIT'
 __version__     = '0.3'
 
 from collections import namedtuple
+import array
 import os
 import time
 
@@ -204,6 +205,22 @@ class Usb():
 
     class LinuxUsb():
 
+        def __send_wait(self, request, timeout):
+            """
+            This is internal method used for HOST->DEVICE communication.
+            This method only sends raw request and returns raw response.
+
+            :param request: Raw request to send. Array of byte values expected.
+            :param timeout: Timeout in milliseconds.
+            :return: Device raw response (array of byte values).
+            """
+            response = None
+            self.ep_out_0.write(request, timeout)
+            response = self.ep_in_0.read(64, timeout)
+
+            return response
+        # end-of-method send_wait
+
         def __init__(self):
             import usb as usb
             import usb.core as usb_core
@@ -211,6 +228,7 @@ class Usb():
             self.usb = usb
             self.usb_core = usb_core
             self.ep_out_0 = None
+            self.ep_in_0 = None
             self.usb_device = None
         # end-of-method __init__
 
@@ -242,6 +260,13 @@ class Usb():
                         self.usb.util.endpoint_direction(e.bEndpointAddress) == \
                         self.usb.util.ENDPOINT_OUT)
             assert self.ep_out_0 is not None
+            self.ep_in_0 = self.usb.util.find_descriptor(
+                intf,
+                custom_match = \
+                    lambda e: \
+                        self.usb.util.endpoint_direction(e.bEndpointAddress) == \
+                        self.usb.util.ENDPOINT_IN)
+            assert self.ep_in_0 is not None
 
             self.usb_device = usb_device
         #end-of-method open    
@@ -249,6 +274,30 @@ class Usb():
         def close(self):
             self.usb.util.dispose_resources(self.usb_device)
         #end-of-method close
+
+        def send(self, request, timeout):
+            """
+            Send raw data to device and read response.
+
+            :param request: Request to send.
+            :param timeout: Max timeout in milliseconds. Default value: 2000 ms.
+            :return: Response from device.
+            """
+            resp = []
+
+            data = self.__send_wait(request, timeout)
+            while data is not None:
+                if data[1] & 3 == 0:
+                    length = data[1] >> 2
+                    resp += data[3:length+1]
+                    break
+                resp += data[3:]
+                pckt_no = data[2]
+                ack = Protocol.ack_packet(pckt_no)
+                data = self.__send_wait(ack, timeout)
+
+            return resp[2:]
+        #end-of-method send
 
         pass
     # end-of-class Usb.LinuxUsb
@@ -295,7 +344,7 @@ class Usb():
         self.usb.close()
     # end-of-method close
 
-    def send(self, request, timeout=2000):
+    def send(self, request, timeout=5000):
         """
         Send
 
