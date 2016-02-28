@@ -120,33 +120,6 @@ class Usb():
             return self.response
         # end-of-method send_wait
 
-        def close(self):
-            """
-            Close connected device.
-
-            :return: Nothing.
-            """
-            self.device.close()
-        # end-of-method close
-
-        def connect(self, usb_device):
-            """
-            Connect USB device.
-
-            :param usb_device: UsbDevice instance for device to connect.
-            :return:
-            """
-            f = self.hid.HidDeviceFilter(vendor_id=usb_device.vendor_id, product_id=usb_device.product_id)
-
-            devs = f.get_devices()
-            for d in devs:
-                if d.serial_number == usb_device.serial_number:
-                    self.device = d
-                    self.init()
-
-            return self.device
-        # end-of-method connect
-
         def data_handler(self, response):
             """
             Simple USB->HOST data handler.
@@ -174,8 +147,37 @@ class Usb():
         def list(self, vendor_id):
             all_hid_devs = self.hid.find_all_hid_devices()
             devices = filter(lambda x: x.vendor_id == vendor_id, all_hid_devs)
-            return [Usb.UsbDevice(d.vendor_id, d.product_id, d.serial_number) for d in devices]
+            return devices
         # end-of-method list
+
+        def get_info(self, usb_device):
+            info = dict()
+            info['manufacturer'] = usb_device.vendor_name
+            info['product_name'] = usb_device.product_name
+            info['serial_number'] = usb_device.serial_number
+            info['vendor_id'] = '0x%04X' % usb_device.vendor_id
+            info['product_id'] = '0x%04X' % usb_device.product_id
+            return info
+        # end-of-method get_info
+
+        def open(self, usb_device):
+            f = self.hid.HidDeviceFilter(vendor_id=usb_device.vendor_id, product_id=usb_device.product_id)
+
+            devs = f.get_devices()
+            for d in devs:
+                if d.serial_number == usb_device.serial_number:
+                    self.device = d
+                    self.init()
+        # end-of-method open
+
+        def close(self):
+            """
+            Close connected device.
+
+            :return: Nothing.
+            """
+            self.device.close()
+        # end-of-method close
 
         def send(self, request, timeout=2000):
             """
