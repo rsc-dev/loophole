@@ -1,12 +1,10 @@
 ## Changelog
 
-### Version x.x (xx.xx.xxxx)
-* Add USB interface for linux
-* Add extended device information for info command
-
-### Version 0.3 (19.02.2016)
+### Version 0.3 (02.03.2016)
 * Minor changes
 * Added protocol buffers descriptors
+* Add USB interface for linux (thanks to @fernsehkind)
+* Add extended device information for info command (thanks to @fernsehkind)
 
 ### Version 0.2 (11.02.2016)
 * Added get file command
