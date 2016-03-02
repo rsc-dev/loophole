@@ -6,7 +6,6 @@ __license__     = 'MIT'
 __version__     = '0.3'
 
 from collections import namedtuple
-import array
 import os
 import time
 
@@ -132,6 +131,11 @@ class Usb():
         # end-of-method data_handler
 
         def init(self):
+            """
+            Initialize USB communication.
+
+            :return: Nothing.
+            """
             if self.device is None:
                 raise RuntimeError('USB device not connected!')
 
@@ -145,12 +149,24 @@ class Usb():
         # end-of-method init
 
         def list(self, vendor_id):
+            """
+            List all USB devices for given vendor id.
+
+            :param vendor_id: Vendor id.
+            :return: List of available devices.
+            """
             all_hid_devs = self.hid.find_all_hid_devices()
             devices = filter(lambda x: x.vendor_id == vendor_id, all_hid_devs)
             return devices
         # end-of-method list
 
         def get_info(self, usb_device):
+            """
+            Get infor for given USB device.
+
+            :param usb_device: USB device.
+            :return: Array with USB info.
+            """
             info = dict()
             info['manufacturer'] = usb_device.vendor_name
             info['product_name'] = usb_device.product_name
@@ -161,6 +177,12 @@ class Usb():
         # end-of-method get_info
 
         def open(self, usb_device):
+            """
+            Open USB device.
+
+            :param usb_device: USB device to open.
+            :return: Nothing.
+            """
             f = self.hid.HidDeviceFilter(vendor_id=usb_device.vendor_id, product_id=usb_device.product_id)
 
             devs = f.get_devices()
@@ -224,6 +246,11 @@ class Usb():
         # end-of-method send_wait
 
         def __init__(self):
+            """
+            Constructor.
+
+            :return: Instance object.
+            """
             import usb as usb
             import usb.core as usb_core
 
@@ -235,11 +262,23 @@ class Usb():
         # end-of-method __init__
 
         def list(self, vendor_id):
+            """
+            List all USB devices for given vendor id.
+
+            :param vendor_id: Vendor id.
+            :return: List of available devices.
+            """
             devices = self.usb_core.find(find_all=True)
             return filter(lambda x: x.idVendor == vendor_id, devices)
         # end-of-method list
 
         def get_info(self, usb_device):
+            """
+            Get infor for given USB device.
+
+            :param usb_device: USB device.
+            :return: Array with USB info.
+            """
             info = dict()
             info['manufacturer'] = self.usb.util.get_string(usb_device, usb_device.iManufacturer)
             info['product_name'] = self.usb.util.get_string(usb_device, usb_device.iProduct)
@@ -247,9 +286,15 @@ class Usb():
             info['vendor_id'] = "0x%04X" % usb_device.idVendor
             info['product_id'] = "0x%04X" % usb_device.idProduct
             return info
-        #end-of-method get_info
+        # end-of-method get_info
 
         def open(self, usb_device):
+            """
+            Open USB device.
+
+            :param usb_device: USB device to open.
+            :return: Nothing.
+            """
             if usb_device.is_kernel_driver_active(0):
                 usb_device.detach_kernel_driver(0)
             usb_device.set_configuration()
@@ -271,11 +316,16 @@ class Usb():
             assert self.ep_in_0 is not None
 
             self.usb_device = usb_device
-        #end-of-method open    
+        # end-of-method open
 
         def close(self):
+            """
+            Close connected device.
+
+            :return: Nothing.
+            """
             self.usb.util.dispose_resources(self.usb_device)
-        #end-of-method close
+        # end-of-method close
 
         def send(self, request, timeout):
             """
@@ -299,12 +349,17 @@ class Usb():
                 data = self.__send_wait(ack, timeout)
 
             return resp[2:]
-        #end-of-method send
+        # end-of-method send
 
         pass
     # end-of-class Usb.LinuxUsb
 
     def __init__(self):
+        """
+        Constructor.
+
+        :return: Instance object.
+        """
         if os.name == 'nt':
             self.usb = Usb.WinUsb()
         elif os.name == 'posix':
