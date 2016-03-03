@@ -3,6 +3,10 @@
 ## About
 Python API for Polar devices. Command line interface included.
 
+Tested with:
+* Loop
+* M400
+
 ## Usage
 ### CLI
 Invoke CLI:
