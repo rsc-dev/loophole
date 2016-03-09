@@ -4,6 +4,7 @@
 Python API for Polar devices. Command line interface included.
 
 Tested with:
+* A360
 * Loop
 * M400
 
