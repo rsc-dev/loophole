@@ -3,7 +3,7 @@
 __author__      = 'Radoslaw Matusiak'
 __copyright__   = 'Copyright (c) 2016 Radoslaw Matusiak'
 __license__     = 'MIT'
-__version__     = '0.3'
+__version__     = '0.4'
 
 
 import cmd
@@ -56,6 +56,7 @@ class LoopholeCli(cmd.Cmd):
 
     def do_exit(self, _):
         """Quit.
+Usage: exit
         """
         if self.device is not None:
             self.device.close()
@@ -64,6 +65,7 @@ class LoopholeCli(cmd.Cmd):
 
     def do_list(self, _):
         """List available Polar devices.
+Usage: list
         """
         devs = Device.list()
 
@@ -79,6 +81,7 @@ class LoopholeCli(cmd.Cmd):
 
     def do_connect(self, dev_no):
         """Connect Polar device. Run 'list' to see available devices.
+Usage: connect <device_no>
         """
         try:
             dev_no = int(dev_no)
@@ -110,8 +113,8 @@ class LoopholeCli(cmd.Cmd):
 
     @check_if_device_is_connected
     def do_get(self, line):
-        """Read file from device.
-Usage: get <src> <dest>
+        """Read file from device and store in under local_path.
+Usage: get <device_path> <local_path>
         """
         try:
             src, dest = line.strip().split()
@@ -128,9 +131,19 @@ Usage: get <src> <dest>
             print
     # end-of-method do_get
 
+    @check_if_device_is_connected
+    def do_delete(self, line):
+        """Delete file from device.
+Usage: delete <device_path>
+        """
+        path = line.strip()
+        _ = self.device.delete(path)
+    # end-of-method do_delete
+
+    @check_if_device_is_connected
     def do_dump(self, path):
-        """Dump device memory.
-Usage: dump <path>
+        """Dump device memory. Path is local folder to store dump.
+Usage: dump <local_path>
         """
         print '[+] Reading files tree...'
         dev_map = self.device.walk(self.device.SEP)
@@ -157,6 +170,7 @@ Usage: dump <path>
     @check_if_device_is_connected
     def do_info(self, _):
         """Print connected device info.
+Usage: info
         """
         info = Device.get_info(self.device.usb_device)
         print '{:>20s} - {}'.format('Manufacturer', info['manufacturer'])
@@ -190,8 +204,8 @@ Usage: dump <path>
 
     @check_if_device_is_connected
     def do_walk(self, path):
-        """Walk file system.
-Usage: walk [path]
+        """Walk file system. Default device_path is device root folder.
+Usage: walk [device_path]
         """
         if not path.endswith('/'):
             path += '/'
