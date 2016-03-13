@@ -1,0 +1,36 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbPhaseHeartRateStatistics {
+	optional uint32 average = 1 ;
+	optional uint32 maximum = 2 ;
+}
+
+message PbPhaseStrideLengthStatistics {
+	optional uint32 average = 1 ;
+}
+
+message PbPhaseRepetition {
+	required uint32 index = 1 ;
+	required .PbDuration split_time = 2 ;
+	required .PbDuration duration = 3 ;
+	optional bool phase_finished = 4 ;
+	optional float split_distance = 5 ;
+	optional float distance = 6 ;
+	optional .PbDuration in_target_zone = 7 ;
+	optional .data.PbPhaseHeartRateStatistics heart_rate = 8 ;
+	optional .data.PbSpeedStatistics speed = 9 ;
+	optional .data.PbCadenceStatistics cadence = 10 ;
+	optional .data.PbPowerStatistics power = 11 ;
+	optional .data.PbLRBalanceStatistics left_right_balance = 12 ;
+	optional .data.PbPhaseStrideLengthStatistics stride_length = 13 ;
+	optional uint32 stroke_count = 14 ;
+	optional float average_swolf = 15 ;
+	optional uint32 strokes_per_min = 16 ;
+	optional float ascent = 17 ;
+	optional float descent = 18 ;
+}
+
+message PbPhaseRepetitions {
+	repeated .data.PbPhaseRepetition phase = 1 ;
+}

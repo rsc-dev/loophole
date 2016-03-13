@@ -1,0 +1,290 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+
+enum PbDataType {
+	UNDEFINED = 0;
+	INHERITED = 1;
+	ENUM = 2;
+	MILLIS = 3;
+	SECOND = 4;
+	MINUTE = 5;
+	HOUR = 6;
+	HOURS = 7;
+	DAY = 8;
+	MONTH = 9;
+	YEAR = 10;
+	WEIGHT = 11;
+	HEIGHT = 12;
+	VO2MAX = 13;
+	HEARTRATE = 20;
+	HR_PERCENT = 21;
+	HR_RESERVE = 22;
+	SPEED = 23;
+	CADENCE = 24;
+	ALTITUDE = 25;
+	POWER = 26;
+	POWER_LRB = 27;
+	POWER_PI = 28;
+	TEMPERATURE = 29;
+	ACTIVITY = 30;
+	STRIDE_LENGTH = 31;
+	INCLINE = 32;
+	DECLINE = 33;
+	DISTANCE = 52;
+	ENERGY = 53;
+	FAT_PERCENTS = 54;
+	ASCENT = 55;
+	DESCENT = 56;
+	LATITUDE = 57;
+	LONGITUDE = 58;
+	HERTZ = 59;
+	PERCENT = 60;
+	CUMULATED_ACTIVITY_DAY = 61;
+	RUNNING_INDEX = 62;
+	RR_INTERVAL = 63;
+	Z_INDEX = 64;
+	EXERCISE_TARGET_INDEX = 65;
+	TIME_ZONE_OFFSET = 66;
+	WHEEL_SIZE = 67;
+	FITNESS_CLASS = 68;
+	ACCELERATION = 69;
+	CRANK_LENGTH = 70;
+	ANGLE_DEGREE = 71;
+	NEWTON = 72;
+	FUNCTIONAL_THRESHOLD_POWER = 73;
+	CALORIES = 74;
+	SPEED_CALIBRATION_OFFSET = 75;
+}
+
+enum PbHeartRateView {
+	HEART_RATE_VIEW_BPM = 1;
+	HEART_RATE_VIEW_PERCENTS_OF_HR_RESERVE = 2;
+	HEART_RATE_VIEW_PERCENTS_OF_MAX_HR = 3;
+}
+
+enum PbUnitSystem {
+	METRIC = 1;
+	IMPERIAL = 2;
+}
+
+enum PbTimeSelection {
+	TIME_1 = 1;
+	TIME_2 = 2;
+}
+
+enum PbTimeFormat {
+	TIME_FORMAT_24H = 1;
+	TIME_FORMAT_12H = 2;
+}
+
+enum PbTimeFormatSeparator {
+	TIME_FORMAT_SEPARATOR_DOT = 1;
+	TIME_FORMAT_SEPARATOR_COLON = 2;
+}
+
+enum PbStartDayOfWeek {
+	MONDAY = 1;
+	SATURDAY = 2;
+	SUNDAY = 3;
+}
+
+enum PbDateFormatSeparator {
+	DOT = 1;
+	SLASH = 2;
+	HYPHEN = 3;
+}
+
+enum PbDateFormat {
+	DD_MM_YYYY = 1;
+	MM_DD_YYYY = 2;
+	YYYY_MM_DD = 3;
+}
+
+enum PbFeatureType {
+	FEATURE_TYPE_HEART_RATE = 1;
+	FEATURE_TYPE_RR_INTERVAL = 2;
+	FEATURE_TYPE_SPEED = 3;
+	FEATURE_TYPE_DISTANCE = 4;
+	FEATURE_TYPE_BIKE_CADENCE = 5;
+	FEATURE_TYPE_BIKE_POWER = 6;
+	FEATURE_TYPE_GPS_LOCATION = 7;
+	FEATURE_TYPE_RUNNING_CADENCE = 8;
+	FEATURE_TYPE_PRESS_TEMPERATURE = 9;
+	FEATURE_TYPE_ALTITUDE = 10;
+	FEATURE_TYPE_STEPS = 11;
+	FEATURE_TYPE_ACTIVITY = 12;
+	FEATURE_TYPE_STRIDE_LENGTH = 13;
+	FEATURE_TYPE_RSC_MOVING_TYPE = 14;
+	FEATURE_TYPE_JUMP_HEIGTH = 15;
+	FEATURE_TYPE_COMPASS_HEADING = 16;
+	FEATURE_TYPE_GPS_SPEED = 17;
+	FEATURE_TYPE_GPS_DISTANCE = 18;
+	FEATURE_TYPE_GPS_ALTITUDE = 19;
+	FEATURE_TYPE_BIKE_WHEEL_REVOLUTION = 20;
+	FEATURE_TYPE_BIKE_CRANK_REVOLUTION = 21;
+	FEATURE_TYPE_AS_SPEED = 22;
+	FEATURE_TYPE_AS_CADENCE = 23;
+	FEATURE_TYPE_AS_DISTANCE = 24;
+	FEATURE_TYPE_AS_SWR_STATE = 25;
+	FEATURE_TYPE_BATTERY_LEVEL = 26;
+	FEATURE_TYPE_FILE_TRANSFER = 27;
+	FEATURE_TYPE_PUSH_NOTIFICATIONS = 28;
+	FEATURE_TYPE_WEIGHT_SCALE = 29;
+}
+
+enum PbMovingType {
+	WALKING = 0;
+	RUNNING = 1;
+	STANDING = 2;
+}
+
+enum PbOperationType {
+	MULTIPLY = 1;
+	SUM = 2;
+}
+
+enum PbExerciseFeedback {
+	FEEDBACK_NONE = 1;
+	FEEDBACK_1 = 2;
+	FEEDBACK_2 = 3;
+	FEEDBACK_3 = 4;
+	FEEDBACK_4 = 5;
+	FEEDBACK_5 = 6;
+	FEEDBACK_6 = 7;
+	FEEDBACK_7 = 8;
+	FEEDBACK_8 = 9;
+	FEEDBACK_9 = 10;
+	FEEDBACK_10 = 11;
+	FEEDBACK_11 = 12;
+	FEEDBACK_12 = 13;
+	FEEDBACK_13 = 14;
+	FEEDBACK_14 = 15;
+	FEEDBACK_15 = 16;
+	FEEDBACK_16 = 17;
+	FEEDBACK_17 = 18;
+}
+
+enum PbHeartRateZoneSettingSource {
+	HEART_RATE_ZONE_SETTING_SOURCE_DEFAULT = 0;
+	HEART_RATE_ZONE_SETTING_SOURCE_THRESHOLD = 1;
+	HEART_RATE_ZONE_SETTING_SOURCE_FREE = 2;
+}
+
+enum PbPowerZoneSettingSource {
+	POWER_ZONE_SETTING_SOURCE_DEFAULT = 0;
+	POWER_ZONE_SETTING_SOURCE_FREE = 1;
+}
+
+enum PbSpeedZoneSettingSource {
+	SPEED_ZONE_SETTING_SOURCE_DEFAULT = 0;
+	SPEED_ZONE_SETTING_SOURCE_FREE = 1;
+}
+
+enum PbMacType {
+	MAC_TYPE_PUBLIC = 0;
+	MAC_TYPE_STATIC = 1;
+	MAC_TYPE_PRIVATE_NONRESOLVABLE = 2;
+	MAC_TYPE_PRIVATE_RESOLVABLE = 3;
+	MAC_TYPE_BT_CLASSIC = 4;
+}
+
+enum PbSwimmingStyle {
+	OTHER = -1;
+	TURN = 0;
+	OTHER_SWIMMING = 10;
+	FREESTYLE = 11;
+	BREASTSTROKE = 12;
+	BACKSTROKE = 13;
+	BUTTERFLY = 14;
+}
+
+enum PbSwimmingPoolUnits {
+	SWIMMING_POOL_METERS = 0;
+	SWIMMING_POOL_YARDS = 1;
+}
+
+enum PbExerciseTargetType {
+	EXERCISE_TARGET_TYPE_FREE = 0;
+	EXERCISE_TARGET_TYPE_VOLUME = 1;
+	EXERCISE_TARGET_TYPE_PHASED = 2;
+	EXERCISE_TARGET_TYPE_ROUTE = 3;
+	EXERCISE_TARGET_TYPE_STEADY_RACE_PACE = 4;
+	EXERCISE_TARGET_TYPE_ROUTE_RACE_PACE = 5;
+}
+
+message PbRangeOptions {
+	optional int32 min_value = 1 ;
+	optional int32 max_value = 2 ;
+}
+
+message PbDate {
+	required uint32 year = 1 ;
+	required uint32 month = 2 ;
+	required uint32 day = 3 ;
+}
+
+message PbTime {
+	required uint32 hour = 1 ;
+	required uint32 minute = 2 ;
+	required uint32 seconds = 3 ;
+	optional uint32 millis = 4 [default = 0];
+}
+
+message PbSystemDateTime {
+	required .PbDate date = 1 ;
+	required .PbTime time = 2 ;
+	required bool trusted = 3 ;
+}
+
+message PbLocalDateTime {
+	required .PbDate date = 1 ;
+	required .PbTime time = 2 ;
+	required bool OBSOLETE_trusted = 3 ;
+	optional int32 time_zone_offset = 4 ;
+}
+
+message PbDuration {
+	optional uint32 hours = 1 [default = 0];
+	optional uint32 minutes = 2 [default = 0];
+	optional uint32 seconds = 3 [default = 0];
+	optional uint32 millis = 4 [default = 0];
+}
+
+message PbLocation {
+	required double latitude = 1 ;
+	required double longitude = 2 ;
+	optional .PbSystemDateTime timestamp = 3 ;
+	optional .PbLocation.Fix fix = 4 [default = FIX_NONE];
+	optional uint32 satellites = 5 [default = 0];
+	
+	enum Fix {
+		FIX_NONE = 0;
+		FIX_2D = 1;
+		FIX_3D = 2;
+	}
+}
+
+message PbSensorOffline {
+	required uint32 start_index = 1 ;
+	required uint32 stop_index = 2 ;
+}
+
+message PbVolume {
+	required uint32 volume = 1 ;
+}
+
+message PbStrideSensorCalibSettings {
+	required float running_factor = 1 ;
+	required .PbStrideSensorCalibSettings.PbStrideCalibType calib_type = 2 ;
+	optional .PbStrideSensorCalibSettings.PbRunningFactorSource running_factor_source = 3 [default = RUNNING_FACTOR_SOURCE_DEFAULT];
+	
+	enum PbStrideCalibType {
+		STRIDE_CALIB_MANUAL = 0;
+		STRIDE_CALIB_AUTO = 1;
+	}
+	
+	enum PbRunningFactorSource {
+		RUNNING_FACTOR_SOURCE_DEFAULT = 0;
+		RUNNING_FACTOR_SOURCE_AUTO_CALIBRATION = 1;
+		RUNNING_FACTOR_SOURCE_MANUAL_CALIBRATION = 2;
+	}
+}

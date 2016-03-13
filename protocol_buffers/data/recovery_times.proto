@@ -1,0 +1,18 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbRecoveryTimes {
+	required .PbLocalDateTime start_of_times = 1 ;
+	repeated float recovery_times = 2 ;
+	optional float end_glycogen_left_percent = 3 ;
+	optional float end_carbo_consumption = 4 ;
+	optional float end_protein_consumption = 5 ;
+	optional float end_cumulative_mechanical_stimulus = 6 ;
+	optional float last_half_hour_avg_met = 7 ;
+	optional float exercise_calories = 8 ;
+	optional float activity_calories = 9 ;
+	optional float bmr_calories = 10 ;
+	optional uint32 steps = 11 ;
+	optional float accumulated_activity = 12 ;
+	optional uint32 number_of_exercise_half_hours = 13 ;
+}

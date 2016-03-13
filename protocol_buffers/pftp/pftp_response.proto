@@ -1,0 +1,49 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package protocol;
+
+message PbPFtpEntry {
+	required string name = 1 ;
+	required uint64 size = 2 ;
+	optional .PbSystemDateTime created = 3 ;
+	optional .PbSystemDateTime modified = 4 ;
+	optional .PbSystemDateTime touched = 5 ;
+}
+
+message PbPFtpDirectory {
+	repeated .protocol.PbPFtpEntry entries = 1 ;
+}
+
+message PbPFtpIdentifyDeviceResult {
+	required string device_id = 1 ;
+}
+
+message PbPFtpGetSystemTimeResult {
+	required .PbDate date = 1 ;
+	required .PbTime time = 2 ;
+	required bool trusted = 3 ;
+}
+
+message PbPFtpGetLocalTimeResult {
+	required .PbDate date = 1 ;
+	required .PbTime time = 2 ;
+	optional int32 tz_offset = 3 ;
+}
+
+message PbPFtpDiskSpaceResult {
+	required uint32 fragment_size = 1 ;
+	required uint64 total_fragments = 2 ;
+	required uint64 free_fragments = 3 ;
+}
+
+message PbPFtpGenerateChallengeTokenResult {
+	required bytes token = 1 ;
+}
+
+message PbPFtpBatteryStatusResult {
+	required uint32 battery_status = 1 ;
+	optional bool charging = 2 ;
+}
+
+message PbPFtpGetInactivityPreAlertResult {
+	required bool inactivity_pre_alert_on = 1 ;
+}

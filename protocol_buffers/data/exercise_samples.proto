@@ -1,0 +1,52 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbPowerMeasurements {
+	required int32 current_power = 1 ;
+	optional uint32 cumulative_crank_revolutions = 2 ;
+	optional uint32 cumulative_timestamp = 3 ;
+	optional sint32 force_magnitude_min = 4 ;
+	optional int32 force_magnitude_max = 5 ;
+	optional uint32 force_magnitude_min_angle = 6 ;
+	optional uint32 force_magnitude_max_angle = 7 ;
+	optional uint32 bottom_dead_spot_angle = 8 ;
+	optional uint32 top_dead_spot_angle = 9 ;
+}
+
+message PbCalibrationValue {
+	required uint32 start_index = 1 ;
+	required float value = 2 ;
+	required .PbOperationType operation = 3 ;
+	optional .PbMovingType cause = 4 ;
+}
+
+message PbExerciseSamples {
+	required .PbDuration recording_interval = 1 ;
+	repeated uint32 heart_rate_samples = 2 ;
+	repeated .PbSensorOffline heart_rate_offline = 3 ;
+	repeated uint32 cadence_samples = 4 ;
+	repeated .PbSensorOffline cadence_offline = 5 ;
+	repeated float altitude_samples = 6 ;
+	repeated .PbSensorOffline altitude_offline = 18 ;
+	repeated .data.PbCalibrationValue altitude_calibration = 7 ;
+	repeated float temperature_samples = 8 ;
+	repeated .PbSensorOffline temperature_offline = 19 ;
+	repeated float speed_samples = 9 ;
+	repeated .PbSensorOffline speed_offline = 10 ;
+	repeated float distance_samples = 11 ;
+	repeated .PbSensorOffline distance_offline = 12 ;
+	repeated uint32 stride_length_samples = 13 ;
+	repeated .PbSensorOffline stride_length_offline = 14 ;
+	repeated .data.PbCalibrationValue stride_calibration = 15 ;
+	repeated float forward_acceleration = 16 ;
+	repeated .PbSensorOffline forward_acceleration_offline = 20 ;
+	repeated .PbMovingType moving_type_samples = 17 ;
+	repeated .PbSensorOffline moving_type_offline = 21 ;
+	repeated .data.PbPowerMeasurements left_pedal_power_samples = 22 ;
+	repeated .PbSensorOffline left_pedal_power_offline = 23 ;
+	repeated .data.PbPowerMeasurements right_pedal_power_samples = 24 ;
+	repeated .PbSensorOffline right_pedal_power_offline = 25 ;
+	repeated .data.PbCalibrationValue left_power_calibration = 26 ;
+	repeated .data.PbCalibrationValue right_power_calibration = 27 ;
+	optional .data.PbExerciseRRIntervals rr_samples = 28 ;
+}

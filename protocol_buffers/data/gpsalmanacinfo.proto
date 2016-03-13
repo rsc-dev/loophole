@@ -1,0 +1,6 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbGPSAlmanacInfo {
+	required .PbSystemDateTime end_time = 1 ;
+}

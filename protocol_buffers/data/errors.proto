@@ -1,0 +1,14 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbConstraintViolation {
+	required string valueName = 1 ;
+	required string violationReason = 2 ;
+}
+
+message PbErrors {
+	required string message = 1 ;
+	repeated .data.PbConstraintViolation violations = 2 ;
+	repeated string errors = 3 ;
+	repeated string stackTrace = 4 ;
+}

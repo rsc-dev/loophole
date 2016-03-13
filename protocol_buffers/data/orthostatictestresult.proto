@@ -1,0 +1,13 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbOrthostaticTestResult {
+	required .PbLocalDateTime start_time = 1 ;
+	required .PbLocalDateTime reset_time = 2 ;
+	required uint32 rr_avg_supine = 3 ;
+	required uint32 rr_long_term_avg_of_supine = 4 ;
+	required uint32 rr_min_after_standup = 5 ;
+	required uint32 rr_long_term_avg_of_min_after_standup = 6 ;
+	required uint32 rr_avg_stand = 7 ;
+	required uint32 rr_long_term_avg_of_stand = 8 ;
+}

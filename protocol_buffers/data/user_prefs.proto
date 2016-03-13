@@ -1,0 +1,28 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbLocalizationPreferences {
+	optional .PbLanguageId language = 1 ;
+	optional .PbUnitSystem unit_system = 2 ;
+	optional .PbTimeFormat time_format = 3 ;
+	optional .PbTimeFormatSeparator time_format_separator = 4 ;
+	optional .PbDateFormat date_format = 5 ;
+	optional .PbDateFormatSeparator date_format_separator = 6 ;
+	optional .PbStartDayOfWeek firstday_of_week = 7 ;
+}
+
+message PbTrainingPreferences {
+	optional uint32 OBSOLETE_heart_rate_zone_lock = 1 ;
+	optional .PbHeartRateView heart_rate_view = 2 ;
+}
+
+message PbActivityGoalPreferences {
+	required bool visible = 1 ;
+}
+
+message PbGeneralPreferences {
+	optional .data.PbLocalizationPreferences localization_preferences = 1 ;
+	optional .data.PbTrainingPreferences training_preferences = 2 ;
+	optional .data.PbActivityGoalPreferences activity_goal_preferences = 3 ;
+	required .PbSystemDateTime last_modified = 101 ;
+}

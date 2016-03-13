@@ -1,0 +1,12 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbRROffline {
+	required .PbDuration start_time = 1 ;
+	required .PbDuration time_interval = 2 ;
+}
+
+message PbExerciseRRIntervals {
+	repeated uint32 rr_intervals = 1 ;
+	repeated .data.PbRROffline rr_sensor_offline = 2 ;
+}

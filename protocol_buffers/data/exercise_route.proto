@@ -1,0 +1,14 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbExerciseRouteSamples {
+	repeated uint32 duration = 1 ;
+	repeated double latitude = 2 ;
+	repeated double longitude = 3 ;
+	repeated sint32 gps_altitude = 4 ;
+	repeated uint32 satellite_amount = 5 ;
+	repeated bool OBSOLETE_fix = 6 ;
+	repeated .PbSensorOffline OBSOLETE_gps_offline = 7 ;
+	repeated .PbSystemDateTime OBSOLETE_gps_date_time = 8 ;
+	optional .PbSystemDateTime first_location_time = 9 ;
+}

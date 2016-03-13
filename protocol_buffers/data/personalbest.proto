@@ -1,0 +1,9 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbPersonalBest {
+	optional float distance = 1 ;
+	optional float average_speed = 2 ;
+	optional uint32 calories = 3 ;
+	optional float ascent = 4 ;
+}

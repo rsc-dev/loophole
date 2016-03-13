@@ -1,0 +1,15 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbPointOfInterest {
+	required .PbLocation location = 1 ;
+	optional uint64 point_id = 2 ;
+	optional .PbMultiLineText name = 3 ;
+	optional bool alarm = 4 ;
+	optional .PbSystemDateTime created = 100 ;
+	optional .PbSystemDateTime last_modified = 101 ;
+}
+
+message PbPointOfInterests {
+	repeated .data.PbPointOfInterest point = 1 ;
+}

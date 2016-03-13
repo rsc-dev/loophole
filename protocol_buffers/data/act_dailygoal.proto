@@ -1,0 +1,28 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+import "types.proto";
+
+message PbActivityMetMinGoal {
+	required float goal = 1 ;
+	optional float activity_cutoff_threshold = 2 ;
+}
+
+message PbPolarBalanceGoal {
+	required .PbDate start_date = 1 ;
+	optional float target_weight = 2 ;
+	optional uint32 goal_duration_in_weeks = 3 ;
+	optional float fraction_of_activity = 4 ;
+}
+
+message PbDailyActivityGoal {
+	optional .data.PbDailyActivityGoal.PbActivityGoalType goal_type = 3 ;
+	optional .data.PbActivityMetMinGoal activity_metmin_goal = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+	optional .data.PbPolarBalanceGoal polar_balance_goal = 4 ;
+	
+	enum PbActivityGoalType {
+		ACTIVITY_GOAL_DAILY_ACTIVITY = 1;
+		ACTIVITY_GOAL_WEIGHT_LOSS = 2;
+		ACTIVITY_GOAL_WEIGHT_MAINTAIN = 3;
+	}
+}

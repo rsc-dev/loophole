@@ -1,0 +1,135 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package protocol;
+
+enum PbPFtpDevToHostNotification {
+	FILESYSTEM_MODIFIED = 0;
+	INTERNAL_TEST_EVENT = 1;
+	IDLING = 2;
+	BATTERY_STATUS = 3;
+	INACTIVITY_ALERT = 4;
+	TRAINING_SESSION_STATUS = 5;
+	SYNC_REQUIRED = 7;
+	AUTOSYNC_STATUS = 8;
+	PNS_DH_NOTIFICATION_RESPONSE = 9;
+	PNS_SETTINGS = 10;
+}
+
+enum Action {
+	CREATED = 0;
+	UPDATED = 1;
+	REMOVED = 2;
+}
+
+enum PbPftpPnsDHAttributeType {
+	UNKNOWN_ACTION = 1;
+	POSITIVE_ACTION = 2;
+	NEGATIVE_ACTION = 3;
+	CLEAR_ACTION = 4;
+}
+
+enum PbPFtpHostToDevNotification {
+	START_SYNC = 0;
+	STOP_SYNC = 1;
+	RESET = 2;
+	LOCK_PRODUCTION_DATA = 3;
+	TERMINATE_SYNC = 4;
+	KEEP_ALIVE = 5;
+	START_AUTOSYNC = 6;
+	PNS_HD_NOTIFICATION = 7;
+	INITIALIZE_SESSION = 8;
+	TERMINATE_SESSION = 9;
+}
+
+enum PbPftpPnsHDCategoryID {
+	CATEGORY_ID_OTHER = 0;
+	CATEGORY_ID_POLAR = 1;
+	CATEGORY_ID_INCOMINGCALL = 2;
+	CATEGORY_ID_MISSEDCALL = 3;
+	CATEGORY_ID_VOICEMAIL = 4;
+	CATEGORY_ID_SOCIAL = 5;
+	CATEGORY_ID_SCHEDULE = 6;
+	CATEGORY_ID_EMAIL = 7;
+	CATEGORY_ID_NEWS = 8;
+	CATEGORY_ID_HEALTHANDFITNESS = 9;
+	CATEGORY_ID_BUSINESSANDFINANCE = 10;
+	CATEGORY_ID_LOCATION = 11;
+	CATEGORY_ID_ENTERTAINMENT = 12;
+	CATEGORY_ID_ALARM = 13;
+	CATEGORY_ID_PROMO = 14;
+	CATEGORY_ID_RECOMMENDATION = 15;
+	CATEGORY_ID_STATUS = 16;
+	CATEGORY_ID_TRANSPORT = 17;
+}
+
+enum PbPftpPnsHDAttributeType {
+	TITLE = 0;
+	SUBTITLE = 1;
+	MESSAGE = 2;
+	POSITIVE_ACTION_LABEL = 3;
+	NEGATIVE_ACTION_LABEL = 4;
+	APPLICATION_NAME = 5;
+	CLEAR_ACTION_LABEL = 6;
+}
+
+message PbPFtpFilesystemModifiedParams {
+	required .protocol.Action action = 1 ;
+	required string path = 2 ;
+}
+
+message PbPFtpInactivityAlert {
+	required uint32 countdown = 1 ;
+}
+
+message PbPFtpTrainingSessionStatus {
+	required bool inprogress = 1 ;
+}
+
+message PbPFtpAutoSyncStatusParams {
+	required bool succeeded = 1 ;
+	optional string description = 2 ;
+}
+
+message PbPftpPnsDHAttribute {
+	required .protocol.PbPftpPnsDHAttributeType type = 1 ;
+}
+
+message PbPftpPnsDHNotificationResponse {
+	required uint32 notification_id = 1 ;
+	repeated .protocol.PbPftpPnsDHAttribute attributes = 2 ;
+}
+
+message PbPftpPnsState {
+	required bool notifications_enabled = 1 ;
+	optional bool preview_enabled = 2 ;
+}
+
+message PbPFtpStopSyncParams {
+	required bool completed = 1 ;
+	optional string description = 2 ;
+}
+
+message PbPFtpFactoryResetParams {
+	required bool sleep = 1 ;
+	optional bool do_factory_defaults = 2 [default = true];
+	optional bool ota_fwupdate = 3 [default = false];
+}
+
+message PbPFtpStartAutosyncParams {
+	required uint32 timeout = 1 ;
+}
+
+message PbPftpPnsHDAttribute {
+	required .protocol.PbPftpPnsHDAttributeType type = 1 ;
+	optional string data = 2 ;
+	optional uint32 attribute_full_size = 3 ;
+}
+
+message PbPftpPnsHDNotification {
+	required uint32 notification_id = 1 ;
+	required .protocol.PbPftpPnsHDCategoryID category_id = 2 ;
+	required .protocol.Action action = 3 ;
+	required .PbLocalDateTime issue_time = 4 ;
+	optional uint32 new_same_category_notifications = 5 ;
+	optional uint32 unread_same_category_notifications = 6 ;
+	repeated .protocol.PbPftpPnsHDAttribute attributes = 7 ;
+}

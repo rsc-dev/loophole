@@ -1,0 +1,9 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbSyncInfo {
+	required .PbSystemDateTime last_modified = 1 ;
+	repeated string changed_path = 2 ;
+	optional .PbSystemDateTime last_synchronized = 3 ;
+	optional bool full_sync_required = 4 [default = true];
+}

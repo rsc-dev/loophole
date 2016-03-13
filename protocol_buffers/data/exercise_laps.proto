@@ -1,0 +1,96 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbLapHeader {
+	required .PbDuration split_time = 1 ;
+	required .PbDuration duration = 2 ;
+	optional float distance = 3 ;
+	optional float ascent = 4 ;
+	optional float descent = 5 ;
+	optional .data.PbLapHeader.PbAutolapType autolap_type = 6 ;
+	
+	enum PbAutolapType {
+		AUTOLAP_TYPE_DISTANCE = 1;
+		AUTOLAP_TYPE_DURATION = 2;
+		AUTOLAP_TYPE_LOCATION = 3;
+	}
+}
+
+message PbLapSwimmingStatistics {
+	optional uint32 lap_strokes = 1 ;
+	optional uint32 pool_count = 2 ;
+	optional float avg_duration_of_pool = 3 ;
+}
+
+message PbLapHeartRateStatistics {
+	optional uint32 average = 1 ;
+	optional uint32 maximum = 2 ;
+	optional uint32 minimum = 3 ;
+}
+
+message PbLapSpeedStatistics {
+	optional float average = 1 ;
+	optional float maximum = 2 ;
+}
+
+message PbLapCadenceStatistics {
+	optional uint32 average = 1 ;
+	optional uint32 maximum = 2 ;
+}
+
+message PbLapPowerStatistics {
+	optional int32 average = 1 ;
+	optional int32 maximum = 2 ;
+}
+
+message PbLapLRBalanceStatistics {
+	optional float average = 1 ;
+}
+
+message PbLapPedalingIndexStatistics {
+	optional uint32 average = 1 ;
+}
+
+message PbLapPedalingEfficiencyStatistics {
+	optional uint32 average = 1 ;
+}
+
+message PbLapInclineStatistics {
+	optional float max = 1 ;
+}
+
+message PbLapStrideLengthStatistics {
+	optional uint32 average = 1 ;
+}
+
+message PbLapStatistics {
+	optional .data.PbLapHeartRateStatistics heart_rate = 1 ;
+	optional .data.PbLapSpeedStatistics speed = 2 ;
+	optional .data.PbLapCadenceStatistics cadence = 3 ;
+	optional .data.PbLapPowerStatistics power = 4 ;
+	optional .data.PbLapPedalingIndexStatistics OBSOLETE_pedaling_index = 5 ;
+	optional .data.PbLapInclineStatistics incline = 6 ;
+	optional .data.PbLapStrideLengthStatistics stride_length = 7 ;
+	optional .data.PbLapSwimmingStatistics swimming_statistics = 8 ;
+	optional .data.PbLapLRBalanceStatistics left_right_balance = 9 ;
+}
+
+message PbLap {
+	required .data.PbLapHeader header = 1 ;
+	optional .data.PbLapStatistics statistics = 2 ;
+}
+
+message PbLapSummary {
+	optional .PbDuration best_lap_duration = 1 ;
+	optional .PbDuration average_lap_duration = 2 ;
+}
+
+message PbLaps {
+	repeated .data.PbLap laps = 1 ;
+	optional .data.PbLapSummary summary = 2 ;
+}
+
+message PbAutoLaps {
+	repeated .data.PbLap autoLaps = 1 ;
+	optional .data.PbLapSummary summary = 2 ;
+}

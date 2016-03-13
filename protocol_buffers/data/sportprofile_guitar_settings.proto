@@ -1,0 +1,36 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbGuitarSportProfileSettings {
+	optional .data.PbGuitarSportProfileSettings.PbHeartTouch heart_touch = 1 ;
+	optional .data.PbGuitarSportProfileSettings.PbTapButtonAction tap_button_action = 2 ;
+	optional bool vibration = 3 ;
+	optional bool auto_start = 4 ;
+	optional bool auto_scrolling = 5 ;
+	optional .PbStrideSensorCalibSettings stride_sensor_calib_settings = 6 ;
+	optional uint32 sprint_display_activation = 7 ;
+	optional .data.PbGuitarSportProfileSettings.PbSportTapButtonSensitivity sport_tap_button_sensitivity = 8 [default = SPORT_TAP_BUTTON_SENSITIVITY_MEDIUM];
+	optional .PbSwimmingPoolInfo swimming_pool = 9 ;
+	
+	enum PbHeartTouch {
+		HEART_TOUCH_OFF = 1;
+		HEART_TOUCH_ACTIVATE_BACKLIGHT = 2;
+		HEART_TOUCH_SHOW_PREVIOUS_LAP = 3;
+		HEART_TOUCH_SHOW_TIME_OF_DAY = 4;
+	}
+	
+	enum PbTapButtonAction {
+		TAP_BUTTON_OFF = 1;
+		TAP_BUTTON_TAKE_LAP = 2;
+		TAP_BUTTON_CHANGE_TRAINING_VIEW = 3;
+		TAP_BUTTON_ACTIVATE_BACKLIGHT = 4;
+	}
+	
+	enum PbSportTapButtonSensitivity {
+		SPORT_TAP_BUTTON_SENSITIVITY_OFF = 1;
+		SPORT_TAP_BUTTON_SENSITIVITY_VERY_LOW = 5;
+		SPORT_TAP_BUTTON_SENSITIVITY_LOW = 2;
+		SPORT_TAP_BUTTON_SENSITIVITY_MEDIUM = 3;
+		SPORT_TAP_BUTTON_SENSITIVITY_HIGH = 4;
+	}
+}

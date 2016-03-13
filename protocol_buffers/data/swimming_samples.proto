@@ -1,0 +1,19 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbSwimmingStyleChange {
+	required .PbSwimmingStyle style = 1 ;
+	required .PbDuration timestamp = 2 ;
+}
+
+message PbSwimmingPoolMetric {
+	required .PbDuration start_offset = 1 ;
+	required .PbDuration duration = 2 ;
+	optional .PbSwimmingStyle style = 3 ;
+	optional uint32 strokes = 4 ;
+}
+
+message PbSwimmingSamples {
+	required .PbLocalDateTime start = 1 ;
+	repeated .data.PbSwimmingPoolMetric pool_metric = 3 ;
+}

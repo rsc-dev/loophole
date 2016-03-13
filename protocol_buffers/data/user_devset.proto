@@ -1,0 +1,145 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbUserDeviceGeneralSettings {
+	optional .PbTimeSelection OBSOLETE_time_selection = 1 ;
+	optional int32 OBSOLETE_time2_offset = 2 ;
+	optional .data.PbUserDeviceGeneralSettings.PbWatchFace watch_face = 3 ;
+	optional .data.PbUserDeviceGeneralSettings.PbButtonLockMode button_lock_mode = 4 ;
+	optional .PbVolume button_sound_volume = 5 ;
+	optional bool vibration_mode = 7 ;
+	optional .data.PbUserDeviceGeneralSettings.PbHandedness handedness = 8 ;
+	optional bool exeview_inverted = 9 ;
+	optional .data.PbUserDeviceGeneralSettings.PbTapButtonSensitivity tap_button_sensitivity = 10 ;
+	optional .data.PbUserDeviceGeneralSettings.PbInactivityAlert inactivity_alert = 11 ;
+	optional bool ble_connect_mode_enable = 12 ;
+	
+	enum PbWatchFace {
+		BASIC = 1;
+		AWARD = 2;
+		USER_NAME = 3;
+		EVENT = 4;
+		ANALOG = 5;
+		BIG = 6;
+		ACTIVITY = 7;
+	}
+	
+	enum PbButtonLockMode {
+		MANUAL = 1;
+		AUTO = 2;
+	}
+	
+	enum PbHandedness {
+		WU_IN_LEFT_HAND = 1;
+		WU_IN_RIGHT_HAND = 2;
+	}
+	
+	enum PbTapButtonSensitivity {
+		TAP_BUTTON_SENSITIVITY_OFF = 1;
+		TAP_BUTTON_SENSITIVITY_VERY_LOW = 5;
+		TAP_BUTTON_SENSITIVITY_LOW = 2;
+		TAP_BUTTON_SENSITIVITY_MEDIUM = 3;
+		TAP_BUTTON_SENSITIVITY_HIGH = 4;
+	}
+	
+	enum PbInactivityAlert {
+		INACTIVITY_ALERT_OFF = 1;
+		INACTIVITY_ALERT_ON = 2;
+	}
+}
+
+message PbUserDeviceAlarmSettings {
+	required .data.PbUserDeviceAlarmSettings.PbAlarmMode alarm_mode = 1 ;
+	required .PbTime alarm_time = 2 ;
+	
+	enum PbAlarmMode {
+		ALARM_MODE_OFF = 1;
+		ALARM_MODE_ONCE = 2;
+		ALARM_MODE_MON_TO_FRI = 3;
+		ALARM_MODE_EVERY_DAY = 4;
+	}
+}
+
+message PbUserDeviceCountdownSettings {
+	required .PbDuration countdown_time = 1 ;
+}
+
+message PbUserDeviceJumpTestSettings {
+	required .PbDuration cont_jump_duration = 1 ;
+}
+
+message PbIntervalTimerValue {
+	required .data.PbIntervalTimerValue.PbIntervalTimerType interval_timer_type = 1 ;
+	optional .PbDuration interval_timer_duration = 2 ;
+	optional float interval_timer_distance = 3 ;
+	
+	enum PbIntervalTimerType {
+		INTERVAL_TIMER_TYPE_DURATION = 1;
+		INTERVAL_TIMER_TYPE_DISTANCE = 2;
+	}
+}
+
+message PbUserIntervalTimerSettings {
+	repeated .data.PbIntervalTimerValue interval_timer_value = 1 ;
+}
+
+message PbUserEndTimeEstimatorSettings {
+	optional float end_time_estimator_target = 1 ;
+}
+
+message PbUserDeviceResearchSettings {
+	optional bool accelerometer_raw_data_enable = 1 ;
+	optional bool gyroscope_raw_data_enable = 2 ;
+	optional bool magnetometer_raw_data_enable = 3 ;
+	optional bool linear_acceleration_data_enable = 4 ;
+}
+
+message PbUserSafetyLightSettings {
+	required .data.PbUserSafetyLightSettings.PbSafetyLightMode mode = 1 ;
+	optional .data.PbUserSafetyLightSettings.PbSafetyLightActivationLevel activation_level = 2 ;
+	optional .data.PbUserSafetyLightSettings.PbSafetyLightBlinkRate blink_rate = 3 ;
+	
+	enum PbSafetyLightMode {
+		SAFETY_LIGHT_MANUAL = 1;
+		SAFETY_LIGHT_AUTOMATIC = 2;
+	}
+	
+	enum PbSafetyLightActivationLevel {
+		ACTIVATION_LEVEL_DARK = 1;
+		ACTIVATION_LEVEL_DUSK = 2;
+		ACTIVATION_LEVEL_LIGHT = 3;
+	}
+	
+	enum PbSafetyLightBlinkRate {
+		BLINK_RATE_OFF = 1;
+		BLINK_RATE_SLOW = 2;
+		BLINK_RATE_FAST = 3;
+		BLINK_RATE_VERY_FAST = 4;
+	}
+}
+
+message PbDoNotDisturbSettings {
+	required bool enabled = 1 ;
+	optional .PbTime start = 2 ;
+	optional .PbTime end = 3 ;
+}
+
+message PbUserSmartWatchNotificationSettings {
+	required bool enabled = 1 ;
+	optional bool preview_enabled = 2 ;
+	optional .data.PbDoNotDisturbSettings do_not_disturb_settings = 3 ;
+	optional bool sounds_enabled = 4 ;
+}
+
+message PbUserDeviceSettings {
+	required .data.PbUserDeviceGeneralSettings general_settings = 1 ;
+	optional .data.PbUserDeviceAlarmSettings alarm_settings = 2 ;
+	optional .data.PbUserDeviceCountdownSettings countdown_settings = 3 ;
+	optional .data.PbUserDeviceJumpTestSettings jumptest_settings = 4 ;
+	optional .data.PbUserIntervalTimerSettings interval_timer_settings = 5 ;
+	optional .data.PbUserEndTimeEstimatorSettings end_time_estimator_settings = 6 ;
+	optional .data.PbUserDeviceResearchSettings research_settings = 7 ;
+	optional .data.PbUserSafetyLightSettings safety_light_settings = 8 ;
+	optional .data.PbUserSmartWatchNotificationSettings smart_watch_notification_settings = 9 ;
+	required .PbSystemDateTime last_modified = 101 ;
+}

@@ -1,0 +1,20 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbJump {
+	required .PbDuration flight_time = 1 ;
+	optional .PbDuration contact_time = 2 ;
+}
+
+message PbJumpTest {
+	required .data.PbJumpTest.PbJumpTestType test_type = 1 ;
+	required .PbLocalDateTime start_time = 2 ;
+	repeated .data.PbJump jump = 3 ;
+	optional .PbDuration cont_jump_duration = 4 ;
+	
+	enum PbJumpTestType {
+		JUMP_TEST_TYPE_SQUAT = 0;
+		JUMP_TEST_TYPE_COUNTER = 1;
+		JUMP_TEST_TYPE_CONTINUOUS = 2;
+	}
+}

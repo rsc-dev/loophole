@@ -1,0 +1,54 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package protocol;
+
+enum PbPFtpQuery {
+	IDENTIFY_DEVICE = 0;
+	SET_SYSTEM_TIME = 1;
+	GET_SYSTEM_TIME = 2;
+	SET_LOCAL_TIME = 3;
+	GET_LOCAL_TIME = 4;
+	GET_DISK_SPACE = 5;
+	GENERATE_CHALLENGE_TOKEN = 6;
+	SET_INTERNAL_TEST = 7;
+	GET_BATTERY_STATUS = 8;
+	SET_ADB_MODE = 9;
+	CLEANUP_DISK_SPACE = 10;
+	GET_INACTIVITY_PRE_ALERT = 11;
+}
+
+message PbPFtpOperation {
+	required .protocol.PbPFtpOperation.Command command = 1 ;
+	required string path = 2 ;
+	
+	enum Command {
+		GET = 0;
+		PUT = 1;
+		MERGE = 2;
+		REMOVE = 3;
+	}
+}
+
+message PbPFtpSetSystemTimeParams {
+	required .PbDate date = 1 ;
+	required .PbTime time = 2 ;
+	required bool trusted = 3 ;
+}
+
+message PbPFtpSetLocalTimeParams {
+	required .PbDate date = 1 ;
+	required .PbTime time = 2 ;
+	optional int32 tz_offset = 3 ;
+}
+
+message PbPFtpGenerateChallengeTokenParams {
+	required uint32 user_id = 1 ;
+	required bytes nonse = 2 ;
+}
+
+message PbPFtpSetAdbModeParams {
+	required bool enable = 1 ;
+}
+
+message PbPFtpCleanupDiskSpaceParams {
+	required uint64 required_bytes = 1 ;
+}

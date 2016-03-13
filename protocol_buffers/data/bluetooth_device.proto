@@ -1,0 +1,85 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+enum PbDeviceManufacturerType {
+	MANUFACTURER_POLAR = 1;
+	MANUFACTURER_OTHER = 2;
+}
+
+message PbBleUuid {
+	required bytes uuid = 1 ;
+}
+
+message PbBleCharacteristic {
+	required uint32 handle = 1 ;
+	required .data.PbBleUuid type = 2 ;
+}
+
+message PbBleService {
+	required .data.PbBleUuid serviceUuid = 1 ;
+	repeated .data.PbBleCharacteristic characteristics = 2 ;
+}
+
+message PbBleUser {
+	required uint32 user_index = 1 ;
+	required uint32 device_user_index = 2 ;
+	optional uint32 consent = 3 ;
+}
+
+message PbBleDevice {
+	required .PbSystemDateTime paired = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+	required .data.PbDeviceManufacturerType manufacturer = 3 ;
+	optional .PbSystemDateTime deleted_time_stamp = 5 ;
+	optional .PbBleMac mac = 6 ;
+	optional string device_id = 7 ;
+	optional string name = 8 ;
+	optional uint32 battery_level = 9 ;
+	optional string manufacturer_name = 10 ;
+	optional string model_name = 11 ;
+	optional bytes peer_ltk = 12 ;
+	optional bytes peer_irk = 13 ;
+	optional bytes peer_csrk = 14 ;
+	repeated .PbFeatureType available_features = 15 ;
+	repeated .data.PbBleService services = 16 ;
+	optional bytes peer_rand = 17 ;
+	optional uint32 peer_ediv = 18 ;
+	optional uint32 encr_key_size = 19 ;
+	optional uint32 distributed_keys = 20 ;
+	optional bool authenticated = 21 ;
+	optional .data.PbBleDevice.PbSensorLocation sensor_location = 22 ;
+	optional string software_version = 23 ;
+	optional string secondary_software_version = 24 ;
+	optional string serial_number = 25 ;
+	optional bytes local_ltk = 26 ;
+	optional bytes local_rand = 27 ;
+	optional uint32 local_ediv = 28 ;
+	repeated .data.PbBleUser user_data = 29 ;
+	
+	enum PbBleKeyType {
+		BLE_PEER_ENCRYPTION_KEY = 1;
+		BLE_PEER_IDENTIFICATION_KEY = 2;
+		BLE_PEER_SIGNING_KEY = 4;
+		BLE_LOCAL_ENCRYPTION_KEY = 8;
+		BLE_LOCAL_IDENTIFICATION_KEY = 16;
+		BLE_LOCAL_SIGNING_KEY = 32;
+	}
+	
+	enum PbSensorLocation {
+		SENSOR_LOCATION_OTHER = 0;
+		SENSOR_LOCATION_TOP_OF_SHOE = 1;
+		SENSOR_LOCATION_IN_SHOE = 2;
+		SENSOR_LOCATION_HIP = 3;
+		SENSOR_LOCATION_FRONT_WHEEL = 4;
+		SENSOR_LOCATION_LEFT_CRANK = 5;
+		SENSOR_LOCATION_RIGHT_CRANK = 6;
+		SENSOR_LOCATION_LEFT_PEDAL = 7;
+		SENSOR_LOCATION_RIGHT_PEDAL = 8;
+		SENSOR_LOCATION_FRONT_HUB = 9;
+		SENSOR_LOCATION_REAR_DROPOUT = 10;
+		SENSOR_LOCATION_CHAINSTAY = 11;
+		SENSOR_LOCATION_REAR_WHEEL = 12;
+		SENSOR_LOCATION_REAR_HUB = 13;
+		SENSOR_LOCATION_CHEST = 14;
+	}
+}

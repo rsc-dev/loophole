@@ -1,0 +1,8 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbTeamMember {
+	required uint64 team_identifier = 1 ;
+	optional uint32 player_number = 2 ;
+	optional .PbOneLineText player_role = 3 ;
+}

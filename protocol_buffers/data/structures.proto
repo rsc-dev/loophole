@@ -1,0 +1,107 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+
+message PbVolumeTarget {
+	required .PbVolumeTarget.PbVolymeTargetType target_type = 1 ;
+	optional .PbDuration duration = 2 ;
+	optional float distance = 3 ;
+	optional uint32 calories = 4 ;
+	
+	enum PbVolymeTargetType {
+		VOLUME_TARGET_TYPE_DURATION = 0;
+		VOLUME_TARGET_TYPE_DISTANCE = 1;
+		VOLUME_TARGET_TYPE_CALORIES = 2;
+	}
+}
+
+message PbTrainingLoad {
+	optional uint32 training_load_val = 1 ;
+	optional .PbDuration recovery_time = 2 ;
+	optional uint32 carbohydrate_consumption = 3 ;
+	optional uint32 protein_consumption = 4 ;
+	optional uint32 fat_consumption = 5 ;
+}
+
+message PbHeartRateZone {
+	required uint32 lower_limit = 1 ;
+	required uint32 higher_limit = 2 ;
+}
+
+message PbSpeedZone {
+	required float lower_limit = 1 ;
+	required float higher_limit = 2 ;
+}
+
+message PbPowerZone {
+	required uint32 lower_limit = 1 ;
+	required uint32 higher_limit = 2 ;
+}
+
+message PbZones {
+	repeated .PbHeartRateZone heart_rate_zone = 1 ;
+	repeated .PbSpeedZone speed_zone = 2 ;
+	repeated .PbPowerZone power_zone = 3 ;
+	optional .PbHeartRateZoneSettingSource heart_rate_setting_source = 10 ;
+	optional .PbPowerZoneSettingSource power_setting_source = 11 ;
+	optional .PbSpeedZoneSettingSource speed_setting_source = 12 ;
+}
+
+message PbBleMac {
+	required bytes mac = 1 ;
+	required .PbMacType type = 2 ;
+}
+
+message PbBleDeviceName {
+	required string name = 1 ;
+}
+
+message PbDeviceId {
+	required string device_id = 1 ;
+}
+
+message PbRunningIndex {
+	required uint32 value = 1 ;
+	optional .PbDuration calculation_time = 2 ;
+}
+
+message PbSportIdentifier {
+	required uint64 value = 1 ;
+}
+
+message PbOneLineText {
+	required string text = 1 ;
+}
+
+message PbMultiLineText {
+	required string text = 1 ;
+}
+
+message PbLanguageId {
+	required string language = 1 ;
+}
+
+message PbTrainingSessionTargetId {
+	required uint64 value = 1 ;
+	optional .PbSystemDateTime last_modified = 2 ;
+}
+
+message PbTrainingSessionFavoriteId {
+	required uint64 value = 1 ;
+	optional .PbSystemDateTime last_modified = 2 ;
+}
+
+message PbRouteId {
+	required uint64 value = 1 ;
+}
+
+message PbSwimmingPoolInfo {
+	optional float pool_length = 1 ;
+	required .PbSwimmingPoolUnits swimming_pool_type = 2 ;
+}
+
+message PbTrainingProgramId {
+	required uint64 value = 1 ;
+}
+
+message PbEventId {
+	required uint64 value = 1 ;
+}

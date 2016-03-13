@@ -1,0 +1,7 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbUserTestPreferences {
+	optional .PbLocalDateTime orthostatic_test_reset = 1 ;
+	required .PbSystemDateTime last_modified = 101 ;
+}

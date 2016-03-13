@@ -1,0 +1,17 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbPasswordToken {
+	required bytes token = 1 ;
+	required bool encrypted = 2 ;
+}
+
+message PbUserIdentifier {
+	optional uint64 master_identifier = 1 ;
+	optional string email = 2 ;
+	optional .data.PbPasswordToken password_token = 3 ;
+	optional string nickname = 4 ;
+	optional string first_name = 5 ;
+	optional string last_name = 6 ;
+	optional .PbSystemDateTime user_id_last_modified = 100 ;
+}

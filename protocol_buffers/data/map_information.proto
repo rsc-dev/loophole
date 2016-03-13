@@ -1,0 +1,13 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbMapLocation {
+	required double latitude = 1 ;
+	required double longitude = 2 ;
+}
+
+message PbMapInformation {
+	required .data.PbMapLocation centre_point = 1 ;
+	optional .PbSystemDateTime data_timestamp = 2 ;
+	optional bool updated = 3 [default = false];
+}

@@ -1,0 +1,9 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbIdentifier {
+	required uint64 ecosystem_id = 1 ;
+	required .PbSystemDateTime created = 2 ;
+	required .PbSystemDateTime last_modified = 3 ;
+	optional bool deleted = 4 ;
+}

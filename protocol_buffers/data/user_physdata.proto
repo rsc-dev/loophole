@@ -1,0 +1,128 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbUserBirthday {
+	required .PbDate value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+}
+
+message PbUserGender {
+	required .data.PbUserGender.Gender value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+	
+	enum Gender {
+		MALE = 1;
+		FEMALE = 2;
+	}
+}
+
+message PbUserHrAttribute {
+	required uint32 value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+	optional .data.PbUserHrAttribute.HrSettingSource setting_source = 3 ;
+	
+	enum HrSettingSource {
+		SOURCE_DEFAULT = 0;
+		SOURCE_AGE_BASED = 1;
+		SOURCE_USER = 2;
+		SOURCE_MEASURED = 3;
+		SOURCE_KEEP = 4;
+	}
+}
+
+message PbUserWeight {
+	required float value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+	optional .data.PbUserWeight.WeightSettingSource setting_source = 3 ;
+	
+	enum WeightSettingSource {
+		SOURCE_DEFAULT = 0;
+		SOURCE_USER = 2;
+		SOURCE_MEASURED = 3;
+	}
+}
+
+message PbUserHeight {
+	required float value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+}
+
+message PbUserVo2Max {
+	required uint32 value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+	optional .data.PbUserVo2Max.Vo2MaxSettingSource setting_source = 3 ;
+	
+	enum Vo2MaxSettingSource {
+		SOURCE_DEFAULT = 0;
+		SOURCE_ESTIMATE = 1;
+		SOURCE_USER = 2;
+		SOURCE_FITNESSTEST = 3;
+	}
+}
+
+message PbUserTrainingBackground {
+	required .data.PbUserTrainingBackground.TrainingBackground value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+	
+	enum TrainingBackground {
+		OCCASIONAL = 10;
+		REGULAR = 20;
+		FREQUENT = 30;
+		HEAVY = 40;
+		SEMI_PRO = 50;
+		PRO = 60;
+	}
+}
+
+message PbUserTypicalDay {
+	required .data.PbUserTypicalDay.TypicalDay value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+	
+	enum TypicalDay {
+		MOSTLY_SITTING = 1;
+		MOSTLY_STANDING = 2;
+		MOSTLY_MOVING = 3;
+	}
+}
+
+message PbWeeklyRecoveryTimeSum {
+	required float value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+}
+
+message PbSpeedCalibrationOffset {
+	required float value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+}
+
+message PbUserFunctionalThresholdPower {
+	required uint32 value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+	optional .data.PbUserFunctionalThresholdPower.FTPSettingSource setting_source = 3 ;
+	
+	enum FTPSettingSource {
+		SOURCE_DEFAULT = 0;
+		SOURCE_ESTIMATE = 1;
+		SOURCE_USER = 2;
+	}
+}
+
+message PbUserPhysData {
+	required .data.PbUserBirthday birthday = 1 ;
+	required .data.PbUserGender gender = 2 ;
+	optional .data.PbUserWeight weight = 3 ;
+	optional .data.PbUserHeight height = 4 ;
+	optional .data.PbUserHrAttribute maximum_heartrate = 5 ;
+	optional .data.PbUserHrAttribute resting_heartrate = 6 ;
+	optional .data.PbUserHrAttribute OBSOLETE_sitting_heartrate = 7 ;
+	optional .data.PbUserHrAttribute aerobic_threshold = 8 ;
+	optional .data.PbUserHrAttribute anaerobic_threshold = 9 ;
+	optional .data.PbUserVo2Max vo2max = 10 ;
+	optional .data.PbUserTrainingBackground training_background = 11 ;
+	optional .data.PbUserTypicalDay typical_day = 12 ;
+	optional .data.PbWeeklyRecoveryTimeSum weekly_recovery_time_sum = 13 ;
+	optional .data.PbSpeedCalibrationOffset speed_calibration_offset = 14 ;
+	optional .data.PbUserFunctionalThresholdPower functional_threshold_power = 15 ;
+	optional .PbSystemDateTime last_modified = 100 ;
+	optional .PbLocalDateTime snapshot_start_time = 101 ;
+}

@@ -1,0 +1,46 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbSportInfo {
+	required float factor = 1 ;
+	required .PbLocalDateTime time_stamp = 2 ;
+	optional uint64 sport_profile_id = 3 ;
+}
+
+message PbActivityInfo {
+	required .data.PbActivityInfo.ActivityClass value = 1 ;
+	required .PbLocalDateTime time_stamp = 2 ;
+	optional float factor = 3 ;
+	
+	enum ActivityClass {
+		SLEEP = 1;
+		SEDENTARY = 2;
+		LIGHT = 3;
+		CONTINUOUS_MODERATE = 4;
+		INTERMITTENT_MODERATE = 5;
+		CONTINUOUS_VIGOROUS = 6;
+		INTERMITTENT_VIGOROUS = 7;
+		NON_WEAR = 8;
+	}
+}
+
+message PbInActivityTriggerInfo {
+	required .PbLocalDateTime time_stamp = 1 ;
+}
+
+message PbInActivityNonWearTriggerInfo {
+	required .PbLocalDateTime start_time_stamp = 1 ;
+	required .PbLocalDateTime end_time_stamp = 2 ;
+}
+
+message PbActivitySamples {
+	required .PbLocalDateTime start_time = 1 ;
+	required .PbDuration met_recording_interval = 2 ;
+	required .PbDuration steps_recording_interval = 3 ;
+	repeated float met_samples = 4 ;
+	repeated uint32 steps_samples = 5 ;
+	repeated .data.PbSportInfo sport_info = 6 ;
+	repeated .data.PbActivityInfo activity_info = 7 ;
+	repeated .data.PbInActivityTriggerInfo inactivity_trigger = 8 ;
+	repeated .data.PbInActivityNonWearTriggerInfo inactivity_non_wear_trigger = 9 ;
+}

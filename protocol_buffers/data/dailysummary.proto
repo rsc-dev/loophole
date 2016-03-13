@@ -1,0 +1,32 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbActivityGoalSummary {
+	required float activity_goal = 1 ;
+	required float achieved_activity = 2 ;
+	optional .PbDuration time_to_go_up = 3 ;
+	optional .PbDuration time_to_go_walk = 4 ;
+	optional .PbDuration time_to_go_jog = 5 ;
+}
+
+message PbActivityClassTimes {
+	required .PbDuration time_non_wear = 1 ;
+	required .PbDuration time_sleep = 2 ;
+	required .PbDuration time_sedentary = 3 ;
+	required .PbDuration time_light_activity = 4 ;
+	required .PbDuration time_continuous_moderate = 5 ;
+	required .PbDuration time_intermittent_moderate = 6 ;
+	required .PbDuration time_continuous_vigorous = 7 ;
+	required .PbDuration time_intermittent_vigorous = 8 ;
+}
+
+message PbDailySummary {
+	required .PbDate date = 1 ;
+	optional uint32 steps = 2 ;
+	optional uint32 activity_calories = 3 ;
+	optional uint32 training_calories = 4 ;
+	optional uint32 bmr_calories = 5 ;
+	optional .data.PbActivityGoalSummary activity_goal_summary = 6 ;
+	optional .data.PbActivityClassTimes activity_class_times = 7 ;
+	optional float activity_distance = 8 ;
+}

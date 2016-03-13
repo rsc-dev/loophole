@@ -1,0 +1,6 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbAstraSportProfileSettings {
+	optional bool vibration = 3 ;
+}

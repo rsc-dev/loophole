@@ -1,0 +1,22 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbSteadyRacePaceResult {
+	required .PbDuration completed_time = 1 ;
+	optional uint32 average_heartrate = 2 ;
+	optional float average_speed = 3 ;
+}
+
+message PbExerciseTargetInfo {
+	required .PbExerciseTargetType target_type = 1 ;
+	required uint32 index = 2 ;
+	optional .PbOneLineText name = 3 ;
+	optional bool target_reached = 4 ;
+	optional .PbDuration end_time = 5 ;
+	optional .PbSportIdentifier sport_id = 6 ;
+	optional .PbVolumeTarget volume_target = 7 ;
+	optional .data.PbPhases phases = 8 ;
+	optional .PbRouteId route = 9 ;
+	optional .data.PbSteadyRacePace steady_race_pace = 10 ;
+	optional .data.PbSteadyRacePaceResult steady_race_pace_result = 11 ;
+}

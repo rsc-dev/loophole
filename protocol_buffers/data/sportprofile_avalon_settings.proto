@@ -1,0 +1,15 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbAvalonSportProfileSettings {
+	optional .data.PbAvalonSportProfileSettings.PbHeartTouch heart_touch = 1 ;
+	optional bool vibration = 3 ;
+	optional bool auto_start = 4 ;
+	
+	enum PbHeartTouch {
+		HEART_TOUCH_OFF = 1;
+		HEART_TOUCH_ACTIVATE_BACKLIGHT = 2;
+		HEART_TOUCH_SHOW_PREVIOUS_LAP = 3;
+		HEART_TOUCH_SHOW_TIME_OF_DAY = 4;
+	}
+}

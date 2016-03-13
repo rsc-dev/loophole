@@ -1,0 +1,26 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbSportTranslation {
+	required .PbLanguageId id = 1 ;
+	required .PbOneLineText text = 2 ;
+}
+
+message PbSport {
+	required .PbSportIdentifier identifier = 1 ;
+	required .PbSportIdentifier parent_identifier = 2 ;
+	repeated .data.PbSportTranslation translation = 3 ;
+	optional float factor = 4 ;
+	repeated .PbSportIdentifier stages = 5 ;
+	optional .data.PbSport.PbSportType sport_type = 6 [default = SPORT_TYPE_SINGLE_SPORT];
+	optional bool speed_zones_enabled = 7 [default = false];
+	optional .PbSystemDateTime created = 100 ;
+	optional .PbSystemDateTime last_modified = 101 ;
+	
+	enum PbSportType {
+		SPORT_TYPE_SINGLE_SPORT = 1;
+		SPORT_TYPE_MULTI_SPORT = 2;
+		SPORT_TYPE_SUB_SPORT = 3;
+		SPORT_TYPE_FREE_MULTI_SPORT = 4;
+	}
+}

@@ -1,0 +1,226 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+enum PbTrainingDisplayItem {
+	TIME_OF_DAY = 2;
+	STOPWATCH = 3;
+	CURRENT_LAP_TIME = 6;
+	LAST_LAP_TIME = 7;
+	LAST_AUTOMATIC_LAP_TIME = 8;
+	ALTITUDE = 10;
+	ASCENT = 11;
+	DESCENT = 12;
+	INCLINOMETER = 13;
+	TEMPERATURE = 15;
+	CURRENT_LAP_ASCENT = 16;
+	CURRENT_LAP_DESCENT = 17;
+	CURRENT_LAP_VAM = 18;
+	CURRENT_HEART_RATE = 20;
+	AVERAGE_HEART_RATE = 21;
+	MAXIMUM_HEART_RATE = 22;
+	CURRENT_LAP_AVERAGE_HEART_RATE = 24;
+	CURRENT_LAP_MAX_HEART_RATE = 25;
+	PREVIOUS_LAP_AVERAGE_HEART_RATE = 26;
+	PREVIOUS_LAP_MAX_HEART_RATE = 28;
+	CALORIES = 27;
+	ZONE_POINTER = 32;
+	TIME_IN_ZONE = 33;
+	RR_VARIATION = 35;
+	DISTANCE = 37;
+	CURRENT_LAP_DISTANCE = 38;
+	PREVIOUS_LAP_DISTANCE = 39;
+	SPEED_OR_PACE = 41;
+	SPEED_OR_PACE_AVERAGE = 42;
+	SPEED_OR_PACE_MAXIMUM = 43;
+	CURRENT_LAP_SPEED_OR_PACE = 44;
+	SPEED_ZONE_POINTER = 45;
+	TIME_IN_SPEED_ZONE = 46;
+	CURRENT_LAP_MAX_PACE_OR_SPEED = 47;
+	PREVIOUS_LAP_MAX_PACE_OR_SPEED = 48;
+	PREVIOUS_LAP_SPEED_OR_PACE = 220;
+	VERTICAL_SPEED_MOVING_AVERAGE = 221;
+	CADENCE = 49;
+	AVERAGE_CADENCE = 50;
+	MAXIMUM_CADENCE = 240;
+	CURRENT_LAP_CADENCE = 51;
+	CURRENT_LAP_MAX_CADENCE = 52;
+	PREVIOUS_LAP_CADENCE = 53;
+	STRIDE_LENGTH = 54;
+	AVERAGE_STRIDE_LENGTH = 55;
+	CURRENT_POWER = 56;
+	CURRENT_POWER_LEFT_RIGHT_BALANCE = 57;
+	MAXIMUM_FORCE = 58;
+	POWER_ZONE_POINTER = 59;
+	AVERAGE_POWER = 60;
+	MAXIMUM_POWER = 61;
+	AVERAGE_POWER_LEFT_RIGHT_BALANCE = 62;
+	CURRENT_LAP_AVERAGE_POWER = 63;
+	CURRENT_LAP_MAXIMUM_POWER = 64;
+	CURRENT_LAP_AVERAGE_POWER_LR_BALANCE = 65;
+	TIME_IN_POWER_ZONE = 66;
+	PREVIOUS_LAP_AVERAGE_POWER = 67;
+	PREVIOUS_LAP_MAXIMUM_POWER = 68;
+	PREVIOUS_LAP_AVERAGE_POWER_LR_BALANCE = 230;
+	REST_TIME = 69;
+	POOL_COUNTER = 70;
+	MULTISPORT_DURATION = 88;
+	MULTISPORT_DISTANCE = 89;
+	MULTISPORT_CALORIES = 90;
+	MULTISPORT_ASCENT = 91;
+	MULTISPORT_DESCENT = 92;
+	HEART_RATE_ZONES = 100;
+	MULTISPORT_HEART_RATE_ZONES = 101;
+	LOCATION_GUIDE = 102;
+	POWER_ZONES = 103;
+	FORCE_GRAPH = 104;
+	TIME_BASED_SPEED_ZONES = 105;
+	CURRENT_ALAP_AVERAGE_HEART_RATE = 200;
+	CURRENT_ALAP_TIME = 201;
+	CURRENT_ALAP_AVERAGE_POWER = 202;
+	CURRENT_ALAP_MAXIMUM_POWER = 203;
+	CURRENT_ALAP_SPEED_OR_PACE = 204;
+	CURRENT_ALAP_DISTANCE = 205;
+	CURRENT_ALAP_ASCENT = 206;
+	CURRENT_ALAP_DESCENT = 207;
+	CURRENT_ALAP_CADENCE = 208;
+	CURRENT_ALAP_AVERAGE_POWER_LR_BALANCE = 209;
+	CURRENT_ALAP_MAX_HEART_RATE = 210;
+	CURRENT_ALAP_MAX_SPEED = 211;
+	CURRENT_ALAP_MAX_CADENCE = 212;
+}
+
+message PbSirius2TrainingDisplay {
+	repeated .data.PbTrainingDisplayItem item = 1 ;
+}
+
+message PbSirius2DisplaySettings {
+	repeated .data.PbSirius2TrainingDisplay display = 1 ;
+	optional uint32 last_shown_display = 2 ;
+	optional uint32 added_default_displays = 3 ;
+}
+
+message PbAutoLapSettings {
+	required .data.PbAutoLapSettings.PbAutomaticLap automatic_lap = 1 ;
+	optional float automatic_lap_distance = 2 ;
+	optional .PbDuration automatic_lap_duration = 3 ;
+	
+	enum PbAutomaticLap {
+		AUTOMATIC_LAP_OFF = 1;
+		AUTOMATIC_LAP_DISTANCE = 2;
+		AUTOMATIC_LAP_DURATION = 3;
+		AUTOMATIC_LAP_LOCATION = 4;
+	}
+}
+
+message PbTrainingReminder {
+	required .data.PbTrainingReminder.PbTrainingReminderType reminder_type = 1 ;
+	optional .PbOneLineText reminder_text = 2 ;
+	optional uint32 calorie_reminder_value = 3 ;
+	optional .PbDuration time_reminder_value = 4 ;
+	optional float distance_reminder_value = 5 ;
+	
+	enum PbTrainingReminderType {
+		TRAINING_REMINDER_OFF = 1;
+		TRAINING_REMINDER_CALORIES_BASED = 2;
+		TRAINING_REMINDER_DISTANCE_BASED = 3;
+		TRAINING_REMINDER_TIME_BASED = 4;
+	}
+}
+
+message PbSportProfileSettings {
+	optional .PbVolume volume = 1 ;
+	optional .data.PbSportProfileSettings.PbSpeedView speed_view = 2 ;
+	optional .data.PbSportProfileSettings.PbZoneOptimizerSetting zone_optimizer_setting = 3 ;
+	optional .PbHeartRateView heart_rate_view = 4 ;
+	optional bool sensor_broadcasting_hr = 5 ;
+	optional .PbZones zone_limits = 6 ;
+	optional .data.PbTrainingReminder training_reminder = 7 ;
+	optional bool voice_guidance = 8 ;
+	optional .data.PbSportProfileSettings.PbGPSSetting gps_setting = 9 ;
+	optional .data.PbAutoLapSettings autolap_settings = 10 ;
+	optional .data.PbSportProfileSettings.PbAltitudeSetting altitude_setting = 11 ;
+	optional .data.PbSportProfileSettings.PbPowerView power_view = 12 ;
+	optional .data.PbSportProfileSettings.PbStrideSpeedSource stride_speed_source = 13 [default = STRIDE_SPEED_SOURCE_STRIDE];
+	repeated .data.PbSportProfileSettings.PbRemoteButtonAction remote_button_actions = 14 ;
+	optional bool hr_zone_lock_available = 15 ;
+	optional bool speed_zone_lock_available = 16 ;
+	optional bool power_zone_lock_available = 17 ;
+	optional .data.PbSportProfileSettings.PbSwimmingUnits swimming_units = 18 ;
+	
+	enum PbSpeedView {
+		SPEED_VIEW_PACE = 1;
+		SPEED_VIEW_SPEED = 2;
+	}
+	
+	enum PbZoneOptimizerSetting {
+		ZONEOPTIMIZER_OFF = 1;
+		ZONEOPTIMIZER_MODIFIED_OFF = 2;
+		ZONEOPTIMIZER_DEFAULT = 3;
+		ZONEOPTIMIZER_MODIFIED = 4;
+	}
+	
+	enum PbGPSSetting {
+		GPS_OFF = 0;
+		GPS_ON_NORMAL = 1;
+		GPS_ON_LONG = 2;
+	}
+	
+	enum PbAltitudeSetting {
+		ALTITUDE_OFF = 0;
+		ALTITUDE_ON = 1;
+	}
+	
+	enum PbPowerView {
+		POWER_VIEW_WATT = 1;
+		POWER_VIEW_WATT_PER_KG = 2;
+		POWER_VIEW_FTP_PERCENT = 3;
+	}
+	
+	enum PbStrideSpeedSource {
+		STRIDE_SPEED_SOURCE_STRIDE = 1;
+		STRIDE_SPEED_SOURCE_GPS = 2;
+	}
+	
+	enum PbRemoteButtonAction {
+		REMOTE_BUTTON_RING_BELL = 1;
+		REMOTE_BUTTON_ACTIVATE_BACKLIGHT = 2;
+		REMOTE_BUTTON_CHANGE_TRAINING_VIEW = 3;
+		REMOTE_BUTTON_TAKE_LAP = 4;
+		REMOTE_BUTTON_ACTIVATE_SAFETY_LIGHT = 5;
+	}
+	
+	enum PbSwimmingUnits {
+		SWIMMING_METERS = 0;
+		SWIMMING_YARDS = 1;
+	}
+}
+
+message PbAutoPause {
+	required .data.PbAutoPause.PbAutoPauseTrigger trigger = 1 ;
+	optional float speed_threshold = 2 ;
+	
+	enum PbAutoPauseTrigger {
+		AUTO_PAUSE_OFF = 0;
+		AUTO_PAUSE_TRIGGER_SPEED = 1;
+	}
+}
+
+message PbSportProfile {
+	optional uint64 identifier = 1 ;
+	required .PbSportIdentifier sport_identifier = 2 ;
+	optional .data.PbSportProfileSettings settings = 3 ;
+	optional .data.PbSirius2DisplaySettings sirius2_display_settings = 4 ;
+	optional float sport_factor = 5 ;
+	optional uint32 aerobic_threshold = 6 ;
+	optional uint32 anaerobic_threshold = 7 ;
+	required .PbSystemDateTime last_modified = 8 ;
+	optional float sprint_threshold = 9 ;
+	optional .data.PbAutoPause auto_pause = 10 ;
+	optional .data.PbGuitarSportProfileSettings guitar_settings = 200 ;
+	optional .data.PbMcLarenSportProfileSettings mclaren_settings = 201 ;
+	optional .data.PbAceSportProfileSettings ace_settings = 202 ;
+	optional .data.PbAvalonSportProfileSettings avalon_settings = 203 ;
+	optional .data.PbArcherSportProfileSettings archer_settings = 204 ;
+	optional .data.PbAstraSportProfileSettings astra_settings = 205 ;
+	optional .data.PbMaseratiSportProfileSettings maserati_settings = 206 ;
+}

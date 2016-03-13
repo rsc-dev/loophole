@@ -1,0 +1,102 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbSwimmingStyleStatistics {
+	required float distance = 1 ;
+	required uint32 stroke_count = 2 ;
+	optional .PbDuration swimming_time_total = 3 ;
+	optional uint32 average_heartrate = 4 ;
+	optional uint32 maximum_heartrate = 5 ;
+	optional float average_swolf = 6 ;
+	optional .PbDuration pool_time_min = 7 ;
+}
+
+message PbSwimmingStatistics {
+	required float swimming_distance = 1 ;
+	optional .data.PbSwimmingStyleStatistics freestyle_statistics = 2 ;
+	optional .data.PbSwimmingStyleStatistics backstroke_statistics = 3 ;
+	optional .data.PbSwimmingStyleStatistics breaststroke_statistics = 4 ;
+	optional .data.PbSwimmingStyleStatistics butterfly_statistics = 5 ;
+	optional uint32 total_stroke_count = 6 ;
+	optional uint32 number_of_pools_swimmed = 7 ;
+	optional .PbSwimmingPoolInfo swimming_pool = 8 ;
+}
+
+message PbHeartRateStatistics {
+	optional uint32 minimum = 1 ;
+	optional uint32 average = 2 ;
+	optional uint32 maximum = 3 ;
+}
+
+message PbSpeedStatistics {
+	optional float average = 1 ;
+	optional float maximum = 2 ;
+}
+
+message PbCadenceStatistics {
+	optional uint32 average = 1 ;
+	optional uint32 maximum = 2 ;
+}
+
+message PbAltitudeStatistics {
+	optional float minimum = 1 ;
+	optional float average = 2 ;
+	optional float maximum = 3 ;
+}
+
+message PbPowerStatistics {
+	optional int32 average = 1 ;
+	optional int32 maximum = 2 ;
+}
+
+message PbCyclingEfficiencyStatistics {
+	optional uint32 average = 1 ;
+}
+
+message PbPedalingEfficiencyStatistics {
+	optional uint32 average = 1 ;
+}
+
+message PbLRBalanceStatistics {
+	optional float average = 1 ;
+}
+
+message PbTemperatureStatistics {
+	optional float minimum = 1 ;
+	optional float average = 2 ;
+	optional float maximum = 3 ;
+}
+
+message PbStrideLengthStatistics {
+	optional uint32 average = 1 ;
+	optional uint32 maximum = 2 ;
+}
+
+message PbInclineStatistics {
+	optional float average = 1 ;
+	optional float maximum = 2 ;
+}
+
+message PbDeclineStatistics {
+	optional float average = 1 ;
+	optional float maximum = 2 ;
+}
+
+message PbActivityStatistics {
+	optional float average = 1 ;
+}
+
+message PbExerciseStatistics {
+	optional .data.PbHeartRateStatistics heart_rate = 1 ;
+	optional .data.PbSpeedStatistics speed = 2 ;
+	optional .data.PbCadenceStatistics cadence = 3 ;
+	optional .data.PbAltitudeStatistics altitude = 4 ;
+	optional .data.PbPowerStatistics power = 5 ;
+	optional .data.PbLRBalanceStatistics left_right_balance = 6 ;
+	optional .data.PbTemperatureStatistics temperature = 7 ;
+	optional .data.PbActivityStatistics activity = 8 ;
+	optional .data.PbStrideLengthStatistics stride_length = 9 ;
+	optional .data.PbInclineStatistics incline = 10 ;
+	optional .data.PbDeclineStatistics decline = 11 ;
+	optional .data.PbSwimmingStatistics swimming = 12 ;
+}

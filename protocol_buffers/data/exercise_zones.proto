@@ -1,0 +1,34 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+package data;
+
+message PbRecordedHeartRateZone {
+	required .PbHeartRateZone zone_limits = 1 ;
+	required .PbDuration in_zone = 2 ;
+}
+
+message PbRecordedPowerZone {
+	required .PbPowerZone zone_limits = 1 ;
+	required .PbDuration in_zone = 2 ;
+}
+
+message PbRecordedFatFitZones {
+	required uint32 fatfit_limit = 1 ;
+	required .PbDuration fat_time = 2 ;
+	required .PbDuration fit_time = 3 ;
+}
+
+message PbRecordedSpeedZone {
+	required .PbSpeedZone zone_limits = 1 ;
+	optional .PbDuration time_in_zone = 2 ;
+	optional float distance_in_zone = 3 ;
+}
+
+message PbRecordedZones {
+	repeated .data.PbRecordedHeartRateZone heart_rate_zone = 1 ;
+	repeated .data.PbRecordedPowerZone power_zone = 2 ;
+	optional .data.PbRecordedFatFitZones fatfit_zones = 3 ;
+	repeated .data.PbRecordedSpeedZone speed_zone = 4 ;
+	optional .PbHeartRateZoneSettingSource heart_rate_setting_source = 10 ;
+	optional .PbPowerZoneSettingSource power_setting_source = 11 ;
+	optional .PbSpeedZoneSettingSource speed_setting_source = 12 ;
+}
