@@ -1,5 +1,9 @@
 ## Changelog
 
+### Version 0.4 (13.03.2016)
+* Added 'delete' command
+* Minor changes
+
 ### Version 0.3 (02.03.2016)
 * Minor changes
 * Added protocol buffers descriptors
