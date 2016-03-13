@@ -3,7 +3,7 @@
 __author__      = 'Radoslaw Matusiak'
 __copyright__   = 'Copyright (c) 2016 Radoslaw Matusiak'
 __license__     = 'MIT'
-__version__     = '0.3'
+__version__     = '0.4'
 
 from collections import namedtuple
 import os
@@ -36,6 +36,93 @@ class Protocol():
         :param path: Path to read.
         :return: Read path message bytes array.
         """
+        return Protocol.pb_pftp_operation(path, action=0x00)
+    # end-of-method read
+
+    @staticmethod
+    def delete(path):
+        """
+        Create delete path message.
+
+        :param path: Path to delete.
+        :return: Delete path message bytes array.
+        """
+        return Protocol.pb_pftp_operation(path, action=0x03)
+    # end-of-method delete
+
+    @staticmethod
+    def put(path, data):
+        """
+        Not working yet.
+
+        :param path:
+        :param data:
+        :return:
+        """
+        raise RuntimeError()
+
+        cmds = []
+
+        length = 64
+
+        p = []
+        p.append(0x01)
+
+        total = len(path) + len(data)
+        if total > 62:
+            p.append(0xf9)
+        else:
+            p.append(total + 8 << 2)
+
+        p.append(0x00)
+        p.append(len(path)+4)
+        p.append(0x00)
+        p.append(0x08)
+        p.append(0x01)
+        p.append(0x12)
+        p.append(len(path))
+        for i in path:
+                p.append(ord(i))
+
+        for i in data[0:(length-9-len(path))]:
+            p.append(ord(i))
+
+        p = p + [0x00] * (64-len(p))
+
+        cmds.append(p)
+
+        j = 1
+        for i in xrange(length-9-len(path), len(data), 61):
+            cmd = [0x01]
+            subdata = data[i:i+61]
+
+            if len(subdata) == 61:
+                cmd.append(0xf9)
+            else:
+                cmd.append((len(subdata) + 2) << 2)
+
+            cmd.append(j)
+
+            for b in subdata:
+                cmd.append(ord(b))
+
+            cmd = cmd + [0x00] * (64-len(cmd))
+            cmds.append(cmd)
+            j += 1
+
+
+        return cmds
+    # end-of-method put
+
+    @staticmethod
+    def pb_pftp_operation(path, action):
+        """
+        Create PFTP operation message.
+
+        :param path: Message path.
+        :param action: Action enum value. (GET=0x00, DELETE=0x03)
+        :return: Message bytes array.
+        """
         a = []
         a.append(0x01)
         a.append((len(path)+8) << 2)
@@ -43,7 +130,7 @@ class Protocol():
         a.append(len(path)+4)
         a.append(0x00)
         a.append(0x08)
-        a.append(0x00)
+        a.append(action)
         a.append(0x12)
         a.append(len(path))
         for i in path:
@@ -51,7 +138,7 @@ class Protocol():
 
         a = a + [0x00] * (64-len(a))
         return a
-    # end-of-method read
+    # end-of-method pb_pftp_operation
 
     @staticmethod
     def ack_packet(packet_no):
@@ -221,7 +308,7 @@ class Usb():
                 pckt_no = data[2]
                 data = self.__send_wait(Protocol.ack_packet(pckt_no), timeout)
 
-            return resp[2:]
+            return resp
         # end-of-method data
 
         pass
@@ -348,7 +435,7 @@ class Usb():
                 ack = Protocol.ack_packet(pckt_no)
                 data = self.__send_wait(ack, timeout)
 
-            return resp[2:]
+            return resp
         # end-of-method send
 
         pass
@@ -409,7 +496,12 @@ class Usb():
         :param timeout: Timeout value.
         :return: Nothing.
         """
-        return self.usb.send(request, timeout)
+        print '[H>D] ' + repr(request)
+        print 'Len: ' + str(len(request))
+        resp = self.usb.send(request, timeout)
+        print '[H<D] ' + repr(resp)
+
+        return resp[2:]
     # end-of-method send
 
     pass
@@ -528,6 +620,17 @@ class Device():
         resp = self.usb.send(request=Protocol.read(path))
         return resp
     # end-of-method read_file
+
+    def delete(self, path):
+        """
+        Delete path from device.
+
+        :param path: File's path.
+        :return: Device response.
+        """
+        resp = self.usb.send(request=Protocol.delete(path))
+        return resp
+    # end-of-method delete
 
     @staticmethod
     def get_product_by_id(id):
