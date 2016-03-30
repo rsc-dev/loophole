@@ -496,11 +496,7 @@ class Usb():
         :param timeout: Timeout value.
         :return: Nothing.
         """
-        print '[H>D] ' + repr(request)
-        print 'Len: ' + str(len(request))
         resp = self.usb.send(request, timeout)
-        print '[H<D] ' + repr(resp)
-
         return resp[2:]
     # end-of-method send
 
