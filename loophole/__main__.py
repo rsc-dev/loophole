@@ -85,6 +85,12 @@ Usage: connect <device_no>
         """
         try:
             dev_no = int(dev_no)
+        except ValueError:
+            print '[!] You need to specify the device number. Run \'list\' to see available devices.'
+            print
+            return
+
+        try:
             devs = Device.list()
             dev = devs[dev_no]
             serial = Device.get_info(dev)['serial_number']
