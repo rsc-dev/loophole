@@ -3,7 +3,7 @@
 __author__      = 'Radoslaw Matusiak'
 __copyright__   = 'Copyright (c) 2016 Radoslaw Matusiak'
 __license__     = 'MIT'
-__version__     = '0.4'
+__version__     = '0.5'
 
 
 import cmd
@@ -199,8 +199,45 @@ Usage: info
             print '[!] Failed to get extended info.'
 
         print ' '
-
     # end-of-method do_info
+
+    @check_if_device_is_connected
+    def do_fuzz(self, _):
+        import polar
+        num = _.strip()
+
+        if len(num) > 0:
+            num = int(num)
+            resp = self.device.send_raw([0x01, num] + [0x00] * 62)
+            print 'req: {} '.format(num),
+            if resp:
+                print 'err code: {}'.format(polar.PFTP_ERROR[resp[0]])
+
+            return
+
+        for i in xrange(256):
+            #raw_input('Sending [{}]...<press enter>'.format(i))
+            if (i & 0x03) == 2:
+                continue
+
+            if i in [3, 251, 252]:
+                continue
+
+            resp = self.device.send_raw([0x01, i] + [0x00] * 62)
+
+
+            print 'resp: {} '.format(i),
+            if resp:
+                print 'err code: {}'.format(polar.PFTP_ERROR[resp[0]])
+            else:
+                print
+    # end-of-method do_fuzz
+
+    @check_if_device_is_connected
+    def do_put_file(self, line):
+        path, filename = line.split()
+        self.device.put_file(path.strip(), filename.strip())
+    # end-of-method do_put_file
 
     @check_if_device_is_connected
     def do_walk(self, path):

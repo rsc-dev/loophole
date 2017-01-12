@@ -3,13 +3,107 @@
 __author__      = 'Radoslaw Matusiak'
 __copyright__   = 'Copyright (c) 2016 Radoslaw Matusiak'
 __license__     = 'MIT'
-__version__     = '0.4'
+__version__     = '0.5'
 
 from collections import namedtuple
 import os
 import time
 
 import polar.pb.pftp_response_pb2 as pb_resp
+import polar.pb.pftp_request_pb2 as pb_req
+
+
+PFTP_ERROR = {0: 'OPERATION_SUCCEEDED',
+                 1: 'REBOOTING',
+                 2: 'TRY_AGAIN',
+                 203: 'INVALID_CONTENT',
+                 100: 'UNIDENTIFIED_HOST_ERROR',
+                 101: 'INVALID_COMMAND',
+                 102: 'INVALID_PARAMETER',
+                 103: 'NO_SUCH_FILE_OR_DIRECTORY',
+                 200: 'UNIDENTIFIED_DEVICE_ERROR',
+                 201: 'NOT_IMPLEMENTED',
+                 106: 'OPERATION_NOT_PERMITTED',
+                 107: 'NO_SUCH_USER',
+                 204: 'CHECKSUM_FAILURE',
+                 205: 'DISK_FULL',
+                 206: 'PREREQUISITE_NOT_MET',
+                 207: 'INSUFFICIENT_BUFFER',
+                 208: 'WAIT_FOR_IDLING',
+                 104: 'DIRECTORY_EXISTS',
+                 108: 'TIMEOUT',
+                 105: 'FILE_EXISTS',
+                 202: 'SYSTEM_BUSY'}
+
+
+class Packet():
+    """ Polar device USB packet.
+
+        Packet 64 bytes:
+        [0] - id
+        [1] - size(6bits) + is_last(2bits)
+        [2] - sequence
+        [3...63] - data
+    """
+
+    PACKET_SIZE = 64
+    DATA_SIZE = 61
+
+    def __init__(self):
+        self.buffer = [0] * 64
+        self.set_id()
+        self.set_sequence()
+        self.set_is_last(True)
+    # end-of-method __init__
+
+    def set_id(self, p_id=0x01):
+        self.buffer[0] = p_id
+    # end-of-method set_id
+
+    def get_id(self):
+        return self.buffer[0]
+    # end-of-method get_id
+
+    def set_size(self, size):
+        self.buffer[1] &= 0x03
+        self.buffer[1] = ((size + 2) << 2)
+    # end-of-method set_size
+
+    def get_size(self):
+        return ((self.buffer[1] & 0xfc) >> 2) - 2
+    # end-of-method get_size
+
+    def set_is_last(self, is_last):
+        self.buffer[1] &= 0xfc
+        self.buffer[1] |= 0 if is_last else 1
+    # end-of-method set_is_last
+
+    def get_is_last(self):
+        return (self.buffer[1] & 0x03) == 0
+    # end-of-method get_is_last
+
+    def set_sequence(self, sequence_id=0x00):
+        self.buffer[2] = sequence_id
+    # end-of-method set_sequence
+
+    def get_sequence(self):
+        return self.buffer[2]
+    # end-of-method get_sequence
+
+    def set_data(self, data):
+        if len(data) <= Packet.DATA_SIZE:
+            self.buffer[3:3+len(data)] = data
+            self.set_size(len(data))
+        else:
+            raise RuntimeError('Packet data to big!')
+    # end-of-method set_data
+
+    def get_raw_packet(self):
+        return self.buffer
+    # end-of-method get_packet
+
+    pass
+# end-of-class Packet
 
 
 class Protocol():
@@ -36,7 +130,7 @@ class Protocol():
         :param path: Path to read.
         :return: Read path message bytes array.
         """
-        return Protocol.pb_pftp_operation(path, action=0x00)
+        return Protocol.pb_pftp_operation(path, 0x00)
     # end-of-method read
 
     @staticmethod
@@ -115,7 +209,21 @@ class Protocol():
     # end-of-method put
 
     @staticmethod
-    def pb_pftp_operation(path, action):
+    def put_data(path, data):
+        req = pb_req.PbPFtpOperation()
+        req.command = req.PUT
+        req.path = path
+
+        ser_all = chr(len(path) + 4) + chr(0x00)
+        ser_all += req.SerializeToString()
+
+        all_data = ser_all + data
+
+        pass
+    # end-of-method put_data
+
+    @staticmethod
+    def pb_pftp_operation(path, command):
         """
         Create PFTP operation message.
 
@@ -123,21 +231,19 @@ class Protocol():
         :param action: Action enum value. (GET=0x00, DELETE=0x03)
         :return: Message bytes array.
         """
-        a = []
-        a.append(0x01)
-        a.append((len(path)+8) << 2)
-        a.append(0x00)
-        a.append(len(path)+4)
-        a.append(0x00)
-        a.append(0x08)
-        a.append(action)
-        a.append(0x12)
-        a.append(len(path))
-        for i in path:
-                a.append(ord(i))
+        p = Packet()
 
-        a = a + [0x00] * (64-len(a))
-        return a
+        req = pb_req.PbPFtpOperation()
+        req.command = command
+        req.path = path
+
+        data = [len(path) + 4, 0x00]
+        data += [ord(c) for c in req.SerializeToString()]
+
+        p.set_data(data)
+
+
+        return p.get_raw_packet()
     # end-of-method pb_pftp_operation
 
     @staticmethod
@@ -488,16 +594,21 @@ class Usb():
         self.usb.close()
     # end-of-method close
 
-    def send(self, request, timeout=5000):
+    def send(self, request, timeout=5000, skip_header=True):
         """
         Send
 
         :param request: UsbDevice instance for device to connect.
         :param timeout: Timeout value.
+        :param skip_header: Backward compatibility. If false, raw device response is returned.
         :return: Nothing.
         """
         resp = self.usb.send(request, timeout)
-        return resp[2:]
+
+        if skip_header:
+            return resp[2:]
+        else:
+            return resp
     # end-of-method send
 
     pass
@@ -613,7 +724,8 @@ class Device():
         :param path: File's path.
         :return: Bytes list.
         """
-        resp = self.usb.send(request=Protocol.read(path))
+        req = Protocol.read(path)
+        resp = self.usb.send(request=req)
         return resp
     # end-of-method read_file
 
@@ -627,6 +739,31 @@ class Device():
         resp = self.usb.send(request=Protocol.delete(path))
         return resp
     # end-of-method delete
+
+    def send_raw(self, data):
+        """
+        Send raw data to device.
+
+        :param data: Data to send.
+        :return: Device response.
+        """
+        resp = self.usb.send(request=data, skip_header=False)
+        return resp
+    # end-of-method send_raw
+
+    def put_file(self, path, file_name):
+        try:
+            data = open(file_name, 'rb').read()
+            packets = Protocol.put_data(path, data)
+
+            print 'Put file {} on {}'.format(file_name, path)
+
+            for p in packets:
+                resp = self.usb.send(p)
+                print 'PUT_FILE: {}'.format(resp)
+        except IOError:
+            raise
+    # end-of-method put_file
 
     @staticmethod
     def get_product_by_id(id):
