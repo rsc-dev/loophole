@@ -141,7 +141,7 @@ class Protocol():
         :param path: Path to delete.
         :return: Delete path message bytes array.
         """
-        return Protocol.pb_pftp_operation(path, action=0x03)
+        return Protocol.pb_pftp_operation(path, 0x03)
     # end-of-method delete
 
     @staticmethod
