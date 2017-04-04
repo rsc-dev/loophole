@@ -1,5 +1,8 @@
 ## Changelog
 
+### dev (not released, yet)
+* Display helpful message if usb access permission are missing (contibuted by [jedie](https://github.com/jedie/))
+
 ### Version 0.4 (13.03.2016)
 * Added 'delete' command
 * Minor changes
