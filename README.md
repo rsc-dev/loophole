@@ -48,6 +48,17 @@ connect  disconnect  exit  help  info  list  walk
 | list | List available Polar devices. |
 | walk [path] | Walk file system. Default path is root path (\\). |
 
+### permissions
+
+Note: You need the right permission to access the USB device. Otherwise you will get the error: `The device has no langid`
+
+e.g.: run as root via sudo:
+
+```bash
+sudo python __main__.py
+```
+
+Or create udev role.
 
 ### Dependencies
 * [protobuf](https://pypi.python.org/pypi/protobuf/3.0.0b2) 
