@@ -71,7 +71,6 @@ Usage: list
 
         if len(devs) > 0:
             for i, dev in enumerate(devs):
-                print i, dev
                 try:
                     info = Device.get_info(dev)
                 except ValueError as err:
