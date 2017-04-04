@@ -71,7 +71,24 @@ Usage: list
 
         if len(devs) > 0:
             for i, dev in enumerate(devs):
-                info = Device.get_info(dev)
+                print i, dev
+                try:
+                    info = Device.get_info(dev)
+                except ValueError as err:
+                    print "Device no: %i" % i
+                    print "Device info:"
+                    print dev
+                    print "-"*79
+                    if 'langid' in err.message:
+                        raise ValueError(
+                            (
+                                "Can't get device info. Origin Error: %s\n"
+                                "Maybe this is a permission issue.\n"
+                                "Please read section 'permission' in README ;)"
+                            ) % err
+                        )
+                    raise # raise origin error
+
                 print '{} - {} ({})'.format(i, info['product_name'], info['serial_number'])
         else:
             print '[!] No Polar devices found!'
