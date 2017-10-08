@@ -1,4 +1,6 @@
+import sys
 from distutils.core import setup
+
 setup(
   name = 'loophole',
   packages = ['loophole'],
