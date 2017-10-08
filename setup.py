@@ -18,4 +18,7 @@ setup(
     'Programming Language :: Python',
     'Topic :: Software Development :: Libraries :: Python Modules'
   ],
+  install_requires=['protobuf'] + (
+        ['pywinusb'] if "win" in sys.platform else ['pyusb']
+        )
 )
