@@ -9,8 +9,8 @@ from collections import namedtuple
 import os
 import time
 
-import polar.pb.pftp_response_pb2 as pb_resp
-import polar.pb.pftp_request_pb2 as pb_req
+import pb.pftp_response_pb2 as pb_resp
+import pb.pftp_request_pb2 as pb_req
 
 
 PFTP_ERROR = {0: 'OPERATION_SUCCEEDED',

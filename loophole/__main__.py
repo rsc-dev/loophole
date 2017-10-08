@@ -12,7 +12,7 @@ import os
 import sys
 
 from polar import Device
-import polar.pb.device_pb2 as pb_device
+from polar.pb import device_pb2 as pb_device
 
 __INTRO = """
 
