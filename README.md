@@ -10,6 +10,15 @@ Tested with:
 * Loop
 * M400
 
+## Installation
+```sh
+pip install loophole
+```
+or
+```sh
+python setup.py install
+```
+
 ## Usage
 ### CLI
 Invoke CLI:
