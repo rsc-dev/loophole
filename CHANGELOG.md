@@ -1,6 +1,8 @@
 ## Changelog
 
-### dev (not released, yet)
+### Version 0.5 (08.10.2017)
+* Support PUT command
+* Simple protocol fuzzer
 * Display helpful message if usb access permission are missing (contibuted by [jedie](https://github.com/jedie/))
 
 ### Version 0.4 (13.03.2016)
