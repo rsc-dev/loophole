@@ -3,13 +3,13 @@ from distutils.core import setup
 
 setup(
   name = 'loophole',
-  packages = ['loophole'],
-  version = '0.5',
+  packages = ['loophole', 'loophole.polar', 'loophole.polar.pb'],
+  version = '0.5.1',
   description = 'Polar devices Python API and CLI.',
   author = 'Radoslaw Matusiak',
   author_email = 'radoslaw.matusiak@gmail.com',
   url = 'https://github.com/rsc-dev/loophole',
-  download_url = 'https://github.com/rsc-dev/loophole/releases/tag/0.5',
+  download_url = 'https://github.com/rsc-dev/loophole/releases/tag/0.5.1',
   keywords = ['polar', 'api', 'cli', 'reverse', ''],
   classifiers = [
     'Development Status :: 5 - Production/Stable',
