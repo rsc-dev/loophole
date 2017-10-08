@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'loophole',
   packages = ['loophole'],
-  version = '05',
+  version = '0.5',
   description = 'Polar devices Python API and CLI.',
   author = 'Radoslaw Matusiak',
   author_email = 'radoslaw.matusiak@gmail.com',
