@@ -47,3 +47,8 @@ message PbPFtpBatteryStatusResult {
 message PbPFtpGetInactivityPreAlertResult {
 	required bool inactivity_pre_alert_on = 1 ;
 }
+
+message PbRequestRecordingStatusResult {
+	required bool recording_on = 1 ;
+	optional string sample_data_identifier = 2 ;
+}

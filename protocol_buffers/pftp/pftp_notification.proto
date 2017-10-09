@@ -12,6 +12,8 @@ enum PbPFtpDevToHostNotification {
 	AUTOSYNC_STATUS = 8;
 	PNS_DH_NOTIFICATION_RESPONSE = 9;
 	PNS_SETTINGS = 10;
+	START_GPS_MEASUREMENT = 11;
+	STOP_GPS_MEASUREMENT = 12;
 }
 
 enum Action {
@@ -38,6 +40,13 @@ enum PbPFtpHostToDevNotification {
 	PNS_HD_NOTIFICATION = 7;
 	INITIALIZE_SESSION = 8;
 	TERMINATE_SESSION = 9;
+	SIMULATE_BUTTON_PRESS = 10;
+	SIMULATE_TOUCH_SCREEN = 11;
+	REQUEST_SYNC = 12;
+	FIRMWARE_UPDATE_AVAILABLE = 13;
+	GPS_DATA = 14;
+	GPS_LOST = 15;
+	GPS_NO_PERMISSION = 16;
 }
 
 enum PbPftpPnsHDCategoryID {
@@ -103,6 +112,43 @@ message PbPftpPnsState {
 	optional bool preview_enabled = 2 ;
 }
 
+message PbPftpStartGPSMeasurement {
+	optional uint32 minimum_interval = 1 [default = 1000];
+	optional uint32 accuracy = 2 [default = 2];
+	optional double latitude = 3 ;
+	optional double longitude = 4 ;
+}
+
+message PbInitializeSessionParams {
+	optional bool uses_attribute_level_response = 1 ;
+}
+
+message PbFirmwareUpdateAvailableParams {
+	required bool mandatory = 1 ;
+}
+
+message PbPFtpSimulateButtonPressParams {
+	required .Buttons button = 1 ;
+	required .ButtonState state = 2 ;
+}
+
+message PbPFtpTouchPosition {
+	required uint32 pos = 1 ;
+	optional uint32 max_pos = 2 ;
+}
+
+message PbPFtpSimulateTouchScreenParams {
+	required .protocol.PbPFtpSimulateTouchScreenParams.PbPFtpTouchState state = 1 ;
+	optional .protocol.PbPFtpTouchPosition x_pos = 2 ;
+	optional .protocol.PbPFtpTouchPosition y_pos = 3 ;
+	
+	enum PbPFtpTouchState {
+		TOUCH_STATE_START = 0;
+		TOUCH_STATE_POSITION = 1;
+		TOUCH_STATE_END = 2;
+	}
+}
+
 message PbPFtpStopSyncParams {
 	required bool completed = 1 ;
 	optional string description = 2 ;
@@ -132,4 +178,14 @@ message PbPftpPnsHDNotification {
 	optional uint32 new_same_category_notifications = 5 ;
 	optional uint32 unread_same_category_notifications = 6 ;
 	repeated .protocol.PbPftpPnsHDAttribute attributes = 7 ;
+}
+
+message PbPFtpGPSDataParams {
+	required double latitude = 1 ;
+	required double longitude = 2 ;
+	optional float speed = 3 ;
+	optional float distance = 4 ;
+	optional float altitude = 5 ;
+	optional uint32 satellite_amount = 6 ;
+	optional uint32 time_offset = 7 ;
 }
