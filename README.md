@@ -1,5 +1,6 @@
 # loophole - Polar devices API
 
+[![PyPI](https://img.shields.io/pypi/v/loophole.svg)](https://pypi.python.org/pypi/loophole)
 [![Join the chat at https://gitter.im/rsc-dev/loophole](https://badges.gitter.im/rsc-dev/loophole.svg)](https://gitter.im/rsc-dev/loophole?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## About
