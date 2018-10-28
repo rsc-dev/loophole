@@ -63,6 +63,11 @@ Usage: exit
         sys.exit(0)
     # end-of-method do_exit
 
+    def do_EOF(self, _):
+        """Quit. handles EOF"""
+        self.do_exit(_)
+    # end-of-method do_EOF
+
     def do_list(self, _):
         """List available Polar devices.
 Usage: list
