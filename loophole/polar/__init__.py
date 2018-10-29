@@ -287,7 +287,7 @@ class Usb():
             self.device = None
         # end-of-method __init__
 
-        def __send_wait(self, request, timeout=2000):
+        def __send_wait(self, request, timeout=5000):
             """
             This is internal method used for HOST->DEVICE communication.
             This method only sends raw request and returns raw response.
@@ -394,12 +394,12 @@ class Usb():
             self.device.close()
         # end-of-method close
 
-        def send(self, request, timeout=2000):
+        def send(self, request, timeout=5000):
             """
             Send raw data to device and read response.
 
             :param request: Request to send.
-            :param timeout: Max timeout in milliseconds. Default value: 2000 ms.
+            :param timeout: Max timeout in milliseconds. Default value: 5000 ms.
             :return: Response from device.
             """
             resp = []
