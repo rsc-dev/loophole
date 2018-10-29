@@ -70,10 +70,25 @@ sudo python __main__.py
 
 Or create udev role.
 
+```bash
+cat - > /etc/udev/rules.d/40-Polar_A360.rules << EOF
+#Polar A360 permissions granted to users group
+SUBSYSTEM=="usb", ATTRS{idProduct}=="0008", ATTRS{idVendor}=="0da4", MODE="0660", GROUP="plugdev"
+SUBSYSTEMS=="usb-serial", MODE="0660", GROUP="plugdev"
+EOF
+
+udevadm control --reload-rules && udevadm trigger
+```
+
 ### Dependencies
 * [protobuf](https://pypi.python.org/pypi/protobuf/3.0.0b2) 
 * [pywinusb](https://pypi.python.org/pypi/pywinusb/) (Windows)
 * [pyusb] (https://github.com/walac/pyusb) (Linux, > 1.0.0rc1)
+
+#### for debian/ubuntu:
+```bash
+sudo apt install python-protobuf python-usb
+```
 
 ## Changelog
 [Here](https://github.com/rsc-dev/loophole/blob/master/CHANGELOG.md).
