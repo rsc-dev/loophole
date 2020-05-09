@@ -1,5 +1,9 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
 package protocol;
+
+import "types.proto";
 
 enum PbPFtpDevToHostNotification {
 	FILESYSTEM_MODIFIED = 0;
@@ -12,6 +16,10 @@ enum PbPFtpDevToHostNotification {
 	AUTOSYNC_STATUS = 8;
 	PNS_DH_NOTIFICATION_RESPONSE = 9;
 	PNS_SETTINGS = 10;
+	START_GPS_MEASUREMENT = 11;
+	STOP_GPS_MEASUREMENT = 12;
+	KEEP_BACKGROUND_ALIVE = 13;
+	POLAR_SHELL_DH_DATA = 14;
 }
 
 enum Action {
@@ -25,6 +33,10 @@ enum PbPftpPnsDHAttributeType {
 	POSITIVE_ACTION = 2;
 	NEGATIVE_ACTION = 3;
 	CLEAR_ACTION = 4;
+	A_ACTION = 5;
+	B_ACTION = 6;
+	C_ACTION = 7;
+	D_ACTION = 8;
 }
 
 enum PbPFtpHostToDevNotification {
@@ -38,6 +50,14 @@ enum PbPFtpHostToDevNotification {
 	PNS_HD_NOTIFICATION = 7;
 	INITIALIZE_SESSION = 8;
 	TERMINATE_SESSION = 9;
+	SIMULATE_BUTTON_PRESS = 10;
+	SIMULATE_TOUCH_SCREEN = 11;
+	REQUEST_SYNC = 12;
+	FIRMWARE_UPDATE_AVAILABLE = 13;
+	GPS_DATA = 14;
+	GPS_LOST = 15;
+	GPS_NO_PERMISSION = 16;
+	POLAR_SHELL_HD_DATA = 17;
 }
 
 enum PbPftpPnsHDCategoryID {
@@ -69,6 +89,10 @@ enum PbPftpPnsHDAttributeType {
 	NEGATIVE_ACTION_LABEL = 4;
 	APPLICATION_NAME = 5;
 	CLEAR_ACTION_LABEL = 6;
+	A_ACTION_LABEL = 7;
+	B_ACTION_LABEL = 8;
+	C_ACTION_LABEL = 9;
+	D_ACTION_LABEL = 10;
 }
 
 message PbPFtpFilesystemModifiedParams {
@@ -89,6 +113,11 @@ message PbPFtpAutoSyncStatusParams {
 	optional string description = 2 ;
 }
 
+message PbPFtpPolarShellMessageParams {
+	required uint32 polarShellMsgId = 1 ;
+	optional string data = 2 ;
+}
+
 message PbPftpPnsDHAttribute {
 	required .protocol.PbPftpPnsDHAttributeType type = 1 ;
 }
@@ -101,6 +130,43 @@ message PbPftpPnsDHNotificationResponse {
 message PbPftpPnsState {
 	required bool notifications_enabled = 1 ;
 	optional bool preview_enabled = 2 ;
+}
+
+message PbPftpStartGPSMeasurement {
+	optional uint32 minimum_interval = 1 [default = 1000];
+	optional uint32 accuracy = 2 [default = 2];
+	optional double latitude = 3 ;
+	optional double longitude = 4 ;
+}
+
+message PbInitializeSessionParams {
+	optional bool uses_attribute_level_response = 1 ;
+}
+
+message PbFirmwareUpdateAvailableParams {
+	required bool mandatory = 1 ;
+}
+
+message PbPFtpSimulateButtonPressParams {
+	required .Buttons button = 1 ;
+	required .ButtonState state = 2 ;
+}
+
+message PbPFtpTouchPosition {
+	required uint32 pos = 1 ;
+	optional uint32 max_pos = 2 ;
+}
+
+message PbPFtpSimulateTouchScreenParams {
+	required .protocol.PbPFtpSimulateTouchScreenParams.PbPFtpTouchState state = 1 ;
+	optional .protocol.PbPFtpTouchPosition x_pos = 2 ;
+	optional .protocol.PbPFtpTouchPosition y_pos = 3 ;
+	
+	enum PbPFtpTouchState {
+		TOUCH_STATE_START = 0;
+		TOUCH_STATE_POSITION = 1;
+		TOUCH_STATE_END = 2;
+	}
 }
 
 message PbPFtpStopSyncParams {
@@ -132,4 +198,14 @@ message PbPftpPnsHDNotification {
 	optional uint32 new_same_category_notifications = 5 ;
 	optional uint32 unread_same_category_notifications = 6 ;
 	repeated .protocol.PbPftpPnsHDAttribute attributes = 7 ;
+}
+
+message PbPFtpGPSDataParams {
+	required double latitude = 1 ;
+	required double longitude = 2 ;
+	optional float speed = 3 ;
+	optional float distance = 4 ;
+	optional float altitude = 5 ;
+	optional uint32 satellite_amount = 6 ;
+	optional uint32 time_offset = 7 ;
 }

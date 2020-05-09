@@ -1,5 +1,10 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
 package data;
+
+import "structures.proto";
+import "types.proto";
 
 message PbLocalizationPreferences {
 	optional .PbLanguageId language = 1 ;
@@ -13,7 +18,7 @@ message PbLocalizationPreferences {
 
 message PbTrainingPreferences {
 	optional uint32 OBSOLETE_heart_rate_zone_lock = 1 ;
-	optional .PbHeartRateView heart_rate_view = 2 ;
+	optional .PbHeartRateView OBSOLETE_heart_rate_view = 2 ;
 }
 
 message PbActivityGoalPreferences {

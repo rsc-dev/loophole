@@ -1,5 +1,9 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
 package protocol;
+
+import "types.proto";
 
 message PbPFtpEntry {
 	required string name = 1 ;
@@ -39,6 +43,15 @@ message PbPFtpGenerateChallengeTokenResult {
 	required bytes token = 1 ;
 }
 
+message PbPFtpGenerateAsymmetricKeysResult {
+	optional bytes public_key = 1 ;
+	optional .protocol.PbPFtpGenerateAsymmetricKeysResult.PbAsymmetricKeyFormat asymmetric_key_format = 2 ;
+	
+	enum PbAsymmetricKeyFormat {
+		SEC256KL_COMPRESSED = 0;
+	}
+}
+
 message PbPFtpBatteryStatusResult {
 	required uint32 battery_status = 1 ;
 	optional bool charging = 2 ;
@@ -46,4 +59,17 @@ message PbPFtpBatteryStatusResult {
 
 message PbPFtpGetInactivityPreAlertResult {
 	required bool inactivity_pre_alert_on = 1 ;
+}
+
+message PbRequestRecordingStatusResult {
+	required bool recording_on = 1 ;
+	optional string sample_data_identifier = 2 ;
+}
+
+message PbRequestDisplayStatus {
+	required bool display_on = 1 ;
+}
+
+message PbPFtpGetVisualElementsResult {
+	required string visual_data_path = 1 ;
 }

@@ -14,16 +14,17 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import structures_pb2
-import types_pb2
+import structures_pb2 as structures__pb2
+import types_pb2 as types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='bluetooth_device.proto',
   package='data',
-  serialized_pb=_b('\n\x16\x62luetooth_device.proto\x12\x04\x64\x61ta\x1a\x10structures.proto\x1a\x0btypes.proto\"\x19\n\tPbBleUuid\x12\x0c\n\x04uuid\x18\x01 \x02(\x0c\"D\n\x13PbBleCharacteristic\x12\x0e\n\x06handle\x18\x01 \x02(\r\x12\x1d\n\x04type\x18\x02 \x02(\x0b\x32\x0f.data.PbBleUuid\"h\n\x0cPbBleService\x12$\n\x0bserviceUuid\x18\x01 \x02(\x0b\x32\x0f.data.PbBleUuid\x12\x32\n\x0f\x63haracteristics\x18\x02 \x03(\x0b\x32\x19.data.PbBleCharacteristic\"K\n\tPbBleUser\x12\x12\n\nuser_index\x18\x01 \x02(\r\x12\x19\n\x11\x64\x65vice_user_index\x18\x02 \x02(\r\x12\x0f\n\x07\x63onsent\x18\x03 \x01(\r\"\xcd\x0b\n\x0bPbBleDevice\x12!\n\x06paired\x18\x01 \x02(\x0b\x32\x11.PbSystemDateTime\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12\x34\n\x0cmanufacturer\x18\x03 \x02(\x0e\x32\x1e.data.PbDeviceManufacturerType\x12-\n\x12\x64\x65leted_time_stamp\x18\x05 \x01(\x0b\x32\x11.PbSystemDateTime\x12\x16\n\x03mac\x18\x06 \x01(\x0b\x32\t.PbBleMac\x12\x11\n\tdevice_id\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12\x15\n\rbattery_level\x18\t \x01(\r\x12\x19\n\x11manufacturer_name\x18\n \x01(\t\x12\x12\n\nmodel_name\x18\x0b \x01(\t\x12\x10\n\x08peer_ltk\x18\x0c \x01(\x0c\x12\x10\n\x08peer_irk\x18\r \x01(\x0c\x12\x11\n\tpeer_csrk\x18\x0e \x01(\x0c\x12*\n\x12\x61vailable_features\x18\x0f \x03(\x0e\x32\x0e.PbFeatureType\x12$\n\x08services\x18\x10 \x03(\x0b\x32\x12.data.PbBleService\x12\x11\n\tpeer_rand\x18\x11 \x01(\x0c\x12\x11\n\tpeer_ediv\x18\x12 \x01(\r\x12\x15\n\rencr_key_size\x18\x13 \x01(\r\x12\x18\n\x10\x64istributed_keys\x18\x14 \x01(\r\x12\x15\n\rauthenticated\x18\x15 \x01(\x08\x12;\n\x0fsensor_location\x18\x16 \x01(\x0e\x32\".data.PbBleDevice.PbSensorLocation\x12\x18\n\x10software_version\x18\x17 \x01(\t\x12\"\n\x1asecondary_software_version\x18\x18 \x01(\t\x12\x15\n\rserial_number\x18\x19 \x01(\t\x12\x11\n\tlocal_ltk\x18\x1a \x01(\x0c\x12\x12\n\nlocal_rand\x18\x1b \x01(\x0c\x12\x12\n\nlocal_ediv\x18\x1c \x01(\r\x12\"\n\tuser_data\x18\x1d \x03(\x0b\x32\x0f.data.PbBleUser\"\xc1\x01\n\x0cPbBleKeyType\x12\x1b\n\x17\x42LE_PEER_ENCRYPTION_KEY\x10\x01\x12\x1f\n\x1b\x42LE_PEER_IDENTIFICATION_KEY\x10\x02\x12\x18\n\x14\x42LE_PEER_SIGNING_KEY\x10\x04\x12\x1c\n\x18\x42LE_LOCAL_ENCRYPTION_KEY\x10\x08\x12 \n\x1c\x42LE_LOCAL_IDENTIFICATION_KEY\x10\x10\x12\x19\n\x15\x42LE_LOCAL_SIGNING_KEY\x10 \"\xe0\x03\n\x10PbSensorLocation\x12\x19\n\x15SENSOR_LOCATION_OTHER\x10\x00\x12\x1f\n\x1bSENSOR_LOCATION_TOP_OF_SHOE\x10\x01\x12\x1b\n\x17SENSOR_LOCATION_IN_SHOE\x10\x02\x12\x17\n\x13SENSOR_LOCATION_HIP\x10\x03\x12\x1f\n\x1bSENSOR_LOCATION_FRONT_WHEEL\x10\x04\x12\x1e\n\x1aSENSOR_LOCATION_LEFT_CRANK\x10\x05\x12\x1f\n\x1bSENSOR_LOCATION_RIGHT_CRANK\x10\x06\x12\x1e\n\x1aSENSOR_LOCATION_LEFT_PEDAL\x10\x07\x12\x1f\n\x1bSENSOR_LOCATION_RIGHT_PEDAL\x10\x08\x12\x1d\n\x19SENSOR_LOCATION_FRONT_HUB\x10\t\x12 \n\x1cSENSOR_LOCATION_REAR_DROPOUT\x10\n\x12\x1d\n\x19SENSOR_LOCATION_CHAINSTAY\x10\x0b\x12\x1e\n\x1aSENSOR_LOCATION_REAR_WHEEL\x10\x0c\x12\x1c\n\x18SENSOR_LOCATION_REAR_HUB\x10\r\x12\x19\n\x15SENSOR_LOCATION_CHEST\x10\x0e*J\n\x18PbDeviceManufacturerType\x12\x16\n\x12MANUFACTURER_POLAR\x10\x01\x12\x16\n\x12MANUFACTURER_OTHER\x10\x02')
+  syntax='proto2',
+  serialized_pb=_b('\n\x16\x62luetooth_device.proto\x12\x04\x64\x61ta\x1a\x10structures.proto\x1a\x0btypes.proto\"K\n\tPbBleUser\x12\x12\n\nuser_index\x18\x01 \x02(\r\x12\x19\n\x11\x64\x65vice_user_index\x18\x02 \x02(\r\x12\x0f\n\x07\x63onsent\x18\x03 \x01(\r\"\x99\x18\n\x0bPbBleDevice\x12!\n\x06paired\x18\x01 \x02(\x0b\x32\x11.PbSystemDateTime\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12\x34\n\x0cmanufacturer\x18\x03 \x02(\x0e\x32\x1e.data.PbDeviceManufacturerType\x12-\n\x12\x64\x65leted_time_stamp\x18\x05 \x01(\x0b\x32\x11.PbSystemDateTime\x12\x16\n\x03mac\x18\x06 \x01(\x0b\x32\t.PbBleMac\x12\x11\n\tdevice_id\x18\x07 \x01(\t\x12\x0c\n\x04name\x18\x08 \x01(\t\x12\x15\n\rbattery_level\x18\t \x01(\r\x12\x19\n\x11manufacturer_name\x18\n \x01(\t\x12\x12\n\nmodel_name\x18\x0b \x01(\t\x12\x10\n\x08peer_ltk\x18\x0c \x01(\x0c\x12\x10\n\x08peer_irk\x18\r \x01(\x0c\x12\x11\n\tpeer_csrk\x18\x0e \x01(\x0c\x12*\n\x12\x61vailable_features\x18\x0f \x03(\x0e\x32\x0e.PbFeatureType\x12\x1f\n\x08services\x18\x10 \x03(\x0b\x32\r.PbBleService\x12\x11\n\tpeer_rand\x18\x11 \x01(\x0c\x12\x11\n\tpeer_ediv\x18\x12 \x01(\r\x12\x15\n\rencr_key_size\x18\x13 \x01(\r\x12\x18\n\x10\x64istributed_keys\x18\x14 \x01(\r\x12\x15\n\rauthenticated\x18\x15 \x01(\x08\x12;\n\x0fsensor_location\x18\x16 \x01(\x0e\x32\".data.PbBleDevice.PbSensorLocation\x12\x1f\n\x17OBSOLETE_device_version\x18\x17 \x01(\t\x12\"\n\x1asecondary_software_version\x18\x18 \x01(\t\x12\x15\n\rserial_number\x18\x19 \x01(\t\x12\x11\n\tlocal_ltk\x18\x1a \x01(\x0c\x12\x12\n\nlocal_rand\x18\x1b \x01(\x0c\x12\x12\n\nlocal_ediv\x18\x1c \x01(\r\x12\"\n\tuser_data\x18\x1d \x03(\x0b\x32\x0f.data.PbBleUser\x12?\n\x11\x64\x65vice_appearance\x18\x1e \x01(\x0e\x32$.data.PbBleDevice.PbDeviceAppearance\x12(\n part_of_distributed_power_system\x18\x1f \x01(\x08\x12\x15\n\rhardware_code\x18  \x01(\t\x12/\n\x12sub_component_info\x18! \x03(\x0b\x32\x13.PbSubcomponentInfo\x12\"\n\x0e\x64\x65vice_version\x18\" \x01(\x0b\x32\n.PbVersion\"\xc1\x01\n\x0cPbBleKeyType\x12\x1b\n\x17\x42LE_PEER_ENCRYPTION_KEY\x10\x01\x12\x1f\n\x1b\x42LE_PEER_IDENTIFICATION_KEY\x10\x02\x12\x18\n\x14\x42LE_PEER_SIGNING_KEY\x10\x04\x12\x1c\n\x18\x42LE_LOCAL_ENCRYPTION_KEY\x10\x08\x12 \n\x1c\x42LE_LOCAL_IDENTIFICATION_KEY\x10\x10\x12\x19\n\x15\x42LE_LOCAL_SIGNING_KEY\x10 \"\xe0\x03\n\x10PbSensorLocation\x12\x19\n\x15SENSOR_LOCATION_OTHER\x10\x00\x12\x1f\n\x1bSENSOR_LOCATION_TOP_OF_SHOE\x10\x01\x12\x1b\n\x17SENSOR_LOCATION_IN_SHOE\x10\x02\x12\x17\n\x13SENSOR_LOCATION_HIP\x10\x03\x12\x1f\n\x1bSENSOR_LOCATION_FRONT_WHEEL\x10\x04\x12\x1e\n\x1aSENSOR_LOCATION_LEFT_CRANK\x10\x05\x12\x1f\n\x1bSENSOR_LOCATION_RIGHT_CRANK\x10\x06\x12\x1e\n\x1aSENSOR_LOCATION_LEFT_PEDAL\x10\x07\x12\x1f\n\x1bSENSOR_LOCATION_RIGHT_PEDAL\x10\x08\x12\x1d\n\x19SENSOR_LOCATION_FRONT_HUB\x10\t\x12 \n\x1cSENSOR_LOCATION_REAR_DROPOUT\x10\n\x12\x1d\n\x19SENSOR_LOCATION_CHAINSTAY\x10\x0b\x12\x1e\n\x1aSENSOR_LOCATION_REAR_WHEEL\x10\x0c\x12\x1c\n\x18SENSOR_LOCATION_REAR_HUB\x10\r\x12\x19\n\x15SENSOR_LOCATION_CHEST\x10\x0e\"\xf0\n\n\x12PbDeviceAppearance\x12!\n\x1d\x42LE_DEVICE_APPEARENCE_UNKNOWN\x10\x00\x12\'\n#BLE_DEVICE_APPEARENCE_GENERIC_PHONE\x10@\x12+\n&BLE_DEVICE_APPEARENCE_GENERIC_COMPUTER\x10\x80\x01\x12(\n#BLE_DEVICE_APPEARENCE_GENERIC_WATCH\x10\xc0\x01\x12\'\n\"BLE_DEVICE_APPEARENCE_SPORTS_WATCH\x10\xc1\x01\x12(\n#BLE_DEVICE_APPEARENCE_GENERIC_CLOCK\x10\x80\x02\x12*\n%BLE_DEVICE_APPEARENCE_GENERIC_DISPLAY\x10\xc0\x02\x12\x39\n4BLE_DEVICE_APPEARENCE_GENERIC_GENERIC_REMOTE_CONTROL\x10\x80\x03\x12.\n)BLE_DEVICE_APPEARENCE_GENERIC_EYE_GLASSES\x10\xc0\x03\x12&\n!BLE_DEVICE_APPEARENCE_GENERIC_TAG\x10\x80\x04\x12*\n%BLE_DEVICE_APPEARENCE_GENERIC_KEYRING\x10\xc0\x04\x12/\n*BLE_DEVICE_APPEARENCE_GENERIC_MEDIA_PLAYER\x10\x80\x05\x12\x32\n-BLE_DEVICE_APPEARENCE_GENERIC_BARCODE_SCANNER\x10\xc0\x05\x12.\n)BLE_DEVICE_APPEARENCE_GENERIC_THERMOMETER\x10\x80\x06\x12*\n%BLE_DEVICE_APPEARENCE_THERMOMETER_EAR\x10\x81\x06\x12\x34\n/BLE_DEVICE_APPEARENCE_GENERIC_HEART_RATE_SENSOR\x10\xc0\x06\x12\x31\n,BLE_DEVICE_APPEARENCE_BELT_HEART_RATE_SENSOR\x10\xc1\x06\x12\x31\n,BLE_DEVICE_APPEARENCE_GENERIC_BLOOD_PRESSURE\x10\x80\x07\x12-\n(BLE_DEVICE_APPEARENCE_BLOOD_PRESSURE_ARM\x10\x81\x07\x12/\n*BLE_DEVICE_APPEARENCE_BLOOD_PRESSURE_WRIST\x10\x82\x07\x12\x31\n,BLE_DEVICE_APPEARENCE_HUMAN_INTERFACE_DEVICE\x10\xc0\x07\x12\'\n\"BLE_DEVICE_APPEARENCE_HID_KEYBOARD\x10\xc1\x07\x12$\n\x1f\x42LE_DEVICE_APPEARENCE_HID_MOUSE\x10\xc2\x07\x12\'\n\"BLE_DEVICE_APPEARENCE_HID_JOYSTICK\x10\xc3\x07\x12&\n!BLE_DEVICE_APPEARENCE_HID_GAMEPAD\x10\xc4\x07\x12/\n*BLE_DEVICE_APPEARENCE_HID_DIGITIZER_TABLET\x10\xc5\x07\x12*\n%BLE_DEVICE_APPEARENCE_HID_CARD_READER\x10\xc6\x07\x12*\n%BLE_DEVICE_APPEARENCE_HID_DIGITAL_PEN\x10\xc7\x07\x12.\n)BLE_DEVICE_APPEARENCE_HID_BARCODE_SCANNER\x10\xc8\x07\x12\x30\n+BLE_DEVICE_APPEARENCE_GENERIC_GLUCOSE_METER\x10\x80\x08*J\n\x18PbDeviceManufacturerType\x12\x16\n\x12MANUFACTURER_POLAR\x10\x01\x12\x16\n\x12MANUFACTURER_OTHER\x10\x02')
   ,
-  dependencies=[structures_pb2.DESCRIPTOR,types_pb2.DESCRIPTOR,])
+  dependencies=[structures__pb2.DESCRIPTOR,types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _PBDEVICEMANUFACTURERTYPE = _descriptor.EnumDescriptor(
@@ -43,8 +44,8 @@ _PBDEVICEMANUFACTURERTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1831,
-  serialized_end=1905,
+  serialized_start=3240,
+  serialized_end=3314,
 )
 _sym_db.RegisterEnumDescriptor(_PBDEVICEMANUFACTURERTYPE)
 
@@ -86,8 +87,8 @@ _PBBLEDEVICE_PBBLEKEYTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1153,
-  serialized_end=1346,
+  serialized_start=1167,
+  serialized_end=1360,
 )
 _sym_db.RegisterEnumDescriptor(_PBBLEDEVICE_PBBLEKEYTYPE)
 
@@ -160,114 +161,144 @@ _PBBLEDEVICE_PBSENSORLOCATION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1349,
-  serialized_end=1829,
+  serialized_start=1363,
+  serialized_end=1843,
 )
 _sym_db.RegisterEnumDescriptor(_PBBLEDEVICE_PBSENSORLOCATION)
 
-
-_PBBLEUUID = _descriptor.Descriptor(
-  name='PbBleUuid',
-  full_name='data.PbBleUuid',
+_PBBLEDEVICE_PBDEVICEAPPEARANCE = _descriptor.EnumDescriptor(
+  name='PbDeviceAppearance',
+  full_name='data.PbBleDevice.PbDeviceAppearance',
   filename=None,
   file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_UNKNOWN', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_PHONE', index=1, number=64,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_COMPUTER', index=2, number=128,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_WATCH', index=3, number=192,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_SPORTS_WATCH', index=4, number=193,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_CLOCK', index=5, number=256,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_DISPLAY', index=6, number=320,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_GENERIC_REMOTE_CONTROL', index=7, number=384,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_EYE_GLASSES', index=8, number=448,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_TAG', index=9, number=512,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_KEYRING', index=10, number=576,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_MEDIA_PLAYER', index=11, number=640,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_BARCODE_SCANNER', index=12, number=704,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_THERMOMETER', index=13, number=768,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_THERMOMETER_EAR', index=14, number=769,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_HEART_RATE_SENSOR', index=15, number=832,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_BELT_HEART_RATE_SENSOR', index=16, number=833,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_BLOOD_PRESSURE', index=17, number=896,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_BLOOD_PRESSURE_ARM', index=18, number=897,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_BLOOD_PRESSURE_WRIST', index=19, number=898,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_HUMAN_INTERFACE_DEVICE', index=20, number=960,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_HID_KEYBOARD', index=21, number=961,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_HID_MOUSE', index=22, number=962,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_HID_JOYSTICK', index=23, number=963,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_HID_GAMEPAD', index=24, number=964,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_HID_DIGITIZER_TABLET', index=25, number=965,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_HID_CARD_READER', index=26, number=966,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_HID_DIGITAL_PEN', index=27, number=967,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_HID_BARCODE_SCANNER', index=28, number=968,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BLE_DEVICE_APPEARENCE_GENERIC_GLUCOSE_METER', index=29, number=1024,
+      options=None,
+      type=None),
+  ],
   containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='uuid', full_name='data.PbBleUuid.uuid', index=0,
-      number=1, type=12, cpp_type=9, label=2,
-      has_default_value=False, default_value=_b(""),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
   options=None,
-  is_extendable=False,
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=63,
-  serialized_end=88,
+  serialized_start=1846,
+  serialized_end=3238,
 )
-
-
-_PBBLECHARACTERISTIC = _descriptor.Descriptor(
-  name='PbBleCharacteristic',
-  full_name='data.PbBleCharacteristic',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='handle', full_name='data.PbBleCharacteristic.handle', index=0,
-      number=1, type=13, cpp_type=3, label=2,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='data.PbBleCharacteristic.type', index=1,
-      number=2, type=11, cpp_type=10, label=2,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=90,
-  serialized_end=158,
-)
-
-
-_PBBLESERVICE = _descriptor.Descriptor(
-  name='PbBleService',
-  full_name='data.PbBleService',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='serviceUuid', full_name='data.PbBleService.serviceUuid', index=0,
-      number=1, type=11, cpp_type=10, label=2,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='characteristics', full_name='data.PbBleService.characteristics', index=1,
-      number=2, type=11, cpp_type=10, label=3,
-      has_default_value=False, default_value=[],
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=160,
-  serialized_end=264,
-)
+_sym_db.RegisterEnumDescriptor(_PBBLEDEVICE_PBDEVICEAPPEARANCE)
 
 
 _PBBLEUSER = _descriptor.Descriptor(
@@ -306,11 +337,12 @@ _PBBLEUSER = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=266,
-  serialized_end=341,
+  serialized_start=63,
+  serialized_end=138,
 )
 
 
@@ -469,7 +501,7 @@ _PBBLEDEVICE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='software_version', full_name='data.PbBleDevice.software_version', index=21,
+      name='OBSOLETE_device_version', full_name='data.PbBleDevice.OBSOLETE_device_version', index=21,
       number=23, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -517,6 +549,41 @@ _PBBLEDEVICE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='device_appearance', full_name='data.PbBleDevice.device_appearance', index=28,
+      number=30, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='part_of_distributed_power_system', full_name='data.PbBleDevice.part_of_distributed_power_system', index=29,
+      number=31, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='hardware_code', full_name='data.PbBleDevice.hardware_code', index=30,
+      number=32, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='sub_component_info', full_name='data.PbBleDevice.sub_component_info', index=31,
+      number=33, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='device_version', full_name='data.PbBleDevice.device_version', index=32,
+      number=34, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -524,57 +591,36 @@ _PBBLEDEVICE = _descriptor.Descriptor(
   enum_types=[
     _PBBLEDEVICE_PBBLEKEYTYPE,
     _PBBLEDEVICE_PBSENSORLOCATION,
+    _PBBLEDEVICE_PBDEVICEAPPEARANCE,
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=344,
-  serialized_end=1829,
+  serialized_start=141,
+  serialized_end=3238,
 )
 
-_PBBLECHARACTERISTIC.fields_by_name['type'].message_type = _PBBLEUUID
-_PBBLESERVICE.fields_by_name['serviceUuid'].message_type = _PBBLEUUID
-_PBBLESERVICE.fields_by_name['characteristics'].message_type = _PBBLECHARACTERISTIC
-_PBBLEDEVICE.fields_by_name['paired'].message_type = types_pb2._PBSYSTEMDATETIME
-_PBBLEDEVICE.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
+_PBBLEDEVICE.fields_by_name['paired'].message_type = types__pb2._PBSYSTEMDATETIME
+_PBBLEDEVICE.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
 _PBBLEDEVICE.fields_by_name['manufacturer'].enum_type = _PBDEVICEMANUFACTURERTYPE
-_PBBLEDEVICE.fields_by_name['deleted_time_stamp'].message_type = types_pb2._PBSYSTEMDATETIME
-_PBBLEDEVICE.fields_by_name['mac'].message_type = structures_pb2._PBBLEMAC
-_PBBLEDEVICE.fields_by_name['available_features'].enum_type = types_pb2._PBFEATURETYPE
-_PBBLEDEVICE.fields_by_name['services'].message_type = _PBBLESERVICE
+_PBBLEDEVICE.fields_by_name['deleted_time_stamp'].message_type = types__pb2._PBSYSTEMDATETIME
+_PBBLEDEVICE.fields_by_name['mac'].message_type = structures__pb2._PBBLEMAC
+_PBBLEDEVICE.fields_by_name['available_features'].enum_type = types__pb2._PBFEATURETYPE
+_PBBLEDEVICE.fields_by_name['services'].message_type = structures__pb2._PBBLESERVICE
 _PBBLEDEVICE.fields_by_name['sensor_location'].enum_type = _PBBLEDEVICE_PBSENSORLOCATION
 _PBBLEDEVICE.fields_by_name['user_data'].message_type = _PBBLEUSER
+_PBBLEDEVICE.fields_by_name['device_appearance'].enum_type = _PBBLEDEVICE_PBDEVICEAPPEARANCE
+_PBBLEDEVICE.fields_by_name['sub_component_info'].message_type = structures__pb2._PBSUBCOMPONENTINFO
+_PBBLEDEVICE.fields_by_name['device_version'].message_type = structures__pb2._PBVERSION
 _PBBLEDEVICE_PBBLEKEYTYPE.containing_type = _PBBLEDEVICE
 _PBBLEDEVICE_PBSENSORLOCATION.containing_type = _PBBLEDEVICE
-DESCRIPTOR.message_types_by_name['PbBleUuid'] = _PBBLEUUID
-DESCRIPTOR.message_types_by_name['PbBleCharacteristic'] = _PBBLECHARACTERISTIC
-DESCRIPTOR.message_types_by_name['PbBleService'] = _PBBLESERVICE
+_PBBLEDEVICE_PBDEVICEAPPEARANCE.containing_type = _PBBLEDEVICE
 DESCRIPTOR.message_types_by_name['PbBleUser'] = _PBBLEUSER
 DESCRIPTOR.message_types_by_name['PbBleDevice'] = _PBBLEDEVICE
 DESCRIPTOR.enum_types_by_name['PbDeviceManufacturerType'] = _PBDEVICEMANUFACTURERTYPE
-
-PbBleUuid = _reflection.GeneratedProtocolMessageType('PbBleUuid', (_message.Message,), dict(
-  DESCRIPTOR = _PBBLEUUID,
-  __module__ = 'bluetooth_device_pb2'
-  # @@protoc_insertion_point(class_scope:data.PbBleUuid)
-  ))
-_sym_db.RegisterMessage(PbBleUuid)
-
-PbBleCharacteristic = _reflection.GeneratedProtocolMessageType('PbBleCharacteristic', (_message.Message,), dict(
-  DESCRIPTOR = _PBBLECHARACTERISTIC,
-  __module__ = 'bluetooth_device_pb2'
-  # @@protoc_insertion_point(class_scope:data.PbBleCharacteristic)
-  ))
-_sym_db.RegisterMessage(PbBleCharacteristic)
-
-PbBleService = _reflection.GeneratedProtocolMessageType('PbBleService', (_message.Message,), dict(
-  DESCRIPTOR = _PBBLESERVICE,
-  __module__ = 'bluetooth_device_pb2'
-  # @@protoc_insertion_point(class_scope:data.PbBleService)
-  ))
-_sym_db.RegisterMessage(PbBleService)
 
 PbBleUser = _reflection.GeneratedProtocolMessageType('PbBleUser', (_message.Message,), dict(
   DESCRIPTOR = _PBBLEUSER,

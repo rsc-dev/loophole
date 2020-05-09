@@ -13,16 +13,17 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import structures_pb2
-import types_pb2
+import structures_pb2 as structures__pb2
+import types_pb2 as types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='user_prefs.proto',
   package='data',
-  serialized_pb=_b('\n\x10user_prefs.proto\x12\x04\x64\x61ta\x1a\x10structures.proto\x1a\x0btypes.proto\"\xc3\x02\n\x19PbLocalizationPreferences\x12\x1f\n\x08language\x18\x01 \x01(\x0b\x32\r.PbLanguageId\x12\"\n\x0bunit_system\x18\x02 \x01(\x0e\x32\r.PbUnitSystem\x12\"\n\x0btime_format\x18\x03 \x01(\x0e\x32\r.PbTimeFormat\x12\x35\n\x15time_format_separator\x18\x04 \x01(\x0e\x32\x16.PbTimeFormatSeparator\x12\"\n\x0b\x64\x61te_format\x18\x05 \x01(\x0e\x32\r.PbDateFormat\x12\x35\n\x15\x64\x61te_format_separator\x18\x06 \x01(\x0e\x32\x16.PbDateFormatSeparator\x12+\n\x10\x66irstday_of_week\x18\x07 \x01(\x0e\x32\x11.PbStartDayOfWeek\"i\n\x15PbTrainingPreferences\x12%\n\x1dOBSOLETE_heart_rate_zone_lock\x18\x01 \x01(\r\x12)\n\x0fheart_rate_view\x18\x02 \x01(\x0e\x32\x10.PbHeartRateView\",\n\x19PbActivityGoalPreferences\x12\x0f\n\x07visible\x18\x01 \x02(\x08\"\x82\x02\n\x14PbGeneralPreferences\x12\x41\n\x18localization_preferences\x18\x01 \x01(\x0b\x32\x1f.data.PbLocalizationPreferences\x12\x39\n\x14training_preferences\x18\x02 \x01(\x0b\x32\x1b.data.PbTrainingPreferences\x12\x42\n\x19\x61\x63tivity_goal_preferences\x18\x03 \x01(\x0b\x32\x1f.data.PbActivityGoalPreferences\x12(\n\rlast_modified\x18\x65 \x02(\x0b\x32\x11.PbSystemDateTime')
+  syntax='proto2',
+  serialized_pb=_b('\n\x10user_prefs.proto\x12\x04\x64\x61ta\x1a\x10structures.proto\x1a\x0btypes.proto\"\xc3\x02\n\x19PbLocalizationPreferences\x12\x1f\n\x08language\x18\x01 \x01(\x0b\x32\r.PbLanguageId\x12\"\n\x0bunit_system\x18\x02 \x01(\x0e\x32\r.PbUnitSystem\x12\"\n\x0btime_format\x18\x03 \x01(\x0e\x32\r.PbTimeFormat\x12\x35\n\x15time_format_separator\x18\x04 \x01(\x0e\x32\x16.PbTimeFormatSeparator\x12\"\n\x0b\x64\x61te_format\x18\x05 \x01(\x0e\x32\r.PbDateFormat\x12\x35\n\x15\x64\x61te_format_separator\x18\x06 \x01(\x0e\x32\x16.PbDateFormatSeparator\x12+\n\x10\x66irstday_of_week\x18\x07 \x01(\x0e\x32\x11.PbStartDayOfWeek\"r\n\x15PbTrainingPreferences\x12%\n\x1dOBSOLETE_heart_rate_zone_lock\x18\x01 \x01(\r\x12\x32\n\x18OBSOLETE_heart_rate_view\x18\x02 \x01(\x0e\x32\x10.PbHeartRateView\",\n\x19PbActivityGoalPreferences\x12\x0f\n\x07visible\x18\x01 \x02(\x08\"\x82\x02\n\x14PbGeneralPreferences\x12\x41\n\x18localization_preferences\x18\x01 \x01(\x0b\x32\x1f.data.PbLocalizationPreferences\x12\x39\n\x14training_preferences\x18\x02 \x01(\x0b\x32\x1b.data.PbTrainingPreferences\x12\x42\n\x19\x61\x63tivity_goal_preferences\x18\x03 \x01(\x0b\x32\x1f.data.PbActivityGoalPreferences\x12(\n\rlast_modified\x18\x65 \x02(\x0b\x32\x11.PbSystemDateTime')
   ,
-  dependencies=[structures_pb2.DESCRIPTOR,types_pb2.DESCRIPTOR,])
+  dependencies=[structures__pb2.DESCRIPTOR,types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -92,6 +93,7 @@ _PBLOCALIZATIONPREFERENCES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -115,7 +117,7 @@ _PBTRAININGPREFERENCES = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='heart_rate_view', full_name='data.PbTrainingPreferences.heart_rate_view', index=1,
+      name='OBSOLETE_heart_rate_view', full_name='data.PbTrainingPreferences.OBSOLETE_heart_rate_view', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=1,
       message_type=None, enum_type=None, containing_type=None,
@@ -129,11 +131,12 @@ _PBTRAININGPREFERENCES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=383,
-  serialized_end=488,
+  serialized_end=497,
 )
 
 
@@ -159,11 +162,12 @@ _PBACTIVITYGOALPREFERENCES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=490,
-  serialized_end=534,
+  serialized_start=499,
+  serialized_end=543,
 )
 
 
@@ -210,25 +214,26 @@ _PBGENERALPREFERENCES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=537,
-  serialized_end=795,
+  serialized_start=546,
+  serialized_end=804,
 )
 
-_PBLOCALIZATIONPREFERENCES.fields_by_name['language'].message_type = structures_pb2._PBLANGUAGEID
-_PBLOCALIZATIONPREFERENCES.fields_by_name['unit_system'].enum_type = types_pb2._PBUNITSYSTEM
-_PBLOCALIZATIONPREFERENCES.fields_by_name['time_format'].enum_type = types_pb2._PBTIMEFORMAT
-_PBLOCALIZATIONPREFERENCES.fields_by_name['time_format_separator'].enum_type = types_pb2._PBTIMEFORMATSEPARATOR
-_PBLOCALIZATIONPREFERENCES.fields_by_name['date_format'].enum_type = types_pb2._PBDATEFORMAT
-_PBLOCALIZATIONPREFERENCES.fields_by_name['date_format_separator'].enum_type = types_pb2._PBDATEFORMATSEPARATOR
-_PBLOCALIZATIONPREFERENCES.fields_by_name['firstday_of_week'].enum_type = types_pb2._PBSTARTDAYOFWEEK
-_PBTRAININGPREFERENCES.fields_by_name['heart_rate_view'].enum_type = types_pb2._PBHEARTRATEVIEW
+_PBLOCALIZATIONPREFERENCES.fields_by_name['language'].message_type = structures__pb2._PBLANGUAGEID
+_PBLOCALIZATIONPREFERENCES.fields_by_name['unit_system'].enum_type = types__pb2._PBUNITSYSTEM
+_PBLOCALIZATIONPREFERENCES.fields_by_name['time_format'].enum_type = types__pb2._PBTIMEFORMAT
+_PBLOCALIZATIONPREFERENCES.fields_by_name['time_format_separator'].enum_type = types__pb2._PBTIMEFORMATSEPARATOR
+_PBLOCALIZATIONPREFERENCES.fields_by_name['date_format'].enum_type = types__pb2._PBDATEFORMAT
+_PBLOCALIZATIONPREFERENCES.fields_by_name['date_format_separator'].enum_type = types__pb2._PBDATEFORMATSEPARATOR
+_PBLOCALIZATIONPREFERENCES.fields_by_name['firstday_of_week'].enum_type = types__pb2._PBSTARTDAYOFWEEK
+_PBTRAININGPREFERENCES.fields_by_name['OBSOLETE_heart_rate_view'].enum_type = types__pb2._PBHEARTRATEVIEW
 _PBGENERALPREFERENCES.fields_by_name['localization_preferences'].message_type = _PBLOCALIZATIONPREFERENCES
 _PBGENERALPREFERENCES.fields_by_name['training_preferences'].message_type = _PBTRAININGPREFERENCES
 _PBGENERALPREFERENCES.fields_by_name['activity_goal_preferences'].message_type = _PBACTIVITYGOALPREFERENCES
-_PBGENERALPREFERENCES.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
+_PBGENERALPREFERENCES.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
 DESCRIPTOR.message_types_by_name['PbLocalizationPreferences'] = _PBLOCALIZATIONPREFERENCES
 DESCRIPTOR.message_types_by_name['PbTrainingPreferences'] = _PBTRAININGPREFERENCES
 DESCRIPTOR.message_types_by_name['PbActivityGoalPreferences'] = _PBACTIVITYGOALPREFERENCES

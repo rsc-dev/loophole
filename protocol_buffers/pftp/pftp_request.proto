@@ -1,5 +1,9 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
 package protocol;
+
+import "types.proto";
 
 enum PbPFtpQuery {
 	IDENTIFY_DEVICE = 0;
@@ -14,6 +18,14 @@ enum PbPFtpQuery {
 	SET_ADB_MODE = 9;
 	CLEANUP_DISK_SPACE = 10;
 	GET_INACTIVITY_PRE_ALERT = 11;
+	PREPARE_FIRMWARE_UPDATE = 12;
+	REQUEST_SYNCHRONIZATION = 13;
+	REQUEST_START_RECORDING = 14;
+	REQUEST_STOP_RECORDING = 15;
+	REQUEST_RECORDING_STATUS = 16;
+	GENERATE_ASYMMETRIC_KEYS = 17;
+	GET_DISPLAY_STATUS = 18;
+	GET_VISUAL_ELEMENTS = 19;
 }
 
 message PbPFtpOperation {
@@ -32,6 +44,12 @@ message PbPFtpSetSystemTimeParams {
 	required .PbDate date = 1 ;
 	required .PbTime time = 2 ;
 	required bool trusted = 3 ;
+}
+
+message PbPFtpRequestStartRecordingParams {
+	required .PbSampleType sample_type = 1 ;
+	required .PbDuration recording_interval = 2 ;
+	optional string sample_data_identifier = 3 ;
 }
 
 message PbPFtpSetLocalTimeParams {

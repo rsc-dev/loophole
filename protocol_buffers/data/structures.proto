@@ -1,4 +1,9 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
+import "types.proto";
+
+// Package not defined
 
 message PbVolumeTarget {
 	required .PbVolumeTarget.PbVolymeTargetType target_type = 1 ;
@@ -13,12 +18,32 @@ message PbVolumeTarget {
 	}
 }
 
+message PbStravaSegmentTargets {
+	optional .PbDuration own_best = 1 ;
+	optional .PbDuration kom_qom = 2 ;
+}
+
+message PbStravaSegmentTarget {
+	required .PbStravaSegmentTarget.PbStravaSegmentType strava_segment_type = 1 ;
+	optional .PbStravaSegmentTargets strava_segment_targets = 2 ;
+	
+	enum PbStravaSegmentType {
+		STRAVA_SEGMENT_TYPE_RIDE = 1;
+		STRAVA_SEGMENT_TYPE_RUN = 2;
+	}
+}
+
 message PbTrainingLoad {
 	optional uint32 training_load_val = 1 ;
 	optional .PbDuration recovery_time = 2 ;
 	optional uint32 carbohydrate_consumption = 3 ;
 	optional uint32 protein_consumption = 4 ;
 	optional uint32 fat_consumption = 5 ;
+	optional float carbohydrate_grams = 6 ;
+	optional float protein_grams = 7 ;
+	optional float fat_grams = 8 ;
+	optional float meal_size = 9 ;
+	repeated .PbDuration fueling_reminder_timestamps = 10 ;
 }
 
 message PbHeartRateZone {
@@ -104,4 +129,74 @@ message PbTrainingProgramId {
 
 message PbEventId {
 	required uint64 value = 1 ;
+}
+
+message PbOnDemandTrainingTargetTypeId {
+	required uint64 value = 1 ;
+}
+
+message PbPauseTime {
+	required .PbDuration start_time = 1 ;
+	required .PbDuration duration = 2 ;
+}
+
+message PbApplicationId {
+	required uint64 value = 1 ;
+}
+
+message PbVersion {
+	required uint32 major = 1 ;
+	required uint32 minor = 2 ;
+	required uint32 patch = 3 ;
+	optional string specifier = 4 ;
+}
+
+message PbAlgorithmVersion {
+	optional .PbVersion ohr_version = 1 ;
+}
+
+message PbSubcomponentInfo {
+	required string name = 1 ;
+	optional .PbVersion OBSOLETE_required_version = 2 ;
+	optional .PbVersion version = 3 ;
+}
+
+message PbBleUuid {
+	required bytes uuid = 1 ;
+}
+
+message PbBleCharacteristic {
+	required uint32 handle = 1 ;
+	required .PbBleUuid type = 2 ;
+}
+
+message PbBleService {
+	required .PbBleUuid serviceUuid = 1 ;
+	repeated .PbBleCharacteristic characteristics = 2 ;
+}
+
+message PbSourceDevice {
+	required string name = 1 ;
+	optional string manufacturer = 2 ;
+	optional string model_number = 3 ;
+	optional string hardware_code = 4 ;
+	optional .PbVersion platform_version = 5 ;
+	optional .PbVersion software_version = 6 ;
+	optional .PbVersion polarmathsmart_version = 7 ;
+	optional .PbSourceDevice collector = 8 ;
+}
+
+message PbSampleSourceDevice {
+	required uint32 start_index = 1 ;
+	required .PbSourceDevice source_device = 2 ;
+}
+
+message PbStrengthTrainingResistance {
+	required .PbStrengthTrainingResistance.PbStrengthTrainingResistanceType resistance_type = 1 ;
+	optional float weight = 2 ;
+	
+	enum PbStrengthTrainingResistanceType {
+		BODY_WEIGHT = 0;
+		WEIGHT = 1;
+	}
 }

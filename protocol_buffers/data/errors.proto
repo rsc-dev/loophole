@@ -1,4 +1,6 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
 package data;
 
 message PbConstraintViolation {

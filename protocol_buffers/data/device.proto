@@ -1,17 +1,14 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
 package data;
 
-message PbVersion {
-	required uint32 major = 1 ;
-	required uint32 minor = 2 ;
-	required uint32 patch = 3 ;
-	optional string specifier = 4 ;
-}
+import "structures.proto";
 
 message PbDeviceInfo {
-	optional .data.PbVersion bootloader_version = 1 ;
-	optional .data.PbVersion platform_version = 2 ;
-	optional .data.PbVersion device_version = 3 ;
+	optional .PbVersion bootloader_version = 1 ;
+	optional .PbVersion platform_version = 2 ;
+	optional .PbVersion device_version = 3 ;
 	optional uint32 svn_rev = 4 ;
 	optional string electrical_serial_number = 5 ;
 	optional string deviceID = 6 ;
@@ -20,4 +17,15 @@ message PbDeviceInfo {
 	optional string product_color = 9 ;
 	optional string product_design = 10 ;
 	optional string system_id = 11 ;
+	optional bytes git_hash = 12 ;
+	optional .PbVersion polarmathsmart_version = 13 ;
+	repeated .PbSubcomponentInfo sub_component_info = 14 ;
+	optional .data.PbDeviceInfo.PbDisplayShape display_shape = 15 ;
+	optional .PbAlgorithmVersion algorithm_version = 16 ;
+	
+	enum PbDisplayShape {
+		RECTANGLE = 0;
+		FULLY_ROUND = 1;
+		ROUND_FLAT_BOTTOM = 2;
+	}
 }

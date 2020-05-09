@@ -1,5 +1,9 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
 package data;
+
+import "types.proto";
 
 message PbUserBirthday {
 	required .PbDate value = 1 ;
@@ -107,6 +111,35 @@ message PbUserFunctionalThresholdPower {
 	}
 }
 
+message PbUserMaximumAerobicPower {
+	required uint32 value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+	optional .data.PbUserMaximumAerobicPower.MAPSettingSource setting_source = 3 ;
+	
+	enum MAPSettingSource {
+		SOURCE_DEFAULT = 0;
+		SOURCE_ESTIMATE = 1;
+		SOURCE_USER = 2;
+	}
+}
+
+message PbUserMaximumAerobicSpeed {
+	required float value = 1 ;
+	required .PbSystemDateTime last_modified = 2 ;
+	optional .data.PbUserMaximumAerobicSpeed.MASSettingSource setting_source = 3 ;
+	
+	enum MASSettingSource {
+		SOURCE_DEFAULT = 0;
+		SOURCE_ESTIMATE = 1;
+		SOURCE_USER = 2;
+	}
+}
+
+message PbSleepGoal {
+	optional uint32 sleep_goal_minutes = 1 ;
+	optional .PbSystemDateTime last_modified = 2 ;
+}
+
 message PbUserPhysData {
 	required .data.PbUserBirthday birthday = 1 ;
 	required .data.PbUserGender gender = 2 ;
@@ -121,8 +154,12 @@ message PbUserPhysData {
 	optional .data.PbUserTrainingBackground training_background = 11 ;
 	optional .data.PbUserTypicalDay typical_day = 12 ;
 	optional .data.PbWeeklyRecoveryTimeSum weekly_recovery_time_sum = 13 ;
-	optional .data.PbSpeedCalibrationOffset speed_calibration_offset = 14 ;
+	optional .data.PbSpeedCalibrationOffset OBSOLETE_speed_calibration_offset = 14 ;
 	optional .data.PbUserFunctionalThresholdPower functional_threshold_power = 15 ;
+	repeated .PbSensorCalibrationOffset sensor_calibration_offset = 16 ;
+	optional .data.PbSleepGoal sleep_goal = 17 ;
+	optional .data.PbUserMaximumAerobicPower running_maximum_aerobic_power = 18 ;
+	optional .data.PbUserMaximumAerobicSpeed running_maximum_aerobic_speed = 19 ;
 	optional .PbSystemDateTime last_modified = 100 ;
 	optional .PbLocalDateTime snapshot_start_time = 101 ;
 }

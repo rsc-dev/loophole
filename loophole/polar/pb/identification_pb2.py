@@ -13,15 +13,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import types_pb2
+import types_pb2 as types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='identification.proto',
   package='data',
+  syntax='proto2',
   serialized_pb=_b('\n\x14identification.proto\x12\x04\x64\x61ta\x1a\x0btypes.proto\"\x83\x01\n\x0cPbIdentifier\x12\x14\n\x0c\x65\x63osystem_id\x18\x01 \x02(\x04\x12\"\n\x07\x63reated\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12(\n\rlast_modified\x18\x03 \x02(\x0b\x32\x11.PbSystemDateTime\x12\x0f\n\x07\x64\x65leted\x18\x04 \x01(\x08')
   ,
-  dependencies=[types_pb2.DESCRIPTOR,])
+  dependencies=[types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -70,6 +71,7 @@ _PBIDENTIFIER = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -77,8 +79,8 @@ _PBIDENTIFIER = _descriptor.Descriptor(
   serialized_end=175,
 )
 
-_PBIDENTIFIER.fields_by_name['created'].message_type = types_pb2._PBSYSTEMDATETIME
-_PBIDENTIFIER.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
+_PBIDENTIFIER.fields_by_name['created'].message_type = types__pb2._PBSYSTEMDATETIME
+_PBIDENTIFIER.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
 DESCRIPTOR.message_types_by_name['PbIdentifier'] = _PBIDENTIFIER
 
 PbIdentifier = _reflection.GeneratedProtocolMessageType('PbIdentifier', (_message.Message,), dict(
