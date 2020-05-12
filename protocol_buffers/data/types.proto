@@ -1,4 +1,7 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
+// Package not defined
 
 enum PbDataType {
 	UNDEFINED = 0;
@@ -53,6 +56,12 @@ enum PbDataType {
 	FUNCTIONAL_THRESHOLD_POWER = 73;
 	CALORIES = 74;
 	SPEED_CALIBRATION_OFFSET = 75;
+	WEEK = 76;
+	CARDIO_LOAD = 77;
+	MAXIMUM_AEROBIC_POWER = 78;
+	MAXIMUM_AEROBIC_SPEED = 79;
+	MUSCLE_LOAD = 80;
+	PERCEIVED_LOAD = 81;
 }
 
 enum PbHeartRateView {
@@ -129,6 +138,9 @@ enum PbFeatureType {
 	FEATURE_TYPE_FILE_TRANSFER = 27;
 	FEATURE_TYPE_PUSH_NOTIFICATIONS = 28;
 	FEATURE_TYPE_WEIGHT_SCALE = 29;
+	FEATURE_TYPE_REMOTE_BUTTONS = 30;
+	FEATURE_TYPE_GOPRO = 31;
+	FEATURE_TYPE_PP_INTERVAL = 32;
 }
 
 enum PbMovingType {
@@ -195,6 +207,7 @@ enum PbSwimmingStyle {
 	BREASTSTROKE = 12;
 	BACKSTROKE = 13;
 	BUTTERFLY = 14;
+	DRILL = 15;
 }
 
 enum PbSwimmingPoolUnits {
@@ -209,6 +222,172 @@ enum PbExerciseTargetType {
 	EXERCISE_TARGET_TYPE_ROUTE = 3;
 	EXERCISE_TARGET_TYPE_STEADY_RACE_PACE = 4;
 	EXERCISE_TARGET_TYPE_ROUTE_RACE_PACE = 5;
+	EXERCISE_TARGET_TYPE_STRAVA_SEGMENT = 6;
+	EXERCISE_TARGET_TYPE_STRENGTH_TRAINING = 7;
+}
+
+enum Buttons {
+	BUTTON_PLUS = 0;
+	BUTTON_MINUS = 1;
+	BUTTON_OK = 2;
+	BUTTON_LIGHT = 3;
+	BUTTON_BACK = 4;
+}
+
+enum ButtonState {
+	BUTTON_PRESSED = 0;
+	BUTTON_RELEASED = 1;
+}
+
+enum PbSampleType {
+	SAMPLE_TYPE_UNDEFINED = 0;
+	SAMPLE_TYPE_HEART_RATE = 1;
+	SAMPLE_TYPE_CADENCE = 2;
+	SAMPLE_TYPE_ALTITUDE = 3;
+	SAMPLE_TYPE_ALTITUDE_CALIBRATION = 4;
+	SAMPLE_TYPE_TEMPERATURE = 5;
+	SAMPLE_TYPE_SPEED = 6;
+	SAMPLE_TYPE_DISTANCE = 7;
+	SAMPLE_TYPE_STRIDE_LENGTH = 8;
+	SAMPLE_TYPE_STRIDE_CALIBRATION = 9;
+	SAMPLE_TYPE_FORWARD_ACCELERATION = 10;
+	SAMPLE_TYPE_MOVING_TYPE = 11;
+	SAMPLE_TYPE_LEFT_PEDAL_POWER = 12;
+	SAMPLE_TYPE_RIGHT_PEDAL_POWER = 13;
+	SAMPLE_TYPE_LEFT_PEDAL_POWER_CALIBRATION = 14;
+	SAMPLE_TYPE_RIGHT_PEDAL_POWER_CALIBRATION = 15;
+	SAMPLE_TYPE_RR_INTERVAL = 16;
+	SAMPLE_TYPE_ACCELERATION_MAD = 17;
+}
+
+enum PbSampleSourceType {
+	SAMPLE_SOURCE_TYPE_UNDEFINED = 0;
+	SAMPLE_SOURCE_TYPE_OFFLINE = 1;
+	SAMPLE_SOURCE_TYPE_HEART_RATE = 2;
+	SAMPLE_SOURCE_TYPE_HEART_RATE_BLE = 3;
+	SAMPLE_SOURCE_TYPE_HEART_RATE_5_KHZ = 4;
+	SAMPLE_SOURCE_TYPE_HEART_RATE_OPTICAL = 5;
+	SAMPLE_SOURCE_TYPE_GPS = 6;
+	SAMPLE_SOURCE_TYPE_STRIDE = 7;
+	SAMPLE_SOURCE_TYPE_WRIST_METRICS = 8;
+	SAMPLE_SOURCE_TYPE_CHEST_METRICS = 9;
+	SAMPLE_SOURCE_TYPE_BIKE_PEDAL = 10;
+	SAMPLE_SOURCE_TYPE_BIKE_WHEEL = 11;
+	SAMPLE_SOURCE_TYPE_BIKE_CRANK = 12;
+	SAMPLE_SOURCE_TYPE_COMBINED_CHEST_METRICS_AND_GPS = 13;
+	SAMPLE_SOURCE_TYPE_UPPER_BACK_METRICS = 14;
+	SAMPLE_SOURCE_TYPE_COMBINED_UPPER_BACK_METRICS_AND_GPS = 15;
+}
+
+enum PbAltitudeSetting {
+	ALTITUDE_OFF = 0;
+	ALTITUDE_ON = 1;
+}
+
+enum PbGPSSetting {
+	GPS_OFF = 0;
+	GPS_ON_NORMAL = 1;
+	GPS_ON_LONG = 2;
+	GPS_ON_10_HZ = 3;
+	GPS_ON_MEDIUM = 4;
+}
+
+enum PbHeartTouch {
+	HEART_TOUCH_OFF = 1;
+	HEART_TOUCH_ACTIVATE_BACKLIGHT = 2;
+	HEART_TOUCH_SHOW_PREVIOUS_LAP = 3;
+	HEART_TOUCH_SHOW_TIME_OF_DAY = 4;
+}
+
+enum PbTapButtonAction {
+	TAP_BUTTON_OFF = 1;
+	TAP_BUTTON_TAKE_LAP = 2;
+	TAP_BUTTON_CHANGE_TRAINING_VIEW = 3;
+	TAP_BUTTON_ACTIVATE_BACKLIGHT = 4;
+}
+
+enum PbHandedness {
+	WU_IN_LEFT_HAND = 1;
+	WU_IN_RIGHT_HAND = 2;
+	WU_IN_NECKLACE = 3;
+}
+
+enum PbDeviceLocation {
+	DEVICE_LOCATION_UNDEFINED = 0;
+	DEVICE_LOCATION_OTHER = 1;
+	DEVICE_LOCATION_WRIST_LEFT = 2;
+	DEVICE_LOCATION_WRIST_RIGHT = 3;
+	DEVICE_LOCATION_NECKLACE = 4;
+	DEVICE_LOCATION_CHEST = 5;
+	DEVICE_LOCATION_UPPER_BACK = 6;
+	DEVICE_LOCATION_FOOT_LEFT = 7;
+	DEVICE_LOCATION_FOOT_RIGHT = 8;
+	DEVICE_LOCATION_LOWER_ARM_LEFT = 9;
+	DEVICE_LOCATION_LOWER_ARM_RIGHT = 10;
+	DEVICE_LOCATION_UPPER_ARM_LEFT = 11;
+	DEVICE_LOCATION_UPPER_ARM_RIGHT = 12;
+	DEVICE_LOCATION_BIKE_MOUNT = 13;
+}
+
+enum PbSessionRPE {
+	RPE_NONE = 1;
+	RPE_EASY = 2;
+	RPE_LIGHT = 3;
+	RPE_FAIRLY_BRISK = 4;
+	RPE_BRISK = 5;
+	RPE_MODERATE = 6;
+	RPE_FAIRLY_HARD = 7;
+	RPE_HARD = 8;
+	RPE_EXHAUSTING = 9;
+	RPE_EXTREME = 10;
+}
+
+enum PbMuscleSoreness {
+	MS_UNDEFINED = -1;
+	MS_NONE = 0;
+	MS_SOME = 1;
+	MS_MUCH = 2;
+}
+
+enum PbOverallFatigue {
+	OF_UNDEFINED = -1;
+	OF_NORMAL = 0;
+	OF_A_LITTLE = 1;
+	OF_MUCH = 2;
+}
+
+enum PbSleepUserRating {
+	PB_SLEPT_UNDEFINED = -1;
+	PB_SLEPT_POORLY = 0;
+	PB_SLEPT_SOMEWHAT_POORLY = 1;
+	PB_SLEPT_NEITHER_POORLY_NOR_WELL = 2;
+	PB_SLEPT_SOMEWHAT_WELL = 3;
+	PB_SLEPT_WELL = 4;
+}
+
+enum PbDailyBalanceFeedback {
+	DB_NOT_CALCULATED = -1;
+	DB_SICK = 0;
+	DB_FATIGUE_TRY_TO_REDUCE_TRAINING_LOAD_INJURED = 1;
+	DB_FATIGUE_TRY_TO_REDUCE_TRAINING_LOAD = 2;
+	DB_LIMITED_TRAINING_RESPONSE_OTHER_INJURED = 3;
+	DB_LIMITED_TRAINING_RESPONSE_OTHER = 4;
+	DB_RESPONDING_WELL_CAN_CONTINUE_IF_INJURY_ALLOWS = 5;
+	DB_RESPONDING_WELL_CAN_CONTINUE = 6;
+	DB_YOU_COULD_DO_MORE_TRAINING_IF_INJURY_ALLOWS = 7;
+	DB_YOU_COULD_DO_MORE_TRAINING = 8;
+	DB_YOU_SEEM_TO_BE_STRAINED_INJURED = 9;
+	DB_YOU_SEEM_TO_BE_STRAINED = 10;
+}
+
+enum PbStrengthTrainingRoundRepetitionType {
+	NORMAL = 0;
+}
+
+enum PbStrengthTrainingWorkoutPhase {
+	WORK = 0;
+	WARM_UP = 1;
+	COOL_DOWN = 2;
 }
 
 message PbRangeOptions {
@@ -287,4 +466,66 @@ message PbStrideSensorCalibSettings {
 		RUNNING_FACTOR_SOURCE_AUTO_CALIBRATION = 1;
 		RUNNING_FACTOR_SOURCE_MANUAL_CALIBRATION = 2;
 	}
+}
+
+message PbWeek {
+	required uint32 week_number_ISO8601 = 1 ;
+	required uint32 year = 2 ;
+	required int32 time_zone_offset = 3 ;
+	required .PbStartDayOfWeek week_start_day = 4 ;
+}
+
+message PbSampleSource {
+	required .PbSampleSourceType sample_source_type = 1 ;
+	required uint32 start_index = 2 ;
+	required uint32 stop_index = 3 ;
+}
+
+message PbSensorCalibrationOffset {
+	required .PbSampleSourceType sample_source_type = 1 ;
+	optional float speed_cal_offset = 2 ;
+}
+
+message PbCalibrationSettings {
+	required .PbSampleType sample_type = 1 ;
+	optional bool calibration_enabled = 2 ;
+	optional bool calibration_calculation_enabled = 3 ;
+}
+
+message PbAccelerationMetrics {
+	required .PbSampleSourceType sample_source_type = 1 ;
+	repeated .PbCalibrationSettings calibration_settings = 2 ;
+}
+
+message PbAutoPause {
+	required .PbAutoPause.PbAutoPauseTrigger trigger = 1 ;
+	optional float speed_threshold = 2 ;
+	
+	enum PbAutoPauseTrigger {
+		AUTO_PAUSE_OFF = 0;
+		AUTO_PAUSE_TRIGGER_SPEED = 1;
+	}
+}
+
+message PbAutoLapSettings {
+	required .PbAutoLapSettings.PbAutomaticLap automatic_lap = 1 ;
+	optional float automatic_lap_distance = 2 ;
+	optional .PbDuration automatic_lap_duration = 3 ;
+	
+	enum PbAutomaticLap {
+		AUTOMATIC_LAP_OFF = 1;
+		AUTOMATIC_LAP_DISTANCE = 2;
+		AUTOMATIC_LAP_DURATION = 3;
+		AUTOMATIC_LAP_LOCATION = 4;
+	}
+}
+
+message PbCardioLoad {
+	required float activity_load = 1 ;
+	required float exercise_load = 2 ;
+}
+
+message PbPerceivedLoad {
+	required .PbSessionRPE session_rpe = 1 [default = RPE_MODERATE];
+	required uint32 duration = 2 ;
 }

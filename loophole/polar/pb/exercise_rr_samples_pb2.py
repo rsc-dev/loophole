@@ -13,15 +13,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import types_pb2
+import types_pb2 as types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='exercise_rr_samples.proto',
   package='data',
+  syntax='proto2',
   serialized_pb=_b('\n\x19\x65xercise_rr_samples.proto\x12\x04\x64\x61ta\x1a\x0btypes.proto\"R\n\x0bPbRROffline\x12\x1f\n\nstart_time\x18\x01 \x02(\x0b\x32\x0b.PbDuration\x12\"\n\rtime_interval\x18\x02 \x02(\x0b\x32\x0b.PbDuration\"[\n\x15PbExerciseRRIntervals\x12\x14\n\x0crr_intervals\x18\x01 \x03(\r\x12,\n\x11rr_sensor_offline\x18\x02 \x03(\x0b\x32\x11.data.PbRROffline')
   ,
-  dependencies=[types_pb2.DESCRIPTOR,])
+  dependencies=[types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -56,6 +57,7 @@ _PBRROFFLINE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -93,6 +95,7 @@ _PBEXERCISERRINTERVALS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -100,8 +103,8 @@ _PBEXERCISERRINTERVALS = _descriptor.Descriptor(
   serialized_end=223,
 )
 
-_PBRROFFLINE.fields_by_name['start_time'].message_type = types_pb2._PBDURATION
-_PBRROFFLINE.fields_by_name['time_interval'].message_type = types_pb2._PBDURATION
+_PBRROFFLINE.fields_by_name['start_time'].message_type = types__pb2._PBDURATION
+_PBRROFFLINE.fields_by_name['time_interval'].message_type = types__pb2._PBDURATION
 _PBEXERCISERRINTERVALS.fields_by_name['rr_sensor_offline'].message_type = _PBRROFFLINE
 DESCRIPTOR.message_types_by_name['PbRROffline'] = _PBRROFFLINE
 DESCRIPTOR.message_types_by_name['PbExerciseRRIntervals'] = _PBEXERCISERRINTERVALS

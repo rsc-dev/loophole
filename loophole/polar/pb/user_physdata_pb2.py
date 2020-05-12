@@ -13,15 +13,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import types_pb2
+import types_pb2 as types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='user_physdata.proto',
   package='data',
-  serialized_pb=_b('\n\x13user_physdata.proto\x12\x04\x64\x61ta\x1a\x0btypes.proto\"R\n\x0ePbUserBirthday\x12\x16\n\x05value\x18\x01 \x02(\x0b\x32\x07.PbDate\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"\x82\x01\n\x0cPbUserGender\x12(\n\x05value\x18\x01 \x02(\x0e\x32\x19.data.PbUserGender.Gender\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"\x1e\n\x06Gender\x12\x08\n\x04MALE\x10\x01\x12\n\n\x06\x46\x45MALE\x10\x02\"\x81\x02\n\x11PbUserHrAttribute\x12\r\n\x05value\x18\x01 \x02(\r\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12?\n\x0esetting_source\x18\x03 \x01(\x0e\x32\'.data.PbUserHrAttribute.HrSettingSource\"r\n\x0fHrSettingSource\x12\x12\n\x0eSOURCE_DEFAULT\x10\x00\x12\x14\n\x10SOURCE_AGE_BASED\x10\x01\x12\x0f\n\x0bSOURCE_USER\x10\x02\x12\x13\n\x0fSOURCE_MEASURED\x10\x03\x12\x0f\n\x0bSOURCE_KEEP\x10\x04\"\xd8\x01\n\x0cPbUserWeight\x12\r\n\x05value\x18\x01 \x02(\x02\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12>\n\x0esetting_source\x18\x03 \x01(\x0e\x32&.data.PbUserWeight.WeightSettingSource\"O\n\x13WeightSettingSource\x12\x12\n\x0eSOURCE_DEFAULT\x10\x00\x12\x0f\n\x0bSOURCE_USER\x10\x02\x12\x13\n\x0fSOURCE_MEASURED\x10\x03\"G\n\x0cPbUserHeight\x12\r\n\x05value\x18\x01 \x02(\x02\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"\xf0\x01\n\x0cPbUserVo2Max\x12\r\n\x05value\x18\x01 \x02(\r\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12>\n\x0esetting_source\x18\x03 \x01(\x0e\x32&.data.PbUserVo2Max.Vo2MaxSettingSource\"g\n\x13Vo2MaxSettingSource\x12\x12\n\x0eSOURCE_DEFAULT\x10\x00\x12\x13\n\x0fSOURCE_ESTIMATE\x10\x01\x12\x0f\n\x0bSOURCE_USER\x10\x02\x12\x16\n\x12SOURCE_FITNESSTEST\x10\x03\"\xe9\x01\n\x18PbUserTrainingBackground\x12@\n\x05value\x18\x01 \x02(\x0e\x32\x31.data.PbUserTrainingBackground.TrainingBackground\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"a\n\x12TrainingBackground\x12\x0e\n\nOCCASIONAL\x10\n\x12\x0b\n\x07REGULAR\x10\x14\x12\x0c\n\x08\x46REQUENT\x10\x1e\x12\t\n\x05HEAVY\x10(\x12\x0c\n\x08SEMI_PRO\x10\x32\x12\x07\n\x03PRO\x10<\"\xb8\x01\n\x10PbUserTypicalDay\x12\x30\n\x05value\x18\x01 \x02(\x0e\x32!.data.PbUserTypicalDay.TypicalDay\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"H\n\nTypicalDay\x12\x12\n\x0eMOSTLY_SITTING\x10\x01\x12\x13\n\x0fMOSTLY_STANDING\x10\x02\x12\x11\n\rMOSTLY_MOVING\x10\x03\"R\n\x17PbWeeklyRecoveryTimeSum\x12\r\n\x05value\x18\x01 \x02(\x02\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"S\n\x18PbSpeedCalibrationOffset\x12\r\n\x05value\x18\x01 \x02(\x02\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"\xf6\x01\n\x1ePbUserFunctionalThresholdPower\x12\r\n\x05value\x18\x01 \x02(\r\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12M\n\x0esetting_source\x18\x03 \x01(\x0e\x32\x35.data.PbUserFunctionalThresholdPower.FTPSettingSource\"L\n\x10\x46TPSettingSource\x12\x12\n\x0eSOURCE_DEFAULT\x10\x00\x12\x13\n\x0fSOURCE_ESTIMATE\x10\x01\x12\x0f\n\x0bSOURCE_USER\x10\x02\"\xe7\x06\n\x0ePbUserPhysData\x12&\n\x08\x62irthday\x18\x01 \x02(\x0b\x32\x14.data.PbUserBirthday\x12\"\n\x06gender\x18\x02 \x02(\x0b\x32\x12.data.PbUserGender\x12\"\n\x06weight\x18\x03 \x01(\x0b\x32\x12.data.PbUserWeight\x12\"\n\x06height\x18\x04 \x01(\x0b\x32\x12.data.PbUserHeight\x12\x32\n\x11maximum_heartrate\x18\x05 \x01(\x0b\x32\x17.data.PbUserHrAttribute\x12\x32\n\x11resting_heartrate\x18\x06 \x01(\x0b\x32\x17.data.PbUserHrAttribute\x12;\n\x1aOBSOLETE_sitting_heartrate\x18\x07 \x01(\x0b\x32\x17.data.PbUserHrAttribute\x12\x32\n\x11\x61\x65robic_threshold\x18\x08 \x01(\x0b\x32\x17.data.PbUserHrAttribute\x12\x34\n\x13\x61naerobic_threshold\x18\t \x01(\x0b\x32\x17.data.PbUserHrAttribute\x12\"\n\x06vo2max\x18\n \x01(\x0b\x32\x12.data.PbUserVo2Max\x12;\n\x13training_background\x18\x0b \x01(\x0b\x32\x1e.data.PbUserTrainingBackground\x12+\n\x0btypical_day\x18\x0c \x01(\x0b\x32\x16.data.PbUserTypicalDay\x12?\n\x18weekly_recovery_time_sum\x18\r \x01(\x0b\x32\x1d.data.PbWeeklyRecoveryTimeSum\x12@\n\x18speed_calibration_offset\x18\x0e \x01(\x0b\x32\x1e.data.PbSpeedCalibrationOffset\x12H\n\x1a\x66unctional_threshold_power\x18\x0f \x01(\x0b\x32$.data.PbUserFunctionalThresholdPower\x12(\n\rlast_modified\x18\x64 \x01(\x0b\x32\x11.PbSystemDateTime\x12-\n\x13snapshot_start_time\x18\x65 \x01(\x0b\x32\x10.PbLocalDateTime')
+  syntax='proto2',
+  serialized_pb=_b('\n\x13user_physdata.proto\x12\x04\x64\x61ta\x1a\x0btypes.proto\"R\n\x0ePbUserBirthday\x12\x16\n\x05value\x18\x01 \x02(\x0b\x32\x07.PbDate\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"\x82\x01\n\x0cPbUserGender\x12(\n\x05value\x18\x01 \x02(\x0e\x32\x19.data.PbUserGender.Gender\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"\x1e\n\x06Gender\x12\x08\n\x04MALE\x10\x01\x12\n\n\x06\x46\x45MALE\x10\x02\"\x81\x02\n\x11PbUserHrAttribute\x12\r\n\x05value\x18\x01 \x02(\r\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12?\n\x0esetting_source\x18\x03 \x01(\x0e\x32\'.data.PbUserHrAttribute.HrSettingSource\"r\n\x0fHrSettingSource\x12\x12\n\x0eSOURCE_DEFAULT\x10\x00\x12\x14\n\x10SOURCE_AGE_BASED\x10\x01\x12\x0f\n\x0bSOURCE_USER\x10\x02\x12\x13\n\x0fSOURCE_MEASURED\x10\x03\x12\x0f\n\x0bSOURCE_KEEP\x10\x04\"\xd8\x01\n\x0cPbUserWeight\x12\r\n\x05value\x18\x01 \x02(\x02\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12>\n\x0esetting_source\x18\x03 \x01(\x0e\x32&.data.PbUserWeight.WeightSettingSource\"O\n\x13WeightSettingSource\x12\x12\n\x0eSOURCE_DEFAULT\x10\x00\x12\x0f\n\x0bSOURCE_USER\x10\x02\x12\x13\n\x0fSOURCE_MEASURED\x10\x03\"G\n\x0cPbUserHeight\x12\r\n\x05value\x18\x01 \x02(\x02\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"\xf0\x01\n\x0cPbUserVo2Max\x12\r\n\x05value\x18\x01 \x02(\r\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12>\n\x0esetting_source\x18\x03 \x01(\x0e\x32&.data.PbUserVo2Max.Vo2MaxSettingSource\"g\n\x13Vo2MaxSettingSource\x12\x12\n\x0eSOURCE_DEFAULT\x10\x00\x12\x13\n\x0fSOURCE_ESTIMATE\x10\x01\x12\x0f\n\x0bSOURCE_USER\x10\x02\x12\x16\n\x12SOURCE_FITNESSTEST\x10\x03\"\xe9\x01\n\x18PbUserTrainingBackground\x12@\n\x05value\x18\x01 \x02(\x0e\x32\x31.data.PbUserTrainingBackground.TrainingBackground\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"a\n\x12TrainingBackground\x12\x0e\n\nOCCASIONAL\x10\n\x12\x0b\n\x07REGULAR\x10\x14\x12\x0c\n\x08\x46REQUENT\x10\x1e\x12\t\n\x05HEAVY\x10(\x12\x0c\n\x08SEMI_PRO\x10\x32\x12\x07\n\x03PRO\x10<\"\xb8\x01\n\x10PbUserTypicalDay\x12\x30\n\x05value\x18\x01 \x02(\x0e\x32!.data.PbUserTypicalDay.TypicalDay\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"H\n\nTypicalDay\x12\x12\n\x0eMOSTLY_SITTING\x10\x01\x12\x13\n\x0fMOSTLY_STANDING\x10\x02\x12\x11\n\rMOSTLY_MOVING\x10\x03\"R\n\x17PbWeeklyRecoveryTimeSum\x12\r\n\x05value\x18\x01 \x02(\x02\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"S\n\x18PbSpeedCalibrationOffset\x12\r\n\x05value\x18\x01 \x02(\x02\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\"\xf6\x01\n\x1ePbUserFunctionalThresholdPower\x12\r\n\x05value\x18\x01 \x02(\r\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12M\n\x0esetting_source\x18\x03 \x01(\x0e\x32\x35.data.PbUserFunctionalThresholdPower.FTPSettingSource\"L\n\x10\x46TPSettingSource\x12\x12\n\x0eSOURCE_DEFAULT\x10\x00\x12\x13\n\x0fSOURCE_ESTIMATE\x10\x01\x12\x0f\n\x0bSOURCE_USER\x10\x02\"\xec\x01\n\x19PbUserMaximumAerobicPower\x12\r\n\x05value\x18\x01 \x02(\r\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12H\n\x0esetting_source\x18\x03 \x01(\x0e\x32\x30.data.PbUserMaximumAerobicPower.MAPSettingSource\"L\n\x10MAPSettingSource\x12\x12\n\x0eSOURCE_DEFAULT\x10\x00\x12\x13\n\x0fSOURCE_ESTIMATE\x10\x01\x12\x0f\n\x0bSOURCE_USER\x10\x02\"\xec\x01\n\x19PbUserMaximumAerobicSpeed\x12\r\n\x05value\x18\x01 \x02(\x02\x12(\n\rlast_modified\x18\x02 \x02(\x0b\x32\x11.PbSystemDateTime\x12H\n\x0esetting_source\x18\x03 \x01(\x0e\x32\x30.data.PbUserMaximumAerobicSpeed.MASSettingSource\"L\n\x10MASSettingSource\x12\x12\n\x0eSOURCE_DEFAULT\x10\x00\x12\x13\n\x0fSOURCE_ESTIMATE\x10\x01\x12\x0f\n\x0bSOURCE_USER\x10\x02\"S\n\x0bPbSleepGoal\x12\x1a\n\x12sleep_goal_minutes\x18\x01 \x01(\r\x12(\n\rlast_modified\x18\x02 \x01(\x0b\x32\x11.PbSystemDateTime\"\xe6\x08\n\x0ePbUserPhysData\x12&\n\x08\x62irthday\x18\x01 \x02(\x0b\x32\x14.data.PbUserBirthday\x12\"\n\x06gender\x18\x02 \x02(\x0b\x32\x12.data.PbUserGender\x12\"\n\x06weight\x18\x03 \x01(\x0b\x32\x12.data.PbUserWeight\x12\"\n\x06height\x18\x04 \x01(\x0b\x32\x12.data.PbUserHeight\x12\x32\n\x11maximum_heartrate\x18\x05 \x01(\x0b\x32\x17.data.PbUserHrAttribute\x12\x32\n\x11resting_heartrate\x18\x06 \x01(\x0b\x32\x17.data.PbUserHrAttribute\x12;\n\x1aOBSOLETE_sitting_heartrate\x18\x07 \x01(\x0b\x32\x17.data.PbUserHrAttribute\x12\x32\n\x11\x61\x65robic_threshold\x18\x08 \x01(\x0b\x32\x17.data.PbUserHrAttribute\x12\x34\n\x13\x61naerobic_threshold\x18\t \x01(\x0b\x32\x17.data.PbUserHrAttribute\x12\"\n\x06vo2max\x18\n \x01(\x0b\x32\x12.data.PbUserVo2Max\x12;\n\x13training_background\x18\x0b \x01(\x0b\x32\x1e.data.PbUserTrainingBackground\x12+\n\x0btypical_day\x18\x0c \x01(\x0b\x32\x16.data.PbUserTypicalDay\x12?\n\x18weekly_recovery_time_sum\x18\r \x01(\x0b\x32\x1d.data.PbWeeklyRecoveryTimeSum\x12I\n!OBSOLETE_speed_calibration_offset\x18\x0e \x01(\x0b\x32\x1e.data.PbSpeedCalibrationOffset\x12H\n\x1a\x66unctional_threshold_power\x18\x0f \x01(\x0b\x32$.data.PbUserFunctionalThresholdPower\x12=\n\x19sensor_calibration_offset\x18\x10 \x03(\x0b\x32\x1a.PbSensorCalibrationOffset\x12%\n\nsleep_goal\x18\x11 \x01(\x0b\x32\x11.data.PbSleepGoal\x12\x46\n\x1drunning_maximum_aerobic_power\x18\x12 \x01(\x0b\x32\x1f.data.PbUserMaximumAerobicPower\x12\x46\n\x1drunning_maximum_aerobic_speed\x18\x13 \x01(\x0b\x32\x1f.data.PbUserMaximumAerobicSpeed\x12(\n\rlast_modified\x18\x64 \x01(\x0b\x32\x11.PbSystemDateTime\x12-\n\x13snapshot_start_time\x18\x65 \x01(\x0b\x32\x10.PbLocalDateTime')
   ,
-  dependencies=[types_pb2.DESCRIPTOR,])
+  dependencies=[types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -228,6 +229,58 @@ _PBUSERFUNCTIONALTHRESHOLDPOWER_FTPSETTINGSOURCE = _descriptor.EnumDescriptor(
 )
 _sym_db.RegisterEnumDescriptor(_PBUSERFUNCTIONALTHRESHOLDPOWER_FTPSETTINGSOURCE)
 
+_PBUSERMAXIMUMAEROBICPOWER_MAPSETTINGSOURCE = _descriptor.EnumDescriptor(
+  name='MAPSettingSource',
+  full_name='data.PbUserMaximumAerobicPower.MAPSettingSource',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SOURCE_DEFAULT', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SOURCE_ESTIMATE', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SOURCE_USER', index=2, number=2,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=2056,
+  serialized_end=2132,
+)
+_sym_db.RegisterEnumDescriptor(_PBUSERMAXIMUMAEROBICPOWER_MAPSETTINGSOURCE)
+
+_PBUSERMAXIMUMAEROBICSPEED_MASSETTINGSOURCE = _descriptor.EnumDescriptor(
+  name='MASSettingSource',
+  full_name='data.PbUserMaximumAerobicSpeed.MASSettingSource',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SOURCE_DEFAULT', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SOURCE_ESTIMATE', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SOURCE_USER', index=2, number=2,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=2295,
+  serialized_end=2371,
+)
+_sym_db.RegisterEnumDescriptor(_PBUSERMAXIMUMAEROBICSPEED_MASSETTINGSOURCE)
+
 
 _PBUSERBIRTHDAY = _descriptor.Descriptor(
   name='PbUserBirthday',
@@ -258,6 +311,7 @@ _PBUSERBIRTHDAY = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -296,6 +350,7 @@ _PBUSERGENDER = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -341,6 +396,7 @@ _PBUSERHRATTRIBUTE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -359,7 +415,7 @@ _PBUSERWEIGHT = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='value', full_name='data.PbUserWeight.value', index=0,
       number=1, type=2, cpp_type=6, label=2,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -386,6 +442,7 @@ _PBUSERWEIGHT = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -404,7 +461,7 @@ _PBUSERHEIGHT = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='value', full_name='data.PbUserHeight.value', index=0,
       number=1, type=2, cpp_type=6, label=2,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -423,6 +480,7 @@ _PBUSERHEIGHT = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -468,6 +526,7 @@ _PBUSERVO2MAX = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -506,6 +565,7 @@ _PBUSERTRAININGBACKGROUND = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -544,6 +604,7 @@ _PBUSERTYPICALDAY = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -562,7 +623,7 @@ _PBWEEKLYRECOVERYTIMESUM = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='value', full_name='data.PbWeeklyRecoveryTimeSum.value', index=0,
       number=1, type=2, cpp_type=6, label=2,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -581,6 +642,7 @@ _PBWEEKLYRECOVERYTIMESUM = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -599,7 +661,7 @@ _PBSPEEDCALIBRATIONOFFSET = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='value', full_name='data.PbSpeedCalibrationOffset.value', index=0,
       number=1, type=2, cpp_type=6, label=2,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -618,6 +680,7 @@ _PBSPEEDCALIBRATIONOFFSET = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -663,11 +726,142 @@ _PBUSERFUNCTIONALTHRESHOLDPOWER = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=1647,
   serialized_end=1893,
+)
+
+
+_PBUSERMAXIMUMAEROBICPOWER = _descriptor.Descriptor(
+  name='PbUserMaximumAerobicPower',
+  full_name='data.PbUserMaximumAerobicPower',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='data.PbUserMaximumAerobicPower.value', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='last_modified', full_name='data.PbUserMaximumAerobicPower.last_modified', index=1,
+      number=2, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='setting_source', full_name='data.PbUserMaximumAerobicPower.setting_source', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _PBUSERMAXIMUMAEROBICPOWER_MAPSETTINGSOURCE,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1896,
+  serialized_end=2132,
+)
+
+
+_PBUSERMAXIMUMAEROBICSPEED = _descriptor.Descriptor(
+  name='PbUserMaximumAerobicSpeed',
+  full_name='data.PbUserMaximumAerobicSpeed',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='data.PbUserMaximumAerobicSpeed.value', index=0,
+      number=1, type=2, cpp_type=6, label=2,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='last_modified', full_name='data.PbUserMaximumAerobicSpeed.last_modified', index=1,
+      number=2, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='setting_source', full_name='data.PbUserMaximumAerobicSpeed.setting_source', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _PBUSERMAXIMUMAEROBICSPEED_MASSETTINGSOURCE,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2135,
+  serialized_end=2371,
+)
+
+
+_PBSLEEPGOAL = _descriptor.Descriptor(
+  name='PbSleepGoal',
+  full_name='data.PbSleepGoal',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sleep_goal_minutes', full_name='data.PbSleepGoal.sleep_goal_minutes', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='last_modified', full_name='data.PbSleepGoal.last_modified', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2373,
+  serialized_end=2456,
 )
 
 
@@ -770,7 +964,7 @@ _PBUSERPHYSDATA = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='speed_calibration_offset', full_name='data.PbUserPhysData.speed_calibration_offset', index=13,
+      name='OBSOLETE_speed_calibration_offset', full_name='data.PbUserPhysData.OBSOLETE_speed_calibration_offset', index=13,
       number=14, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -784,14 +978,42 @@ _PBUSERPHYSDATA = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='last_modified', full_name='data.PbUserPhysData.last_modified', index=15,
+      name='sensor_calibration_offset', full_name='data.PbUserPhysData.sensor_calibration_offset', index=15,
+      number=16, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='sleep_goal', full_name='data.PbUserPhysData.sleep_goal', index=16,
+      number=17, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='running_maximum_aerobic_power', full_name='data.PbUserPhysData.running_maximum_aerobic_power', index=17,
+      number=18, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='running_maximum_aerobic_speed', full_name='data.PbUserPhysData.running_maximum_aerobic_speed', index=18,
+      number=19, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='last_modified', full_name='data.PbUserPhysData.last_modified', index=19,
       number=100, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='snapshot_start_time', full_name='data.PbUserPhysData.snapshot_start_time', index=16,
+      name='snapshot_start_time', full_name='data.PbUserPhysData.snapshot_start_time', index=20,
       number=101, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -805,39 +1027,47 @@ _PBUSERPHYSDATA = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1896,
-  serialized_end=2767,
+  serialized_start=2459,
+  serialized_end=3585,
 )
 
-_PBUSERBIRTHDAY.fields_by_name['value'].message_type = types_pb2._PBDATE
-_PBUSERBIRTHDAY.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
+_PBUSERBIRTHDAY.fields_by_name['value'].message_type = types__pb2._PBDATE
+_PBUSERBIRTHDAY.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
 _PBUSERGENDER.fields_by_name['value'].enum_type = _PBUSERGENDER_GENDER
-_PBUSERGENDER.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
+_PBUSERGENDER.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
 _PBUSERGENDER_GENDER.containing_type = _PBUSERGENDER
-_PBUSERHRATTRIBUTE.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
+_PBUSERHRATTRIBUTE.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
 _PBUSERHRATTRIBUTE.fields_by_name['setting_source'].enum_type = _PBUSERHRATTRIBUTE_HRSETTINGSOURCE
 _PBUSERHRATTRIBUTE_HRSETTINGSOURCE.containing_type = _PBUSERHRATTRIBUTE
-_PBUSERWEIGHT.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
+_PBUSERWEIGHT.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
 _PBUSERWEIGHT.fields_by_name['setting_source'].enum_type = _PBUSERWEIGHT_WEIGHTSETTINGSOURCE
 _PBUSERWEIGHT_WEIGHTSETTINGSOURCE.containing_type = _PBUSERWEIGHT
-_PBUSERHEIGHT.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
-_PBUSERVO2MAX.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
+_PBUSERHEIGHT.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
+_PBUSERVO2MAX.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
 _PBUSERVO2MAX.fields_by_name['setting_source'].enum_type = _PBUSERVO2MAX_VO2MAXSETTINGSOURCE
 _PBUSERVO2MAX_VO2MAXSETTINGSOURCE.containing_type = _PBUSERVO2MAX
 _PBUSERTRAININGBACKGROUND.fields_by_name['value'].enum_type = _PBUSERTRAININGBACKGROUND_TRAININGBACKGROUND
-_PBUSERTRAININGBACKGROUND.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
+_PBUSERTRAININGBACKGROUND.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
 _PBUSERTRAININGBACKGROUND_TRAININGBACKGROUND.containing_type = _PBUSERTRAININGBACKGROUND
 _PBUSERTYPICALDAY.fields_by_name['value'].enum_type = _PBUSERTYPICALDAY_TYPICALDAY
-_PBUSERTYPICALDAY.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
+_PBUSERTYPICALDAY.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
 _PBUSERTYPICALDAY_TYPICALDAY.containing_type = _PBUSERTYPICALDAY
-_PBWEEKLYRECOVERYTIMESUM.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
-_PBSPEEDCALIBRATIONOFFSET.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
-_PBUSERFUNCTIONALTHRESHOLDPOWER.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
+_PBWEEKLYRECOVERYTIMESUM.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
+_PBSPEEDCALIBRATIONOFFSET.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
+_PBUSERFUNCTIONALTHRESHOLDPOWER.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
 _PBUSERFUNCTIONALTHRESHOLDPOWER.fields_by_name['setting_source'].enum_type = _PBUSERFUNCTIONALTHRESHOLDPOWER_FTPSETTINGSOURCE
 _PBUSERFUNCTIONALTHRESHOLDPOWER_FTPSETTINGSOURCE.containing_type = _PBUSERFUNCTIONALTHRESHOLDPOWER
+_PBUSERMAXIMUMAEROBICPOWER.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
+_PBUSERMAXIMUMAEROBICPOWER.fields_by_name['setting_source'].enum_type = _PBUSERMAXIMUMAEROBICPOWER_MAPSETTINGSOURCE
+_PBUSERMAXIMUMAEROBICPOWER_MAPSETTINGSOURCE.containing_type = _PBUSERMAXIMUMAEROBICPOWER
+_PBUSERMAXIMUMAEROBICSPEED.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
+_PBUSERMAXIMUMAEROBICSPEED.fields_by_name['setting_source'].enum_type = _PBUSERMAXIMUMAEROBICSPEED_MASSETTINGSOURCE
+_PBUSERMAXIMUMAEROBICSPEED_MASSETTINGSOURCE.containing_type = _PBUSERMAXIMUMAEROBICSPEED
+_PBSLEEPGOAL.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
 _PBUSERPHYSDATA.fields_by_name['birthday'].message_type = _PBUSERBIRTHDAY
 _PBUSERPHYSDATA.fields_by_name['gender'].message_type = _PBUSERGENDER
 _PBUSERPHYSDATA.fields_by_name['weight'].message_type = _PBUSERWEIGHT
@@ -851,10 +1081,14 @@ _PBUSERPHYSDATA.fields_by_name['vo2max'].message_type = _PBUSERVO2MAX
 _PBUSERPHYSDATA.fields_by_name['training_background'].message_type = _PBUSERTRAININGBACKGROUND
 _PBUSERPHYSDATA.fields_by_name['typical_day'].message_type = _PBUSERTYPICALDAY
 _PBUSERPHYSDATA.fields_by_name['weekly_recovery_time_sum'].message_type = _PBWEEKLYRECOVERYTIMESUM
-_PBUSERPHYSDATA.fields_by_name['speed_calibration_offset'].message_type = _PBSPEEDCALIBRATIONOFFSET
+_PBUSERPHYSDATA.fields_by_name['OBSOLETE_speed_calibration_offset'].message_type = _PBSPEEDCALIBRATIONOFFSET
 _PBUSERPHYSDATA.fields_by_name['functional_threshold_power'].message_type = _PBUSERFUNCTIONALTHRESHOLDPOWER
-_PBUSERPHYSDATA.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
-_PBUSERPHYSDATA.fields_by_name['snapshot_start_time'].message_type = types_pb2._PBLOCALDATETIME
+_PBUSERPHYSDATA.fields_by_name['sensor_calibration_offset'].message_type = types__pb2._PBSENSORCALIBRATIONOFFSET
+_PBUSERPHYSDATA.fields_by_name['sleep_goal'].message_type = _PBSLEEPGOAL
+_PBUSERPHYSDATA.fields_by_name['running_maximum_aerobic_power'].message_type = _PBUSERMAXIMUMAEROBICPOWER
+_PBUSERPHYSDATA.fields_by_name['running_maximum_aerobic_speed'].message_type = _PBUSERMAXIMUMAEROBICSPEED
+_PBUSERPHYSDATA.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
+_PBUSERPHYSDATA.fields_by_name['snapshot_start_time'].message_type = types__pb2._PBLOCALDATETIME
 DESCRIPTOR.message_types_by_name['PbUserBirthday'] = _PBUSERBIRTHDAY
 DESCRIPTOR.message_types_by_name['PbUserGender'] = _PBUSERGENDER
 DESCRIPTOR.message_types_by_name['PbUserHrAttribute'] = _PBUSERHRATTRIBUTE
@@ -866,6 +1100,9 @@ DESCRIPTOR.message_types_by_name['PbUserTypicalDay'] = _PBUSERTYPICALDAY
 DESCRIPTOR.message_types_by_name['PbWeeklyRecoveryTimeSum'] = _PBWEEKLYRECOVERYTIMESUM
 DESCRIPTOR.message_types_by_name['PbSpeedCalibrationOffset'] = _PBSPEEDCALIBRATIONOFFSET
 DESCRIPTOR.message_types_by_name['PbUserFunctionalThresholdPower'] = _PBUSERFUNCTIONALTHRESHOLDPOWER
+DESCRIPTOR.message_types_by_name['PbUserMaximumAerobicPower'] = _PBUSERMAXIMUMAEROBICPOWER
+DESCRIPTOR.message_types_by_name['PbUserMaximumAerobicSpeed'] = _PBUSERMAXIMUMAEROBICSPEED
+DESCRIPTOR.message_types_by_name['PbSleepGoal'] = _PBSLEEPGOAL
 DESCRIPTOR.message_types_by_name['PbUserPhysData'] = _PBUSERPHYSDATA
 
 PbUserBirthday = _reflection.GeneratedProtocolMessageType('PbUserBirthday', (_message.Message,), dict(
@@ -944,6 +1181,27 @@ PbUserFunctionalThresholdPower = _reflection.GeneratedProtocolMessageType('PbUse
   # @@protoc_insertion_point(class_scope:data.PbUserFunctionalThresholdPower)
   ))
 _sym_db.RegisterMessage(PbUserFunctionalThresholdPower)
+
+PbUserMaximumAerobicPower = _reflection.GeneratedProtocolMessageType('PbUserMaximumAerobicPower', (_message.Message,), dict(
+  DESCRIPTOR = _PBUSERMAXIMUMAEROBICPOWER,
+  __module__ = 'user_physdata_pb2'
+  # @@protoc_insertion_point(class_scope:data.PbUserMaximumAerobicPower)
+  ))
+_sym_db.RegisterMessage(PbUserMaximumAerobicPower)
+
+PbUserMaximumAerobicSpeed = _reflection.GeneratedProtocolMessageType('PbUserMaximumAerobicSpeed', (_message.Message,), dict(
+  DESCRIPTOR = _PBUSERMAXIMUMAEROBICSPEED,
+  __module__ = 'user_physdata_pb2'
+  # @@protoc_insertion_point(class_scope:data.PbUserMaximumAerobicSpeed)
+  ))
+_sym_db.RegisterMessage(PbUserMaximumAerobicSpeed)
+
+PbSleepGoal = _reflection.GeneratedProtocolMessageType('PbSleepGoal', (_message.Message,), dict(
+  DESCRIPTOR = _PBSLEEPGOAL,
+  __module__ = 'user_physdata_pb2'
+  # @@protoc_insertion_point(class_scope:data.PbSleepGoal)
+  ))
+_sym_db.RegisterMessage(PbSleepGoal)
 
 PbUserPhysData = _reflection.GeneratedProtocolMessageType('PbUserPhysData', (_message.Message,), dict(
   DESCRIPTOR = _PBUSERPHYSDATA,

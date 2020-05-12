@@ -18,6 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='user_database.proto',
   package='data',
+  syntax='proto2',
   serialized_pb=_b('\n\x13user_database.proto\x12\x04\x64\x61ta\"&\n\x08PbUserDb\x12\x1a\n\x12\x63urrent_user_index\x18\x01 \x02(\r')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -47,6 +48,7 @@ _PBUSERDB = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

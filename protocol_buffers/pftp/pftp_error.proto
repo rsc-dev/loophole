@@ -1,4 +1,6 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
 package protocol;
 
 enum PbPFtpError {
@@ -23,4 +25,5 @@ enum PbPFtpError {
 	PREREQUISITE_NOT_MET = 206;
 	INSUFFICIENT_BUFFER = 207;
 	WAIT_FOR_IDLING = 208;
+	BATTERY_TOO_LOW = 209;
 }

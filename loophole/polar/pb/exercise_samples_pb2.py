@@ -13,16 +13,18 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import exercise_rr_samples_pb2
-import types_pb2
+import types_pb2 as types__pb2
+import structures_pb2 as structures__pb2
+import exercise_rr_samples_pb2 as exercise__rr__samples__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='exercise_samples.proto',
   package='data',
-  serialized_pb=_b('\n\x16\x65xercise_samples.proto\x12\x04\x64\x61ta\x1a\x19\x65xercise_rr_samples.proto\x1a\x0btypes.proto\"\xad\x02\n\x13PbPowerMeasurements\x12\x15\n\rcurrent_power\x18\x01 \x02(\x05\x12$\n\x1c\x63umulative_crank_revolutions\x18\x02 \x01(\r\x12\x1c\n\x14\x63umulative_timestamp\x18\x03 \x01(\r\x12\x1b\n\x13\x66orce_magnitude_min\x18\x04 \x01(\x11\x12\x1b\n\x13\x66orce_magnitude_max\x18\x05 \x01(\x05\x12!\n\x19\x66orce_magnitude_min_angle\x18\x06 \x01(\r\x12!\n\x19\x66orce_magnitude_max_angle\x18\x07 \x01(\r\x12\x1e\n\x16\x62ottom_dead_spot_angle\x18\x08 \x01(\r\x12\x1b\n\x13top_dead_spot_angle\x18\t \x01(\r\"{\n\x12PbCalibrationValue\x12\x13\n\x0bstart_index\x18\x01 \x02(\r\x12\r\n\x05value\x18\x02 \x02(\x02\x12#\n\toperation\x18\x03 \x02(\x0e\x32\x10.PbOperationType\x12\x1c\n\x05\x63\x61use\x18\x04 \x01(\x0e\x32\r.PbMovingType\"\xdb\t\n\x11PbExerciseSamples\x12\'\n\x12recording_interval\x18\x01 \x02(\x0b\x32\x0b.PbDuration\x12\x1a\n\x12heart_rate_samples\x18\x02 \x03(\r\x12,\n\x12heart_rate_offline\x18\x03 \x03(\x0b\x32\x10.PbSensorOffline\x12\x17\n\x0f\x63\x61\x64\x65nce_samples\x18\x04 \x03(\r\x12)\n\x0f\x63\x61\x64\x65nce_offline\x18\x05 \x03(\x0b\x32\x10.PbSensorOffline\x12\x18\n\x10\x61ltitude_samples\x18\x06 \x03(\x02\x12*\n\x10\x61ltitude_offline\x18\x12 \x03(\x0b\x32\x10.PbSensorOffline\x12\x36\n\x14\x61ltitude_calibration\x18\x07 \x03(\x0b\x32\x18.data.PbCalibrationValue\x12\x1b\n\x13temperature_samples\x18\x08 \x03(\x02\x12-\n\x13temperature_offline\x18\x13 \x03(\x0b\x32\x10.PbSensorOffline\x12\x15\n\rspeed_samples\x18\t \x03(\x02\x12\'\n\rspeed_offline\x18\n \x03(\x0b\x32\x10.PbSensorOffline\x12\x18\n\x10\x64istance_samples\x18\x0b \x03(\x02\x12*\n\x10\x64istance_offline\x18\x0c \x03(\x0b\x32\x10.PbSensorOffline\x12\x1d\n\x15stride_length_samples\x18\r \x03(\r\x12/\n\x15stride_length_offline\x18\x0e \x03(\x0b\x32\x10.PbSensorOffline\x12\x34\n\x12stride_calibration\x18\x0f \x03(\x0b\x32\x18.data.PbCalibrationValue\x12\x1c\n\x14\x66orward_acceleration\x18\x10 \x03(\x02\x12\x36\n\x1c\x66orward_acceleration_offline\x18\x14 \x03(\x0b\x32\x10.PbSensorOffline\x12*\n\x13moving_type_samples\x18\x11 \x03(\x0e\x32\r.PbMovingType\x12-\n\x13moving_type_offline\x18\x15 \x03(\x0b\x32\x10.PbSensorOffline\x12;\n\x18left_pedal_power_samples\x18\x16 \x03(\x0b\x32\x19.data.PbPowerMeasurements\x12\x32\n\x18left_pedal_power_offline\x18\x17 \x03(\x0b\x32\x10.PbSensorOffline\x12<\n\x19right_pedal_power_samples\x18\x18 \x03(\x0b\x32\x19.data.PbPowerMeasurements\x12\x33\n\x19right_pedal_power_offline\x18\x19 \x03(\x0b\x32\x10.PbSensorOffline\x12\x38\n\x16left_power_calibration\x18\x1a \x03(\x0b\x32\x18.data.PbCalibrationValue\x12\x39\n\x17right_power_calibration\x18\x1b \x03(\x0b\x32\x18.data.PbCalibrationValue\x12/\n\nrr_samples\x18\x1c \x01(\x0b\x32\x1b.data.PbExerciseRRIntervals')
+  syntax='proto2',
+  serialized_pb=_b('\n\x16\x65xercise_samples.proto\x12\x04\x64\x61ta\x1a\x0btypes.proto\x1a\x10structures.proto\x1a\x19\x65xercise_rr_samples.proto\"\x86\x03\n\x13PbPowerMeasurements\x12\x15\n\rcurrent_power\x18\x01 \x02(\x05\x12$\n\x1c\x63umulative_crank_revolutions\x18\x02 \x01(\r\x12\x1c\n\x14\x63umulative_timestamp\x18\x03 \x01(\r\x12\x1b\n\x13\x66orce_magnitude_min\x18\x04 \x01(\x11\x12\x1b\n\x13\x66orce_magnitude_max\x18\x05 \x01(\x05\x12!\n\x19\x66orce_magnitude_min_angle\x18\x06 \x01(\r\x12!\n\x19\x66orce_magnitude_max_angle\x18\x07 \x01(\r\x12\x1e\n\x16\x62ottom_dead_spot_angle\x18\x08 \x01(\r\x12\x1b\n\x13top_dead_spot_angle\x18\t \x01(\r\x12\x1b\n\x13pedal_power_balance\x18\n \x01(\r\x12\x1c\n\x14torque_magnitude_min\x18\x0b \x01(\x05\x12\x1c\n\x14torque_magnitude_max\x18\x0c \x01(\x05\"{\n\x12PbCalibrationValue\x12\x13\n\x0bstart_index\x18\x01 \x02(\r\x12\r\n\x05value\x18\x02 \x02(\x02\x12#\n\toperation\x18\x03 \x02(\x0e\x32\x10.PbOperationType\x12\x1c\n\x05\x63\x61use\x18\x04 \x01(\x0e\x32\r.PbMovingType\"\xc3\x06\n\x1fPbExerciseIntervalledSampleList\x12\"\n\x0bsample_type\x18\x01 \x02(\x0e\x32\r.PbSampleType\x12\x1d\n\x15recording_interval_ms\x18\x02 \x01(\r\x12&\n\rsample_source\x18\x03 \x03(\x0b\x32\x0f.PbSampleSource\x12\x1a\n\x12heart_rate_samples\x18\x04 \x03(\r\x12\x17\n\x0f\x63\x61\x64\x65nce_samples\x18\x05 \x03(\r\x12\x15\n\rspeed_samples\x18\x06 \x03(\x02\x12\x18\n\x10\x64istance_samples\x18\x07 \x03(\x02\x12\x1c\n\x14\x66orward_acceleration\x18\x08 \x03(\x02\x12*\n\x13moving_type_samples\x18\t \x03(\x0e\x32\r.PbMovingType\x12\x18\n\x10\x61ltitude_samples\x18\n \x03(\x02\x12\x36\n\x14\x61ltitude_calibration\x18\x0b \x03(\x0b\x32\x18.data.PbCalibrationValue\x12\x1b\n\x13temperature_samples\x18\x0c \x03(\x02\x12\x1d\n\x15stride_length_samples\x18\r \x03(\r\x12\x34\n\x12stride_calibration\x18\x0e \x03(\x0b\x32\x18.data.PbCalibrationValue\x12;\n\x18left_pedal_power_samples\x18\x0f \x03(\x0b\x32\x19.data.PbPowerMeasurements\x12<\n\x19right_pedal_power_samples\x18\x10 \x03(\x0b\x32\x19.data.PbPowerMeasurements\x12\x38\n\x16left_power_calibration\x18\x11 \x03(\x0b\x32\x18.data.PbCalibrationValue\x12\x39\n\x17right_power_calibration\x18\x12 \x03(\x0b\x32\x18.data.PbCalibrationValue\x12/\n\nrr_samples\x18\x13 \x01(\x0b\x32\x1b.data.PbExerciseRRIntervals\x12 \n\x18\x61\x63\x63\x65leration_mad_samples\x18\x14 \x03(\x02\"\xcf\n\n\x11PbExerciseSamples\x12\'\n\x12recording_interval\x18\x01 \x02(\x0b\x32\x0b.PbDuration\x12\x1a\n\x12heart_rate_samples\x18\x02 \x03(\r\x12,\n\x12heart_rate_offline\x18\x03 \x03(\x0b\x32\x10.PbSensorOffline\x12\x17\n\x0f\x63\x61\x64\x65nce_samples\x18\x04 \x03(\r\x12)\n\x0f\x63\x61\x64\x65nce_offline\x18\x05 \x03(\x0b\x32\x10.PbSensorOffline\x12\x18\n\x10\x61ltitude_samples\x18\x06 \x03(\x02\x12*\n\x10\x61ltitude_offline\x18\x12 \x03(\x0b\x32\x10.PbSensorOffline\x12\x36\n\x14\x61ltitude_calibration\x18\x07 \x03(\x0b\x32\x18.data.PbCalibrationValue\x12\x1b\n\x13temperature_samples\x18\x08 \x03(\x02\x12-\n\x13temperature_offline\x18\x13 \x03(\x0b\x32\x10.PbSensorOffline\x12\x15\n\rspeed_samples\x18\t \x03(\x02\x12\'\n\rspeed_offline\x18\n \x03(\x0b\x32\x10.PbSensorOffline\x12\x18\n\x10\x64istance_samples\x18\x0b \x03(\x02\x12*\n\x10\x64istance_offline\x18\x0c \x03(\x0b\x32\x10.PbSensorOffline\x12\x1d\n\x15stride_length_samples\x18\r \x03(\r\x12/\n\x15stride_length_offline\x18\x0e \x03(\x0b\x32\x10.PbSensorOffline\x12\x34\n\x12stride_calibration\x18\x0f \x03(\x0b\x32\x18.data.PbCalibrationValue\x12\x1c\n\x14\x66orward_acceleration\x18\x10 \x03(\x02\x12\x36\n\x1c\x66orward_acceleration_offline\x18\x14 \x03(\x0b\x32\x10.PbSensorOffline\x12*\n\x13moving_type_samples\x18\x11 \x03(\x0e\x32\r.PbMovingType\x12-\n\x13moving_type_offline\x18\x15 \x03(\x0b\x32\x10.PbSensorOffline\x12;\n\x18left_pedal_power_samples\x18\x16 \x03(\x0b\x32\x19.data.PbPowerMeasurements\x12\x32\n\x18left_pedal_power_offline\x18\x17 \x03(\x0b\x32\x10.PbSensorOffline\x12<\n\x19right_pedal_power_samples\x18\x18 \x03(\x0b\x32\x19.data.PbPowerMeasurements\x12\x33\n\x19right_pedal_power_offline\x18\x19 \x03(\x0b\x32\x10.PbSensorOffline\x12\x38\n\x16left_power_calibration\x18\x1a \x03(\x0b\x32\x18.data.PbCalibrationValue\x12\x39\n\x17right_power_calibration\x18\x1b \x03(\x0b\x32\x18.data.PbCalibrationValue\x12/\n\nrr_samples\x18\x1c \x01(\x0b\x32\x1b.data.PbExerciseRRIntervals\x12O\n exercise_intervalled_sample_list\x18\x1d \x03(\x0b\x32%.data.PbExerciseIntervalledSampleList\x12!\n\x0bpause_times\x18\x1e \x03(\x0b\x32\x0c.PbPauseTime')
   ,
-  dependencies=[exercise_rr_samples_pb2.DESCRIPTOR,types_pb2.DESCRIPTOR,])
+  dependencies=[types__pb2.DESCRIPTOR,structures__pb2.DESCRIPTOR,exercise__rr__samples__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -98,6 +100,27 @@ _PBPOWERMEASUREMENTS = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='pedal_power_balance', full_name='data.PbPowerMeasurements.pedal_power_balance', index=9,
+      number=10, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='torque_magnitude_min', full_name='data.PbPowerMeasurements.torque_magnitude_min', index=10,
+      number=11, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='torque_magnitude_max', full_name='data.PbPowerMeasurements.torque_magnitude_max', index=11,
+      number=12, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -106,11 +129,12 @@ _PBPOWERMEASUREMENTS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=73,
-  serialized_end=374,
+  serialized_start=91,
+  serialized_end=481,
 )
 
 
@@ -131,7 +155,7 @@ _PBCALIBRATIONVALUE = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='value', full_name='data.PbCalibrationValue.value', index=1,
       number=2, type=2, cpp_type=6, label=2,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -157,11 +181,176 @@ _PBCALIBRATIONVALUE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=376,
-  serialized_end=499,
+  serialized_start=483,
+  serialized_end=606,
+)
+
+
+_PBEXERCISEINTERVALLEDSAMPLELIST = _descriptor.Descriptor(
+  name='PbExerciseIntervalledSampleList',
+  full_name='data.PbExerciseIntervalledSampleList',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sample_type', full_name='data.PbExerciseIntervalledSampleList.sample_type', index=0,
+      number=1, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='recording_interval_ms', full_name='data.PbExerciseIntervalledSampleList.recording_interval_ms', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='sample_source', full_name='data.PbExerciseIntervalledSampleList.sample_source', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='heart_rate_samples', full_name='data.PbExerciseIntervalledSampleList.heart_rate_samples', index=3,
+      number=4, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='cadence_samples', full_name='data.PbExerciseIntervalledSampleList.cadence_samples', index=4,
+      number=5, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='speed_samples', full_name='data.PbExerciseIntervalledSampleList.speed_samples', index=5,
+      number=6, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='distance_samples', full_name='data.PbExerciseIntervalledSampleList.distance_samples', index=6,
+      number=7, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='forward_acceleration', full_name='data.PbExerciseIntervalledSampleList.forward_acceleration', index=7,
+      number=8, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='moving_type_samples', full_name='data.PbExerciseIntervalledSampleList.moving_type_samples', index=8,
+      number=9, type=14, cpp_type=8, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='altitude_samples', full_name='data.PbExerciseIntervalledSampleList.altitude_samples', index=9,
+      number=10, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='altitude_calibration', full_name='data.PbExerciseIntervalledSampleList.altitude_calibration', index=10,
+      number=11, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='temperature_samples', full_name='data.PbExerciseIntervalledSampleList.temperature_samples', index=11,
+      number=12, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='stride_length_samples', full_name='data.PbExerciseIntervalledSampleList.stride_length_samples', index=12,
+      number=13, type=13, cpp_type=3, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='stride_calibration', full_name='data.PbExerciseIntervalledSampleList.stride_calibration', index=13,
+      number=14, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='left_pedal_power_samples', full_name='data.PbExerciseIntervalledSampleList.left_pedal_power_samples', index=14,
+      number=15, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='right_pedal_power_samples', full_name='data.PbExerciseIntervalledSampleList.right_pedal_power_samples', index=15,
+      number=16, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='left_power_calibration', full_name='data.PbExerciseIntervalledSampleList.left_power_calibration', index=16,
+      number=17, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='right_power_calibration', full_name='data.PbExerciseIntervalledSampleList.right_power_calibration', index=17,
+      number=18, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='rr_samples', full_name='data.PbExerciseIntervalledSampleList.rr_samples', index=18,
+      number=19, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='acceleration_mad_samples', full_name='data.PbExerciseIntervalledSampleList.acceleration_mad_samples', index=19,
+      number=20, type=2, cpp_type=6, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=609,
+  serialized_end=1444,
 )
 
 
@@ -368,6 +557,20 @@ _PBEXERCISESAMPLES = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='exercise_intervalled_sample_list', full_name='data.PbExerciseSamples.exercise_intervalled_sample_list', index=28,
+      number=29, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='pause_times', full_name='data.PbExerciseSamples.pause_times', index=29,
+      number=30, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -376,37 +579,51 @@ _PBEXERCISESAMPLES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=502,
-  serialized_end=1745,
+  serialized_start=1447,
+  serialized_end=2806,
 )
 
-_PBCALIBRATIONVALUE.fields_by_name['operation'].enum_type = types_pb2._PBOPERATIONTYPE
-_PBCALIBRATIONVALUE.fields_by_name['cause'].enum_type = types_pb2._PBMOVINGTYPE
-_PBEXERCISESAMPLES.fields_by_name['recording_interval'].message_type = types_pb2._PBDURATION
-_PBEXERCISESAMPLES.fields_by_name['heart_rate_offline'].message_type = types_pb2._PBSENSOROFFLINE
-_PBEXERCISESAMPLES.fields_by_name['cadence_offline'].message_type = types_pb2._PBSENSOROFFLINE
-_PBEXERCISESAMPLES.fields_by_name['altitude_offline'].message_type = types_pb2._PBSENSOROFFLINE
+_PBCALIBRATIONVALUE.fields_by_name['operation'].enum_type = types__pb2._PBOPERATIONTYPE
+_PBCALIBRATIONVALUE.fields_by_name['cause'].enum_type = types__pb2._PBMOVINGTYPE
+_PBEXERCISEINTERVALLEDSAMPLELIST.fields_by_name['sample_type'].enum_type = types__pb2._PBSAMPLETYPE
+_PBEXERCISEINTERVALLEDSAMPLELIST.fields_by_name['sample_source'].message_type = types__pb2._PBSAMPLESOURCE
+_PBEXERCISEINTERVALLEDSAMPLELIST.fields_by_name['moving_type_samples'].enum_type = types__pb2._PBMOVINGTYPE
+_PBEXERCISEINTERVALLEDSAMPLELIST.fields_by_name['altitude_calibration'].message_type = _PBCALIBRATIONVALUE
+_PBEXERCISEINTERVALLEDSAMPLELIST.fields_by_name['stride_calibration'].message_type = _PBCALIBRATIONVALUE
+_PBEXERCISEINTERVALLEDSAMPLELIST.fields_by_name['left_pedal_power_samples'].message_type = _PBPOWERMEASUREMENTS
+_PBEXERCISEINTERVALLEDSAMPLELIST.fields_by_name['right_pedal_power_samples'].message_type = _PBPOWERMEASUREMENTS
+_PBEXERCISEINTERVALLEDSAMPLELIST.fields_by_name['left_power_calibration'].message_type = _PBCALIBRATIONVALUE
+_PBEXERCISEINTERVALLEDSAMPLELIST.fields_by_name['right_power_calibration'].message_type = _PBCALIBRATIONVALUE
+_PBEXERCISEINTERVALLEDSAMPLELIST.fields_by_name['rr_samples'].message_type = exercise__rr__samples__pb2._PBEXERCISERRINTERVALS
+_PBEXERCISESAMPLES.fields_by_name['recording_interval'].message_type = types__pb2._PBDURATION
+_PBEXERCISESAMPLES.fields_by_name['heart_rate_offline'].message_type = types__pb2._PBSENSOROFFLINE
+_PBEXERCISESAMPLES.fields_by_name['cadence_offline'].message_type = types__pb2._PBSENSOROFFLINE
+_PBEXERCISESAMPLES.fields_by_name['altitude_offline'].message_type = types__pb2._PBSENSOROFFLINE
 _PBEXERCISESAMPLES.fields_by_name['altitude_calibration'].message_type = _PBCALIBRATIONVALUE
-_PBEXERCISESAMPLES.fields_by_name['temperature_offline'].message_type = types_pb2._PBSENSOROFFLINE
-_PBEXERCISESAMPLES.fields_by_name['speed_offline'].message_type = types_pb2._PBSENSOROFFLINE
-_PBEXERCISESAMPLES.fields_by_name['distance_offline'].message_type = types_pb2._PBSENSOROFFLINE
-_PBEXERCISESAMPLES.fields_by_name['stride_length_offline'].message_type = types_pb2._PBSENSOROFFLINE
+_PBEXERCISESAMPLES.fields_by_name['temperature_offline'].message_type = types__pb2._PBSENSOROFFLINE
+_PBEXERCISESAMPLES.fields_by_name['speed_offline'].message_type = types__pb2._PBSENSOROFFLINE
+_PBEXERCISESAMPLES.fields_by_name['distance_offline'].message_type = types__pb2._PBSENSOROFFLINE
+_PBEXERCISESAMPLES.fields_by_name['stride_length_offline'].message_type = types__pb2._PBSENSOROFFLINE
 _PBEXERCISESAMPLES.fields_by_name['stride_calibration'].message_type = _PBCALIBRATIONVALUE
-_PBEXERCISESAMPLES.fields_by_name['forward_acceleration_offline'].message_type = types_pb2._PBSENSOROFFLINE
-_PBEXERCISESAMPLES.fields_by_name['moving_type_samples'].enum_type = types_pb2._PBMOVINGTYPE
-_PBEXERCISESAMPLES.fields_by_name['moving_type_offline'].message_type = types_pb2._PBSENSOROFFLINE
+_PBEXERCISESAMPLES.fields_by_name['forward_acceleration_offline'].message_type = types__pb2._PBSENSOROFFLINE
+_PBEXERCISESAMPLES.fields_by_name['moving_type_samples'].enum_type = types__pb2._PBMOVINGTYPE
+_PBEXERCISESAMPLES.fields_by_name['moving_type_offline'].message_type = types__pb2._PBSENSOROFFLINE
 _PBEXERCISESAMPLES.fields_by_name['left_pedal_power_samples'].message_type = _PBPOWERMEASUREMENTS
-_PBEXERCISESAMPLES.fields_by_name['left_pedal_power_offline'].message_type = types_pb2._PBSENSOROFFLINE
+_PBEXERCISESAMPLES.fields_by_name['left_pedal_power_offline'].message_type = types__pb2._PBSENSOROFFLINE
 _PBEXERCISESAMPLES.fields_by_name['right_pedal_power_samples'].message_type = _PBPOWERMEASUREMENTS
-_PBEXERCISESAMPLES.fields_by_name['right_pedal_power_offline'].message_type = types_pb2._PBSENSOROFFLINE
+_PBEXERCISESAMPLES.fields_by_name['right_pedal_power_offline'].message_type = types__pb2._PBSENSOROFFLINE
 _PBEXERCISESAMPLES.fields_by_name['left_power_calibration'].message_type = _PBCALIBRATIONVALUE
 _PBEXERCISESAMPLES.fields_by_name['right_power_calibration'].message_type = _PBCALIBRATIONVALUE
-_PBEXERCISESAMPLES.fields_by_name['rr_samples'].message_type = exercise_rr_samples_pb2._PBEXERCISERRINTERVALS
+_PBEXERCISESAMPLES.fields_by_name['rr_samples'].message_type = exercise__rr__samples__pb2._PBEXERCISERRINTERVALS
+_PBEXERCISESAMPLES.fields_by_name['exercise_intervalled_sample_list'].message_type = _PBEXERCISEINTERVALLEDSAMPLELIST
+_PBEXERCISESAMPLES.fields_by_name['pause_times'].message_type = structures__pb2._PBPAUSETIME
 DESCRIPTOR.message_types_by_name['PbPowerMeasurements'] = _PBPOWERMEASUREMENTS
 DESCRIPTOR.message_types_by_name['PbCalibrationValue'] = _PBCALIBRATIONVALUE
+DESCRIPTOR.message_types_by_name['PbExerciseIntervalledSampleList'] = _PBEXERCISEINTERVALLEDSAMPLELIST
 DESCRIPTOR.message_types_by_name['PbExerciseSamples'] = _PBEXERCISESAMPLES
 
 PbPowerMeasurements = _reflection.GeneratedProtocolMessageType('PbPowerMeasurements', (_message.Message,), dict(
@@ -422,6 +639,13 @@ PbCalibrationValue = _reflection.GeneratedProtocolMessageType('PbCalibrationValu
   # @@protoc_insertion_point(class_scope:data.PbCalibrationValue)
   ))
 _sym_db.RegisterMessage(PbCalibrationValue)
+
+PbExerciseIntervalledSampleList = _reflection.GeneratedProtocolMessageType('PbExerciseIntervalledSampleList', (_message.Message,), dict(
+  DESCRIPTOR = _PBEXERCISEINTERVALLEDSAMPLELIST,
+  __module__ = 'exercise_samples_pb2'
+  # @@protoc_insertion_point(class_scope:data.PbExerciseIntervalledSampleList)
+  ))
+_sym_db.RegisterMessage(PbExerciseIntervalledSampleList)
 
 PbExerciseSamples = _reflection.GeneratedProtocolMessageType('PbExerciseSamples', (_message.Message,), dict(
   DESCRIPTOR = _PBEXERCISESAMPLES,

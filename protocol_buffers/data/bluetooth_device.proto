@@ -1,23 +1,14 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
 package data;
+
+import "structures.proto";
+import "types.proto";
 
 enum PbDeviceManufacturerType {
 	MANUFACTURER_POLAR = 1;
 	MANUFACTURER_OTHER = 2;
-}
-
-message PbBleUuid {
-	required bytes uuid = 1 ;
-}
-
-message PbBleCharacteristic {
-	required uint32 handle = 1 ;
-	required .data.PbBleUuid type = 2 ;
-}
-
-message PbBleService {
-	required .data.PbBleUuid serviceUuid = 1 ;
-	repeated .data.PbBleCharacteristic characteristics = 2 ;
 }
 
 message PbBleUser {
@@ -41,20 +32,25 @@ message PbBleDevice {
 	optional bytes peer_irk = 13 ;
 	optional bytes peer_csrk = 14 ;
 	repeated .PbFeatureType available_features = 15 ;
-	repeated .data.PbBleService services = 16 ;
+	repeated .PbBleService services = 16 ;
 	optional bytes peer_rand = 17 ;
 	optional uint32 peer_ediv = 18 ;
 	optional uint32 encr_key_size = 19 ;
 	optional uint32 distributed_keys = 20 ;
 	optional bool authenticated = 21 ;
 	optional .data.PbBleDevice.PbSensorLocation sensor_location = 22 ;
-	optional string software_version = 23 ;
+	optional string OBSOLETE_device_version = 23 ;
 	optional string secondary_software_version = 24 ;
 	optional string serial_number = 25 ;
 	optional bytes local_ltk = 26 ;
 	optional bytes local_rand = 27 ;
 	optional uint32 local_ediv = 28 ;
 	repeated .data.PbBleUser user_data = 29 ;
+	optional .data.PbBleDevice.PbDeviceAppearance device_appearance = 30 ;
+	optional bool part_of_distributed_power_system = 31 ;
+	optional string hardware_code = 32 ;
+	repeated .PbSubcomponentInfo sub_component_info = 33 ;
+	optional .PbVersion device_version = 34 ;
 	
 	enum PbBleKeyType {
 		BLE_PEER_ENCRYPTION_KEY = 1;
@@ -81,5 +77,38 @@ message PbBleDevice {
 		SENSOR_LOCATION_REAR_WHEEL = 12;
 		SENSOR_LOCATION_REAR_HUB = 13;
 		SENSOR_LOCATION_CHEST = 14;
+	}
+	
+	enum PbDeviceAppearance {
+		BLE_DEVICE_APPEARENCE_UNKNOWN = 0;
+		BLE_DEVICE_APPEARENCE_GENERIC_PHONE = 64;
+		BLE_DEVICE_APPEARENCE_GENERIC_COMPUTER = 128;
+		BLE_DEVICE_APPEARENCE_GENERIC_WATCH = 192;
+		BLE_DEVICE_APPEARENCE_SPORTS_WATCH = 193;
+		BLE_DEVICE_APPEARENCE_GENERIC_CLOCK = 256;
+		BLE_DEVICE_APPEARENCE_GENERIC_DISPLAY = 320;
+		BLE_DEVICE_APPEARENCE_GENERIC_GENERIC_REMOTE_CONTROL = 384;
+		BLE_DEVICE_APPEARENCE_GENERIC_EYE_GLASSES = 448;
+		BLE_DEVICE_APPEARENCE_GENERIC_TAG = 512;
+		BLE_DEVICE_APPEARENCE_GENERIC_KEYRING = 576;
+		BLE_DEVICE_APPEARENCE_GENERIC_MEDIA_PLAYER = 640;
+		BLE_DEVICE_APPEARENCE_GENERIC_BARCODE_SCANNER = 704;
+		BLE_DEVICE_APPEARENCE_GENERIC_THERMOMETER = 768;
+		BLE_DEVICE_APPEARENCE_THERMOMETER_EAR = 769;
+		BLE_DEVICE_APPEARENCE_GENERIC_HEART_RATE_SENSOR = 832;
+		BLE_DEVICE_APPEARENCE_BELT_HEART_RATE_SENSOR = 833;
+		BLE_DEVICE_APPEARENCE_GENERIC_BLOOD_PRESSURE = 896;
+		BLE_DEVICE_APPEARENCE_BLOOD_PRESSURE_ARM = 897;
+		BLE_DEVICE_APPEARENCE_BLOOD_PRESSURE_WRIST = 898;
+		BLE_DEVICE_APPEARENCE_HUMAN_INTERFACE_DEVICE = 960;
+		BLE_DEVICE_APPEARENCE_HID_KEYBOARD = 961;
+		BLE_DEVICE_APPEARENCE_HID_MOUSE = 962;
+		BLE_DEVICE_APPEARENCE_HID_JOYSTICK = 963;
+		BLE_DEVICE_APPEARENCE_HID_GAMEPAD = 964;
+		BLE_DEVICE_APPEARENCE_HID_DIGITIZER_TABLET = 965;
+		BLE_DEVICE_APPEARENCE_HID_CARD_READER = 966;
+		BLE_DEVICE_APPEARENCE_HID_DIGITAL_PEN = 967;
+		BLE_DEVICE_APPEARENCE_HID_BARCODE_SCANNER = 968;
+		BLE_DEVICE_APPEARENCE_GENERIC_GLUCOSE_METER = 1024;
 	}
 }

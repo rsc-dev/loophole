@@ -19,7 +19,8 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='types.proto',
   package='',
-  serialized_pb=_b('\n\x0btypes.proto\"6\n\x0ePbRangeOptions\x12\x11\n\tmin_value\x18\x01 \x01(\x05\x12\x11\n\tmax_value\x18\x02 \x01(\x05\"2\n\x06PbDate\x12\x0c\n\x04year\x18\x01 \x02(\r\x12\r\n\x05month\x18\x02 \x02(\r\x12\x0b\n\x03\x64\x61y\x18\x03 \x02(\r\"J\n\x06PbTime\x12\x0c\n\x04hour\x18\x01 \x02(\r\x12\x0e\n\x06minute\x18\x02 \x02(\r\x12\x0f\n\x07seconds\x18\x03 \x02(\r\x12\x11\n\x06millis\x18\x04 \x01(\r:\x01\x30\"Q\n\x10PbSystemDateTime\x12\x15\n\x04\x64\x61te\x18\x01 \x02(\x0b\x32\x07.PbDate\x12\x15\n\x04time\x18\x02 \x02(\x0b\x32\x07.PbTime\x12\x0f\n\x07trusted\x18\x03 \x02(\x08\"s\n\x0fPbLocalDateTime\x12\x15\n\x04\x64\x61te\x18\x01 \x02(\x0b\x32\x07.PbDate\x12\x15\n\x04time\x18\x02 \x02(\x0b\x32\x07.PbTime\x12\x18\n\x10OBSOLETE_trusted\x18\x03 \x02(\x08\x12\x18\n\x10time_zone_offset\x18\x04 \x01(\x05\"Y\n\nPbDuration\x12\x10\n\x05hours\x18\x01 \x01(\r:\x01\x30\x12\x12\n\x07minutes\x18\x02 \x01(\r:\x01\x30\x12\x12\n\x07seconds\x18\x03 \x01(\r:\x01\x30\x12\x11\n\x06millis\x18\x04 \x01(\r:\x01\x30\"\xc3\x01\n\nPbLocation\x12\x10\n\x08latitude\x18\x01 \x02(\x01\x12\x11\n\tlongitude\x18\x02 \x02(\x01\x12$\n\ttimestamp\x18\x03 \x01(\x0b\x32\x11.PbSystemDateTime\x12&\n\x03\x66ix\x18\x04 \x01(\x0e\x32\x0f.PbLocation.Fix:\x08\x46IX_NONE\x12\x15\n\nsatellites\x18\x05 \x01(\r:\x01\x30\"+\n\x03\x46ix\x12\x0c\n\x08\x46IX_NONE\x10\x00\x12\n\n\x06\x46IX_2D\x10\x01\x12\n\n\x06\x46IX_3D\x10\x02\":\n\x0fPbSensorOffline\x12\x13\n\x0bstart_index\x18\x01 \x02(\r\x12\x12\n\nstop_index\x18\x02 \x02(\r\"\x1a\n\x08PbVolume\x12\x0e\n\x06volume\x18\x01 \x02(\r\"\xc7\x03\n\x1bPbStrideSensorCalibSettings\x12\x16\n\x0erunning_factor\x18\x01 \x02(\x02\x12\x42\n\ncalib_type\x18\x02 \x02(\x0e\x32..PbStrideSensorCalibSettings.PbStrideCalibType\x12p\n\x15running_factor_source\x18\x03 \x01(\x0e\x32\x32.PbStrideSensorCalibSettings.PbRunningFactorSource:\x1dRUNNING_FACTOR_SOURCE_DEFAULT\"C\n\x11PbStrideCalibType\x12\x17\n\x13STRIDE_CALIB_MANUAL\x10\x00\x12\x15\n\x11STRIDE_CALIB_AUTO\x10\x01\"\x94\x01\n\x15PbRunningFactorSource\x12!\n\x1dRUNNING_FACTOR_SOURCE_DEFAULT\x10\x00\x12*\n&RUNNING_FACTOR_SOURCE_AUTO_CALIBRATION\x10\x01\x12,\n(RUNNING_FACTOR_SOURCE_MANUAL_CALIBRATION\x10\x02*\xa1\x06\n\nPbDataType\x12\r\n\tUNDEFINED\x10\x00\x12\r\n\tINHERITED\x10\x01\x12\x08\n\x04\x45NUM\x10\x02\x12\n\n\x06MILLIS\x10\x03\x12\n\n\x06SECOND\x10\x04\x12\n\n\x06MINUTE\x10\x05\x12\x08\n\x04HOUR\x10\x06\x12\t\n\x05HOURS\x10\x07\x12\x07\n\x03\x44\x41Y\x10\x08\x12\t\n\x05MONTH\x10\t\x12\x08\n\x04YEAR\x10\n\x12\n\n\x06WEIGHT\x10\x0b\x12\n\n\x06HEIGHT\x10\x0c\x12\n\n\x06VO2MAX\x10\r\x12\r\n\tHEARTRATE\x10\x14\x12\x0e\n\nHR_PERCENT\x10\x15\x12\x0e\n\nHR_RESERVE\x10\x16\x12\t\n\x05SPEED\x10\x17\x12\x0b\n\x07\x43\x41\x44\x45NCE\x10\x18\x12\x0c\n\x08\x41LTITUDE\x10\x19\x12\t\n\x05POWER\x10\x1a\x12\r\n\tPOWER_LRB\x10\x1b\x12\x0c\n\x08POWER_PI\x10\x1c\x12\x0f\n\x0bTEMPERATURE\x10\x1d\x12\x0c\n\x08\x41\x43TIVITY\x10\x1e\x12\x11\n\rSTRIDE_LENGTH\x10\x1f\x12\x0b\n\x07INCLINE\x10 \x12\x0b\n\x07\x44\x45\x43LINE\x10!\x12\x0c\n\x08\x44ISTANCE\x10\x34\x12\n\n\x06\x45NERGY\x10\x35\x12\x10\n\x0c\x46\x41T_PERCENTS\x10\x36\x12\n\n\x06\x41SCENT\x10\x37\x12\x0b\n\x07\x44\x45SCENT\x10\x38\x12\x0c\n\x08LATITUDE\x10\x39\x12\r\n\tLONGITUDE\x10:\x12\t\n\x05HERTZ\x10;\x12\x0b\n\x07PERCENT\x10<\x12\x1a\n\x16\x43UMULATED_ACTIVITY_DAY\x10=\x12\x11\n\rRUNNING_INDEX\x10>\x12\x0f\n\x0bRR_INTERVAL\x10?\x12\x0b\n\x07Z_INDEX\x10@\x12\x19\n\x15\x45XERCISE_TARGET_INDEX\x10\x41\x12\x14\n\x10TIME_ZONE_OFFSET\x10\x42\x12\x0e\n\nWHEEL_SIZE\x10\x43\x12\x11\n\rFITNESS_CLASS\x10\x44\x12\x10\n\x0c\x41\x43\x43\x45LERATION\x10\x45\x12\x10\n\x0c\x43RANK_LENGTH\x10\x46\x12\x10\n\x0c\x41NGLE_DEGREE\x10G\x12\n\n\x06NEWTON\x10H\x12\x1e\n\x1a\x46UNCTIONAL_THRESHOLD_POWER\x10I\x12\x0c\n\x08\x43\x41LORIES\x10J\x12\x1c\n\x18SPEED_CALIBRATION_OFFSET\x10K*~\n\x0fPbHeartRateView\x12\x17\n\x13HEART_RATE_VIEW_BPM\x10\x01\x12*\n&HEART_RATE_VIEW_PERCENTS_OF_HR_RESERVE\x10\x02\x12&\n\"HEART_RATE_VIEW_PERCENTS_OF_MAX_HR\x10\x03*(\n\x0cPbUnitSystem\x12\n\n\x06METRIC\x10\x01\x12\x0c\n\x08IMPERIAL\x10\x02*)\n\x0fPbTimeSelection\x12\n\n\x06TIME_1\x10\x01\x12\n\n\x06TIME_2\x10\x02*8\n\x0cPbTimeFormat\x12\x13\n\x0fTIME_FORMAT_24H\x10\x01\x12\x13\n\x0fTIME_FORMAT_12H\x10\x02*W\n\x15PbTimeFormatSeparator\x12\x1d\n\x19TIME_FORMAT_SEPARATOR_DOT\x10\x01\x12\x1f\n\x1bTIME_FORMAT_SEPARATOR_COLON\x10\x02*8\n\x10PbStartDayOfWeek\x12\n\n\x06MONDAY\x10\x01\x12\x0c\n\x08SATURDAY\x10\x02\x12\n\n\x06SUNDAY\x10\x03*7\n\x15PbDateFormatSeparator\x12\x07\n\x03\x44OT\x10\x01\x12\t\n\x05SLASH\x10\x02\x12\n\n\x06HYPHEN\x10\x03*>\n\x0cPbDateFormat\x12\x0e\n\nDD_MM_YYYY\x10\x01\x12\x0e\n\nMM_DD_YYYY\x10\x02\x12\x0e\n\nYYYY_MM_DD\x10\x03*\x91\x07\n\rPbFeatureType\x12\x1b\n\x17\x46\x45\x41TURE_TYPE_HEART_RATE\x10\x01\x12\x1c\n\x18\x46\x45\x41TURE_TYPE_RR_INTERVAL\x10\x02\x12\x16\n\x12\x46\x45\x41TURE_TYPE_SPEED\x10\x03\x12\x19\n\x15\x46\x45\x41TURE_TYPE_DISTANCE\x10\x04\x12\x1d\n\x19\x46\x45\x41TURE_TYPE_BIKE_CADENCE\x10\x05\x12\x1b\n\x17\x46\x45\x41TURE_TYPE_BIKE_POWER\x10\x06\x12\x1d\n\x19\x46\x45\x41TURE_TYPE_GPS_LOCATION\x10\x07\x12 \n\x1c\x46\x45\x41TURE_TYPE_RUNNING_CADENCE\x10\x08\x12\"\n\x1e\x46\x45\x41TURE_TYPE_PRESS_TEMPERATURE\x10\t\x12\x19\n\x15\x46\x45\x41TURE_TYPE_ALTITUDE\x10\n\x12\x16\n\x12\x46\x45\x41TURE_TYPE_STEPS\x10\x0b\x12\x19\n\x15\x46\x45\x41TURE_TYPE_ACTIVITY\x10\x0c\x12\x1e\n\x1a\x46\x45\x41TURE_TYPE_STRIDE_LENGTH\x10\r\x12 \n\x1c\x46\x45\x41TURE_TYPE_RSC_MOVING_TYPE\x10\x0e\x12\x1c\n\x18\x46\x45\x41TURE_TYPE_JUMP_HEIGTH\x10\x0f\x12 \n\x1c\x46\x45\x41TURE_TYPE_COMPASS_HEADING\x10\x10\x12\x1a\n\x16\x46\x45\x41TURE_TYPE_GPS_SPEED\x10\x11\x12\x1d\n\x19\x46\x45\x41TURE_TYPE_GPS_DISTANCE\x10\x12\x12\x1d\n\x19\x46\x45\x41TURE_TYPE_GPS_ALTITUDE\x10\x13\x12&\n\"FEATURE_TYPE_BIKE_WHEEL_REVOLUTION\x10\x14\x12&\n\"FEATURE_TYPE_BIKE_CRANK_REVOLUTION\x10\x15\x12\x19\n\x15\x46\x45\x41TURE_TYPE_AS_SPEED\x10\x16\x12\x1b\n\x17\x46\x45\x41TURE_TYPE_AS_CADENCE\x10\x17\x12\x1c\n\x18\x46\x45\x41TURE_TYPE_AS_DISTANCE\x10\x18\x12\x1d\n\x19\x46\x45\x41TURE_TYPE_AS_SWR_STATE\x10\x19\x12\x1e\n\x1a\x46\x45\x41TURE_TYPE_BATTERY_LEVEL\x10\x1a\x12\x1e\n\x1a\x46\x45\x41TURE_TYPE_FILE_TRANSFER\x10\x1b\x12#\n\x1f\x46\x45\x41TURE_TYPE_PUSH_NOTIFICATIONS\x10\x1c\x12\x1d\n\x19\x46\x45\x41TURE_TYPE_WEIGHT_SCALE\x10\x1d*6\n\x0cPbMovingType\x12\x0b\n\x07WALKING\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\x0c\n\x08STANDING\x10\x02*(\n\x0fPbOperationType\x12\x0c\n\x08MULTIPLY\x10\x01\x12\x07\n\x03SUM\x10\x02*\xbf\x02\n\x12PbExerciseFeedback\x12\x11\n\rFEEDBACK_NONE\x10\x01\x12\x0e\n\nFEEDBACK_1\x10\x02\x12\x0e\n\nFEEDBACK_2\x10\x03\x12\x0e\n\nFEEDBACK_3\x10\x04\x12\x0e\n\nFEEDBACK_4\x10\x05\x12\x0e\n\nFEEDBACK_5\x10\x06\x12\x0e\n\nFEEDBACK_6\x10\x07\x12\x0e\n\nFEEDBACK_7\x10\x08\x12\x0e\n\nFEEDBACK_8\x10\t\x12\x0e\n\nFEEDBACK_9\x10\n\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_10\x10\x0b\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_11\x10\x0c\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_12\x10\r\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_13\x10\x0e\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_14\x10\x0f\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_15\x10\x10\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_16\x10\x11\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_17\x10\x12*\xa1\x01\n\x1cPbHeartRateZoneSettingSource\x12*\n&HEART_RATE_ZONE_SETTING_SOURCE_DEFAULT\x10\x00\x12,\n(HEART_RATE_ZONE_SETTING_SOURCE_THRESHOLD\x10\x01\x12\'\n#HEART_RATE_ZONE_SETTING_SOURCE_FREE\x10\x02*e\n\x18PbPowerZoneSettingSource\x12%\n!POWER_ZONE_SETTING_SOURCE_DEFAULT\x10\x00\x12\"\n\x1ePOWER_ZONE_SETTING_SOURCE_FREE\x10\x01*e\n\x18PbSpeedZoneSettingSource\x12%\n!SPEED_ZONE_SETTING_SOURCE_DEFAULT\x10\x00\x12\"\n\x1eSPEED_ZONE_SETTING_SOURCE_FREE\x10\x01*\x93\x01\n\tPbMacType\x12\x13\n\x0fMAC_TYPE_PUBLIC\x10\x00\x12\x13\n\x0fMAC_TYPE_STATIC\x10\x01\x12\"\n\x1eMAC_TYPE_PRIVATE_NONRESOLVABLE\x10\x02\x12\x1f\n\x1bMAC_TYPE_PRIVATE_RESOLVABLE\x10\x03\x12\x17\n\x13MAC_TYPE_BT_CLASSIC\x10\x04*\x83\x01\n\x0fPbSwimmingStyle\x12\x12\n\x05OTHER\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x08\n\x04TURN\x10\x00\x12\x12\n\x0eOTHER_SWIMMING\x10\n\x12\r\n\tFREESTYLE\x10\x0b\x12\x10\n\x0c\x42REASTSTROKE\x10\x0c\x12\x0e\n\nBACKSTROKE\x10\r\x12\r\n\tBUTTERFLY\x10\x0e*H\n\x13PbSwimmingPoolUnits\x12\x18\n\x14SWIMMING_POOL_METERS\x10\x00\x12\x17\n\x13SWIMMING_POOL_YARDS\x10\x01*\xec\x01\n\x14PbExerciseTargetType\x12\x1d\n\x19\x45XERCISE_TARGET_TYPE_FREE\x10\x00\x12\x1f\n\x1b\x45XERCISE_TARGET_TYPE_VOLUME\x10\x01\x12\x1f\n\x1b\x45XERCISE_TARGET_TYPE_PHASED\x10\x02\x12\x1e\n\x1a\x45XERCISE_TARGET_TYPE_ROUTE\x10\x03\x12)\n%EXERCISE_TARGET_TYPE_STEADY_RACE_PACE\x10\x04\x12(\n$EXERCISE_TARGET_TYPE_ROUTE_RACE_PACE\x10\x05')
+  syntax='proto2',
+  serialized_pb=_b('\n\x0btypes.proto\"6\n\x0ePbRangeOptions\x12\x11\n\tmin_value\x18\x01 \x01(\x05\x12\x11\n\tmax_value\x18\x02 \x01(\x05\"2\n\x06PbDate\x12\x0c\n\x04year\x18\x01 \x02(\r\x12\r\n\x05month\x18\x02 \x02(\r\x12\x0b\n\x03\x64\x61y\x18\x03 \x02(\r\"J\n\x06PbTime\x12\x0c\n\x04hour\x18\x01 \x02(\r\x12\x0e\n\x06minute\x18\x02 \x02(\r\x12\x0f\n\x07seconds\x18\x03 \x02(\r\x12\x11\n\x06millis\x18\x04 \x01(\r:\x01\x30\"Q\n\x10PbSystemDateTime\x12\x15\n\x04\x64\x61te\x18\x01 \x02(\x0b\x32\x07.PbDate\x12\x15\n\x04time\x18\x02 \x02(\x0b\x32\x07.PbTime\x12\x0f\n\x07trusted\x18\x03 \x02(\x08\"s\n\x0fPbLocalDateTime\x12\x15\n\x04\x64\x61te\x18\x01 \x02(\x0b\x32\x07.PbDate\x12\x15\n\x04time\x18\x02 \x02(\x0b\x32\x07.PbTime\x12\x18\n\x10OBSOLETE_trusted\x18\x03 \x02(\x08\x12\x18\n\x10time_zone_offset\x18\x04 \x01(\x05\"Y\n\nPbDuration\x12\x10\n\x05hours\x18\x01 \x01(\r:\x01\x30\x12\x12\n\x07minutes\x18\x02 \x01(\r:\x01\x30\x12\x12\n\x07seconds\x18\x03 \x01(\r:\x01\x30\x12\x11\n\x06millis\x18\x04 \x01(\r:\x01\x30\"\xc3\x01\n\nPbLocation\x12\x10\n\x08latitude\x18\x01 \x02(\x01\x12\x11\n\tlongitude\x18\x02 \x02(\x01\x12$\n\ttimestamp\x18\x03 \x01(\x0b\x32\x11.PbSystemDateTime\x12&\n\x03\x66ix\x18\x04 \x01(\x0e\x32\x0f.PbLocation.Fix:\x08\x46IX_NONE\x12\x15\n\nsatellites\x18\x05 \x01(\r:\x01\x30\"+\n\x03\x46ix\x12\x0c\n\x08\x46IX_NONE\x10\x00\x12\n\n\x06\x46IX_2D\x10\x01\x12\n\n\x06\x46IX_3D\x10\x02\":\n\x0fPbSensorOffline\x12\x13\n\x0bstart_index\x18\x01 \x02(\r\x12\x12\n\nstop_index\x18\x02 \x02(\r\"\x1a\n\x08PbVolume\x12\x0e\n\x06volume\x18\x01 \x02(\r\"\xc7\x03\n\x1bPbStrideSensorCalibSettings\x12\x16\n\x0erunning_factor\x18\x01 \x02(\x02\x12\x42\n\ncalib_type\x18\x02 \x02(\x0e\x32..PbStrideSensorCalibSettings.PbStrideCalibType\x12p\n\x15running_factor_source\x18\x03 \x01(\x0e\x32\x32.PbStrideSensorCalibSettings.PbRunningFactorSource:\x1dRUNNING_FACTOR_SOURCE_DEFAULT\"C\n\x11PbStrideCalibType\x12\x17\n\x13STRIDE_CALIB_MANUAL\x10\x00\x12\x15\n\x11STRIDE_CALIB_AUTO\x10\x01\"\x94\x01\n\x15PbRunningFactorSource\x12!\n\x1dRUNNING_FACTOR_SOURCE_DEFAULT\x10\x00\x12*\n&RUNNING_FACTOR_SOURCE_AUTO_CALIBRATION\x10\x01\x12,\n(RUNNING_FACTOR_SOURCE_MANUAL_CALIBRATION\x10\x02\"x\n\x06PbWeek\x12\x1b\n\x13week_number_ISO8601\x18\x01 \x02(\r\x12\x0c\n\x04year\x18\x02 \x02(\r\x12\x18\n\x10time_zone_offset\x18\x03 \x02(\x05\x12)\n\x0eweek_start_day\x18\x04 \x02(\x0e\x32\x11.PbStartDayOfWeek\"j\n\x0ePbSampleSource\x12/\n\x12sample_source_type\x18\x01 \x02(\x0e\x32\x13.PbSampleSourceType\x12\x13\n\x0bstart_index\x18\x02 \x02(\r\x12\x12\n\nstop_index\x18\x03 \x02(\r\"f\n\x19PbSensorCalibrationOffset\x12/\n\x12sample_source_type\x18\x01 \x02(\x0e\x32\x13.PbSampleSourceType\x12\x18\n\x10speed_cal_offset\x18\x02 \x01(\x02\"\x81\x01\n\x15PbCalibrationSettings\x12\"\n\x0bsample_type\x18\x01 \x02(\x0e\x32\r.PbSampleType\x12\x1b\n\x13\x63\x61libration_enabled\x18\x02 \x01(\x08\x12\'\n\x1f\x63\x61libration_calculation_enabled\x18\x03 \x01(\x08\"~\n\x15PbAccelerationMetrics\x12/\n\x12sample_source_type\x18\x01 \x02(\x0e\x32\x13.PbSampleSourceType\x12\x34\n\x14\x63\x61libration_settings\x18\x02 \x03(\x0b\x32\x16.PbCalibrationSettings\"\xa0\x01\n\x0bPbAutoPause\x12\x30\n\x07trigger\x18\x01 \x02(\x0e\x32\x1f.PbAutoPause.PbAutoPauseTrigger\x12\x17\n\x0fspeed_threshold\x18\x02 \x01(\x02\"F\n\x12PbAutoPauseTrigger\x12\x12\n\x0e\x41UTO_PAUSE_OFF\x10\x00\x12\x1c\n\x18\x41UTO_PAUSE_TRIGGER_SPEED\x10\x01\"\x97\x02\n\x11PbAutoLapSettings\x12\x38\n\rautomatic_lap\x18\x01 \x02(\x0e\x32!.PbAutoLapSettings.PbAutomaticLap\x12\x1e\n\x16\x61utomatic_lap_distance\x18\x02 \x01(\x02\x12+\n\x16\x61utomatic_lap_duration\x18\x03 \x01(\x0b\x32\x0b.PbDuration\"{\n\x0ePbAutomaticLap\x12\x15\n\x11\x41UTOMATIC_LAP_OFF\x10\x01\x12\x1a\n\x16\x41UTOMATIC_LAP_DISTANCE\x10\x02\x12\x1a\n\x16\x41UTOMATIC_LAP_DURATION\x10\x03\x12\x1a\n\x16\x41UTOMATIC_LAP_LOCATION\x10\x04\"<\n\x0cPbCardioLoad\x12\x15\n\ractivity_load\x18\x01 \x02(\x02\x12\x15\n\rexercise_load\x18\x02 \x02(\x02\"U\n\x0fPbPerceivedLoad\x12\x30\n\x0bsession_rpe\x18\x01 \x02(\x0e\x32\r.PbSessionRPE:\x0cRPE_MODERATE\x12\x10\n\x08\x64uration\x18\x02 \x02(\r*\x97\x07\n\nPbDataType\x12\r\n\tUNDEFINED\x10\x00\x12\r\n\tINHERITED\x10\x01\x12\x08\n\x04\x45NUM\x10\x02\x12\n\n\x06MILLIS\x10\x03\x12\n\n\x06SECOND\x10\x04\x12\n\n\x06MINUTE\x10\x05\x12\x08\n\x04HOUR\x10\x06\x12\t\n\x05HOURS\x10\x07\x12\x07\n\x03\x44\x41Y\x10\x08\x12\t\n\x05MONTH\x10\t\x12\x08\n\x04YEAR\x10\n\x12\n\n\x06WEIGHT\x10\x0b\x12\n\n\x06HEIGHT\x10\x0c\x12\n\n\x06VO2MAX\x10\r\x12\r\n\tHEARTRATE\x10\x14\x12\x0e\n\nHR_PERCENT\x10\x15\x12\x0e\n\nHR_RESERVE\x10\x16\x12\t\n\x05SPEED\x10\x17\x12\x0b\n\x07\x43\x41\x44\x45NCE\x10\x18\x12\x0c\n\x08\x41LTITUDE\x10\x19\x12\t\n\x05POWER\x10\x1a\x12\r\n\tPOWER_LRB\x10\x1b\x12\x0c\n\x08POWER_PI\x10\x1c\x12\x0f\n\x0bTEMPERATURE\x10\x1d\x12\x0c\n\x08\x41\x43TIVITY\x10\x1e\x12\x11\n\rSTRIDE_LENGTH\x10\x1f\x12\x0b\n\x07INCLINE\x10 \x12\x0b\n\x07\x44\x45\x43LINE\x10!\x12\x0c\n\x08\x44ISTANCE\x10\x34\x12\n\n\x06\x45NERGY\x10\x35\x12\x10\n\x0c\x46\x41T_PERCENTS\x10\x36\x12\n\n\x06\x41SCENT\x10\x37\x12\x0b\n\x07\x44\x45SCENT\x10\x38\x12\x0c\n\x08LATITUDE\x10\x39\x12\r\n\tLONGITUDE\x10:\x12\t\n\x05HERTZ\x10;\x12\x0b\n\x07PERCENT\x10<\x12\x1a\n\x16\x43UMULATED_ACTIVITY_DAY\x10=\x12\x11\n\rRUNNING_INDEX\x10>\x12\x0f\n\x0bRR_INTERVAL\x10?\x12\x0b\n\x07Z_INDEX\x10@\x12\x19\n\x15\x45XERCISE_TARGET_INDEX\x10\x41\x12\x14\n\x10TIME_ZONE_OFFSET\x10\x42\x12\x0e\n\nWHEEL_SIZE\x10\x43\x12\x11\n\rFITNESS_CLASS\x10\x44\x12\x10\n\x0c\x41\x43\x43\x45LERATION\x10\x45\x12\x10\n\x0c\x43RANK_LENGTH\x10\x46\x12\x10\n\x0c\x41NGLE_DEGREE\x10G\x12\n\n\x06NEWTON\x10H\x12\x1e\n\x1a\x46UNCTIONAL_THRESHOLD_POWER\x10I\x12\x0c\n\x08\x43\x41LORIES\x10J\x12\x1c\n\x18SPEED_CALIBRATION_OFFSET\x10K\x12\x08\n\x04WEEK\x10L\x12\x0f\n\x0b\x43\x41RDIO_LOAD\x10M\x12\x19\n\x15MAXIMUM_AEROBIC_POWER\x10N\x12\x19\n\x15MAXIMUM_AEROBIC_SPEED\x10O\x12\x0f\n\x0bMUSCLE_LOAD\x10P\x12\x12\n\x0ePERCEIVED_LOAD\x10Q*~\n\x0fPbHeartRateView\x12\x17\n\x13HEART_RATE_VIEW_BPM\x10\x01\x12*\n&HEART_RATE_VIEW_PERCENTS_OF_HR_RESERVE\x10\x02\x12&\n\"HEART_RATE_VIEW_PERCENTS_OF_MAX_HR\x10\x03*(\n\x0cPbUnitSystem\x12\n\n\x06METRIC\x10\x01\x12\x0c\n\x08IMPERIAL\x10\x02*)\n\x0fPbTimeSelection\x12\n\n\x06TIME_1\x10\x01\x12\n\n\x06TIME_2\x10\x02*8\n\x0cPbTimeFormat\x12\x13\n\x0fTIME_FORMAT_24H\x10\x01\x12\x13\n\x0fTIME_FORMAT_12H\x10\x02*W\n\x15PbTimeFormatSeparator\x12\x1d\n\x19TIME_FORMAT_SEPARATOR_DOT\x10\x01\x12\x1f\n\x1bTIME_FORMAT_SEPARATOR_COLON\x10\x02*8\n\x10PbStartDayOfWeek\x12\n\n\x06MONDAY\x10\x01\x12\x0c\n\x08SATURDAY\x10\x02\x12\n\n\x06SUNDAY\x10\x03*7\n\x15PbDateFormatSeparator\x12\x07\n\x03\x44OT\x10\x01\x12\t\n\x05SLASH\x10\x02\x12\n\n\x06HYPHEN\x10\x03*>\n\x0cPbDateFormat\x12\x0e\n\nDD_MM_YYYY\x10\x01\x12\x0e\n\nMM_DD_YYYY\x10\x02\x12\x0e\n\nYYYY_MM_DD\x10\x03*\xe8\x07\n\rPbFeatureType\x12\x1b\n\x17\x46\x45\x41TURE_TYPE_HEART_RATE\x10\x01\x12\x1c\n\x18\x46\x45\x41TURE_TYPE_RR_INTERVAL\x10\x02\x12\x16\n\x12\x46\x45\x41TURE_TYPE_SPEED\x10\x03\x12\x19\n\x15\x46\x45\x41TURE_TYPE_DISTANCE\x10\x04\x12\x1d\n\x19\x46\x45\x41TURE_TYPE_BIKE_CADENCE\x10\x05\x12\x1b\n\x17\x46\x45\x41TURE_TYPE_BIKE_POWER\x10\x06\x12\x1d\n\x19\x46\x45\x41TURE_TYPE_GPS_LOCATION\x10\x07\x12 \n\x1c\x46\x45\x41TURE_TYPE_RUNNING_CADENCE\x10\x08\x12\"\n\x1e\x46\x45\x41TURE_TYPE_PRESS_TEMPERATURE\x10\t\x12\x19\n\x15\x46\x45\x41TURE_TYPE_ALTITUDE\x10\n\x12\x16\n\x12\x46\x45\x41TURE_TYPE_STEPS\x10\x0b\x12\x19\n\x15\x46\x45\x41TURE_TYPE_ACTIVITY\x10\x0c\x12\x1e\n\x1a\x46\x45\x41TURE_TYPE_STRIDE_LENGTH\x10\r\x12 \n\x1c\x46\x45\x41TURE_TYPE_RSC_MOVING_TYPE\x10\x0e\x12\x1c\n\x18\x46\x45\x41TURE_TYPE_JUMP_HEIGTH\x10\x0f\x12 \n\x1c\x46\x45\x41TURE_TYPE_COMPASS_HEADING\x10\x10\x12\x1a\n\x16\x46\x45\x41TURE_TYPE_GPS_SPEED\x10\x11\x12\x1d\n\x19\x46\x45\x41TURE_TYPE_GPS_DISTANCE\x10\x12\x12\x1d\n\x19\x46\x45\x41TURE_TYPE_GPS_ALTITUDE\x10\x13\x12&\n\"FEATURE_TYPE_BIKE_WHEEL_REVOLUTION\x10\x14\x12&\n\"FEATURE_TYPE_BIKE_CRANK_REVOLUTION\x10\x15\x12\x19\n\x15\x46\x45\x41TURE_TYPE_AS_SPEED\x10\x16\x12\x1b\n\x17\x46\x45\x41TURE_TYPE_AS_CADENCE\x10\x17\x12\x1c\n\x18\x46\x45\x41TURE_TYPE_AS_DISTANCE\x10\x18\x12\x1d\n\x19\x46\x45\x41TURE_TYPE_AS_SWR_STATE\x10\x19\x12\x1e\n\x1a\x46\x45\x41TURE_TYPE_BATTERY_LEVEL\x10\x1a\x12\x1e\n\x1a\x46\x45\x41TURE_TYPE_FILE_TRANSFER\x10\x1b\x12#\n\x1f\x46\x45\x41TURE_TYPE_PUSH_NOTIFICATIONS\x10\x1c\x12\x1d\n\x19\x46\x45\x41TURE_TYPE_WEIGHT_SCALE\x10\x1d\x12\x1f\n\x1b\x46\x45\x41TURE_TYPE_REMOTE_BUTTONS\x10\x1e\x12\x16\n\x12\x46\x45\x41TURE_TYPE_GOPRO\x10\x1f\x12\x1c\n\x18\x46\x45\x41TURE_TYPE_PP_INTERVAL\x10 *6\n\x0cPbMovingType\x12\x0b\n\x07WALKING\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\x0c\n\x08STANDING\x10\x02*(\n\x0fPbOperationType\x12\x0c\n\x08MULTIPLY\x10\x01\x12\x07\n\x03SUM\x10\x02*\xbf\x02\n\x12PbExerciseFeedback\x12\x11\n\rFEEDBACK_NONE\x10\x01\x12\x0e\n\nFEEDBACK_1\x10\x02\x12\x0e\n\nFEEDBACK_2\x10\x03\x12\x0e\n\nFEEDBACK_3\x10\x04\x12\x0e\n\nFEEDBACK_4\x10\x05\x12\x0e\n\nFEEDBACK_5\x10\x06\x12\x0e\n\nFEEDBACK_6\x10\x07\x12\x0e\n\nFEEDBACK_7\x10\x08\x12\x0e\n\nFEEDBACK_8\x10\t\x12\x0e\n\nFEEDBACK_9\x10\n\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_10\x10\x0b\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_11\x10\x0c\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_12\x10\r\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_13\x10\x0e\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_14\x10\x0f\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_15\x10\x10\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_16\x10\x11\x12\x0f\n\x0b\x46\x45\x45\x44\x42\x41\x43K_17\x10\x12*\xa1\x01\n\x1cPbHeartRateZoneSettingSource\x12*\n&HEART_RATE_ZONE_SETTING_SOURCE_DEFAULT\x10\x00\x12,\n(HEART_RATE_ZONE_SETTING_SOURCE_THRESHOLD\x10\x01\x12\'\n#HEART_RATE_ZONE_SETTING_SOURCE_FREE\x10\x02*e\n\x18PbPowerZoneSettingSource\x12%\n!POWER_ZONE_SETTING_SOURCE_DEFAULT\x10\x00\x12\"\n\x1ePOWER_ZONE_SETTING_SOURCE_FREE\x10\x01*e\n\x18PbSpeedZoneSettingSource\x12%\n!SPEED_ZONE_SETTING_SOURCE_DEFAULT\x10\x00\x12\"\n\x1eSPEED_ZONE_SETTING_SOURCE_FREE\x10\x01*\x93\x01\n\tPbMacType\x12\x13\n\x0fMAC_TYPE_PUBLIC\x10\x00\x12\x13\n\x0fMAC_TYPE_STATIC\x10\x01\x12\"\n\x1eMAC_TYPE_PRIVATE_NONRESOLVABLE\x10\x02\x12\x1f\n\x1bMAC_TYPE_PRIVATE_RESOLVABLE\x10\x03\x12\x17\n\x13MAC_TYPE_BT_CLASSIC\x10\x04*\x8e\x01\n\x0fPbSwimmingStyle\x12\x12\n\x05OTHER\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x08\n\x04TURN\x10\x00\x12\x12\n\x0eOTHER_SWIMMING\x10\n\x12\r\n\tFREESTYLE\x10\x0b\x12\x10\n\x0c\x42REASTSTROKE\x10\x0c\x12\x0e\n\nBACKSTROKE\x10\r\x12\r\n\tBUTTERFLY\x10\x0e\x12\t\n\x05\x44RILL\x10\x0f*H\n\x13PbSwimmingPoolUnits\x12\x18\n\x14SWIMMING_POOL_METERS\x10\x00\x12\x17\n\x13SWIMMING_POOL_YARDS\x10\x01*\xc1\x02\n\x14PbExerciseTargetType\x12\x1d\n\x19\x45XERCISE_TARGET_TYPE_FREE\x10\x00\x12\x1f\n\x1b\x45XERCISE_TARGET_TYPE_VOLUME\x10\x01\x12\x1f\n\x1b\x45XERCISE_TARGET_TYPE_PHASED\x10\x02\x12\x1e\n\x1a\x45XERCISE_TARGET_TYPE_ROUTE\x10\x03\x12)\n%EXERCISE_TARGET_TYPE_STEADY_RACE_PACE\x10\x04\x12(\n$EXERCISE_TARGET_TYPE_ROUTE_RACE_PACE\x10\x05\x12\'\n#EXERCISE_TARGET_TYPE_STRAVA_SEGMENT\x10\x06\x12*\n&EXERCISE_TARGET_TYPE_STRENGTH_TRAINING\x10\x07*^\n\x07\x42uttons\x12\x0f\n\x0b\x42UTTON_PLUS\x10\x00\x12\x10\n\x0c\x42UTTON_MINUS\x10\x01\x12\r\n\tBUTTON_OK\x10\x02\x12\x10\n\x0c\x42UTTON_LIGHT\x10\x03\x12\x0f\n\x0b\x42UTTON_BACK\x10\x04*6\n\x0b\x42uttonState\x12\x12\n\x0e\x42UTTON_PRESSED\x10\x00\x12\x13\n\x0f\x42UTTON_RELEASED\x10\x01*\xd3\x04\n\x0cPbSampleType\x12\x19\n\x15SAMPLE_TYPE_UNDEFINED\x10\x00\x12\x1a\n\x16SAMPLE_TYPE_HEART_RATE\x10\x01\x12\x17\n\x13SAMPLE_TYPE_CADENCE\x10\x02\x12\x18\n\x14SAMPLE_TYPE_ALTITUDE\x10\x03\x12$\n SAMPLE_TYPE_ALTITUDE_CALIBRATION\x10\x04\x12\x1b\n\x17SAMPLE_TYPE_TEMPERATURE\x10\x05\x12\x15\n\x11SAMPLE_TYPE_SPEED\x10\x06\x12\x18\n\x14SAMPLE_TYPE_DISTANCE\x10\x07\x12\x1d\n\x19SAMPLE_TYPE_STRIDE_LENGTH\x10\x08\x12\"\n\x1eSAMPLE_TYPE_STRIDE_CALIBRATION\x10\t\x12$\n SAMPLE_TYPE_FORWARD_ACCELERATION\x10\n\x12\x1b\n\x17SAMPLE_TYPE_MOVING_TYPE\x10\x0b\x12 \n\x1cSAMPLE_TYPE_LEFT_PEDAL_POWER\x10\x0c\x12!\n\x1dSAMPLE_TYPE_RIGHT_PEDAL_POWER\x10\r\x12,\n(SAMPLE_TYPE_LEFT_PEDAL_POWER_CALIBRATION\x10\x0e\x12-\n)SAMPLE_TYPE_RIGHT_PEDAL_POWER_CALIBRATION\x10\x0f\x12\x1b\n\x17SAMPLE_TYPE_RR_INTERVAL\x10\x10\x12 \n\x1cSAMPLE_TYPE_ACCELERATION_MAD\x10\x11*\x82\x05\n\x12PbSampleSourceType\x12 \n\x1cSAMPLE_SOURCE_TYPE_UNDEFINED\x10\x00\x12\x1e\n\x1aSAMPLE_SOURCE_TYPE_OFFLINE\x10\x01\x12!\n\x1dSAMPLE_SOURCE_TYPE_HEART_RATE\x10\x02\x12%\n!SAMPLE_SOURCE_TYPE_HEART_RATE_BLE\x10\x03\x12\'\n#SAMPLE_SOURCE_TYPE_HEART_RATE_5_KHZ\x10\x04\x12)\n%SAMPLE_SOURCE_TYPE_HEART_RATE_OPTICAL\x10\x05\x12\x1a\n\x16SAMPLE_SOURCE_TYPE_GPS\x10\x06\x12\x1d\n\x19SAMPLE_SOURCE_TYPE_STRIDE\x10\x07\x12$\n SAMPLE_SOURCE_TYPE_WRIST_METRICS\x10\x08\x12$\n SAMPLE_SOURCE_TYPE_CHEST_METRICS\x10\t\x12!\n\x1dSAMPLE_SOURCE_TYPE_BIKE_PEDAL\x10\n\x12!\n\x1dSAMPLE_SOURCE_TYPE_BIKE_WHEEL\x10\x0b\x12!\n\x1dSAMPLE_SOURCE_TYPE_BIKE_CRANK\x10\x0c\x12\x35\n1SAMPLE_SOURCE_TYPE_COMBINED_CHEST_METRICS_AND_GPS\x10\r\x12)\n%SAMPLE_SOURCE_TYPE_UPPER_BACK_METRICS\x10\x0e\x12:\n6SAMPLE_SOURCE_TYPE_COMBINED_UPPER_BACK_METRICS_AND_GPS\x10\x0f*6\n\x11PbAltitudeSetting\x12\x10\n\x0c\x41LTITUDE_OFF\x10\x00\x12\x0f\n\x0b\x41LTITUDE_ON\x10\x01*d\n\x0cPbGPSSetting\x12\x0b\n\x07GPS_OFF\x10\x00\x12\x11\n\rGPS_ON_NORMAL\x10\x01\x12\x0f\n\x0bGPS_ON_LONG\x10\x02\x12\x10\n\x0cGPS_ON_10_HZ\x10\x03\x12\x11\n\rGPS_ON_MEDIUM\x10\x04*\x8c\x01\n\x0cPbHeartTouch\x12\x13\n\x0fHEART_TOUCH_OFF\x10\x01\x12\"\n\x1eHEART_TOUCH_ACTIVATE_BACKLIGHT\x10\x02\x12!\n\x1dHEART_TOUCH_SHOW_PREVIOUS_LAP\x10\x03\x12 \n\x1cHEART_TOUCH_SHOW_TIME_OF_DAY\x10\x04*\x88\x01\n\x11PbTapButtonAction\x12\x12\n\x0eTAP_BUTTON_OFF\x10\x01\x12\x17\n\x13TAP_BUTTON_TAKE_LAP\x10\x02\x12#\n\x1fTAP_BUTTON_CHANGE_TRAINING_VIEW\x10\x03\x12!\n\x1dTAP_BUTTON_ACTIVATE_BACKLIGHT\x10\x04*M\n\x0cPbHandedness\x12\x13\n\x0fWU_IN_LEFT_HAND\x10\x01\x12\x14\n\x10WU_IN_RIGHT_HAND\x10\x02\x12\x12\n\x0eWU_IN_NECKLACE\x10\x03*\xd7\x03\n\x10PbDeviceLocation\x12\x1d\n\x19\x44\x45VICE_LOCATION_UNDEFINED\x10\x00\x12\x19\n\x15\x44\x45VICE_LOCATION_OTHER\x10\x01\x12\x1e\n\x1a\x44\x45VICE_LOCATION_WRIST_LEFT\x10\x02\x12\x1f\n\x1b\x44\x45VICE_LOCATION_WRIST_RIGHT\x10\x03\x12\x1c\n\x18\x44\x45VICE_LOCATION_NECKLACE\x10\x04\x12\x19\n\x15\x44\x45VICE_LOCATION_CHEST\x10\x05\x12\x1e\n\x1a\x44\x45VICE_LOCATION_UPPER_BACK\x10\x06\x12\x1d\n\x19\x44\x45VICE_LOCATION_FOOT_LEFT\x10\x07\x12\x1e\n\x1a\x44\x45VICE_LOCATION_FOOT_RIGHT\x10\x08\x12\"\n\x1e\x44\x45VICE_LOCATION_LOWER_ARM_LEFT\x10\t\x12#\n\x1f\x44\x45VICE_LOCATION_LOWER_ARM_RIGHT\x10\n\x12\"\n\x1e\x44\x45VICE_LOCATION_UPPER_ARM_LEFT\x10\x0b\x12#\n\x1f\x44\x45VICE_LOCATION_UPPER_ARM_RIGHT\x10\x0c\x12\x1e\n\x1a\x44\x45VICE_LOCATION_BIKE_MOUNT\x10\r*\xb8\x01\n\x0cPbSessionRPE\x12\x0c\n\x08RPE_NONE\x10\x01\x12\x0c\n\x08RPE_EASY\x10\x02\x12\r\n\tRPE_LIGHT\x10\x03\x12\x14\n\x10RPE_FAIRLY_BRISK\x10\x04\x12\r\n\tRPE_BRISK\x10\x05\x12\x10\n\x0cRPE_MODERATE\x10\x06\x12\x13\n\x0fRPE_FAIRLY_HARD\x10\x07\x12\x0c\n\x08RPE_HARD\x10\x08\x12\x12\n\x0eRPE_EXHAUSTING\x10\t\x12\x0f\n\x0bRPE_EXTREME\x10\n*T\n\x10PbMuscleSoreness\x12\x19\n\x0cMS_UNDEFINED\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x0b\n\x07MS_NONE\x10\x00\x12\x0b\n\x07MS_SOME\x10\x01\x12\x0b\n\x07MS_MUCH\x10\x02*Z\n\x10PbOverallFatigue\x12\x19\n\x0cOF_UNDEFINED\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\r\n\tOF_NORMAL\x10\x00\x12\x0f\n\x0bOF_A_LITTLE\x10\x01\x12\x0b\n\x07OF_MUCH\x10\x02*\xbc\x01\n\x11PbSleepUserRating\x12\x1f\n\x12PB_SLEPT_UNDEFINED\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x13\n\x0fPB_SLEPT_POORLY\x10\x00\x12\x1c\n\x18PB_SLEPT_SOMEWHAT_POORLY\x10\x01\x12$\n PB_SLEPT_NEITHER_POORLY_NOR_WELL\x10\x02\x12\x1a\n\x16PB_SLEPT_SOMEWHAT_WELL\x10\x03\x12\x11\n\rPB_SLEPT_WELL\x10\x04*\xf7\x03\n\x16PbDailyBalanceFeedback\x12\x1e\n\x11\x44\x42_NOT_CALCULATED\x10\xff\xff\xff\xff\xff\xff\xff\xff\xff\x01\x12\x0b\n\x07\x44\x42_SICK\x10\x00\x12\x32\n.DB_FATIGUE_TRY_TO_REDUCE_TRAINING_LOAD_INJURED\x10\x01\x12*\n&DB_FATIGUE_TRY_TO_REDUCE_TRAINING_LOAD\x10\x02\x12.\n*DB_LIMITED_TRAINING_RESPONSE_OTHER_INJURED\x10\x03\x12&\n\"DB_LIMITED_TRAINING_RESPONSE_OTHER\x10\x04\x12\x34\n0DB_RESPONDING_WELL_CAN_CONTINUE_IF_INJURY_ALLOWS\x10\x05\x12#\n\x1f\x44\x42_RESPONDING_WELL_CAN_CONTINUE\x10\x06\x12\x32\n.DB_YOU_COULD_DO_MORE_TRAINING_IF_INJURY_ALLOWS\x10\x07\x12!\n\x1d\x44\x42_YOU_COULD_DO_MORE_TRAINING\x10\x08\x12&\n\"DB_YOU_SEEM_TO_BE_STRAINED_INJURED\x10\t\x12\x1e\n\x1a\x44\x42_YOU_SEEM_TO_BE_STRAINED\x10\n*3\n%PbStrengthTrainingRoundRepetitionType\x12\n\n\x06NORMAL\x10\x00*F\n\x1ePbStrengthTrainingWorkoutPhase\x12\x08\n\x04WORK\x10\x00\x12\x0b\n\x07WARM_UP\x10\x01\x12\r\n\tCOOL_DOWN\x10\x02')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -237,11 +238,35 @@ _PBDATATYPE = _descriptor.EnumDescriptor(
       name='SPEED_CALIBRATION_OFFSET', index=51, number=75,
       options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='WEEK', index=52, number=76,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CARDIO_LOAD', index=53, number=77,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='MAXIMUM_AEROBIC_POWER', index=54, number=78,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='MAXIMUM_AEROBIC_SPEED', index=55, number=79,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='MUSCLE_LOAD', index=56, number=80,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PERCEIVED_LOAD', index=57, number=81,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=1235,
-  serialized_end=2036,
+  serialized_start=2423,
+  serialized_end=3342,
 )
 _sym_db.RegisterEnumDescriptor(_PBDATATYPE)
 
@@ -267,8 +292,8 @@ _PBHEARTRATEVIEW = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2038,
-  serialized_end=2164,
+  serialized_start=3344,
+  serialized_end=3470,
 )
 _sym_db.RegisterEnumDescriptor(_PBHEARTRATEVIEW)
 
@@ -290,8 +315,8 @@ _PBUNITSYSTEM = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2166,
-  serialized_end=2206,
+  serialized_start=3472,
+  serialized_end=3512,
 )
 _sym_db.RegisterEnumDescriptor(_PBUNITSYSTEM)
 
@@ -313,8 +338,8 @@ _PBTIMESELECTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2208,
-  serialized_end=2249,
+  serialized_start=3514,
+  serialized_end=3555,
 )
 _sym_db.RegisterEnumDescriptor(_PBTIMESELECTION)
 
@@ -336,8 +361,8 @@ _PBTIMEFORMAT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2251,
-  serialized_end=2307,
+  serialized_start=3557,
+  serialized_end=3613,
 )
 _sym_db.RegisterEnumDescriptor(_PBTIMEFORMAT)
 
@@ -359,8 +384,8 @@ _PBTIMEFORMATSEPARATOR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2309,
-  serialized_end=2396,
+  serialized_start=3615,
+  serialized_end=3702,
 )
 _sym_db.RegisterEnumDescriptor(_PBTIMEFORMATSEPARATOR)
 
@@ -386,8 +411,8 @@ _PBSTARTDAYOFWEEK = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2398,
-  serialized_end=2454,
+  serialized_start=3704,
+  serialized_end=3760,
 )
 _sym_db.RegisterEnumDescriptor(_PBSTARTDAYOFWEEK)
 
@@ -413,8 +438,8 @@ _PBDATEFORMATSEPARATOR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2456,
-  serialized_end=2511,
+  serialized_start=3762,
+  serialized_end=3817,
 )
 _sym_db.RegisterEnumDescriptor(_PBDATEFORMATSEPARATOR)
 
@@ -440,8 +465,8 @@ _PBDATEFORMAT = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2513,
-  serialized_end=2575,
+  serialized_start=3819,
+  serialized_end=3881,
 )
 _sym_db.RegisterEnumDescriptor(_PBDATEFORMAT)
 
@@ -568,11 +593,23 @@ _PBFEATURETYPE = _descriptor.EnumDescriptor(
       name='FEATURE_TYPE_WEIGHT_SCALE', index=28, number=29,
       options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FEATURE_TYPE_REMOTE_BUTTONS', index=29, number=30,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FEATURE_TYPE_GOPRO', index=30, number=31,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='FEATURE_TYPE_PP_INTERVAL', index=31, number=32,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=2578,
-  serialized_end=3491,
+  serialized_start=3884,
+  serialized_end=4884,
 )
 _sym_db.RegisterEnumDescriptor(_PBFEATURETYPE)
 
@@ -598,8 +635,8 @@ _PBMOVINGTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=3493,
-  serialized_end=3547,
+  serialized_start=4886,
+  serialized_end=4940,
 )
 _sym_db.RegisterEnumDescriptor(_PBMOVINGTYPE)
 
@@ -621,8 +658,8 @@ _PBOPERATIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=3549,
-  serialized_end=3589,
+  serialized_start=4942,
+  serialized_end=4982,
 )
 _sym_db.RegisterEnumDescriptor(_PBOPERATIONTYPE)
 
@@ -708,8 +745,8 @@ _PBEXERCISEFEEDBACK = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=3592,
-  serialized_end=3911,
+  serialized_start=4985,
+  serialized_end=5304,
 )
 _sym_db.RegisterEnumDescriptor(_PBEXERCISEFEEDBACK)
 
@@ -735,8 +772,8 @@ _PBHEARTRATEZONESETTINGSOURCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=3914,
-  serialized_end=4075,
+  serialized_start=5307,
+  serialized_end=5468,
 )
 _sym_db.RegisterEnumDescriptor(_PBHEARTRATEZONESETTINGSOURCE)
 
@@ -758,8 +795,8 @@ _PBPOWERZONESETTINGSOURCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=4077,
-  serialized_end=4178,
+  serialized_start=5470,
+  serialized_end=5571,
 )
 _sym_db.RegisterEnumDescriptor(_PBPOWERZONESETTINGSOURCE)
 
@@ -781,8 +818,8 @@ _PBSPEEDZONESETTINGSOURCE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=4180,
-  serialized_end=4281,
+  serialized_start=5573,
+  serialized_end=5674,
 )
 _sym_db.RegisterEnumDescriptor(_PBSPEEDZONESETTINGSOURCE)
 
@@ -816,8 +853,8 @@ _PBMACTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=4284,
-  serialized_end=4431,
+  serialized_start=5677,
+  serialized_end=5824,
 )
 _sym_db.RegisterEnumDescriptor(_PBMACTYPE)
 
@@ -856,11 +893,15 @@ _PBSWIMMINGSTYLE = _descriptor.EnumDescriptor(
       name='BUTTERFLY', index=6, number=14,
       options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DRILL', index=7, number=15,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=4434,
-  serialized_end=4565,
+  serialized_start=5827,
+  serialized_end=5969,
 )
 _sym_db.RegisterEnumDescriptor(_PBSWIMMINGSTYLE)
 
@@ -882,8 +923,8 @@ _PBSWIMMINGPOOLUNITS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=4567,
-  serialized_end=4639,
+  serialized_start=5971,
+  serialized_end=6043,
 )
 _sym_db.RegisterEnumDescriptor(_PBSWIMMINGPOOLUNITS)
 
@@ -918,15 +959,730 @@ _PBEXERCISETARGETTYPE = _descriptor.EnumDescriptor(
       name='EXERCISE_TARGET_TYPE_ROUTE_RACE_PACE', index=5, number=5,
       options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='EXERCISE_TARGET_TYPE_STRAVA_SEGMENT', index=6, number=6,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='EXERCISE_TARGET_TYPE_STRENGTH_TRAINING', index=7, number=7,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
-  serialized_start=4642,
-  serialized_end=4878,
+  serialized_start=6046,
+  serialized_end=6367,
 )
 _sym_db.RegisterEnumDescriptor(_PBEXERCISETARGETTYPE)
 
 PbExerciseTargetType = enum_type_wrapper.EnumTypeWrapper(_PBEXERCISETARGETTYPE)
+_BUTTONS = _descriptor.EnumDescriptor(
+  name='Buttons',
+  full_name='Buttons',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='BUTTON_PLUS', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUTTON_MINUS', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUTTON_OK', index=2, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUTTON_LIGHT', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUTTON_BACK', index=4, number=4,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=6369,
+  serialized_end=6463,
+)
+_sym_db.RegisterEnumDescriptor(_BUTTONS)
+
+Buttons = enum_type_wrapper.EnumTypeWrapper(_BUTTONS)
+_BUTTONSTATE = _descriptor.EnumDescriptor(
+  name='ButtonState',
+  full_name='ButtonState',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='BUTTON_PRESSED', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='BUTTON_RELEASED', index=1, number=1,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=6465,
+  serialized_end=6519,
+)
+_sym_db.RegisterEnumDescriptor(_BUTTONSTATE)
+
+ButtonState = enum_type_wrapper.EnumTypeWrapper(_BUTTONSTATE)
+_PBSAMPLETYPE = _descriptor.EnumDescriptor(
+  name='PbSampleType',
+  full_name='PbSampleType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_UNDEFINED', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_HEART_RATE', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_CADENCE', index=2, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_ALTITUDE', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_ALTITUDE_CALIBRATION', index=4, number=4,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_TEMPERATURE', index=5, number=5,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_SPEED', index=6, number=6,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_DISTANCE', index=7, number=7,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_STRIDE_LENGTH', index=8, number=8,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_STRIDE_CALIBRATION', index=9, number=9,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_FORWARD_ACCELERATION', index=10, number=10,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_MOVING_TYPE', index=11, number=11,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_LEFT_PEDAL_POWER', index=12, number=12,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_RIGHT_PEDAL_POWER', index=13, number=13,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_LEFT_PEDAL_POWER_CALIBRATION', index=14, number=14,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_RIGHT_PEDAL_POWER_CALIBRATION', index=15, number=15,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_RR_INTERVAL', index=16, number=16,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_TYPE_ACCELERATION_MAD', index=17, number=17,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=6522,
+  serialized_end=7117,
+)
+_sym_db.RegisterEnumDescriptor(_PBSAMPLETYPE)
+
+PbSampleType = enum_type_wrapper.EnumTypeWrapper(_PBSAMPLETYPE)
+_PBSAMPLESOURCETYPE = _descriptor.EnumDescriptor(
+  name='PbSampleSourceType',
+  full_name='PbSampleSourceType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_UNDEFINED', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_OFFLINE', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_HEART_RATE', index=2, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_HEART_RATE_BLE', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_HEART_RATE_5_KHZ', index=4, number=4,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_HEART_RATE_OPTICAL', index=5, number=5,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_GPS', index=6, number=6,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_STRIDE', index=7, number=7,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_WRIST_METRICS', index=8, number=8,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_CHEST_METRICS', index=9, number=9,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_BIKE_PEDAL', index=10, number=10,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_BIKE_WHEEL', index=11, number=11,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_BIKE_CRANK', index=12, number=12,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_COMBINED_CHEST_METRICS_AND_GPS', index=13, number=13,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_UPPER_BACK_METRICS', index=14, number=14,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='SAMPLE_SOURCE_TYPE_COMBINED_UPPER_BACK_METRICS_AND_GPS', index=15, number=15,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=7120,
+  serialized_end=7762,
+)
+_sym_db.RegisterEnumDescriptor(_PBSAMPLESOURCETYPE)
+
+PbSampleSourceType = enum_type_wrapper.EnumTypeWrapper(_PBSAMPLESOURCETYPE)
+_PBALTITUDESETTING = _descriptor.EnumDescriptor(
+  name='PbAltitudeSetting',
+  full_name='PbAltitudeSetting',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='ALTITUDE_OFF', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='ALTITUDE_ON', index=1, number=1,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=7764,
+  serialized_end=7818,
+)
+_sym_db.RegisterEnumDescriptor(_PBALTITUDESETTING)
+
+PbAltitudeSetting = enum_type_wrapper.EnumTypeWrapper(_PBALTITUDESETTING)
+_PBGPSSETTING = _descriptor.EnumDescriptor(
+  name='PbGPSSetting',
+  full_name='PbGPSSetting',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='GPS_OFF', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GPS_ON_NORMAL', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GPS_ON_LONG', index=2, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GPS_ON_10_HZ', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='GPS_ON_MEDIUM', index=4, number=4,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=7820,
+  serialized_end=7920,
+)
+_sym_db.RegisterEnumDescriptor(_PBGPSSETTING)
+
+PbGPSSetting = enum_type_wrapper.EnumTypeWrapper(_PBGPSSETTING)
+_PBHEARTTOUCH = _descriptor.EnumDescriptor(
+  name='PbHeartTouch',
+  full_name='PbHeartTouch',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='HEART_TOUCH_OFF', index=0, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='HEART_TOUCH_ACTIVATE_BACKLIGHT', index=1, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='HEART_TOUCH_SHOW_PREVIOUS_LAP', index=2, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='HEART_TOUCH_SHOW_TIME_OF_DAY', index=3, number=4,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=7923,
+  serialized_end=8063,
+)
+_sym_db.RegisterEnumDescriptor(_PBHEARTTOUCH)
+
+PbHeartTouch = enum_type_wrapper.EnumTypeWrapper(_PBHEARTTOUCH)
+_PBTAPBUTTONACTION = _descriptor.EnumDescriptor(
+  name='PbTapButtonAction',
+  full_name='PbTapButtonAction',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='TAP_BUTTON_OFF', index=0, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='TAP_BUTTON_TAKE_LAP', index=1, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='TAP_BUTTON_CHANGE_TRAINING_VIEW', index=2, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='TAP_BUTTON_ACTIVATE_BACKLIGHT', index=3, number=4,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=8066,
+  serialized_end=8202,
+)
+_sym_db.RegisterEnumDescriptor(_PBTAPBUTTONACTION)
+
+PbTapButtonAction = enum_type_wrapper.EnumTypeWrapper(_PBTAPBUTTONACTION)
+_PBHANDEDNESS = _descriptor.EnumDescriptor(
+  name='PbHandedness',
+  full_name='PbHandedness',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='WU_IN_LEFT_HAND', index=0, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='WU_IN_RIGHT_HAND', index=1, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='WU_IN_NECKLACE', index=2, number=3,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=8204,
+  serialized_end=8281,
+)
+_sym_db.RegisterEnumDescriptor(_PBHANDEDNESS)
+
+PbHandedness = enum_type_wrapper.EnumTypeWrapper(_PBHANDEDNESS)
+_PBDEVICELOCATION = _descriptor.EnumDescriptor(
+  name='PbDeviceLocation',
+  full_name='PbDeviceLocation',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_UNDEFINED', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_OTHER', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_WRIST_LEFT', index=2, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_WRIST_RIGHT', index=3, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_NECKLACE', index=4, number=4,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_CHEST', index=5, number=5,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_UPPER_BACK', index=6, number=6,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_FOOT_LEFT', index=7, number=7,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_FOOT_RIGHT', index=8, number=8,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_LOWER_ARM_LEFT', index=9, number=9,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_LOWER_ARM_RIGHT', index=10, number=10,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_UPPER_ARM_LEFT', index=11, number=11,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_UPPER_ARM_RIGHT', index=12, number=12,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DEVICE_LOCATION_BIKE_MOUNT', index=13, number=13,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=8284,
+  serialized_end=8755,
+)
+_sym_db.RegisterEnumDescriptor(_PBDEVICELOCATION)
+
+PbDeviceLocation = enum_type_wrapper.EnumTypeWrapper(_PBDEVICELOCATION)
+_PBSESSIONRPE = _descriptor.EnumDescriptor(
+  name='PbSessionRPE',
+  full_name='PbSessionRPE',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='RPE_NONE', index=0, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RPE_EASY', index=1, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RPE_LIGHT', index=2, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RPE_FAIRLY_BRISK', index=3, number=4,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RPE_BRISK', index=4, number=5,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RPE_MODERATE', index=5, number=6,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RPE_FAIRLY_HARD', index=6, number=7,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RPE_HARD', index=7, number=8,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RPE_EXHAUSTING', index=8, number=9,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='RPE_EXTREME', index=9, number=10,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=8758,
+  serialized_end=8942,
+)
+_sym_db.RegisterEnumDescriptor(_PBSESSIONRPE)
+
+PbSessionRPE = enum_type_wrapper.EnumTypeWrapper(_PBSESSIONRPE)
+_PBMUSCLESORENESS = _descriptor.EnumDescriptor(
+  name='PbMuscleSoreness',
+  full_name='PbMuscleSoreness',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='MS_UNDEFINED', index=0, number=-1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='MS_NONE', index=1, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='MS_SOME', index=2, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='MS_MUCH', index=3, number=2,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=8944,
+  serialized_end=9028,
+)
+_sym_db.RegisterEnumDescriptor(_PBMUSCLESORENESS)
+
+PbMuscleSoreness = enum_type_wrapper.EnumTypeWrapper(_PBMUSCLESORENESS)
+_PBOVERALLFATIGUE = _descriptor.EnumDescriptor(
+  name='PbOverallFatigue',
+  full_name='PbOverallFatigue',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='OF_UNDEFINED', index=0, number=-1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='OF_NORMAL', index=1, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='OF_A_LITTLE', index=2, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='OF_MUCH', index=3, number=2,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=9030,
+  serialized_end=9120,
+)
+_sym_db.RegisterEnumDescriptor(_PBOVERALLFATIGUE)
+
+PbOverallFatigue = enum_type_wrapper.EnumTypeWrapper(_PBOVERALLFATIGUE)
+_PBSLEEPUSERRATING = _descriptor.EnumDescriptor(
+  name='PbSleepUserRating',
+  full_name='PbSleepUserRating',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='PB_SLEPT_UNDEFINED', index=0, number=-1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PB_SLEPT_POORLY', index=1, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PB_SLEPT_SOMEWHAT_POORLY', index=2, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PB_SLEPT_NEITHER_POORLY_NOR_WELL', index=3, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PB_SLEPT_SOMEWHAT_WELL', index=4, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PB_SLEPT_WELL', index=5, number=4,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=9123,
+  serialized_end=9311,
+)
+_sym_db.RegisterEnumDescriptor(_PBSLEEPUSERRATING)
+
+PbSleepUserRating = enum_type_wrapper.EnumTypeWrapper(_PBSLEEPUSERRATING)
+_PBDAILYBALANCEFEEDBACK = _descriptor.EnumDescriptor(
+  name='PbDailyBalanceFeedback',
+  full_name='PbDailyBalanceFeedback',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='DB_NOT_CALCULATED', index=0, number=-1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DB_SICK', index=1, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DB_FATIGUE_TRY_TO_REDUCE_TRAINING_LOAD_INJURED', index=2, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DB_FATIGUE_TRY_TO_REDUCE_TRAINING_LOAD', index=3, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DB_LIMITED_TRAINING_RESPONSE_OTHER_INJURED', index=4, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DB_LIMITED_TRAINING_RESPONSE_OTHER', index=5, number=4,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DB_RESPONDING_WELL_CAN_CONTINUE_IF_INJURY_ALLOWS', index=6, number=5,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DB_RESPONDING_WELL_CAN_CONTINUE', index=7, number=6,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DB_YOU_COULD_DO_MORE_TRAINING_IF_INJURY_ALLOWS', index=8, number=7,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DB_YOU_COULD_DO_MORE_TRAINING', index=9, number=8,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DB_YOU_SEEM_TO_BE_STRAINED_INJURED', index=10, number=9,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='DB_YOU_SEEM_TO_BE_STRAINED', index=11, number=10,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=9314,
+  serialized_end=9817,
+)
+_sym_db.RegisterEnumDescriptor(_PBDAILYBALANCEFEEDBACK)
+
+PbDailyBalanceFeedback = enum_type_wrapper.EnumTypeWrapper(_PBDAILYBALANCEFEEDBACK)
+_PBSTRENGTHTRAININGROUNDREPETITIONTYPE = _descriptor.EnumDescriptor(
+  name='PbStrengthTrainingRoundRepetitionType',
+  full_name='PbStrengthTrainingRoundRepetitionType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='NORMAL', index=0, number=0,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=9819,
+  serialized_end=9870,
+)
+_sym_db.RegisterEnumDescriptor(_PBSTRENGTHTRAININGROUNDREPETITIONTYPE)
+
+PbStrengthTrainingRoundRepetitionType = enum_type_wrapper.EnumTypeWrapper(_PBSTRENGTHTRAININGROUNDREPETITIONTYPE)
+_PBSTRENGTHTRAININGWORKOUTPHASE = _descriptor.EnumDescriptor(
+  name='PbStrengthTrainingWorkoutPhase',
+  full_name='PbStrengthTrainingWorkoutPhase',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='WORK', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='WARM_UP', index=1, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='COOL_DOWN', index=2, number=2,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=9872,
+  serialized_end=9942,
+)
+_sym_db.RegisterEnumDescriptor(_PBSTRENGTHTRAININGWORKOUTPHASE)
+
+PbStrengthTrainingWorkoutPhase = enum_type_wrapper.EnumTypeWrapper(_PBSTRENGTHTRAININGWORKOUTPHASE)
 UNDEFINED = 0
 INHERITED = 1
 ENUM = 2
@@ -979,6 +1735,12 @@ NEWTON = 72
 FUNCTIONAL_THRESHOLD_POWER = 73
 CALORIES = 74
 SPEED_CALIBRATION_OFFSET = 75
+WEEK = 76
+CARDIO_LOAD = 77
+MAXIMUM_AEROBIC_POWER = 78
+MAXIMUM_AEROBIC_SPEED = 79
+MUSCLE_LOAD = 80
+PERCEIVED_LOAD = 81
 HEART_RATE_VIEW_BPM = 1
 HEART_RATE_VIEW_PERCENTS_OF_HR_RESERVE = 2
 HEART_RATE_VIEW_PERCENTS_OF_MAX_HR = 3
@@ -1028,6 +1790,9 @@ FEATURE_TYPE_BATTERY_LEVEL = 26
 FEATURE_TYPE_FILE_TRANSFER = 27
 FEATURE_TYPE_PUSH_NOTIFICATIONS = 28
 FEATURE_TYPE_WEIGHT_SCALE = 29
+FEATURE_TYPE_REMOTE_BUTTONS = 30
+FEATURE_TYPE_GOPRO = 31
+FEATURE_TYPE_PP_INTERVAL = 32
 WALKING = 0
 RUNNING = 1
 STANDING = 2
@@ -1070,6 +1835,7 @@ FREESTYLE = 11
 BREASTSTROKE = 12
 BACKSTROKE = 13
 BUTTERFLY = 14
+DRILL = 15
 SWIMMING_POOL_METERS = 0
 SWIMMING_POOL_YARDS = 1
 EXERCISE_TARGET_TYPE_FREE = 0
@@ -1078,6 +1844,121 @@ EXERCISE_TARGET_TYPE_PHASED = 2
 EXERCISE_TARGET_TYPE_ROUTE = 3
 EXERCISE_TARGET_TYPE_STEADY_RACE_PACE = 4
 EXERCISE_TARGET_TYPE_ROUTE_RACE_PACE = 5
+EXERCISE_TARGET_TYPE_STRAVA_SEGMENT = 6
+EXERCISE_TARGET_TYPE_STRENGTH_TRAINING = 7
+BUTTON_PLUS = 0
+BUTTON_MINUS = 1
+BUTTON_OK = 2
+BUTTON_LIGHT = 3
+BUTTON_BACK = 4
+BUTTON_PRESSED = 0
+BUTTON_RELEASED = 1
+SAMPLE_TYPE_UNDEFINED = 0
+SAMPLE_TYPE_HEART_RATE = 1
+SAMPLE_TYPE_CADENCE = 2
+SAMPLE_TYPE_ALTITUDE = 3
+SAMPLE_TYPE_ALTITUDE_CALIBRATION = 4
+SAMPLE_TYPE_TEMPERATURE = 5
+SAMPLE_TYPE_SPEED = 6
+SAMPLE_TYPE_DISTANCE = 7
+SAMPLE_TYPE_STRIDE_LENGTH = 8
+SAMPLE_TYPE_STRIDE_CALIBRATION = 9
+SAMPLE_TYPE_FORWARD_ACCELERATION = 10
+SAMPLE_TYPE_MOVING_TYPE = 11
+SAMPLE_TYPE_LEFT_PEDAL_POWER = 12
+SAMPLE_TYPE_RIGHT_PEDAL_POWER = 13
+SAMPLE_TYPE_LEFT_PEDAL_POWER_CALIBRATION = 14
+SAMPLE_TYPE_RIGHT_PEDAL_POWER_CALIBRATION = 15
+SAMPLE_TYPE_RR_INTERVAL = 16
+SAMPLE_TYPE_ACCELERATION_MAD = 17
+SAMPLE_SOURCE_TYPE_UNDEFINED = 0
+SAMPLE_SOURCE_TYPE_OFFLINE = 1
+SAMPLE_SOURCE_TYPE_HEART_RATE = 2
+SAMPLE_SOURCE_TYPE_HEART_RATE_BLE = 3
+SAMPLE_SOURCE_TYPE_HEART_RATE_5_KHZ = 4
+SAMPLE_SOURCE_TYPE_HEART_RATE_OPTICAL = 5
+SAMPLE_SOURCE_TYPE_GPS = 6
+SAMPLE_SOURCE_TYPE_STRIDE = 7
+SAMPLE_SOURCE_TYPE_WRIST_METRICS = 8
+SAMPLE_SOURCE_TYPE_CHEST_METRICS = 9
+SAMPLE_SOURCE_TYPE_BIKE_PEDAL = 10
+SAMPLE_SOURCE_TYPE_BIKE_WHEEL = 11
+SAMPLE_SOURCE_TYPE_BIKE_CRANK = 12
+SAMPLE_SOURCE_TYPE_COMBINED_CHEST_METRICS_AND_GPS = 13
+SAMPLE_SOURCE_TYPE_UPPER_BACK_METRICS = 14
+SAMPLE_SOURCE_TYPE_COMBINED_UPPER_BACK_METRICS_AND_GPS = 15
+ALTITUDE_OFF = 0
+ALTITUDE_ON = 1
+GPS_OFF = 0
+GPS_ON_NORMAL = 1
+GPS_ON_LONG = 2
+GPS_ON_10_HZ = 3
+GPS_ON_MEDIUM = 4
+HEART_TOUCH_OFF = 1
+HEART_TOUCH_ACTIVATE_BACKLIGHT = 2
+HEART_TOUCH_SHOW_PREVIOUS_LAP = 3
+HEART_TOUCH_SHOW_TIME_OF_DAY = 4
+TAP_BUTTON_OFF = 1
+TAP_BUTTON_TAKE_LAP = 2
+TAP_BUTTON_CHANGE_TRAINING_VIEW = 3
+TAP_BUTTON_ACTIVATE_BACKLIGHT = 4
+WU_IN_LEFT_HAND = 1
+WU_IN_RIGHT_HAND = 2
+WU_IN_NECKLACE = 3
+DEVICE_LOCATION_UNDEFINED = 0
+DEVICE_LOCATION_OTHER = 1
+DEVICE_LOCATION_WRIST_LEFT = 2
+DEVICE_LOCATION_WRIST_RIGHT = 3
+DEVICE_LOCATION_NECKLACE = 4
+DEVICE_LOCATION_CHEST = 5
+DEVICE_LOCATION_UPPER_BACK = 6
+DEVICE_LOCATION_FOOT_LEFT = 7
+DEVICE_LOCATION_FOOT_RIGHT = 8
+DEVICE_LOCATION_LOWER_ARM_LEFT = 9
+DEVICE_LOCATION_LOWER_ARM_RIGHT = 10
+DEVICE_LOCATION_UPPER_ARM_LEFT = 11
+DEVICE_LOCATION_UPPER_ARM_RIGHT = 12
+DEVICE_LOCATION_BIKE_MOUNT = 13
+RPE_NONE = 1
+RPE_EASY = 2
+RPE_LIGHT = 3
+RPE_FAIRLY_BRISK = 4
+RPE_BRISK = 5
+RPE_MODERATE = 6
+RPE_FAIRLY_HARD = 7
+RPE_HARD = 8
+RPE_EXHAUSTING = 9
+RPE_EXTREME = 10
+MS_UNDEFINED = -1
+MS_NONE = 0
+MS_SOME = 1
+MS_MUCH = 2
+OF_UNDEFINED = -1
+OF_NORMAL = 0
+OF_A_LITTLE = 1
+OF_MUCH = 2
+PB_SLEPT_UNDEFINED = -1
+PB_SLEPT_POORLY = 0
+PB_SLEPT_SOMEWHAT_POORLY = 1
+PB_SLEPT_NEITHER_POORLY_NOR_WELL = 2
+PB_SLEPT_SOMEWHAT_WELL = 3
+PB_SLEPT_WELL = 4
+DB_NOT_CALCULATED = -1
+DB_SICK = 0
+DB_FATIGUE_TRY_TO_REDUCE_TRAINING_LOAD_INJURED = 1
+DB_FATIGUE_TRY_TO_REDUCE_TRAINING_LOAD = 2
+DB_LIMITED_TRAINING_RESPONSE_OTHER_INJURED = 3
+DB_LIMITED_TRAINING_RESPONSE_OTHER = 4
+DB_RESPONDING_WELL_CAN_CONTINUE_IF_INJURY_ALLOWS = 5
+DB_RESPONDING_WELL_CAN_CONTINUE = 6
+DB_YOU_COULD_DO_MORE_TRAINING_IF_INJURY_ALLOWS = 7
+DB_YOU_COULD_DO_MORE_TRAINING = 8
+DB_YOU_SEEM_TO_BE_STRAINED_INJURED = 9
+DB_YOU_SEEM_TO_BE_STRAINED = 10
+NORMAL = 0
+WORK = 0
+WARM_UP = 1
+COOL_DOWN = 2
 
 
 _PBLOCATION_FIX = _descriptor.EnumDescriptor(
@@ -1154,6 +2035,58 @@ _PBSTRIDESENSORCALIBSETTINGS_PBRUNNINGFACTORSOURCE = _descriptor.EnumDescriptor(
 )
 _sym_db.RegisterEnumDescriptor(_PBSTRIDESENSORCALIBSETTINGS_PBRUNNINGFACTORSOURCE)
 
+_PBAUTOPAUSE_PBAUTOPAUSETRIGGER = _descriptor.EnumDescriptor(
+  name='PbAutoPauseTrigger',
+  full_name='PbAutoPause.PbAutoPauseTrigger',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='AUTO_PAUSE_OFF', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AUTO_PAUSE_TRIGGER_SPEED', index=1, number=1,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=1919,
+  serialized_end=1989,
+)
+_sym_db.RegisterEnumDescriptor(_PBAUTOPAUSE_PBAUTOPAUSETRIGGER)
+
+_PBAUTOLAPSETTINGS_PBAUTOMATICLAP = _descriptor.EnumDescriptor(
+  name='PbAutomaticLap',
+  full_name='PbAutoLapSettings.PbAutomaticLap',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='AUTOMATIC_LAP_OFF', index=0, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AUTOMATIC_LAP_DISTANCE', index=1, number=2,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AUTOMATIC_LAP_DURATION', index=2, number=3,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='AUTOMATIC_LAP_LOCATION', index=3, number=4,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=2148,
+  serialized_end=2271,
+)
+_sym_db.RegisterEnumDescriptor(_PBAUTOLAPSETTINGS_PBAUTOMATICLAP)
+
 
 _PBRANGEOPTIONS = _descriptor.Descriptor(
   name='PbRangeOptions',
@@ -1184,6 +2117,7 @@ _PBRANGEOPTIONS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -1228,6 +2162,7 @@ _PBDATE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -1279,6 +2214,7 @@ _PBTIME = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -1323,6 +2259,7 @@ _PBSYSTEMDATETIME = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -1374,6 +2311,7 @@ _PBLOCALDATETIME = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -1425,6 +2363,7 @@ _PBDURATION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -1443,14 +2382,14 @@ _PBLOCATION = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='latitude', full_name='PbLocation.latitude', index=0,
       number=1, type=1, cpp_type=5, label=2,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='longitude', full_name='PbLocation.longitude', index=1,
       number=2, type=1, cpp_type=5, label=2,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -1484,6 +2423,7 @@ _PBLOCATION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -1521,6 +2461,7 @@ _PBSENSOROFFLINE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -1551,6 +2492,7 @@ _PBVOLUME = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -1569,7 +2511,7 @@ _PBSTRIDESENSORCALIBSETTINGS = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='running_factor', full_name='PbStrideSensorCalibSettings.running_factor', index=0,
       number=1, type=2, cpp_type=6, label=2,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -1597,11 +2539,391 @@ _PBSTRIDESENSORCALIBSETTINGS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=777,
   serialized_end=1232,
+)
+
+
+_PBWEEK = _descriptor.Descriptor(
+  name='PbWeek',
+  full_name='PbWeek',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='week_number_ISO8601', full_name='PbWeek.week_number_ISO8601', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='year', full_name='PbWeek.year', index=1,
+      number=2, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='time_zone_offset', full_name='PbWeek.time_zone_offset', index=2,
+      number=3, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='week_start_day', full_name='PbWeek.week_start_day', index=3,
+      number=4, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1234,
+  serialized_end=1354,
+)
+
+
+_PBSAMPLESOURCE = _descriptor.Descriptor(
+  name='PbSampleSource',
+  full_name='PbSampleSource',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sample_source_type', full_name='PbSampleSource.sample_source_type', index=0,
+      number=1, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='start_index', full_name='PbSampleSource.start_index', index=1,
+      number=2, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='stop_index', full_name='PbSampleSource.stop_index', index=2,
+      number=3, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1356,
+  serialized_end=1462,
+)
+
+
+_PBSENSORCALIBRATIONOFFSET = _descriptor.Descriptor(
+  name='PbSensorCalibrationOffset',
+  full_name='PbSensorCalibrationOffset',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sample_source_type', full_name='PbSensorCalibrationOffset.sample_source_type', index=0,
+      number=1, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='speed_cal_offset', full_name='PbSensorCalibrationOffset.speed_cal_offset', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1464,
+  serialized_end=1566,
+)
+
+
+_PBCALIBRATIONSETTINGS = _descriptor.Descriptor(
+  name='PbCalibrationSettings',
+  full_name='PbCalibrationSettings',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sample_type', full_name='PbCalibrationSettings.sample_type', index=0,
+      number=1, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='calibration_enabled', full_name='PbCalibrationSettings.calibration_enabled', index=1,
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='calibration_calculation_enabled', full_name='PbCalibrationSettings.calibration_calculation_enabled', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1569,
+  serialized_end=1698,
+)
+
+
+_PBACCELERATIONMETRICS = _descriptor.Descriptor(
+  name='PbAccelerationMetrics',
+  full_name='PbAccelerationMetrics',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='sample_source_type', full_name='PbAccelerationMetrics.sample_source_type', index=0,
+      number=1, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='calibration_settings', full_name='PbAccelerationMetrics.calibration_settings', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1700,
+  serialized_end=1826,
+)
+
+
+_PBAUTOPAUSE = _descriptor.Descriptor(
+  name='PbAutoPause',
+  full_name='PbAutoPause',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='trigger', full_name='PbAutoPause.trigger', index=0,
+      number=1, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='speed_threshold', full_name='PbAutoPause.speed_threshold', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _PBAUTOPAUSE_PBAUTOPAUSETRIGGER,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1829,
+  serialized_end=1989,
+)
+
+
+_PBAUTOLAPSETTINGS = _descriptor.Descriptor(
+  name='PbAutoLapSettings',
+  full_name='PbAutoLapSettings',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='automatic_lap', full_name='PbAutoLapSettings.automatic_lap', index=0,
+      number=1, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='automatic_lap_distance', full_name='PbAutoLapSettings.automatic_lap_distance', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='automatic_lap_duration', full_name='PbAutoLapSettings.automatic_lap_duration', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _PBAUTOLAPSETTINGS_PBAUTOMATICLAP,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1992,
+  serialized_end=2271,
+)
+
+
+_PBCARDIOLOAD = _descriptor.Descriptor(
+  name='PbCardioLoad',
+  full_name='PbCardioLoad',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='activity_load', full_name='PbCardioLoad.activity_load', index=0,
+      number=1, type=2, cpp_type=6, label=2,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='exercise_load', full_name='PbCardioLoad.exercise_load', index=1,
+      number=2, type=2, cpp_type=6, label=2,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2273,
+  serialized_end=2333,
+)
+
+
+_PBPERCEIVEDLOAD = _descriptor.Descriptor(
+  name='PbPerceivedLoad',
+  full_name='PbPerceivedLoad',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='session_rpe', full_name='PbPerceivedLoad.session_rpe', index=0,
+      number=1, type=14, cpp_type=8, label=2,
+      has_default_value=True, default_value=6,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='duration', full_name='PbPerceivedLoad.duration', index=1,
+      number=2, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2335,
+  serialized_end=2420,
 )
 
 _PBSYSTEMDATETIME.fields_by_name['date'].message_type = _PBDATE
@@ -1615,6 +2937,18 @@ _PBSTRIDESENSORCALIBSETTINGS.fields_by_name['calib_type'].enum_type = _PBSTRIDES
 _PBSTRIDESENSORCALIBSETTINGS.fields_by_name['running_factor_source'].enum_type = _PBSTRIDESENSORCALIBSETTINGS_PBRUNNINGFACTORSOURCE
 _PBSTRIDESENSORCALIBSETTINGS_PBSTRIDECALIBTYPE.containing_type = _PBSTRIDESENSORCALIBSETTINGS
 _PBSTRIDESENSORCALIBSETTINGS_PBRUNNINGFACTORSOURCE.containing_type = _PBSTRIDESENSORCALIBSETTINGS
+_PBWEEK.fields_by_name['week_start_day'].enum_type = _PBSTARTDAYOFWEEK
+_PBSAMPLESOURCE.fields_by_name['sample_source_type'].enum_type = _PBSAMPLESOURCETYPE
+_PBSENSORCALIBRATIONOFFSET.fields_by_name['sample_source_type'].enum_type = _PBSAMPLESOURCETYPE
+_PBCALIBRATIONSETTINGS.fields_by_name['sample_type'].enum_type = _PBSAMPLETYPE
+_PBACCELERATIONMETRICS.fields_by_name['sample_source_type'].enum_type = _PBSAMPLESOURCETYPE
+_PBACCELERATIONMETRICS.fields_by_name['calibration_settings'].message_type = _PBCALIBRATIONSETTINGS
+_PBAUTOPAUSE.fields_by_name['trigger'].enum_type = _PBAUTOPAUSE_PBAUTOPAUSETRIGGER
+_PBAUTOPAUSE_PBAUTOPAUSETRIGGER.containing_type = _PBAUTOPAUSE
+_PBAUTOLAPSETTINGS.fields_by_name['automatic_lap'].enum_type = _PBAUTOLAPSETTINGS_PBAUTOMATICLAP
+_PBAUTOLAPSETTINGS.fields_by_name['automatic_lap_duration'].message_type = _PBDURATION
+_PBAUTOLAPSETTINGS_PBAUTOMATICLAP.containing_type = _PBAUTOLAPSETTINGS
+_PBPERCEIVEDLOAD.fields_by_name['session_rpe'].enum_type = _PBSESSIONRPE
 DESCRIPTOR.message_types_by_name['PbRangeOptions'] = _PBRANGEOPTIONS
 DESCRIPTOR.message_types_by_name['PbDate'] = _PBDATE
 DESCRIPTOR.message_types_by_name['PbTime'] = _PBTIME
@@ -1625,6 +2959,15 @@ DESCRIPTOR.message_types_by_name['PbLocation'] = _PBLOCATION
 DESCRIPTOR.message_types_by_name['PbSensorOffline'] = _PBSENSOROFFLINE
 DESCRIPTOR.message_types_by_name['PbVolume'] = _PBVOLUME
 DESCRIPTOR.message_types_by_name['PbStrideSensorCalibSettings'] = _PBSTRIDESENSORCALIBSETTINGS
+DESCRIPTOR.message_types_by_name['PbWeek'] = _PBWEEK
+DESCRIPTOR.message_types_by_name['PbSampleSource'] = _PBSAMPLESOURCE
+DESCRIPTOR.message_types_by_name['PbSensorCalibrationOffset'] = _PBSENSORCALIBRATIONOFFSET
+DESCRIPTOR.message_types_by_name['PbCalibrationSettings'] = _PBCALIBRATIONSETTINGS
+DESCRIPTOR.message_types_by_name['PbAccelerationMetrics'] = _PBACCELERATIONMETRICS
+DESCRIPTOR.message_types_by_name['PbAutoPause'] = _PBAUTOPAUSE
+DESCRIPTOR.message_types_by_name['PbAutoLapSettings'] = _PBAUTOLAPSETTINGS
+DESCRIPTOR.message_types_by_name['PbCardioLoad'] = _PBCARDIOLOAD
+DESCRIPTOR.message_types_by_name['PbPerceivedLoad'] = _PBPERCEIVEDLOAD
 DESCRIPTOR.enum_types_by_name['PbDataType'] = _PBDATATYPE
 DESCRIPTOR.enum_types_by_name['PbHeartRateView'] = _PBHEARTRATEVIEW
 DESCRIPTOR.enum_types_by_name['PbUnitSystem'] = _PBUNITSYSTEM
@@ -1645,6 +2988,23 @@ DESCRIPTOR.enum_types_by_name['PbMacType'] = _PBMACTYPE
 DESCRIPTOR.enum_types_by_name['PbSwimmingStyle'] = _PBSWIMMINGSTYLE
 DESCRIPTOR.enum_types_by_name['PbSwimmingPoolUnits'] = _PBSWIMMINGPOOLUNITS
 DESCRIPTOR.enum_types_by_name['PbExerciseTargetType'] = _PBEXERCISETARGETTYPE
+DESCRIPTOR.enum_types_by_name['Buttons'] = _BUTTONS
+DESCRIPTOR.enum_types_by_name['ButtonState'] = _BUTTONSTATE
+DESCRIPTOR.enum_types_by_name['PbSampleType'] = _PBSAMPLETYPE
+DESCRIPTOR.enum_types_by_name['PbSampleSourceType'] = _PBSAMPLESOURCETYPE
+DESCRIPTOR.enum_types_by_name['PbAltitudeSetting'] = _PBALTITUDESETTING
+DESCRIPTOR.enum_types_by_name['PbGPSSetting'] = _PBGPSSETTING
+DESCRIPTOR.enum_types_by_name['PbHeartTouch'] = _PBHEARTTOUCH
+DESCRIPTOR.enum_types_by_name['PbTapButtonAction'] = _PBTAPBUTTONACTION
+DESCRIPTOR.enum_types_by_name['PbHandedness'] = _PBHANDEDNESS
+DESCRIPTOR.enum_types_by_name['PbDeviceLocation'] = _PBDEVICELOCATION
+DESCRIPTOR.enum_types_by_name['PbSessionRPE'] = _PBSESSIONRPE
+DESCRIPTOR.enum_types_by_name['PbMuscleSoreness'] = _PBMUSCLESORENESS
+DESCRIPTOR.enum_types_by_name['PbOverallFatigue'] = _PBOVERALLFATIGUE
+DESCRIPTOR.enum_types_by_name['PbSleepUserRating'] = _PBSLEEPUSERRATING
+DESCRIPTOR.enum_types_by_name['PbDailyBalanceFeedback'] = _PBDAILYBALANCEFEEDBACK
+DESCRIPTOR.enum_types_by_name['PbStrengthTrainingRoundRepetitionType'] = _PBSTRENGTHTRAININGROUNDREPETITIONTYPE
+DESCRIPTOR.enum_types_by_name['PbStrengthTrainingWorkoutPhase'] = _PBSTRENGTHTRAININGWORKOUTPHASE
 
 PbRangeOptions = _reflection.GeneratedProtocolMessageType('PbRangeOptions', (_message.Message,), dict(
   DESCRIPTOR = _PBRANGEOPTIONS,
@@ -1715,6 +3075,69 @@ PbStrideSensorCalibSettings = _reflection.GeneratedProtocolMessageType('PbStride
   # @@protoc_insertion_point(class_scope:PbStrideSensorCalibSettings)
   ))
 _sym_db.RegisterMessage(PbStrideSensorCalibSettings)
+
+PbWeek = _reflection.GeneratedProtocolMessageType('PbWeek', (_message.Message,), dict(
+  DESCRIPTOR = _PBWEEK,
+  __module__ = 'types_pb2'
+  # @@protoc_insertion_point(class_scope:PbWeek)
+  ))
+_sym_db.RegisterMessage(PbWeek)
+
+PbSampleSource = _reflection.GeneratedProtocolMessageType('PbSampleSource', (_message.Message,), dict(
+  DESCRIPTOR = _PBSAMPLESOURCE,
+  __module__ = 'types_pb2'
+  # @@protoc_insertion_point(class_scope:PbSampleSource)
+  ))
+_sym_db.RegisterMessage(PbSampleSource)
+
+PbSensorCalibrationOffset = _reflection.GeneratedProtocolMessageType('PbSensorCalibrationOffset', (_message.Message,), dict(
+  DESCRIPTOR = _PBSENSORCALIBRATIONOFFSET,
+  __module__ = 'types_pb2'
+  # @@protoc_insertion_point(class_scope:PbSensorCalibrationOffset)
+  ))
+_sym_db.RegisterMessage(PbSensorCalibrationOffset)
+
+PbCalibrationSettings = _reflection.GeneratedProtocolMessageType('PbCalibrationSettings', (_message.Message,), dict(
+  DESCRIPTOR = _PBCALIBRATIONSETTINGS,
+  __module__ = 'types_pb2'
+  # @@protoc_insertion_point(class_scope:PbCalibrationSettings)
+  ))
+_sym_db.RegisterMessage(PbCalibrationSettings)
+
+PbAccelerationMetrics = _reflection.GeneratedProtocolMessageType('PbAccelerationMetrics', (_message.Message,), dict(
+  DESCRIPTOR = _PBACCELERATIONMETRICS,
+  __module__ = 'types_pb2'
+  # @@protoc_insertion_point(class_scope:PbAccelerationMetrics)
+  ))
+_sym_db.RegisterMessage(PbAccelerationMetrics)
+
+PbAutoPause = _reflection.GeneratedProtocolMessageType('PbAutoPause', (_message.Message,), dict(
+  DESCRIPTOR = _PBAUTOPAUSE,
+  __module__ = 'types_pb2'
+  # @@protoc_insertion_point(class_scope:PbAutoPause)
+  ))
+_sym_db.RegisterMessage(PbAutoPause)
+
+PbAutoLapSettings = _reflection.GeneratedProtocolMessageType('PbAutoLapSettings', (_message.Message,), dict(
+  DESCRIPTOR = _PBAUTOLAPSETTINGS,
+  __module__ = 'types_pb2'
+  # @@protoc_insertion_point(class_scope:PbAutoLapSettings)
+  ))
+_sym_db.RegisterMessage(PbAutoLapSettings)
+
+PbCardioLoad = _reflection.GeneratedProtocolMessageType('PbCardioLoad', (_message.Message,), dict(
+  DESCRIPTOR = _PBCARDIOLOAD,
+  __module__ = 'types_pb2'
+  # @@protoc_insertion_point(class_scope:PbCardioLoad)
+  ))
+_sym_db.RegisterMessage(PbCardioLoad)
+
+PbPerceivedLoad = _reflection.GeneratedProtocolMessageType('PbPerceivedLoad', (_message.Message,), dict(
+  DESCRIPTOR = _PBPERCEIVEDLOAD,
+  __module__ = 'types_pb2'
+  # @@protoc_insertion_point(class_scope:PbPerceivedLoad)
+  ))
+_sym_db.RegisterMessage(PbPerceivedLoad)
 
 
 # @@protoc_insertion_point(module_scope)

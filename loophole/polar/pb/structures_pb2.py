@@ -13,15 +13,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import types_pb2
+import types_pb2 as types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='structures.proto',
   package='',
-  serialized_pb=_b('\n\x10structures.proto\x1a\x0btypes.proto\"\x85\x02\n\x0ePbVolumeTarget\x12\x37\n\x0btarget_type\x18\x01 \x02(\x0e\x32\".PbVolumeTarget.PbVolymeTargetType\x12\x1d\n\x08\x64uration\x18\x02 \x01(\x0b\x32\x0b.PbDuration\x12\x10\n\x08\x64istance\x18\x03 \x01(\x02\x12\x10\n\x08\x63\x61lories\x18\x04 \x01(\r\"w\n\x12PbVolymeTargetType\x12\x1f\n\x1bVOLUME_TARGET_TYPE_DURATION\x10\x00\x12\x1f\n\x1bVOLUME_TARGET_TYPE_DISTANCE\x10\x01\x12\x1f\n\x1bVOLUME_TARGET_TYPE_CALORIES\x10\x02\"\xa7\x01\n\x0ePbTrainingLoad\x12\x19\n\x11training_load_val\x18\x01 \x01(\r\x12\"\n\rrecovery_time\x18\x02 \x01(\x0b\x32\x0b.PbDuration\x12 \n\x18\x63\x61rbohydrate_consumption\x18\x03 \x01(\r\x12\x1b\n\x13protein_consumption\x18\x04 \x01(\r\x12\x17\n\x0f\x66\x61t_consumption\x18\x05 \x01(\r\"<\n\x0fPbHeartRateZone\x12\x13\n\x0blower_limit\x18\x01 \x02(\r\x12\x14\n\x0chigher_limit\x18\x02 \x02(\r\"8\n\x0bPbSpeedZone\x12\x13\n\x0blower_limit\x18\x01 \x02(\x02\x12\x14\n\x0chigher_limit\x18\x02 \x02(\x02\"8\n\x0bPbPowerZone\x12\x13\n\x0blower_limit\x18\x01 \x02(\r\x12\x14\n\x0chigher_limit\x18\x02 \x02(\r\"\xac\x02\n\x07PbZones\x12)\n\x0fheart_rate_zone\x18\x01 \x03(\x0b\x32\x10.PbHeartRateZone\x12 \n\nspeed_zone\x18\x02 \x03(\x0b\x32\x0c.PbSpeedZone\x12 \n\npower_zone\x18\x03 \x03(\x0b\x32\x0c.PbPowerZone\x12@\n\x19heart_rate_setting_source\x18\n \x01(\x0e\x32\x1d.PbHeartRateZoneSettingSource\x12\x37\n\x14power_setting_source\x18\x0b \x01(\x0e\x32\x19.PbPowerZoneSettingSource\x12\x37\n\x14speed_setting_source\x18\x0c \x01(\x0e\x32\x19.PbSpeedZoneSettingSource\"1\n\x08PbBleMac\x12\x0b\n\x03mac\x18\x01 \x02(\x0c\x12\x18\n\x04type\x18\x02 \x02(\x0e\x32\n.PbMacType\"\x1f\n\x0fPbBleDeviceName\x12\x0c\n\x04name\x18\x01 \x02(\t\"\x1f\n\nPbDeviceId\x12\x11\n\tdevice_id\x18\x01 \x02(\t\"F\n\x0ePbRunningIndex\x12\r\n\x05value\x18\x01 \x02(\r\x12%\n\x10\x63\x61lculation_time\x18\x02 \x01(\x0b\x32\x0b.PbDuration\"\"\n\x11PbSportIdentifier\x12\r\n\x05value\x18\x01 \x02(\x04\"\x1d\n\rPbOneLineText\x12\x0c\n\x04text\x18\x01 \x02(\t\"\x1f\n\x0fPbMultiLineText\x12\x0c\n\x04text\x18\x01 \x02(\t\" \n\x0cPbLanguageId\x12\x10\n\x08language\x18\x01 \x02(\t\"T\n\x19PbTrainingSessionTargetId\x12\r\n\x05value\x18\x01 \x02(\x04\x12(\n\rlast_modified\x18\x02 \x01(\x0b\x32\x11.PbSystemDateTime\"V\n\x1bPbTrainingSessionFavoriteId\x12\r\n\x05value\x18\x01 \x02(\x04\x12(\n\rlast_modified\x18\x02 \x01(\x0b\x32\x11.PbSystemDateTime\"\x1a\n\tPbRouteId\x12\r\n\x05value\x18\x01 \x02(\x04\"[\n\x12PbSwimmingPoolInfo\x12\x13\n\x0bpool_length\x18\x01 \x01(\x02\x12\x30\n\x12swimming_pool_type\x18\x02 \x02(\x0e\x32\x14.PbSwimmingPoolUnits\"$\n\x13PbTrainingProgramId\x12\r\n\x05value\x18\x01 \x02(\x04\"\x1a\n\tPbEventId\x12\r\n\x05value\x18\x01 \x02(\x04')
+  syntax='proto2',
+  serialized_pb=_b('\n\x10structures.proto\x1a\x0btypes.proto\"\x85\x02\n\x0ePbVolumeTarget\x12\x37\n\x0btarget_type\x18\x01 \x02(\x0e\x32\".PbVolumeTarget.PbVolymeTargetType\x12\x1d\n\x08\x64uration\x18\x02 \x01(\x0b\x32\x0b.PbDuration\x12\x10\n\x08\x64istance\x18\x03 \x01(\x02\x12\x10\n\x08\x63\x61lories\x18\x04 \x01(\r\"w\n\x12PbVolymeTargetType\x12\x1f\n\x1bVOLUME_TARGET_TYPE_DURATION\x10\x00\x12\x1f\n\x1bVOLUME_TARGET_TYPE_DISTANCE\x10\x01\x12\x1f\n\x1bVOLUME_TARGET_TYPE_CALORIES\x10\x02\"U\n\x16PbStravaSegmentTargets\x12\x1d\n\x08own_best\x18\x01 \x01(\x0b\x32\x0b.PbDuration\x12\x1c\n\x07kom_qom\x18\x02 \x01(\x0b\x32\x0b.PbDuration\"\xeb\x01\n\x15PbStravaSegmentTarget\x12G\n\x13strava_segment_type\x18\x01 \x02(\x0e\x32*.PbStravaSegmentTarget.PbStravaSegmentType\x12\x37\n\x16strava_segment_targets\x18\x02 \x01(\x0b\x32\x17.PbStravaSegmentTargets\"P\n\x13PbStravaSegmentType\x12\x1c\n\x18STRAVA_SEGMENT_TYPE_RIDE\x10\x01\x12\x1b\n\x17STRAVA_SEGMENT_TYPE_RUN\x10\x02\"\xb2\x02\n\x0ePbTrainingLoad\x12\x19\n\x11training_load_val\x18\x01 \x01(\r\x12\"\n\rrecovery_time\x18\x02 \x01(\x0b\x32\x0b.PbDuration\x12 \n\x18\x63\x61rbohydrate_consumption\x18\x03 \x01(\r\x12\x1b\n\x13protein_consumption\x18\x04 \x01(\r\x12\x17\n\x0f\x66\x61t_consumption\x18\x05 \x01(\r\x12\x1a\n\x12\x63\x61rbohydrate_grams\x18\x06 \x01(\x02\x12\x15\n\rprotein_grams\x18\x07 \x01(\x02\x12\x11\n\tfat_grams\x18\x08 \x01(\x02\x12\x11\n\tmeal_size\x18\t \x01(\x02\x12\x30\n\x1b\x66ueling_reminder_timestamps\x18\n \x03(\x0b\x32\x0b.PbDuration\"<\n\x0fPbHeartRateZone\x12\x13\n\x0blower_limit\x18\x01 \x02(\r\x12\x14\n\x0chigher_limit\x18\x02 \x02(\r\"8\n\x0bPbSpeedZone\x12\x13\n\x0blower_limit\x18\x01 \x02(\x02\x12\x14\n\x0chigher_limit\x18\x02 \x02(\x02\"8\n\x0bPbPowerZone\x12\x13\n\x0blower_limit\x18\x01 \x02(\r\x12\x14\n\x0chigher_limit\x18\x02 \x02(\r\"\xac\x02\n\x07PbZones\x12)\n\x0fheart_rate_zone\x18\x01 \x03(\x0b\x32\x10.PbHeartRateZone\x12 \n\nspeed_zone\x18\x02 \x03(\x0b\x32\x0c.PbSpeedZone\x12 \n\npower_zone\x18\x03 \x03(\x0b\x32\x0c.PbPowerZone\x12@\n\x19heart_rate_setting_source\x18\n \x01(\x0e\x32\x1d.PbHeartRateZoneSettingSource\x12\x37\n\x14power_setting_source\x18\x0b \x01(\x0e\x32\x19.PbPowerZoneSettingSource\x12\x37\n\x14speed_setting_source\x18\x0c \x01(\x0e\x32\x19.PbSpeedZoneSettingSource\"1\n\x08PbBleMac\x12\x0b\n\x03mac\x18\x01 \x02(\x0c\x12\x18\n\x04type\x18\x02 \x02(\x0e\x32\n.PbMacType\"\x1f\n\x0fPbBleDeviceName\x12\x0c\n\x04name\x18\x01 \x02(\t\"\x1f\n\nPbDeviceId\x12\x11\n\tdevice_id\x18\x01 \x02(\t\"F\n\x0ePbRunningIndex\x12\r\n\x05value\x18\x01 \x02(\r\x12%\n\x10\x63\x61lculation_time\x18\x02 \x01(\x0b\x32\x0b.PbDuration\"\"\n\x11PbSportIdentifier\x12\r\n\x05value\x18\x01 \x02(\x04\"\x1d\n\rPbOneLineText\x12\x0c\n\x04text\x18\x01 \x02(\t\"\x1f\n\x0fPbMultiLineText\x12\x0c\n\x04text\x18\x01 \x02(\t\" \n\x0cPbLanguageId\x12\x10\n\x08language\x18\x01 \x02(\t\"T\n\x19PbTrainingSessionTargetId\x12\r\n\x05value\x18\x01 \x02(\x04\x12(\n\rlast_modified\x18\x02 \x01(\x0b\x32\x11.PbSystemDateTime\"V\n\x1bPbTrainingSessionFavoriteId\x12\r\n\x05value\x18\x01 \x02(\x04\x12(\n\rlast_modified\x18\x02 \x01(\x0b\x32\x11.PbSystemDateTime\"\x1a\n\tPbRouteId\x12\r\n\x05value\x18\x01 \x02(\x04\"[\n\x12PbSwimmingPoolInfo\x12\x13\n\x0bpool_length\x18\x01 \x01(\x02\x12\x30\n\x12swimming_pool_type\x18\x02 \x02(\x0e\x32\x14.PbSwimmingPoolUnits\"$\n\x13PbTrainingProgramId\x12\r\n\x05value\x18\x01 \x02(\x04\"\x1a\n\tPbEventId\x12\r\n\x05value\x18\x01 \x02(\x04\"/\n\x1ePbOnDemandTrainingTargetTypeId\x12\r\n\x05value\x18\x01 \x02(\x04\"M\n\x0bPbPauseTime\x12\x1f\n\nstart_time\x18\x01 \x02(\x0b\x32\x0b.PbDuration\x12\x1d\n\x08\x64uration\x18\x02 \x02(\x0b\x32\x0b.PbDuration\" \n\x0fPbApplicationId\x12\r\n\x05value\x18\x01 \x02(\x04\"K\n\tPbVersion\x12\r\n\x05major\x18\x01 \x02(\r\x12\r\n\x05minor\x18\x02 \x02(\r\x12\r\n\x05patch\x18\x03 \x02(\r\x12\x11\n\tspecifier\x18\x04 \x01(\t\"5\n\x12PbAlgorithmVersion\x12\x1f\n\x0bohr_version\x18\x01 \x01(\x0b\x32\n.PbVersion\"n\n\x12PbSubcomponentInfo\x12\x0c\n\x04name\x18\x01 \x02(\t\x12-\n\x19OBSOLETE_required_version\x18\x02 \x01(\x0b\x32\n.PbVersion\x12\x1b\n\x07version\x18\x03 \x01(\x0b\x32\n.PbVersion\"\x19\n\tPbBleUuid\x12\x0c\n\x04uuid\x18\x01 \x02(\x0c\"?\n\x13PbBleCharacteristic\x12\x0e\n\x06handle\x18\x01 \x02(\r\x12\x18\n\x04type\x18\x02 \x02(\x0b\x32\n.PbBleUuid\"^\n\x0cPbBleService\x12\x1f\n\x0bserviceUuid\x18\x01 \x02(\x0b\x32\n.PbBleUuid\x12-\n\x0f\x63haracteristics\x18\x02 \x03(\x0b\x32\x14.PbBleCharacteristic\"\xfd\x01\n\x0ePbSourceDevice\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\x14\n\x0cmanufacturer\x18\x02 \x01(\t\x12\x14\n\x0cmodel_number\x18\x03 \x01(\t\x12\x15\n\rhardware_code\x18\x04 \x01(\t\x12$\n\x10platform_version\x18\x05 \x01(\x0b\x32\n.PbVersion\x12$\n\x10software_version\x18\x06 \x01(\x0b\x32\n.PbVersion\x12*\n\x16polarmathsmart_version\x18\x07 \x01(\x0b\x32\n.PbVersion\x12\"\n\tcollector\x18\x08 \x01(\x0b\x32\x0f.PbSourceDevice\"S\n\x14PbSampleSourceDevice\x12\x13\n\x0bstart_index\x18\x01 \x02(\r\x12&\n\rsource_device\x18\x02 \x02(\x0b\x32\x0f.PbSourceDevice\"\xc8\x01\n\x1cPbStrengthTrainingResistance\x12W\n\x0fresistance_type\x18\x01 \x02(\x0e\x32>.PbStrengthTrainingResistance.PbStrengthTrainingResistanceType\x12\x0e\n\x06weight\x18\x02 \x01(\x02\"?\n PbStrengthTrainingResistanceType\x12\x0f\n\x0b\x42ODY_WEIGHT\x10\x00\x12\n\n\x06WEIGHT\x10\x01')
   ,
-  dependencies=[types_pb2.DESCRIPTOR,])
+  dependencies=[types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -52,6 +53,50 @@ _PBVOLUMETARGET_PBVOLYMETARGETTYPE = _descriptor.EnumDescriptor(
 )
 _sym_db.RegisterEnumDescriptor(_PBVOLUMETARGET_PBVOLYMETARGETTYPE)
 
+_PBSTRAVASEGMENTTARGET_PBSTRAVASEGMENTTYPE = _descriptor.EnumDescriptor(
+  name='PbStravaSegmentType',
+  full_name='PbStravaSegmentTarget.PbStravaSegmentType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='STRAVA_SEGMENT_TYPE_RIDE', index=0, number=1,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='STRAVA_SEGMENT_TYPE_RUN', index=1, number=2,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=540,
+  serialized_end=620,
+)
+_sym_db.RegisterEnumDescriptor(_PBSTRAVASEGMENTTARGET_PBSTRAVASEGMENTTYPE)
+
+_PBSTRENGTHTRAININGRESISTANCE_PBSTRENGTHTRAININGRESISTANCETYPE = _descriptor.EnumDescriptor(
+  name='PbStrengthTrainingResistanceType',
+  full_name='PbStrengthTrainingResistance.PbStrengthTrainingResistanceType',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='BODY_WEIGHT', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='WEIGHT', index=1, number=1,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=3169,
+  serialized_end=3232,
+)
+_sym_db.RegisterEnumDescriptor(_PBSTRENGTHTRAININGRESISTANCE_PBSTRENGTHTRAININGRESISTANCETYPE)
+
 
 _PBVOLUMETARGET = _descriptor.Descriptor(
   name='PbVolumeTarget',
@@ -77,7 +122,7 @@ _PBVOLUMETARGET = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='distance', full_name='PbVolumeTarget.distance', index=2,
       number=3, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -97,11 +142,89 @@ _PBVOLUMETARGET = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=34,
   serialized_end=295,
+)
+
+
+_PBSTRAVASEGMENTTARGETS = _descriptor.Descriptor(
+  name='PbStravaSegmentTargets',
+  full_name='PbStravaSegmentTargets',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='own_best', full_name='PbStravaSegmentTargets.own_best', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='kom_qom', full_name='PbStravaSegmentTargets.kom_qom', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=297,
+  serialized_end=382,
+)
+
+
+_PBSTRAVASEGMENTTARGET = _descriptor.Descriptor(
+  name='PbStravaSegmentTarget',
+  full_name='PbStravaSegmentTarget',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='strava_segment_type', full_name='PbStravaSegmentTarget.strava_segment_type', index=0,
+      number=1, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=1,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='strava_segment_targets', full_name='PbStravaSegmentTarget.strava_segment_targets', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _PBSTRAVASEGMENTTARGET_PBSTRAVASEGMENTTYPE,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=385,
+  serialized_end=620,
 )
 
 
@@ -147,6 +270,41 @@ _PBTRAININGLOAD = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='carbohydrate_grams', full_name='PbTrainingLoad.carbohydrate_grams', index=5,
+      number=6, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='protein_grams', full_name='PbTrainingLoad.protein_grams', index=6,
+      number=7, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='fat_grams', full_name='PbTrainingLoad.fat_grams', index=7,
+      number=8, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='meal_size', full_name='PbTrainingLoad.meal_size', index=8,
+      number=9, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='fueling_reminder_timestamps', full_name='PbTrainingLoad.fueling_reminder_timestamps', index=9,
+      number=10, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -155,11 +313,12 @@ _PBTRAININGLOAD = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=298,
-  serialized_end=465,
+  serialized_start=623,
+  serialized_end=929,
 )
 
 
@@ -192,11 +351,12 @@ _PBHEARTRATEZONE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=467,
-  serialized_end=527,
+  serialized_start=931,
+  serialized_end=991,
 )
 
 
@@ -210,14 +370,14 @@ _PBSPEEDZONE = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='lower_limit', full_name='PbSpeedZone.lower_limit', index=0,
       number=1, type=2, cpp_type=6, label=2,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='higher_limit', full_name='PbSpeedZone.higher_limit', index=1,
       number=2, type=2, cpp_type=6, label=2,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -229,11 +389,12 @@ _PBSPEEDZONE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=529,
-  serialized_end=585,
+  serialized_start=993,
+  serialized_end=1049,
 )
 
 
@@ -266,11 +427,12 @@ _PBPOWERZONE = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=587,
-  serialized_end=643,
+  serialized_start=1051,
+  serialized_end=1107,
 )
 
 
@@ -331,11 +493,12 @@ _PBZONES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=646,
-  serialized_end=946,
+  serialized_start=1110,
+  serialized_end=1410,
 )
 
 
@@ -368,11 +531,12 @@ _PBBLEMAC = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=948,
-  serialized_end=997,
+  serialized_start=1412,
+  serialized_end=1461,
 )
 
 
@@ -398,11 +562,12 @@ _PBBLEDEVICENAME = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=999,
-  serialized_end=1030,
+  serialized_start=1463,
+  serialized_end=1494,
 )
 
 
@@ -428,11 +593,12 @@ _PBDEVICEID = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1032,
-  serialized_end=1063,
+  serialized_start=1496,
+  serialized_end=1527,
 )
 
 
@@ -465,11 +631,12 @@ _PBRUNNINGINDEX = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1065,
-  serialized_end=1135,
+  serialized_start=1529,
+  serialized_end=1599,
 )
 
 
@@ -495,11 +662,12 @@ _PBSPORTIDENTIFIER = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1137,
-  serialized_end=1171,
+  serialized_start=1601,
+  serialized_end=1635,
 )
 
 
@@ -525,11 +693,12 @@ _PBONELINETEXT = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1173,
-  serialized_end=1202,
+  serialized_start=1637,
+  serialized_end=1666,
 )
 
 
@@ -555,11 +724,12 @@ _PBMULTILINETEXT = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1204,
-  serialized_end=1235,
+  serialized_start=1668,
+  serialized_end=1699,
 )
 
 
@@ -585,11 +755,12 @@ _PBLANGUAGEID = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1237,
-  serialized_end=1269,
+  serialized_start=1701,
+  serialized_end=1733,
 )
 
 
@@ -622,11 +793,12 @@ _PBTRAININGSESSIONTARGETID = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1271,
-  serialized_end=1355,
+  serialized_start=1735,
+  serialized_end=1819,
 )
 
 
@@ -659,11 +831,12 @@ _PBTRAININGSESSIONFAVORITEID = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1357,
-  serialized_end=1443,
+  serialized_start=1821,
+  serialized_end=1907,
 )
 
 
@@ -689,11 +862,12 @@ _PBROUTEID = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1445,
-  serialized_end=1471,
+  serialized_start=1909,
+  serialized_end=1935,
 )
 
 
@@ -707,7 +881,7 @@ _PBSWIMMINGPOOLINFO = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='pool_length', full_name='PbSwimmingPoolInfo.pool_length', index=0,
       number=1, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -726,11 +900,12 @@ _PBSWIMMINGPOOLINFO = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1473,
-  serialized_end=1564,
+  serialized_start=1937,
+  serialized_end=2028,
 )
 
 
@@ -756,11 +931,12 @@ _PBTRAININGPROGRAMID = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1566,
-  serialized_end=1602,
+  serialized_start=2030,
+  serialized_end=2066,
 )
 
 
@@ -786,29 +962,545 @@ _PBEVENTID = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1604,
-  serialized_end=1630,
+  serialized_start=2068,
+  serialized_end=2094,
+)
+
+
+_PBONDEMANDTRAININGTARGETTYPEID = _descriptor.Descriptor(
+  name='PbOnDemandTrainingTargetTypeId',
+  full_name='PbOnDemandTrainingTargetTypeId',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='PbOnDemandTrainingTargetTypeId.value', index=0,
+      number=1, type=4, cpp_type=4, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2096,
+  serialized_end=2143,
+)
+
+
+_PBPAUSETIME = _descriptor.Descriptor(
+  name='PbPauseTime',
+  full_name='PbPauseTime',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='PbPauseTime.start_time', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='duration', full_name='PbPauseTime.duration', index=1,
+      number=2, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2145,
+  serialized_end=2222,
+)
+
+
+_PBAPPLICATIONID = _descriptor.Descriptor(
+  name='PbApplicationId',
+  full_name='PbApplicationId',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='PbApplicationId.value', index=0,
+      number=1, type=4, cpp_type=4, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2224,
+  serialized_end=2256,
+)
+
+
+_PBVERSION = _descriptor.Descriptor(
+  name='PbVersion',
+  full_name='PbVersion',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='major', full_name='PbVersion.major', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='minor', full_name='PbVersion.minor', index=1,
+      number=2, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='patch', full_name='PbVersion.patch', index=2,
+      number=3, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='specifier', full_name='PbVersion.specifier', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2258,
+  serialized_end=2333,
+)
+
+
+_PBALGORITHMVERSION = _descriptor.Descriptor(
+  name='PbAlgorithmVersion',
+  full_name='PbAlgorithmVersion',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='ohr_version', full_name='PbAlgorithmVersion.ohr_version', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2335,
+  serialized_end=2388,
+)
+
+
+_PBSUBCOMPONENTINFO = _descriptor.Descriptor(
+  name='PbSubcomponentInfo',
+  full_name='PbSubcomponentInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='PbSubcomponentInfo.name', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='OBSOLETE_required_version', full_name='PbSubcomponentInfo.OBSOLETE_required_version', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='version', full_name='PbSubcomponentInfo.version', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2390,
+  serialized_end=2500,
+)
+
+
+_PBBLEUUID = _descriptor.Descriptor(
+  name='PbBleUuid',
+  full_name='PbBleUuid',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='uuid', full_name='PbBleUuid.uuid', index=0,
+      number=1, type=12, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b(""),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2502,
+  serialized_end=2527,
+)
+
+
+_PBBLECHARACTERISTIC = _descriptor.Descriptor(
+  name='PbBleCharacteristic',
+  full_name='PbBleCharacteristic',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='handle', full_name='PbBleCharacteristic.handle', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='PbBleCharacteristic.type', index=1,
+      number=2, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2529,
+  serialized_end=2592,
+)
+
+
+_PBBLESERVICE = _descriptor.Descriptor(
+  name='PbBleService',
+  full_name='PbBleService',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='serviceUuid', full_name='PbBleService.serviceUuid', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='characteristics', full_name='PbBleService.characteristics', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2594,
+  serialized_end=2688,
+)
+
+
+_PBSOURCEDEVICE = _descriptor.Descriptor(
+  name='PbSourceDevice',
+  full_name='PbSourceDevice',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='PbSourceDevice.name', index=0,
+      number=1, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='manufacturer', full_name='PbSourceDevice.manufacturer', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='model_number', full_name='PbSourceDevice.model_number', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='hardware_code', full_name='PbSourceDevice.hardware_code', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='platform_version', full_name='PbSourceDevice.platform_version', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='software_version', full_name='PbSourceDevice.software_version', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='polarmathsmart_version', full_name='PbSourceDevice.polarmathsmart_version', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='collector', full_name='PbSourceDevice.collector', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2691,
+  serialized_end=2944,
+)
+
+
+_PBSAMPLESOURCEDEVICE = _descriptor.Descriptor(
+  name='PbSampleSourceDevice',
+  full_name='PbSampleSourceDevice',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='start_index', full_name='PbSampleSourceDevice.start_index', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='source_device', full_name='PbSampleSourceDevice.source_device', index=1,
+      number=2, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2946,
+  serialized_end=3029,
+)
+
+
+_PBSTRENGTHTRAININGRESISTANCE = _descriptor.Descriptor(
+  name='PbStrengthTrainingResistance',
+  full_name='PbStrengthTrainingResistance',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='resistance_type', full_name='PbStrengthTrainingResistance.resistance_type', index=0,
+      number=1, type=14, cpp_type=8, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='weight', full_name='PbStrengthTrainingResistance.weight', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _PBSTRENGTHTRAININGRESISTANCE_PBSTRENGTHTRAININGRESISTANCETYPE,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3032,
+  serialized_end=3232,
 )
 
 _PBVOLUMETARGET.fields_by_name['target_type'].enum_type = _PBVOLUMETARGET_PBVOLYMETARGETTYPE
-_PBVOLUMETARGET.fields_by_name['duration'].message_type = types_pb2._PBDURATION
+_PBVOLUMETARGET.fields_by_name['duration'].message_type = types__pb2._PBDURATION
 _PBVOLUMETARGET_PBVOLYMETARGETTYPE.containing_type = _PBVOLUMETARGET
-_PBTRAININGLOAD.fields_by_name['recovery_time'].message_type = types_pb2._PBDURATION
+_PBSTRAVASEGMENTTARGETS.fields_by_name['own_best'].message_type = types__pb2._PBDURATION
+_PBSTRAVASEGMENTTARGETS.fields_by_name['kom_qom'].message_type = types__pb2._PBDURATION
+_PBSTRAVASEGMENTTARGET.fields_by_name['strava_segment_type'].enum_type = _PBSTRAVASEGMENTTARGET_PBSTRAVASEGMENTTYPE
+_PBSTRAVASEGMENTTARGET.fields_by_name['strava_segment_targets'].message_type = _PBSTRAVASEGMENTTARGETS
+_PBSTRAVASEGMENTTARGET_PBSTRAVASEGMENTTYPE.containing_type = _PBSTRAVASEGMENTTARGET
+_PBTRAININGLOAD.fields_by_name['recovery_time'].message_type = types__pb2._PBDURATION
+_PBTRAININGLOAD.fields_by_name['fueling_reminder_timestamps'].message_type = types__pb2._PBDURATION
 _PBZONES.fields_by_name['heart_rate_zone'].message_type = _PBHEARTRATEZONE
 _PBZONES.fields_by_name['speed_zone'].message_type = _PBSPEEDZONE
 _PBZONES.fields_by_name['power_zone'].message_type = _PBPOWERZONE
-_PBZONES.fields_by_name['heart_rate_setting_source'].enum_type = types_pb2._PBHEARTRATEZONESETTINGSOURCE
-_PBZONES.fields_by_name['power_setting_source'].enum_type = types_pb2._PBPOWERZONESETTINGSOURCE
-_PBZONES.fields_by_name['speed_setting_source'].enum_type = types_pb2._PBSPEEDZONESETTINGSOURCE
-_PBBLEMAC.fields_by_name['type'].enum_type = types_pb2._PBMACTYPE
-_PBRUNNINGINDEX.fields_by_name['calculation_time'].message_type = types_pb2._PBDURATION
-_PBTRAININGSESSIONTARGETID.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
-_PBTRAININGSESSIONFAVORITEID.fields_by_name['last_modified'].message_type = types_pb2._PBSYSTEMDATETIME
-_PBSWIMMINGPOOLINFO.fields_by_name['swimming_pool_type'].enum_type = types_pb2._PBSWIMMINGPOOLUNITS
+_PBZONES.fields_by_name['heart_rate_setting_source'].enum_type = types__pb2._PBHEARTRATEZONESETTINGSOURCE
+_PBZONES.fields_by_name['power_setting_source'].enum_type = types__pb2._PBPOWERZONESETTINGSOURCE
+_PBZONES.fields_by_name['speed_setting_source'].enum_type = types__pb2._PBSPEEDZONESETTINGSOURCE
+_PBBLEMAC.fields_by_name['type'].enum_type = types__pb2._PBMACTYPE
+_PBRUNNINGINDEX.fields_by_name['calculation_time'].message_type = types__pb2._PBDURATION
+_PBTRAININGSESSIONTARGETID.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
+_PBTRAININGSESSIONFAVORITEID.fields_by_name['last_modified'].message_type = types__pb2._PBSYSTEMDATETIME
+_PBSWIMMINGPOOLINFO.fields_by_name['swimming_pool_type'].enum_type = types__pb2._PBSWIMMINGPOOLUNITS
+_PBPAUSETIME.fields_by_name['start_time'].message_type = types__pb2._PBDURATION
+_PBPAUSETIME.fields_by_name['duration'].message_type = types__pb2._PBDURATION
+_PBALGORITHMVERSION.fields_by_name['ohr_version'].message_type = _PBVERSION
+_PBSUBCOMPONENTINFO.fields_by_name['OBSOLETE_required_version'].message_type = _PBVERSION
+_PBSUBCOMPONENTINFO.fields_by_name['version'].message_type = _PBVERSION
+_PBBLECHARACTERISTIC.fields_by_name['type'].message_type = _PBBLEUUID
+_PBBLESERVICE.fields_by_name['serviceUuid'].message_type = _PBBLEUUID
+_PBBLESERVICE.fields_by_name['characteristics'].message_type = _PBBLECHARACTERISTIC
+_PBSOURCEDEVICE.fields_by_name['platform_version'].message_type = _PBVERSION
+_PBSOURCEDEVICE.fields_by_name['software_version'].message_type = _PBVERSION
+_PBSOURCEDEVICE.fields_by_name['polarmathsmart_version'].message_type = _PBVERSION
+_PBSOURCEDEVICE.fields_by_name['collector'].message_type = _PBSOURCEDEVICE
+_PBSAMPLESOURCEDEVICE.fields_by_name['source_device'].message_type = _PBSOURCEDEVICE
+_PBSTRENGTHTRAININGRESISTANCE.fields_by_name['resistance_type'].enum_type = _PBSTRENGTHTRAININGRESISTANCE_PBSTRENGTHTRAININGRESISTANCETYPE
+_PBSTRENGTHTRAININGRESISTANCE_PBSTRENGTHTRAININGRESISTANCETYPE.containing_type = _PBSTRENGTHTRAININGRESISTANCE
 DESCRIPTOR.message_types_by_name['PbVolumeTarget'] = _PBVOLUMETARGET
+DESCRIPTOR.message_types_by_name['PbStravaSegmentTargets'] = _PBSTRAVASEGMENTTARGETS
+DESCRIPTOR.message_types_by_name['PbStravaSegmentTarget'] = _PBSTRAVASEGMENTTARGET
 DESCRIPTOR.message_types_by_name['PbTrainingLoad'] = _PBTRAININGLOAD
 DESCRIPTOR.message_types_by_name['PbHeartRateZone'] = _PBHEARTRATEZONE
 DESCRIPTOR.message_types_by_name['PbSpeedZone'] = _PBSPEEDZONE
@@ -828,6 +1520,18 @@ DESCRIPTOR.message_types_by_name['PbRouteId'] = _PBROUTEID
 DESCRIPTOR.message_types_by_name['PbSwimmingPoolInfo'] = _PBSWIMMINGPOOLINFO
 DESCRIPTOR.message_types_by_name['PbTrainingProgramId'] = _PBTRAININGPROGRAMID
 DESCRIPTOR.message_types_by_name['PbEventId'] = _PBEVENTID
+DESCRIPTOR.message_types_by_name['PbOnDemandTrainingTargetTypeId'] = _PBONDEMANDTRAININGTARGETTYPEID
+DESCRIPTOR.message_types_by_name['PbPauseTime'] = _PBPAUSETIME
+DESCRIPTOR.message_types_by_name['PbApplicationId'] = _PBAPPLICATIONID
+DESCRIPTOR.message_types_by_name['PbVersion'] = _PBVERSION
+DESCRIPTOR.message_types_by_name['PbAlgorithmVersion'] = _PBALGORITHMVERSION
+DESCRIPTOR.message_types_by_name['PbSubcomponentInfo'] = _PBSUBCOMPONENTINFO
+DESCRIPTOR.message_types_by_name['PbBleUuid'] = _PBBLEUUID
+DESCRIPTOR.message_types_by_name['PbBleCharacteristic'] = _PBBLECHARACTERISTIC
+DESCRIPTOR.message_types_by_name['PbBleService'] = _PBBLESERVICE
+DESCRIPTOR.message_types_by_name['PbSourceDevice'] = _PBSOURCEDEVICE
+DESCRIPTOR.message_types_by_name['PbSampleSourceDevice'] = _PBSAMPLESOURCEDEVICE
+DESCRIPTOR.message_types_by_name['PbStrengthTrainingResistance'] = _PBSTRENGTHTRAININGRESISTANCE
 
 PbVolumeTarget = _reflection.GeneratedProtocolMessageType('PbVolumeTarget', (_message.Message,), dict(
   DESCRIPTOR = _PBVOLUMETARGET,
@@ -835,6 +1539,20 @@ PbVolumeTarget = _reflection.GeneratedProtocolMessageType('PbVolumeTarget', (_me
   # @@protoc_insertion_point(class_scope:PbVolumeTarget)
   ))
 _sym_db.RegisterMessage(PbVolumeTarget)
+
+PbStravaSegmentTargets = _reflection.GeneratedProtocolMessageType('PbStravaSegmentTargets', (_message.Message,), dict(
+  DESCRIPTOR = _PBSTRAVASEGMENTTARGETS,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbStravaSegmentTargets)
+  ))
+_sym_db.RegisterMessage(PbStravaSegmentTargets)
+
+PbStravaSegmentTarget = _reflection.GeneratedProtocolMessageType('PbStravaSegmentTarget', (_message.Message,), dict(
+  DESCRIPTOR = _PBSTRAVASEGMENTTARGET,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbStravaSegmentTarget)
+  ))
+_sym_db.RegisterMessage(PbStravaSegmentTarget)
 
 PbTrainingLoad = _reflection.GeneratedProtocolMessageType('PbTrainingLoad', (_message.Message,), dict(
   DESCRIPTOR = _PBTRAININGLOAD,
@@ -968,6 +1686,90 @@ PbEventId = _reflection.GeneratedProtocolMessageType('PbEventId', (_message.Mess
   # @@protoc_insertion_point(class_scope:PbEventId)
   ))
 _sym_db.RegisterMessage(PbEventId)
+
+PbOnDemandTrainingTargetTypeId = _reflection.GeneratedProtocolMessageType('PbOnDemandTrainingTargetTypeId', (_message.Message,), dict(
+  DESCRIPTOR = _PBONDEMANDTRAININGTARGETTYPEID,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbOnDemandTrainingTargetTypeId)
+  ))
+_sym_db.RegisterMessage(PbOnDemandTrainingTargetTypeId)
+
+PbPauseTime = _reflection.GeneratedProtocolMessageType('PbPauseTime', (_message.Message,), dict(
+  DESCRIPTOR = _PBPAUSETIME,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbPauseTime)
+  ))
+_sym_db.RegisterMessage(PbPauseTime)
+
+PbApplicationId = _reflection.GeneratedProtocolMessageType('PbApplicationId', (_message.Message,), dict(
+  DESCRIPTOR = _PBAPPLICATIONID,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbApplicationId)
+  ))
+_sym_db.RegisterMessage(PbApplicationId)
+
+PbVersion = _reflection.GeneratedProtocolMessageType('PbVersion', (_message.Message,), dict(
+  DESCRIPTOR = _PBVERSION,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbVersion)
+  ))
+_sym_db.RegisterMessage(PbVersion)
+
+PbAlgorithmVersion = _reflection.GeneratedProtocolMessageType('PbAlgorithmVersion', (_message.Message,), dict(
+  DESCRIPTOR = _PBALGORITHMVERSION,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbAlgorithmVersion)
+  ))
+_sym_db.RegisterMessage(PbAlgorithmVersion)
+
+PbSubcomponentInfo = _reflection.GeneratedProtocolMessageType('PbSubcomponentInfo', (_message.Message,), dict(
+  DESCRIPTOR = _PBSUBCOMPONENTINFO,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbSubcomponentInfo)
+  ))
+_sym_db.RegisterMessage(PbSubcomponentInfo)
+
+PbBleUuid = _reflection.GeneratedProtocolMessageType('PbBleUuid', (_message.Message,), dict(
+  DESCRIPTOR = _PBBLEUUID,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbBleUuid)
+  ))
+_sym_db.RegisterMessage(PbBleUuid)
+
+PbBleCharacteristic = _reflection.GeneratedProtocolMessageType('PbBleCharacteristic', (_message.Message,), dict(
+  DESCRIPTOR = _PBBLECHARACTERISTIC,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbBleCharacteristic)
+  ))
+_sym_db.RegisterMessage(PbBleCharacteristic)
+
+PbBleService = _reflection.GeneratedProtocolMessageType('PbBleService', (_message.Message,), dict(
+  DESCRIPTOR = _PBBLESERVICE,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbBleService)
+  ))
+_sym_db.RegisterMessage(PbBleService)
+
+PbSourceDevice = _reflection.GeneratedProtocolMessageType('PbSourceDevice', (_message.Message,), dict(
+  DESCRIPTOR = _PBSOURCEDEVICE,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbSourceDevice)
+  ))
+_sym_db.RegisterMessage(PbSourceDevice)
+
+PbSampleSourceDevice = _reflection.GeneratedProtocolMessageType('PbSampleSourceDevice', (_message.Message,), dict(
+  DESCRIPTOR = _PBSAMPLESOURCEDEVICE,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbSampleSourceDevice)
+  ))
+_sym_db.RegisterMessage(PbSampleSourceDevice)
+
+PbStrengthTrainingResistance = _reflection.GeneratedProtocolMessageType('PbStrengthTrainingResistance', (_message.Message,), dict(
+  DESCRIPTOR = _PBSTRENGTHTRAININGRESISTANCE,
+  __module__ = 'structures_pb2'
+  # @@protoc_insertion_point(class_scope:PbStrengthTrainingResistance)
+  ))
+_sym_db.RegisterMessage(PbStrengthTrainingResistance)
 
 
 # @@protoc_insertion_point(module_scope)

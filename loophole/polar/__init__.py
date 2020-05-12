@@ -33,6 +33,7 @@ PFTP_ERROR = {0: 'OPERATION_SUCCEEDED',
                  104: 'DIRECTORY_EXISTS',
                  108: 'TIMEOUT',
                  105: 'FILE_EXISTS',
+                 209: 'BATTERY_TOO_LOW',
                  202: 'SYSTEM_BUSY'}
 
 

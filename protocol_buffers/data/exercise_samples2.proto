@@ -1,0 +1,38 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
+package data;
+
+import "types.proto";
+
+message PbExerciseSamplesSyncPoint {
+	required uint32 index = 1 ;
+	optional uint32 heart_rate_sample = 2 ;
+	optional uint32 cadence_sample = 3 ;
+	optional float speed_sample = 4 ;
+	optional float distance_sample = 5 ;
+	optional float forward_acceleration_sample = 6 ;
+	optional float acceleration_mad_sample = 10 ;
+	optional uint32 speed_sample_granularity = 7 [default = 1000];
+	optional uint32 distance_sample_granularity = 8 [default = 10];
+	optional uint32 forward_acceleration_sample_granularity = 9 [default = 100];
+	optional uint32 acceleration_mad_sample_granularity = 11 [default = 100];
+}
+
+message PbExerciseIntervalledSample2List {
+	required .PbSampleType sample_type = 1 ;
+	required uint32 recording_interval_ms = 2 ;
+	repeated .data.PbExerciseSamplesSyncPoint sync_point = 3 ;
+	repeated .PbSampleSource sample_source = 4 ;
+	repeated sint32 heart_rate_samples = 5 ;
+	repeated sint32 cadence_samples = 6 ;
+	repeated sint32 speed_samples = 7 ;
+	repeated uint32 distance_samples = 8 ;
+	repeated sint32 forward_acceleration_samples = 9 ;
+	repeated sint32 acceleration_mad_samples = 11 ;
+	repeated .PbMovingType moving_type_samples = 10 ;
+}
+
+message PbExerciseSamples2 {
+	repeated .data.PbExerciseIntervalledSample2List exercise_intervalled_sample2_list = 1 ;
+}

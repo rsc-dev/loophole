@@ -18,6 +18,7 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='errors.proto',
   package='data',
+  syntax='proto2',
   serialized_pb=_b('\n\x0c\x65rrors.proto\x12\x04\x64\x61ta\"C\n\x15PbConstraintViolation\x12\x11\n\tvalueName\x18\x01 \x02(\t\x12\x17\n\x0fviolationReason\x18\x02 \x02(\t\"p\n\x08PbErrors\x12\x0f\n\x07message\x18\x01 \x02(\t\x12/\n\nviolations\x18\x02 \x03(\x0b\x32\x1b.data.PbConstraintViolation\x12\x0e\n\x06\x65rrors\x18\x03 \x03(\t\x12\x12\n\nstackTrace\x18\x04 \x03(\t')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -54,6 +55,7 @@ _PBCONSTRAINTVIOLATION = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -105,6 +107,7 @@ _PBERRORS = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],

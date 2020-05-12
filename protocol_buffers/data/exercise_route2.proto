@@ -1,0 +1,30 @@
+// Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
+package data;
+
+import "types.proto";
+
+message PbLocationSyncPoint {
+	required double latitude = 1 ;
+	required double longitude = 2 ;
+}
+
+message PbExerciseRouteSyncPoint {
+	required uint32 index = 1 ;
+	optional .data.PbLocationSyncPoint location = 2 ;
+	optional .PbSystemDateTime gps_date_time = 3 ;
+	optional sint32 altitude = 4 [default = 0];
+	optional uint32 coordinate_granularity = 5 [default = 100];
+	optional uint32 timestamp_granularity = 6 [default = 1000];
+	optional uint32 altitude_granularity = 7 [default = 1000];
+}
+
+message PbExerciseRouteSamples2 {
+	repeated .data.PbExerciseRouteSyncPoint sync_point = 1 ;
+	repeated uint32 satellite_amount = 2 ;
+	repeated sint64 latitude = 3 ;
+	repeated sint64 longitude = 4 ;
+	repeated sint32 timestamp = 5 ;
+	repeated sint64 altitude = 6 ;
+}

@@ -13,15 +13,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-import types_pb2
+import types_pb2 as types__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='recovery_times.proto',
   package='data',
+  syntax='proto2',
   serialized_pb=_b('\n\x14recovery_times.proto\x12\x04\x64\x61ta\x1a\x0btypes.proto\"\xa2\x03\n\x0fPbRecoveryTimes\x12(\n\x0estart_of_times\x18\x01 \x02(\x0b\x32\x10.PbLocalDateTime\x12\x16\n\x0erecovery_times\x18\x02 \x03(\x02\x12!\n\x19\x65nd_glycogen_left_percent\x18\x03 \x01(\x02\x12\x1d\n\x15\x65nd_carbo_consumption\x18\x04 \x01(\x02\x12\x1f\n\x17\x65nd_protein_consumption\x18\x05 \x01(\x02\x12*\n\"end_cumulative_mechanical_stimulus\x18\x06 \x01(\x02\x12\x1e\n\x16last_half_hour_avg_met\x18\x07 \x01(\x02\x12\x19\n\x11\x65xercise_calories\x18\x08 \x01(\x02\x12\x19\n\x11\x61\x63tivity_calories\x18\t \x01(\x02\x12\x14\n\x0c\x62mr_calories\x18\n \x01(\x02\x12\r\n\x05steps\x18\x0b \x01(\r\x12\x1c\n\x14\x61\x63\x63umulated_activity\x18\x0c \x01(\x02\x12%\n\x1dnumber_of_exercise_half_hours\x18\r \x01(\r')
   ,
-  dependencies=[types_pb2.DESCRIPTOR,])
+  dependencies=[types__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
@@ -51,56 +52,56 @@ _PBRECOVERYTIMES = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='end_glycogen_left_percent', full_name='data.PbRecoveryTimes.end_glycogen_left_percent', index=2,
       number=3, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='end_carbo_consumption', full_name='data.PbRecoveryTimes.end_carbo_consumption', index=3,
       number=4, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='end_protein_consumption', full_name='data.PbRecoveryTimes.end_protein_consumption', index=4,
       number=5, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='end_cumulative_mechanical_stimulus', full_name='data.PbRecoveryTimes.end_cumulative_mechanical_stimulus', index=5,
       number=6, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='last_half_hour_avg_met', full_name='data.PbRecoveryTimes.last_half_hour_avg_met', index=6,
       number=7, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='exercise_calories', full_name='data.PbRecoveryTimes.exercise_calories', index=7,
       number=8, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='activity_calories', full_name='data.PbRecoveryTimes.activity_calories', index=8,
       number=9, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
       name='bmr_calories', full_name='data.PbRecoveryTimes.bmr_calories', index=9,
       number=10, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -114,7 +115,7 @@ _PBRECOVERYTIMES = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='accumulated_activity', full_name='data.PbRecoveryTimes.accumulated_activity', index=11,
       number=12, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=0,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -133,6 +134,7 @@ _PBRECOVERYTIMES = _descriptor.Descriptor(
   ],
   options=None,
   is_extendable=False,
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -140,7 +142,7 @@ _PBRECOVERYTIMES = _descriptor.Descriptor(
   serialized_end=462,
 )
 
-_PBRECOVERYTIMES.fields_by_name['start_of_times'].message_type = types_pb2._PBLOCALDATETIME
+_PBRECOVERYTIMES.fields_by_name['start_of_times'].message_type = types__pb2._PBLOCALDATETIME
 DESCRIPTOR.message_types_by_name['PbRecoveryTimes'] = _PBRECOVERYTIMES
 
 PbRecoveryTimes = _reflection.GeneratedProtocolMessageType('PbRecoveryTimes', (_message.Message,), dict(

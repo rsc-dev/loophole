@@ -1,5 +1,9 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
 package data;
+
+import "types.proto";
 
 message PbRecoveryTimes {
 	required .PbLocalDateTime start_of_times = 1 ;

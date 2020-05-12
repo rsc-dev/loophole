@@ -1,5 +1,11 @@
 // Reversed by pbd (https://github.com/rsc-dev/pbd)
+syntax = "proto2";
+
 package data;
+
+import "types.proto";
+import "structures.proto";
+import "exercise_rr_samples.proto";
 
 message PbPowerMeasurements {
 	required int32 current_power = 1 ;
@@ -11,6 +17,9 @@ message PbPowerMeasurements {
 	optional uint32 force_magnitude_max_angle = 7 ;
 	optional uint32 bottom_dead_spot_angle = 8 ;
 	optional uint32 top_dead_spot_angle = 9 ;
+	optional uint32 pedal_power_balance = 10 ;
+	optional int32 torque_magnitude_min = 11 ;
+	optional int32 torque_magnitude_max = 12 ;
 }
 
 message PbCalibrationValue {
@@ -18,6 +27,29 @@ message PbCalibrationValue {
 	required float value = 2 ;
 	required .PbOperationType operation = 3 ;
 	optional .PbMovingType cause = 4 ;
+}
+
+message PbExerciseIntervalledSampleList {
+	required .PbSampleType sample_type = 1 ;
+	optional uint32 recording_interval_ms = 2 ;
+	repeated .PbSampleSource sample_source = 3 ;
+	repeated uint32 heart_rate_samples = 4 ;
+	repeated uint32 cadence_samples = 5 ;
+	repeated float speed_samples = 6 ;
+	repeated float distance_samples = 7 ;
+	repeated float forward_acceleration = 8 ;
+	repeated .PbMovingType moving_type_samples = 9 ;
+	repeated float altitude_samples = 10 ;
+	repeated .data.PbCalibrationValue altitude_calibration = 11 ;
+	repeated float temperature_samples = 12 ;
+	repeated uint32 stride_length_samples = 13 ;
+	repeated .data.PbCalibrationValue stride_calibration = 14 ;
+	repeated .data.PbPowerMeasurements left_pedal_power_samples = 15 ;
+	repeated .data.PbPowerMeasurements right_pedal_power_samples = 16 ;
+	repeated .data.PbCalibrationValue left_power_calibration = 17 ;
+	repeated .data.PbCalibrationValue right_power_calibration = 18 ;
+	optional .data.PbExerciseRRIntervals rr_samples = 19 ;
+	repeated float acceleration_mad_samples = 20 ;
 }
 
 message PbExerciseSamples {
@@ -49,4 +81,6 @@ message PbExerciseSamples {
 	repeated .data.PbCalibrationValue left_power_calibration = 26 ;
 	repeated .data.PbCalibrationValue right_power_calibration = 27 ;
 	optional .data.PbExerciseRRIntervals rr_samples = 28 ;
+	repeated .data.PbExerciseIntervalledSampleList exercise_intervalled_sample_list = 29 ;
+	repeated .PbPauseTime pause_times = 30 ;
 }
